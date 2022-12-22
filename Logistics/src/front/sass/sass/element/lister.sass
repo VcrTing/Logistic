@@ -1,0 +1,114 @@
+
+
+
+.ul-def
+    padding: 0px
+    margin: 0px $ds_s-r
+    li
+        padding: $ds
+        text-align: center
+        a
+            border: none
+            padding: $ds 0
+            cursor: pointer
+            position: relative
+            &::after
+                position: absolute
+                content: ''
+                bottom: -3px
+                left: 0
+                height: 3px
+                width: 100%
+                background: none
+
+$pg_br: transparent
+$pg_bg: transparent
+$pgW: calc(26px + 1.1vw)
+
+.ul-pagenation
+    *
+        font-family: 'Inter'
+        font-style: normal
+        transition: all .1s ease
+    padding: 0px $ds_s
+    @extend .fx-c
+    li
+        @extend .ciear
+        transition: all .2s ease-in-out
+        font-weight: 500
+        @extend .fx-c
+        height: $pgW
+        width: $pgW
+        color: $sub
+        padding: $ds
+        cursor: pointer
+        margin: 0px $ds_s
+        border: 1px solid transparent
+        @extend .bxs
+        &:hover
+            color: $pri
+            transform: scale(1.04)
+            
+    li.ul-page-l,
+    li.ul-page-r
+        opacity: 0.8
+        margin: 0px $ds
+    .active
+        color: $pri
+        background: $pri_tin
+        border-color: $pri_tin
+        &:hover,
+        &:focus,
+        &:active,
+        &:focus-visible
+            border-color: $pri_tin
+            background: $pri_tin
+
+.ul-pagenation li,
+.pagenation input,
+.pagenation select
+    // font-weight: 320
+    height: $pgW
+    min-height: $pgW
+    // border: 1px solid $cold_Br
+
+.pagenation
+    input,
+    select
+        @extend .br
+        @extend .hand
+        @extend .bxs_n
+        height: $pgW
+        min-width: 3em
+        text-align: center
+        padding: $ds_s $ds_n
+    input
+        width: 2em
+        margin: 0px $ds_s
+
+.ister
+    @extend .fx-l
+    @extend .fx-wp
+    div
+        padding: $ds_s
+
+////    
+
+.ul-tab
+    li
+        color: $sus
+        min-width: 5em
+        padding: $ds 1.5em
+    li.active
+        a   
+            color: $tit
+            &::after
+                background: $pri
+
+.course
+    @extend .fx-l
+    @extend .fx-t
+    & > div,
+    & > nav,
+    & > button
+        transition: all .242s ease-in-out

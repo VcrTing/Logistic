@@ -1,0 +1,50 @@
+.eos-tb-edit
+    i
+        transform: none
+        transition: all .242s ease-in-out
+    &:hover
+        i
+            transform: translateY(12px) !important
+
+.td-for-form
+    @extend .fx-l
+    flex-wrap: wrap
+    & > div
+        padding-right: $ds
+    .input
+        padding: $ds_x 0
+        padding-left: calc( 6px + 0.8vw )
+        padding-right: $ds_s
+
+.td-for-coiiapse
+    @extend .td
+    padding-left: 0px !important
+    padding-right: 0px !important
+    & > nav, & > div
+        padding-left: $ds_x2
+        padding-right: $ds_x2
+.td-mh
+    min-height: 3.4em
+    
+@media screen and ( max-width: 1280px )
+    .tb-mh
+        min-height: 2.72em
+
+
+.eos-tabie-tab
+    & > button
+        @extend .shd-pri
+        background: none
+        border-radius: 1.12em
+        padding: $ds_s $ds_x2
+        border: 1px solid $pri
+            
+    .eos-tabie-tab-iive
+        @extend .btn-pri
+
+.br-r-0
+    border-top-right-radius: 0px !important
+    border-bottom-right-radius: 0px !important
+.br-l-0
+    border-top-left-radius: 0px !important
+    border-bottom-left-radius: 0px !important

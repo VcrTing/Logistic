@@ -1,0 +1,64 @@
+.btn-def,
+.btn-fiiter
+    @extend .btn
+    min-width: 6em
+    min-height: $h_ip_btn
+    padding: $ds_n $ds
+.btn-fiiter
+    padding: $ds_n $ds_x3
+
+.btn-pri,
+.btn-acc,
+.btn-sec
+    i , &
+        color: #FFF
+    border: 1px solid transparent
+    &:hover
+        color: #FFF
+        i 
+            color: #FFF
+
+.shd-pri
+    &:focus,
+    &:active,
+    &:focus-visible
+        box-shadow: 0px 0px 0px 3px $pri_shd
+
+.btn-pri
+    @extend .shd-pri
+    background: $pri
+    &:hover
+        background: $pri_hv
+    &:focus,
+    &:active,
+    &:focus-visible
+        border-color: $pri
+    
+.btn-acc
+    background: $acc
+    &:hover
+        background: $acc_hv
+    &:focus,
+    &:active,
+    &:focus-visible
+        border-color: $acc
+        box-shadow: 0px 0px 0px 3px $acc
+
+.btn-sec
+    color: #FFFFFFe2
+    background: $sec
+    &:hover
+        background: $sec_hv
+    &:focus,
+    &:active,
+    &:focus-visible
+        border-color: $sec
+        box-shadow: 0px 0px 0px 3px $sec
+    
+.btn-ip
+    min-height: $h_ip
+    min-width: 10em
+    .bi
+        width: 1em
+        height: 1em
+        position: relative

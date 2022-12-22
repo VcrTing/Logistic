@@ -1,0 +1,58 @@
+
+// 总体
+.menu-wrapper
+    height: 100%
+    overflow-x: hidden
+    overflow-y: scroll
+    color: $menuTxt
+    padding-top: 2em
+    padding-left: 2em
+    i
+        color: $menuTxt
+    .menu-item
+        @extend .br
+        padding: $ds
+        width: 100%
+        text-align: left
+        padding-left: calc(12px + 1vw)
+    .active
+        color: $pri
+        background: none
+.menu-hv:hover
+    color: $pri
+    cursor: pointer
+    background: none
+
+// 背景 线
+.menu-hr
+    margin: $ds $ds 0
+    height: 1px
+    padding: 0
+    border: none
+    opacity: 0.26
+    border-radius: 1em
+    background: $menuHr
+    
+.pl_menu
+    padding-left: 2em !important
+    
+.menu-txt
+    padding-left: calc(10px + 0.5vw)
+
+// MENU 动画
+
+// 小于
+@media screen and (max-width: 1444px)
+    .pl_menu
+        padding-left: 1em !important
+    //
+
+.menu-item-icon
+    i
+        color: $pri !important
+    &:hover 
+        transform: translateX(3px)
+
+.menu-space
+    width: 100%
+    height: calc( 80px + 1vw )

@@ -1,0 +1,30 @@
+<template>
+    <nav class="fx-s px_htmi">
+        <div class="w-70">
+            <span class="hand" @click="menu(1)">
+                <i class="bi bi-list h4"></i>
+            </span>
+        </div>
+        <div class="w-30">
+            <div class="fx-r" @click="auth">
+                <img class="user-face hand" :src="up.avatar">
+                <div class="user-name pl ttd hand">
+                    {{ up.named }}
+                </div>
+            </div>
+        </div>
+    </nav>
+</template>
+
+<script setup lang="ts">
+import { userPina, appPina } from '../../../himm/store';
+import { useRouter } from 'vue-router';
+const up = userPina()
+const rt = useRouter()
+const auth = () => { rt.push('/login'); up.iogout() }
+const menu = (v: number) => appPina().do_menu(v)
+</script>
+
+<style lang="sass" scoped>
+
+</style>

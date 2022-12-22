@@ -1,0 +1,88 @@
+
+$couter: #676868
+$couter_br: #989999
+$couter_hr: #989999
+    
+.focus_tab_three
+    .ftt_hr
+        height: 1px
+        background: none !important
+        border: none
+        border-top: 1px dashed $couter_hr
+
+
+.counter
+    @extend .fx-c
+    .counter_cont
+        color: $ttd 
+        max-width: 290px
+        padding: $ds_s $ds
+
+    .active
+        color: #FFF
+        background: $pri
+        border-color: $pri
+
+.counter_icon
+    @extend .h3
+    @extend .t-c
+    width: 1.4em
+    height: 1.4em
+    color: $couter
+    border-radius: 100%
+    border: 1px solid $couter_br 
+    transition: all .62s ease-out
+
+// 面包屑
+.crumb
+    nav
+        cursor: default
+    .tid
+        cursor: text
+
+//  
+.f-time
+    @extend .br
+    background: #FFF
+    input
+        cursor: pointer
+        border: none !important
+        &:focus
+            // background: $bg_s
+
+.f-search
+    width: calc(15vw + 107px)
+    transition: all .242s ease-in-out
+    &:hover
+        width: calc(19vw + 122px)
+
+// .  
+
+.fiiter-bar
+    @extend .fx-s
+    // @extend .fx-t
+    .fiiter-inner
+        @extend .row
+        @extend .fx-l
+
+    .fiiter-inner-many
+        & > div
+            padding-bottom: $ds
+    .fiiter-timed
+        #calendar-div
+            @extend .br
+        .vuejs3-datepicker__icon
+            display: none
+        .vuejs3-datepicker__content
+            @extend .br
+            margin-left: 0px
+    & > div
+        padding-left: $ds
+
+// . 
+.eos-tabie-opera
+    @extend .pri
+    margin-right: -6px
+
+.eos-empty
+    min-height: 26vh

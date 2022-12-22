@@ -1,0 +1,29 @@
+.eos-print-drop
+    .dropdown
+        &, div
+            @extend .br
+        &, & > div
+            @extend .br
+            border-bottom-left-radius: 0px
+            border-bottom-right-radius: 0px
+        & > div
+            overflow: hidden
+
+    ////R
+    .drop-inner
+        button
+            color: $tit
+            padding: $ds_n 0 !important
+            padding-left: $ds_x2 !important
+            &:hover
+                color: $pri
+            &:focus,
+            &:focus-visible
+                color: $pri
+                border-color: $pri
+                background: $pri_tin
+                
+    .eos-print-drop-trig
+        padding: $ds_n $ds_x2
+        overflow: hidden
+        @extend .br

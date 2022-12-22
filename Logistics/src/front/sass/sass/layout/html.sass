@@ -1,0 +1,148 @@
+
+$topH: 38px
+
+$menuW: calc(138px + 9vw )
+$menuW_r: calc(-150px - 9vw )
+$menuC: #FFF // #1F2C2E
+$menuC_Hv: #24262D
+$menuHr: #24262D
+$menuBg: #FFF // $pri
+$menuTxt: $sus // rgba(255, 255, 255, 0.92)
+
+// 主界面
+.htmi
+    width: 100vw
+    height: 100vh
+    overflow: hidden
+    position: relative
+
+.menu
+    overflow-y: scroll
+    background: $menuBg
+    min-width: $menuW
+    min-height: 100%
+    width: $menuW
+    z-index: 600
+    bottom: 0
+    button
+        color: $menuTxt
+
+.content
+    padding: 0 !important
+    position: relative
+
+.top
+    width: 100%
+    z-index: 500
+    min-height: 38px
+    max-height: 49px
+
+.top,
+.menu
+    top: 0
+    left: 0
+    position: fixed
+
+.content,
+.center
+    margin: 0
+    padding: 0
+    height: 100vh
+    overflow: hidden
+    max-height: 100vh
+
+.top
+    *
+        color: #FFFFFFEF
+    background: $pri
+    padding-top: $ds_s
+    padding-bottom: $ds_s
+
+.center
+    padding: 0
+    overflow-y: scroll
+    & > div
+        padding-top: 3.6em
+
+.px_htmi
+    padding-left: $ds_x3
+    padding-right: $ds_x3
+    
+// 背景
+.menu-bg
+    position: fixed
+    display: none
+    left: 0
+    top: 0
+    z-index: 499
+    width: 100vw
+    height: 100vh
+    background: rgba(0, 0, 0, 0.4)
+
+.top,
+.content
+    padding-left: $menuW !important
+
+@media screen and ( max-width: 1444px )
+    .px_htmi
+        padding-left: $ds_x
+        padding-right: $ds_x
+@media screen and ( max-width: 1182px )
+    .px_htmi
+        padding-left: $ds
+        padding-right: $ds
+    .htmi
+        .top
+            width: 100%
+            min-width: 100vw
+        .top,
+        .content
+            padding-left: 0px !important
+        .content
+            overflow-x: scroll
+            .center
+                min-width: 911px
+        .menu-bg
+            display: block
+
+    .htmi-active
+        .menu
+            animation: menu-shower .362s ease-in-out
+        .menu-bg
+            animation: menu-bg-shower .122s ease-in-out
+    .htmi-hide
+        .menu
+            margin-left: $menuW_r !important
+            animation: menu-hide .362s ease-in-out
+        .menu-bg
+            display: none !important 
+            animation: menu-bg-hide .122s ease-in-out
+
+@keyframes menu-hide
+    0%
+        opacity: 0.4
+        transform: translateX(0px)
+    100%
+        opacity: 1
+        transform: translateX(-90px)
+        margin-left: $menuW_r
+@keyframes menu-bg-hide
+    0%
+        opacity: 1
+    100%
+        opacity: 0
+        display: none 
+// SHOWER
+@keyframes menu-shower
+    0%
+        opacity: 0.4
+        transform: translateX($menuW_r)
+    100%
+        opacity: 1
+        transform: translateX(0px)
+@keyframes menu-bg-shower
+    0%
+        opacity: 0
+    100%
+        opacity: 1
+        display: block

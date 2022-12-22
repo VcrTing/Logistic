@@ -1,0 +1,68 @@
+
+
+.btn-succ,
+.btn-wan,
+.btn-err
+    color: #FFFFFFE2
+    cursor: pointer
+    background: none
+.btn-err
+    background: $err
+
+.sts-auditing,
+.sts-err,
+.sts-succ
+    position: relative
+    padding-left: 1.24em
+    &::before  
+        @extend .abs-c
+        height: 0.42em
+        width: 0.45em
+        border: none // 2px solid transparent
+        background: none
+        border-radius: 100%
+
+.sts-auditing
+    &::before  
+        background: $pri
+
+.sts-succ::before
+    background: $succ
+.sts-err::before
+    background: $err
+
+
+$die: #b3b4b5
+.btn-die
+    background: none
+    color: $sus
+    border-color: $die
+
+/// . 
+.buib-succ
+    color: #ffb909
+.buib-err
+    color: #6c5a44
+
+.eos-after-order
+    color: #FFFFFFEF
+    background: none
+    position: relative
+    display: inline-block
+    *
+        position: relative
+        z-index: 120
+        font-weight: 300
+        font-size: 0.9em
+    &::after
+        position: absolute
+        z-index: 90
+        content: ''
+        top: 50%
+        left: 50%
+        transform: translate(-50%, -50%)
+        border-radius: 100%
+        background: $pri
+        width: 1.6em
+        height: 1.6em
+    margin-left: 0.3em

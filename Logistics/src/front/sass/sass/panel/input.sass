@@ -1,0 +1,202 @@
+$h_ip: 42px
+
+$ip-br: $bc
+$ip-br_hv: $bc
+
+$ip-cr: $sus // #667085 
+
+$ip-br_x2: #a2a6af
+
+.ip-wrap > nav
+    padding-top: $ds_s
+
+textarea
+    width: 100%
+// 
+.__ip_sus
+    i, .i
+        color: $ip-cr !important
+    // &:placeholder,
+    &::placeholder
+        color: $ip-cr
+    // &:-moz-placeholder,
+    // &:-ms-input-placeholder,
+    // &:-webkit-input-placeholder,
+    // &::-webkit-input-placeholder
+.ip-pchd
+    &,
+    &::placeholder
+        color: $ip-cr
+
+.__ip
+    border: 1px solid transparent
+    outline: 2px solid transparent
+    transition: all .182s ease-out
+
+input, select, textarea
+    @extend .__ip
+    @extend .__ip_sus
+
+.ip-def
+    @extend .__ip
+    min-height: $h_ip
+    padding: $ds_t $ds
+    border-color: tranaprent
+    
+.area,
+.input,
+.select
+    @extend .__ip_sus
+    @extend .ip-def
+    @extend .fs_14
+    @extend .br
+    margin: 0px
+    width: 100%
+    padding: $ds_n $ds_x1
+    border: 1px solid $ip-br
+    font-style: normal
+    font-family: 'PingFang HK'
+    padding-left: $ds_x3
+    
+select::focus-visible
+    outline: none
+    
+.select
+    min-height: 1.7em
+    min-width: 2em
+    width: auto
+    display: inline-block
+    padding: 0.1em 0.5em !important
+
+.ip-tip-active
+    height: 1.5em
+    animation: shower .62s ease-out
+
+@keyframes shower
+    0%
+        height: 0px
+    100%
+        height: 1.5em
+
+.input-td
+    @extend .input
+    border-radius: 2px
+    border-color: $ip-br_x2
+    padding: 0px $ds_t 0px $ds_s
+        
+.ip-attach
+    position: relative
+    .i, i
+        top: 51%
+        height: 1em
+        line-height: 1em
+        position: absolute
+        transform: translateY(-50%)
+.ip-attach-r
+    .i, i
+        right: 1.3em
+    input
+        padding-right: 2.86em
+.ip-attach-l
+    .i, i
+        left: 1.3em
+    input
+        padding-left: 2.86em
+
+// 
+$checkbox: #c2c2c2
+.checkbox
+    @extend .hand
+    border: 1px solid $checkbox !important
+
+
+// RADIO
+$radio: 1.4em
+    
+.radio
+    @extend .hand
+    &,
+    &::after
+        padding: 0
+        margin: 0
+        border-radius: 100%
+        transition: all .242s ease-in-out
+    color: transparent
+    position: relative
+    border: 1px solid $sus
+    width: $radio !important
+    height: $radio  !important
+    min-width: $radio !important
+    min-height: $radio !important
+    &:hover
+        color: $sus
+    &::after
+        @extend .abs-cc
+        width: 70%
+        height: 70%
+        border-radius: 100%
+        background: currentColor
+
+.radio-active
+    color: $pri
+    border-color: $pri
+    &:hover
+        color: $pri_hv
+        border-color: $pri_hv
+
+input[type=radio]
+    min-width: 1em
+
+.ip-rnd
+    border-radius: 3em
+
+.input-err
+    input
+        border-color: $err
+        animation: ip_err 2s ease-in-out
+        animation-iteration-count: infinite
+
+@keyframes ip_err 
+    0%
+        border-color: $err
+    60%
+        border-color: $err_hf
+    100%
+        border-color: $err
+
+.ui-ip-fiiter
+    @extend .br
+    @extend .bxs_n
+    @extend .fx-l
+    background: #FFF 
+    padding-left: $ds_x2
+    .input
+        border: none
+        outline: none
+        padding-left: $ds_t !important
+        min-width: 4em !important
+
+@media screen and ( max-width: 1444px )
+    .input,
+    .ui-ip-fiiter
+        padding-left: $ds_x2
+@media screen and ( max-width: 1082px )
+    .input,
+    .ui-ip-fiiter
+        padding-left: $ds
+    .ip-attach-r
+        .i, i
+            right: 0.8em
+        .input
+            padding-right: 2em
+    .ip-attach-l
+        .i, i
+            left: 0.8em
+        .input
+            padding-left: 2em
+    .ui-ip-fiiter
+        .input
+            padding-left: 0px !important
+
+
+@import './input_other'

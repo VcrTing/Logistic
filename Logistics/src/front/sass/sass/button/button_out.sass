@@ -1,0 +1,45 @@
+
+
+.btn-pri-out,
+.btn-pri-tin,
+.btn-sec-out
+    border: 1px solid transparent
+
+.btn-pri-out
+    &, .i, i
+        color: $pri
+    border-color: $pri
+    &:hover
+        color: #FFFFFFef
+        background: $pri_hv
+        i 
+            color: #FFFFFFef
+
+.btn-sec-out
+    &, .i, i
+        color: $sec
+    border-color: $sec
+    &:hover
+        color: #FFF
+        background: $sec_hv
+
+.btn-pri-tin
+    &, .i, i
+        color: $pri
+    background: $pri_tin
+    border-color: $pri_tin
+    &:hover
+        border-color: $pri_shd
+    &:focus,
+    &:active,
+    &:focus-visible
+        border-color: $pri
+    &:hover,
+    &:focus
+        select
+            background: $pri_tin_hv
+
+    select
+        @extend .br
+        border: 2px solid transparent
+        transition: all .2s ease-in-out
