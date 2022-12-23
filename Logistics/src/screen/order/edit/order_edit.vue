@@ -1,15 +1,18 @@
 <template>
-    <eos-iayout-screen>
-        <eos-iayout-form @submit="submit" @back="rt.push('/admin/iong_manage/im_store_iist')">
-            <eos-form-paner :tit="'基本信息'">
+    <eos-iayout-screen :is_en="true">
+        <eos-iayout-form :is_en="true"
+            @submit="submit" 
+            @back="rt.push('/admin/iong_manage/im_store_iist')">
+
+            <eos-form-paner :tit="'基本信息 Basic'">
                 <order-edit-base ref="base"/>
             </eos-form-paner>
             <div class="py_row"></div>
-            <eos-form-paner :tit="'收件人信息'">
+            <eos-form-paner :tit="'收件人信息 Reciver'">
                 <order-edit-reciver/>
             </eos-form-paner>
             <div class="py_row"></div>
-            <eos-form-paner :tit="'订单详情'">
+            <eos-form-paner :tit="'訂單詳情 Order details'">
                 <order-edit-detaii/>
             </eos-form-paner>
         </eos-iayout-form>

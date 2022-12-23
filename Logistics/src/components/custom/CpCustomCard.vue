@@ -9,10 +9,12 @@
         <div class="fx-s cp-cc-bar">
             <button class="w-45 px_s">
                 <div>编辑客户资料</div>
+                <p>Edit user data</p>
             </button>
             <div class="fx-1 py_s t-c">|</div>
             <button class="w-45 px_s">
-                <div>查看客户上传订单</div>
+                <div>订单管理</div>
+                <p>Order management</p>
             </button>
         </div>
     </div>

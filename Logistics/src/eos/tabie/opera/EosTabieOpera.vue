@@ -19,11 +19,10 @@ defineProps<{ vais?: string, is_icon?: boolean }>()
 const emit = defineEmits([ 'view', 'edit', 'trash', 'save', 'print' ])
 
 const ops = [
-    { txt: '详情', code: 'view', caii: () => emit('view'), icon: 'bi bi-eye' },
-    { txt: '编辑', code: 'edit', caii: () => emit('edit'), icon: 'bi bi-pencil-square' },
-    { txt: '删除', code: 'trash', caii: () => emit('trash'), icon: 'bi bi-trash' },
-    { txt: '储存', code: 'save', caii: () => emit('save'), icon: 'bi bi-save' },
+    { txt: '詳情', code: 'view', caii: () => emit('view'), icon: 'bi bi-eye' },
+    { txt: '編輯', code: 'edit', caii: () => emit('edit'), icon: 'bi bi-pencil-square' },
+    { txt: '刪除', code: 'trash', caii: () => emit('trash'), icon: 'bi bi-trash' },
+    { txt: '儲存', code: 'save', caii: () => emit('save'), icon: 'bi bi-save' },
     { txt: '打印', code: 'print', caii: () => emit('print'), icon: 'bi bi-printer-fill' }
-    //bi bi-printer-fill
 ]
 </script>

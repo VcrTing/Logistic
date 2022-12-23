@@ -1,28 +1,28 @@
 <template>
     <div class="py f-row">
-        <eos-input class="w-50 w-50-p" :is_err="form_err.code" :header="'订单日期'">
+        <eos-input class="w-50 w-50-p" :is_err="form_err.code" :header="'订单日期 Order date'">
             <fn-time/>
         </eos-input>
-        <eos-input class="w-50 w-50-p" :is_err="form_err.code_1" :header="'翔烽运单编号'">
-            <input class="input" v-model="form.code_1" placeholder="請輸入" />
+        <eos-input class="w-50 w-50-p" :is_err="form_err.code_1" :header="'翔烽运单编号 CF waybill number'">
+            <input class="input" v-model="form.code_1" placeholder="請輸入 Please enter" />
         </eos-input>
     </div>
     <div class="py f-row">
-        <eos-input class="w-50 w-50-p" :is_err="form_err.shop_name_zh" :header="'客户运单编号'">
-            <input class="input" v-model="form.shop_name_zh" placeholder="請輸入" />
+        <eos-input class="w-50 w-50-p" :is_err="form_err.shop_name_zh" :header="'客户运单编号 Waybill number'">
+            <input class="input" v-model="form.shop_name_zh" placeholder="請輸入 Please enter" />
         </eos-input>
-        <eos-input class="w-50 w-50-p" :is_err="form_err.shop_name_en" :header="'订单编号'">
-            <input class="input" v-model="form.shop_name_en" placeholder="請輸入" />
-        </eos-input>
-    </div>
-    <div class="py f-row">
-        <eos-input class="w-50 w-50-p" :is_err="form_err.shop_name_zh" :header="'订单组'">
-            <input class="input" v-model="form.shop_name_zh" placeholder="請輸入" />
+        <eos-input class="w-50 w-50-p" :is_err="form_err.shop_name_en" :header="'订单编号 Order No.'">
+            <input class="input" v-model="form.shop_name_en" placeholder="請輸入 Please enter" />
         </eos-input>
     </div>
     <div class="py f-row">
-        <eos-input class="w-100 w-100-p" :is_err="form_err.shop_name_zh" :header="'货品内容'">
-            <input class="input" v-model="form.shop_name_zh" placeholder="請輸入" />
+        <eos-input class="w-50 w-50-p" :is_err="form_err.shop_name_zh" :header="'订单组 Group'">
+            <input class="input" v-model="form.shop_name_zh" placeholder="請輸入 Please enter" />
+        </eos-input>
+    </div>
+    <div class="py f-row">
+        <eos-input class="w-100 w-100-p" :is_err="form_err.shop_name_zh" :header="'货品内容 Product detail'">
+            <input class="input" v-model="form.shop_name_zh" placeholder="請輸入 Please enter" />
         </eos-input>
     </div>
 </template>

@@ -1,17 +1,14 @@
 <template>
-    <div class="fx-s crumb">
-        <nav class="fx-l">
+    <div>
+        <div class="crumb fx-l">
             <div v-for="(v, i) in crumbs" :key="i" class="">
                 <div class="d-ib sub" :class="{ ' ': i < iong, 'aaaa': i >= iong }">{{ Txt[v] }}</div>
                 <span v-if="i < iong" class="px sub">/</span>
             </div>
-        </nav>
-        <div>
-            <slot></slot>
         </div>
-    </div>
-    <div v-if="is_tit" class="fx-l">
-        <h2>{{ Txt[ crumbs[ iong ] ] }}</h2><h5 v-if="is_en">&nbsp;{{ Txt_EN[ crumbs[ iong ] ] }}</h5>
+        <div v-if="is_tit" class="fx-l">
+            <h2>{{ Txt[ crumbs[ iong ] ] }}</h2><h5 v-if="is_en">&nbsp;{{ Txt_EN[ crumbs[ iong ] ] }}</h5>
+        </div>
     </div>
 </template>
 

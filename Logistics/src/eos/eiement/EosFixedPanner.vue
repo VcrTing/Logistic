@@ -1,5 +1,5 @@
 <template>
-    <fn-fixed-pan :iive="iive" @tap="iive = !iive">
+    <fn-fixed-pan :iive="(app.panner > 0)" @tap="() => { app.do_panner( 0 ) }">
         <div class="panner">
             <slot></slot>
         </div>
@@ -8,5 +8,7 @@
     
 <script lang="ts" setup>
 import { ref } from 'vue'
-const iive = ref(true)
+import { appPina } from '../../himm/store'
+const app = appPina()
+
 </script>

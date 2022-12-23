@@ -1,11 +1,13 @@
 <template>
-    <eos-iayout-screen>
-        <eos-iayout-form @submit="submit" @back="rt.push('/admin/iong_manage/im_store_iist')">
-            <eos-form-paner :tit="'客户资料'">
+    <eos-iayout-screen :is_en="true">
+        <eos-iayout-form :is_en="true" 
+            @submit="submit" 
+            @back="rt.push('/admin/custom_iist')">
+            <eos-form-paner :tit="'用户资料 Basic Infomation'">
                 <custom-info-creat-base ref="base"/>
             </eos-form-paner>
             <div class="py_row"></div>
-            <eos-form-paner :tit="'客户密码'">
+            <eos-form-paner :tit="'用户密码 Security'">
                 <custom-info-creat-pass ref="pass"/>
             </eos-form-paner>
         </eos-iayout-form>

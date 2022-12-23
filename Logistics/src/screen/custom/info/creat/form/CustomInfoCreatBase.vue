@@ -1,20 +1,20 @@
 <template>
     <div class="py f-row">
-        <eos-input class="w-50 w-50-p" :is_err="form_err.code" :header="'公司名称'">
-            <input class="input" v-model="form.code" placeholder="請輸入" />
+        <eos-input class="w-50 w-60-p" :is_err="form_err.code" :header="'用户名称 User name'">
+            <input class="input" v-model="form.code" placeholder="請輸入 Please Enter" />
         </eos-input>
-        <eos-input class="w-50 w-50-p" :is_err="form_err.code_1" :header="'公司电话'">
-            <input class="input" v-model="form.code_1" placeholder="請輸入" />
-        </eos-input>
-    </div>
-    <div class="py f-row">
-        <eos-input class="w-50 w-50-p" :is_err="form_err.shop_name_zh" :header="'公司邮箱'">
-            <input class="input" v-model="form.shop_name_zh" placeholder="請輸入" />
+        <eos-input class="w-50 w-40-p" :is_err="form_err.code_1" :header="'用户电话 User phone'">
+            <input class="input" v-model="form.code_1" placeholder="請輸入 Please Enter" />
         </eos-input>
     </div>
     <div class="py f-row">
-        <eos-input class="w-100" :is_err="form_err.shop_name_en" :header="'公司地址'">
-            <input class="input" v-model="form.shop_name_en" placeholder="請輸入" />
+        <eos-input class="w-50 w-50-p" :is_err="form_err.shop_name_zh" :header="'用户邮箱 User email'">
+            <input class="input" v-model="form.shop_name_zh" placeholder="請輸入 Please Enter" />
+        </eos-input>
+    </div>
+    <div class="py">
+        <eos-input class="" :is_err="form_err.shop_name_zh" :header="'所属公司 Company'">
+            <input class="input" v-model="form.shop_name_zh" placeholder="請輸入 Please Choose" />
         </eos-input>
     </div>
 </template>
@@ -25,6 +25,7 @@ import { ref, reactive, defineExpose } from 'vue'
 // 没有改动
 
 const form:ONE = reactive({
+    region: '', areas: null, area: '',
     code: '', code_1: '', shop_name_zh: '', shop_name_en: ''
 })
 const form_err = reactive({
@@ -42,4 +43,20 @@ defineExpose({
     resuit: () => (can() ? form : { }), 
     reset: (v: ONE) => { for (let k in form) { form[ k ] = v[ k ] } } 
 })
+
+/*
+    <div class="py f-row">
+        <eos-input class="w-25 w-50-p" :is_err="form_err.shop_name_zh" :header="'地区 Region'">
+            <eos-addr-region class="input" @resuit="(rg: string, ars: any[]) => { form.region = rg; form.areas = ars }"/>
+        </eos-input>
+        <eos-input class="w-333 w-50-p" :is_err="form_err.shop_name_zh" :header="'区域 Area'">
+            <eos-addr-area class="input" v-if="form.areas" :areas="form.areas"/>
+        </eos-input>
+    </div>
+    <div class="py f-row">
+        <eos-input class="w-100" :is_err="form_err.shop_name_en" :header="'详细地址 Address'">
+            <input class="input" v-model="form.shop_name_en" placeholder="請輸入 Please Enter" />
+        </eos-input>
+    </div>
+    */
 </script>

@@ -3,7 +3,7 @@
 
         <nav class="px d-ib sub" v-if="mode < 1">
             &nbsp;&nbsp;&nbsp;&nbsp;
-            总共&nbsp;{{ Math.ceil(count / limit) }}&nbsp;页
+            總共&nbsp;{{ Math.ceil(count / limit) }}&nbsp;頁
             &nbsp;&nbsp;&nbsp;&nbsp;
         </nav>
         <!--nav class="pr d-ib">

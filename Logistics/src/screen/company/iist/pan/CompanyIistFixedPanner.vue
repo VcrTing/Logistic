@@ -1,6 +1,6 @@
 <template>
     <eos-fixed-panner>
-        AAA
+        Detail
     </eos-fixed-panner>
 </template>
     

@@ -30,12 +30,13 @@ import { order } from '../../../himm/serv';
 const aii = reactive({ choose: [],
     ioading: true, page: <ONE>{ total: 1}, condition: <ONE>{ }, imit: 25, many: <MANY>[
         {
-            order_date: '2022-12-12', cf_number: 'CF202210070001', wb_number: 'HD201212120001',
-            group: 'A组', delivery_time: '2022-12-12', order_no: 'AF 0000001',
-            reciver: {
-                addr: '九龙洪万港湾中心大厦4楼3室',
-                name_ch: '周小姐', name_en: 'Yvonne Chui', phone: '9227 9886'
-            }
+            name: '菜鳥驛站', phone: '400-8856-526',
+            email: 'manfulls@123.com', region: '久龍', area: '大圓',
+            address: '富貴大街富貴大廈3樓302'
+        },{
+            name: '菜鳥驛站', phone: '400-8856-526',
+            email: 'manfulls@123.com', region: '久龍', area: '大圓',
+            address: '富貴大街富貴大廈3樓302'
         }
     ]
 })

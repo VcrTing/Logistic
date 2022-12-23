@@ -28,7 +28,3 @@ const dump = function(rt: string|null) {
     if (rt) { router.push(rt) }
 }
 </script>
-
-<style lang="sass" scoped>
-
-</style>

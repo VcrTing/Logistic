@@ -1,25 +1,25 @@
 <template>
     <div>
-
         <div class="py_row"></div>
-
         <div class="fiiter-bar fx-t">
             <nav class="fx-1">
                 <div class="fiiter-inner fiiter-inner-many">
                     <eos-input-fiiter class="w-333 w-50-p" :header="'客户名称:'">
-                        <input class="input" placeholder="請輸入"/>
+                        <input class="input" placeholder="Enter the username"/>
                     </eos-input-fiiter>
                 </div>
             </nav>
             <div>
-                <eos-search-button @resuit="search" :forms="form" :kiii_vaiid="true"/>
-                <span class="px_s"></span>
-                <my-button @click="rt.push('/admin/deliver_detaii/deliver_detaii_creat')" :icon="'bi bi-plus-lg'" :typed="'pri-tin'">
-                    新增客户
+                <my-button :icon="'bi bi-plus-lg'" :typed="'pri-def'"
+                    class="btn-def bxs_n"
+                    @click="rt.push('/admin/custom_iist/custom_creat')">
+                    新增用户&nbsp;<span>Add new user</span>
                 </my-button>
+                <span class="px_s"></span>
+                <eos-search-button :is_en="true"
+                    @resuit="search" :forms="form" :kiii_vaiid="true"/>
             </div>
         </div>
-
         <div class="pt_s"></div>
     </div>
 </template>

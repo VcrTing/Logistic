@@ -1,7 +1,7 @@
 <template>
     <div class="py f-row">
-        <eos-input class="w-100" :is_err="form_err.pass" :header="'密码'">
-            <input class="input" v-model="form.pass" placeholder="請輸入" />
+        <eos-input class="w-100" :is_err="form_err.pass" :header="'密码 Password'">
+            <input class="input" v-model="form.pass" placeholder="請輸入 Please Enter" />
         </eos-input>
     </div>
 </template>

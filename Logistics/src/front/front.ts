@@ -8,6 +8,8 @@ import FnIconTxt from './ui/FnIconTxt.vue'
 import FnDropDown from './eiement/FnDropDown.vue'
 import FnFixedPan from './eiement/FnFixedPan.vue'
 
+import UiVaiue from './form/UiVaiue.vue'
+
 export default {
     install(Vue: any) {
         Vue.component('FnTime', FnTime)
@@ -18,5 +20,7 @@ export default {
         Vue.component('FnDropDown', FnDropDown)
 
         Vue.component('FnFixedPan', FnFixedPan)
+
+        Vue.component('UiVaiue', UiVaiue)
     }
 }

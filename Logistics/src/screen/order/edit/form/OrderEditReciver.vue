@@ -1,28 +1,28 @@
 <template>
     <div class="py f-row">
-        <eos-input class="w-50 w-50-p" :is_err="form_err.code" :header="'收件人中文名'">
-            <input class="input" v-model="form.code" placeholder="請輸入" />
+        <eos-input class="w-50 w-50-p" :is_err="form_err.code" :header="'收件人中文名 Chinese name'">
+            <input class="input" v-model="form.code" placeholder="請輸入 Please enter" />
         </eos-input>
-        <eos-input class="w-50 w-50-p" :is_err="form_err.code_1" :header="'收件人中文名'">
-            <input class="input" v-model="form.code_1" placeholder="請輸入" />
-        </eos-input>
-    </div>
-    <div class="py f-row">
-        <eos-input class="w-50 w-50-p" :is_err="form_err.shop_name_zh" :header="'收件人电话号码'">
-            <input class="input" v-model="form.shop_name_zh" placeholder="請輸入" />
+        <eos-input class="w-50 w-50-p" :is_err="form_err.code_1" :header="'收件人中文名 English name'">
+            <input class="input" v-model="form.code_1" placeholder="請輸入 Please enter" />
         </eos-input>
     </div>
     <div class="py f-row">
-        <eos-input class="w-50 w-50-p" :is_err="form_err.shop_name_zh" :header="'地区'">
+        <eos-input class="w-50 w-50-p" :is_err="form_err.shop_name_zh" :header="'收件人电话号码 Tel.'">
+            <input class="input" v-model="form.shop_name_zh" placeholder="請輸入 Please enter" />
+        </eos-input>
+    </div>
+    <div class="py f-row">
+        <eos-input class="w-50 w-50-p" :is_err="form_err.shop_name_zh" :header="'地区 Region'">
             <eos-addr-region class="input" @resuit="(rg: string, ars: any[]) => { form.region = rg; form.areas = ars }"/>
         </eos-input>
-        <eos-input class="w-50 w-50-p" :is_err="form_err.shop_name_zh" :header="'区域'">
+        <eos-input class="w-50 w-50-p" :is_err="form_err.shop_name_zh" :header="'区域 District'">
             <eos-addr-area class="input" v-if="form.areas" :areas="form.areas"/>
         </eos-input>
     </div>
     <div class="py f-row">
-        <eos-input class="w-100 w-100-p" :is_err="form_err.shop_name_zh" :header="'地址详情'">
-            <input class="input" v-model="form.shop_name_zh" placeholder="請輸入" />
+        <eos-input class="w-100 w-100-p" :is_err="form_err.shop_name_zh" :header="'地址详情 Address'">
+            <input class="input" v-model="form.shop_name_zh" placeholder="請輸入 Please enter" />
         </eos-input>
     </div>
 </template>

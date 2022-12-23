@@ -2,28 +2,28 @@
     <nav class="tr">
         <eos-tabie-choose-item-tr :many="aii.many" :choose="aii.choose">
             <div class="w-9">
-                订单日期<br/><p class="tr-en">Order date</p>
+                訂單日期<br/><p class="tr-en">Order date</p>
             </div>
             <div class="w-12">
-                翔烽运单号码<br/><p class="tr-en">CF waybill number</p>
+                翔烽運單號碼<br/><p class="tr-en">CF waybill number</p>
             </div>
             <div class="w-12">
-                客户运单编号<br/><p class="tr-en">Waybill number</p>
+                客戶運單編號<br/><p class="tr-en">Waybill number</p>
             </div>
             <div class="w-7">
-                订单组<br/><p class="tr-en">Group</p>
+                訂單組<br/><p class="tr-en">Group</p>
             </div>
             <div class="w-9">
-                派送时间<br/><p class="tr-en">Delivery time</p>
+                派送時間<br/><p class="tr-en">Delivery time</p>
             </div>
             <div class="w-10">
-                订单编号<br/><p class="tr-en">Order No.</p>
+                訂單編號<br/><p class="tr-en">Order No.</p>
             </div>
             <div class="w-9">
                 收件人<br/><p class="tr-en">Reciver</p>
             </div>
             <div class="w-10">
-                收件电话<br/><p class="tr-en">Phone</p>
+                收件電話<br/><p class="tr-en">Phone</p>
             </div>
             <div class="w-16">
                 地址<br/><p class="tr-en">Address</p>

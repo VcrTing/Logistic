@@ -1,26 +1,26 @@
 <template>
     <div class="py f-row">
-        <eos-input class="w-50 w-50-p" :is_err="form_err.code" :header="'重量'">
-            <input class="input" v-model="form.code" placeholder="請輸入" />
+        <eos-input class="w-50 w-50-p" :is_err="form_err.code" :header="'重量 Weight'">
+            <input class="input" v-model="form.code" placeholder="請輸入 Please enter" />
         </eos-input>
-        <eos-input class="w-50 w-50-p" :is_err="form_err.code_1" :header="'件数'">
-            <input class="input" v-model="form.code_1" placeholder="請輸入" />
-        </eos-input>
-    </div>
-    <div class="py f-row">
-        <eos-input class="w-50 w-50-p" :is_err="form_err.shop_name_zh" :header="'停车场'">
-            <input class="input" v-model="form.shop_name_zh" placeholder="請輸入" />
-        </eos-input>
-        <eos-input class="w-50 w-50-p" :is_err="form_err.shop_name_zh" :header="'隧道费'">
-            <input class="input" v-model="form.shop_name_zh" placeholder="請輸入" />
+        <eos-input class="w-50 w-50-p" :is_err="form_err.code_1" :header="'件数 No.'">
+            <input class="input" v-model="form.code_1" placeholder="請輸入 Please enter" />
         </eos-input>
     </div>
     <div class="py f-row">
-        <eos-input class="w-50 w-50-p" :is_err="form_err.shop_name_zh" :header="'亲费'">
-            <input class="input" v-model="form.shop_name_zh" placeholder="請輸入" />
+        <eos-input class="w-50 w-50-p" :is_err="form_err.shop_name_zh" :header="'停车场 Parking'">
+            <input class="input" v-model="form.shop_name_zh" placeholder="請輸入 Please enter" />
         </eos-input>
-        <eos-input class="w-50 w-50-p" :is_err="form_err.shop_name_zh" :header="'楼梯层数'">
-            <input class="input" v-model="form.shop_name_zh" placeholder="請輸入" />
+        <eos-input class="w-50 w-50-p" :is_err="form_err.shop_name_zh" :header="'隧道费 Tunnel fee'">
+            <input class="input" v-model="form.shop_name_zh" placeholder="請輸入 Please enter" />
+        </eos-input>
+    </div>
+    <div class="py f-row">
+        <eos-input class="w-50 w-50-p" :is_err="form_err.shop_name_zh" :header="'亲费 Other charges'">
+            <input class="input" v-model="form.shop_name_zh" placeholder="請輸入 Please enter" />
+        </eos-input>
+        <eos-input class="w-50 w-50-p" :is_err="form_err.shop_name_zh" :header="'楼梯层数 Stairs floor'">
+            <input class="input" v-model="form.shop_name_zh" placeholder="請輸入 Please enter" />
         </eos-input>
     </div>
 </template>

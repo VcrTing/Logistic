@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="fx-r">
-            <my-button @click="$emit('back')" class="btn-minw" :typed="'pri-tin'">返回</my-button>
+            <eos-aii-button  @back="$emit('back')" :vais="'back'" :is_en="is_en"/>
         </div>
             <div class="py_n"></div>
         <div class="">
@@ -9,13 +9,14 @@
         </div>
             <div class="py_n"></div>
         <div class="fx-r">
-            <my-button @click="$emit('submit')" class="btn-minw" :is_out="true">儲存</my-button>
+            <eos-aii-button  @save="$emit('submit')" :vais="'save'" :is_en="is_en"/>
         </div>
     </div>
 </template>
 
 <script setup lang="ts">
 import { defineEmits } from 'vue'
+defineProps<{ is_en?: boolean }>()
 defineEmits([ 'submit', 'back' ] )
 </script>
 

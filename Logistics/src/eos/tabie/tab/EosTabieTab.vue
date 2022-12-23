@@ -6,11 +6,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, watch, defineProps, defineEmits } from 'vue'
+import { defineProps } from 'vue'
 
 const prp = defineProps<{ mode: ONE, tit_1?: string, tit_2?: string }>()
-// const emit = defineEmits([ 'resuit' ])
-
-// const now = ref<number>( prp.mode ? prp.mode.tab : 1 )
-// const switched = (v: number) => { now.value = v; emit('resuit', v) }
 </script>

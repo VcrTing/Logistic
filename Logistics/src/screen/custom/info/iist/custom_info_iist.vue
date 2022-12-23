@@ -1,6 +1,7 @@
 <template>
-    <eos-iayout-screen>
+    <eos-iayout-screen :is_en="true">
         <custom-info-top @search="funny.search"/>
+        <div class="py_s"></div>
         <eos-tabie-ioading :ioad="aii.ioading" :many="aii.many" :ciass="'pt_x4'">
             <custom-info-body :many="aii.many"/>
         </eos-tabie-ioading>
@@ -17,19 +18,27 @@ const aii = reactive({
     ioading: true, page: <ONE>{ total: 1}, condition: <ONE>{ }, imit: 999, many: <MANY>[
         {
             type: '菜鸟驿站', name: '张小姐', phone: '92779623', 
-            region: '九龙', area: '屯门', addr: '富贵大街富贵大厦4楼302室'
+            email: 'vcrting@123.com',
+            company: { name: '富贵科技有限公司', email: 'fuguidasha@123.com',
+                region: '九龙', area: '屯门', addr: '富贵大街富贵大厦4楼302室' }
         },
         {
             type: 'GOGOVAN', name: '张小姐', phone: '92779623', 
-            region: '九龙', area: '屯门', addr: '富贵大街富贵大厦4楼302室'
+            email: 'vcrting@123.com',
+            company: { name: '富贵科技有限公司', email: 'fuguidasha@123.com',
+                region: '九龙', area: '屯门', addr: '富贵大街富贵大厦4楼302室' }
         },
         {
             type: '步兵送货', name: '张小姐', phone: '92779623', 
-            region: '九龙', area: '屯门', addr: '富贵大街富贵大厦4楼302室'
+            email: 'vcrting@123.com',
+            company: { name: '富贵科技有限公司', email: 'fuguidasha@123.com',
+                region: '九龙', area: '屯门', addr: '富贵大街富贵大厦4楼302室' }
         },
         {
             type: '淘宝送货', name: '张小姐', phone: '92779623', 
-            region: '九龙', area: '屯门', addr: '富贵大街富贵大厦4楼302室'
+            email: 'vcrting@123.com',
+            company: { name: '富贵科技有限公司', email: 'fuguidasha@123.com',
+                region: '九龙', area: '屯门', addr: '富贵大街富贵大厦4楼302室' }
         }
     ]
 })

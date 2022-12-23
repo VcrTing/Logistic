@@ -1,5 +1,5 @@
 <template>
-    <div class="td td-focus-err">
+    <div class="td" :class="{ 'td-focus-err': one.is_focus }">
         <eos-tabie-choose-item-td :one="one" :choose="choose">
             <div class="w-9">{{one.order_date}}</div>
             <div class="w-12 pr_s">{{one.cf_number}}</div>
@@ -7,7 +7,7 @@
             <div class="w-7">{{one.group}}</div>
             <div class="w-9 pr">{{one.delivery_time}}</div>
             <div class="w-10 pr_s">
-                <div @click="view" class="pri hand">{{one.order_no}}</div>
+                <div @click="() => { app.do_panner(1) }" class="pri hand">{{one.order_no}}</div>
             </div>
             <div class="w-9">
                 {{one.reciver.name_en}}<br/>
@@ -18,7 +18,9 @@
                 {{one.reciver.addr}}
             </div>
             <div class="w-6 fx-r">
-                <eos-tabie-opera :vais="'edit_print'" :is_icon="true" @edit="editOne"/>
+                <eos-tabie-opera :vais="'edit_print'" :is_icon="true" 
+                    @edit="rt.push('/admin/order_iist/edit')"
+                    />
             </div>
         </eos-tabie-choose-item-td>
     </div>
@@ -26,22 +28,10 @@
 
 <script setup lang="ts">
 import { useRouter } from "vue-router"
-import { deiiPina } from "../../../../himm/store"
-
-const prp = defineProps<{
-    idx: number,
-    one: ONE,
-    choose: MANY
-}>()
-
+import { appPina } from "../../../../himm/store"
+const app = appPina()
 const rt = useRouter()
-
-const editOne = () => {
-    deiiPina().do_one_deiiver( prp.one )
-    rt.push('/admin/deliver_detaii/edit')
-}
-
-const view = async () => {
-    
-}
+const prp = defineProps<{
+    idx: number, one: ONE, choose: MANY
+}>()
 </script>

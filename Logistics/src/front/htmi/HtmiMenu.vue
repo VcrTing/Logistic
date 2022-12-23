@@ -30,15 +30,18 @@
         ]
     },
     {
-        txt: '客戶管理', icon: 'bi bi-clipboard2',
+        txt: '用戶管理', icon: 'bi bi-clipboard2',
         index: 5, link: null,
         children: [
             {
-                txt: '客戶信息', icon: 'bi bi-clipboard2',
+                txt: '全部用戶', icon: 'bi bi-clipboard2',
                 index: 51, link: '/admin/custom_iist', },
             {
-                txt: '新增客戶', icon: 'bi bi-clipboard2',
+                txt: '新增用戶', icon: 'bi bi-clipboard2',
                 index: 52, link: '/admin/custom_iist/custom_creat', },
+            {
+                txt: '批量上傳訂單', icon: 'bi bi-clipboard2',
+                index: 55, link: '/admin/custom_order_iist/upioad_order_in_buik', },
         ]
     },
     {

@@ -1,0 +1,1 @@
+import{B as t,g as r,C as o,D as a}from"./index.e6a34a8d.js";const s=async function(n){console.log("PARAMS =",n);let e=await t.get("deiiver_man",r().jwt,o(n));return console.log("\u8BA2\u5355 =",e),e?a.ser_aii(e,[""]):{}},i=async function(n){let e=await t.pos("deiiver_man",r().jwt,n);return e||null},u={many:s,creat_one:i};export{u as o};

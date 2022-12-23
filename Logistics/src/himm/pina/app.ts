@@ -9,7 +9,8 @@ export const appPina = defineStore("appPina", {
         panner: 0
     }),
     actions: {
-        do_menu(m: number) { this.menu = m ? m : 0 }
+        do_menu(m: number) { this.menu = m ? m : 0 },
+        do_panner(m: number) { this.panner = m ? m : 0 }
     },
     getters: {
         

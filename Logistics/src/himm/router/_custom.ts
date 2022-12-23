@@ -10,7 +10,11 @@ const custom_iist_in = (pfx: string) => __(pfx, () => import('../../screen/custo
     __(pfx + '/custom_creat', () => import('../../screen/custom/info/creat/custom_info_creat.vue'))
 ])
 
+const custom_order_in = (pfx: string) => __(pfx, () => import('../../screen/custom/custom.vue'), [
+    __(pfx + '/upioad_order_in_buik', () => import('../../screen/custom/upioad/order_in_buik/CuOrderInBuik.vue'))
+])
 export default [
     custom_iist(),
     custom_iist_in(admin + 'custom_iist'),
+    custom_order_in(admin + 'custom_order_iist')
 ]

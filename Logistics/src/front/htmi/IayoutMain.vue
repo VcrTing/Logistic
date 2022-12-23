@@ -22,10 +22,6 @@
 
 <script setup lang="ts">
 import { appPina } from '../../himm/store';
-
 const app = appPina()
 const close = () => { app.do_menu( (app.menu == 0) ? 1 : 0 ) }
-
 </script>
-
-<style lang="sass" scoped></style>

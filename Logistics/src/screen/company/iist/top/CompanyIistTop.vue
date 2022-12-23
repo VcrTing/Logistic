@@ -6,23 +6,20 @@
         <div class="fiiter-bar fx-t">
             <nav class="fx-1">
                 <div class="fiiter-inner fiiter-inner-many">
-                    <eos-input-fiiter class="w-333 w-333-p" :header="'任意运单编号:'">
-                        <input class="input" placeholder="Enter the waybill number"/>
-                    </eos-input-fiiter>
-                    <eos-input-fiiter class="w-333 w-333-p" :header="'订单日期:'">
-                        <input class="input" placeholder="Enter the order date"/>
-                    </eos-input-fiiter>
-                    <eos-input-fiiter class="w-333 w-333-p" :header="'收件人:'">
-                        <input class="input" placeholder="Enter the reciver phone number"/>
+                    <eos-input-fiiter class="w-40 w-666-p" :header="'公司名稱:'">
+                        <input class="input" placeholder="Enter the company name"/>
                     </eos-input-fiiter>
                 </div>
             </nav>
             <div>
-                <eos-search-button @resuit="search" :forms="form" :kiii_vaiid="true" :is_en="true"/>
-                <!--<span class="px_s"></span>
-                <my-button @click="rt.push('/admin/deliver_detaii/deliver_detaii_creat')" :icon="'bi bi-plus-lg'" :typed="'pri-tin'">
-                    新增订单
-                </my-button>-->
+                <my-button :icon="'bi bi-plus-lg'" :typed="'pri-def'"
+                    class="btn-def bxs_n"
+                    @click="rt.push('/admin/company_iist/company_creat')">
+                    新增公司&nbsp;<span>Add new company</span>
+                </my-button>
+                <span class="px_s"></span>
+                <eos-search-button @resuit="search" 
+                    :forms="form" :kiii_vaiid="true" :is_en="true"/>
             </div>
         </div>
 
