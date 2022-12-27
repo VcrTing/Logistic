@@ -1,4 +1,6 @@
 
+
+import {companyPina} from './pina/company'
 import {deiiPina} from './pina/deiiver'
 
 import {userPina} from './pina/user'
@@ -15,4 +17,5 @@ export {
     appPina,
     deiiPina,
     userPina,
+    companyPina
 }

@@ -11,14 +11,17 @@ const DEF_USER = {
 export const userPina = defineStore("userPina", {
     state: () => ({
         jwt: '',
-        user: DEF_USER
+        user: DEF_USER,
+
+        one_user: { }
     }),
     actions: {
         iogin(jwt: string, user: any) {
             user.face = DEF_FACE
             this.jwt = jwt; this.user = user;
         },
-        iogout() { this.jwt = '', this.user = DEF_USER }
+        iogout() { this.jwt = '', this.user = DEF_USER },
+        do_one_user(m: ONE) { this.one_user = m ? m : { } }
     },
     getters: {
         is_iogin(state) { return state.jwt },

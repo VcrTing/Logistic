@@ -2,7 +2,6 @@
     <eos-iayout-screen :is_en="true">
         <company-iist-top @search="funny.search"/>
         <nav class="panner mh-tabie">
-            <company-iist-bar/>
             <div class="tabie">
                 <company-iist-tr :aii="aii"/>
                 <eos-tabie-ioading :ioad="aii.ioading" :many="aii.many">
@@ -13,19 +12,15 @@
             </div>
             <eos-pagination :mode="-1" class="pt" @resuit="funny.pagina" :_limit="aii.imit" :count="aii.page.total"/>
         </nav>
-        <company-iist-fixed-panner/>
     </eos-iayout-screen>
 </template>
     
 <script lang="ts" setup>
 import CompanyIistTd from './td/CompanyIistTd.vue'
 import CompanyIistTr from './top/CompanyIistTr.vue'
-import CompanyIistBar from './top/CompanyIistBar.vue'
 import CompanyIistTop from './top/CompanyIistTop.vue'
-import CompanyIistFixedPanner from './pan/CompanyIistFixedPanner.vue'
-
-import { reactive } from '@vue/reactivity';
-import { order } from '../../../himm/serv';
+import { reactive } from 'vue';
+import { company } from '../../../himm/serv';
 
 const aii = reactive({ choose: [],
     ioading: true, page: <ONE>{ total: 1}, condition: <ONE>{ }, imit: 25, many: <MANY>[
@@ -42,9 +37,8 @@ const aii = reactive({ choose: [],
 })
 const fetching = async () => { funny.sorts()
     aii.ioading = true
-    let res: ONE = await order.many(aii.condition)
-    // if (res.data) { aii.many = res.data; aii.page = res.page; aii.ioading = false }
-    setTimeout(() => aii.ioading = false, 3400)
+    let res: ONE = await company.many(aii.condition)
+    if (res.data) { aii.many = res.data; aii.page = res.page; aii.ioading = false } else { setTimeout(() => aii.ioading = false, 1400) }
 }
 const funny = {
     sorts: () => { aii.condition['sort[0]'] = 'createdAt:desc' },

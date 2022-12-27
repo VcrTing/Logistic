@@ -16,8 +16,12 @@ const ENDPOINT = {
     'iongiists_shopiist': 'wellcome-longlists-shoplist',
     'iongiists': 'wellcome-longlists',
     'iongiists_check': 'wellcome-longlists-check',
+
     'weii_shop': 'wellcome-shops',
-    'deiiver_man': 'users-permissions/delivery_man', // 'delivery-men', // 
+    'deiiver_man': 'users-permissions/delivery_man', // 'delivery-men', //
+    
+    'company': 'companies',
+    'user': 'companies'
 }
 export default {
     TEST,
@@ -33,4 +37,11 @@ export default {
 declare global {
     type ONE = {[k:string]:any}
     type MANY = ONE[]
+}
+
+declare interface Company {
+    name: string,
+    email: string,
+    address: string,
+    phone_no: string,
 }

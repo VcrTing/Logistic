@@ -33,7 +33,7 @@
             <div class="py_row"></div>
             <div class="row_x fx">
                 <div class="w-55">
-                    <eos-form-paner :tit="'送貨單列表'">
+                    <eos-form-paner :tit="'訂單詳情'">
                         <im-detaii-creat-detaii ref="detaii"/>
                     </eos-form-paner>
                 </div>

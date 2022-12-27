@@ -15,7 +15,7 @@ textarea
 // 
 .__ip_sus
     i, .i
-        color: $ip-cr !important
+        color: $ip-cr
     // &:placeholder,
     &::placeholder
         color: $ip-cr
@@ -150,11 +150,14 @@ input[type=radio]
 .ip-rnd
     border-radius: 3em
 
+._input-err
+    border-color: $err
+    animation: ip_err 2s ease-in-out
+    animation-iteration-count: infinite
+
 .input-err
     input
-        border-color: $err
-        animation: ip_err 2s ease-in-out
-        animation-iteration-count: infinite
+        @extend ._input-err
 
 @keyframes ip_err 
     0%

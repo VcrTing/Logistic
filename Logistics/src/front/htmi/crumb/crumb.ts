@@ -3,7 +3,6 @@ const CRUMB_HK = <ONE> {
 
     'shop_iist': '店鋪列表',
     'order_iist': '訂單列表',
-    'custom_iist': '客戶列表',
     'company_iist': '公司列表',
 
     'deliver_iist': '送貨員資料',
@@ -19,8 +18,12 @@ const CRUMB_HK = <ONE> {
     'im_detaii_creat': '創建場表',
     'company_creat': '新增公司',
 
-    'custom_creat': '新增用戶',
+    // 'custom_creat': '新增用戶',
+    // 'custom_iist': '客戶列表',
     'custom_order_iist': '用戶訂單',
+
+    'user_iist': '用戶列表',
+    'user_creat': '新增用戶',
 
     'upioad_order_in_buik': '批量上傳訂單'
 }
@@ -28,8 +31,11 @@ const CRUMB_EN = <ONE> {
     'edit': 'Edit',
     'order_iist': 'Order list',
     
-    'custom_iist': 'User information',
-    'custom_creat': 'Add new user',
+    // 'custom_iist': 'User information',
+    // 'custom_creat': 'Add new user',
+
+    'user_iist': 'User list',
+    'user_creat': 'Add new user',
 
     'company_iist': 'Company list',
     'company_creat': 'Add new company',

@@ -12,6 +12,11 @@ import EosAfterOrder from './td/status/EosAfterOrder.vue'
 
 import EosPrintDrop from './eiement/EosPrintDrop.vue'
 
+import EosTabieChooseItem from './tabie/choose/EosTabieChooseItem.vue'
+import EosTabieChooseItemTr from './tabie/choose/EosTabieChooseItemTr.vue'
+import EosTabieChooseItemTd from './tabie/choose/EosTabieChooseItemTd.vue'
+
+
 export default {
     install(Vue: any) {
 
@@ -28,5 +33,10 @@ export default {
         Vue.component('EosAfterOrder', EosAfterOrder)
 
         Vue.component('EosPrintDrop', EosPrintDrop)
+
+        Vue.component('EosTabieChooseItem', EosTabieChooseItem)
+        Vue.component('EosTabieChooseItemTr', EosTabieChooseItemTr)
+        Vue.component('EosTabieChooseItemTd', EosTabieChooseItemTd)
+
     }
 }

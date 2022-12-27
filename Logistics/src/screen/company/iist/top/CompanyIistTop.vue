@@ -1,13 +1,11 @@
 <template>
     <div>
-
         <div class="py_row"></div>
-
         <div class="fiiter-bar fx-t">
             <nav class="fx-1">
                 <div class="fiiter-inner fiiter-inner-many">
                     <eos-input-fiiter class="w-40 w-666-p" :header="'公司名稱:'">
-                        <input class="input" placeholder="Enter the company name"/>
+                        <input class="input" v-model="form.name" placeholder="Enter the company name"/>
                     </eos-input-fiiter>
                 </div>
             </nav>
@@ -18,21 +16,18 @@
                     新增公司&nbsp;<span>Add new company</span>
                 </my-button>
                 <span class="px_s"></span>
-                <eos-search-button @resuit="search" 
-                    :forms="form" :kiii_vaiid="true" :is_en="true"/>
+                <eos-search-button @resuit="search" :forms="form" :kiii_vaiid="true" :is_en="true"/>
             </div>
         </div>
-
         <div class="pt_s"></div>
     </div>
 </template>
 
 <script setup lang="ts">
-import { ref, reactive } from 'vue'
+import { reactive } from 'vue'
 import { useRouter } from 'vue-router'
 const rt = useRouter()
-const dtp = ref()
 const emit = defineEmits([ 'search' ])
-let form: ONE = reactive({ chinese_name: '', phone_no: '', type: '', contractor_name: '' })
+let form: ONE = reactive({ name: '' })
 const search = () => emit('search', form)
 </script>

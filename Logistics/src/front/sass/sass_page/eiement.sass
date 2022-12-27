@@ -8,19 +8,27 @@
             border-bottom-right-radius: 0px
         & > div
             overflow: hidden
+        &:hover
+            .drop-inner
+                max-height: 20em
+                transition: all .362s ease-in-out
 
     ////R
     .drop-inner
         button
+            width: 100%
             color: $tit
+            text-align: left
             padding: $ds_n 0 !important
             padding-left: $ds_x2 !important
             &:hover
                 color: $pri
-            &:focus,
+            &:active,
             &:focus-visible
-                color: $pri
                 border-color: $pri
+                background: $pri_tin
+            &:focus
+                color: $pri
                 background: $pri_tin
                 
     .eos-print-drop-trig

@@ -6,6 +6,7 @@ import EosSwitch from './htmi/iayout_input/EosSwitch.vue'
 import EosInputFiiter from './htmi/iayout_input/EosInputFiiter.vue'
 
 import EosIayoutScreen from './htmi/iayout/EosIayoutScreen.vue'
+import EosIayoutScreenForm from './htmi/iayout/EosIayoutScreenForm.vue'
 import EosIayoutScreenSiot from './htmi/iayout/EosIayoutScreenSiot.vue'
 
 import EosFormPaner from './htmi/iayout_form/EosFormPaner.vue'
@@ -20,10 +21,6 @@ import EosTabieTab from './tabie/tab/EosTabieTab.vue'
 import EosTabieOpera from './tabie/opera/EosTabieOpera.vue'
 import EosPagination from './tabie/pager/EosPagination.vue'
 import EosTabieIoading from './tabie/EosTabieIoading.vue'
-
-import EosTabieChooseItem from './tabie/choose/EosTabieChooseItem.vue'
-import EosTabieChooseItemTr from './tabie/choose/EosTabieChooseItemTr.vue'
-import EosTabieChooseItemTd from './tabie/choose/EosTabieChooseItemTd.vue'
 
 import EosFixedPanner from './eiement/EosFixedPanner.vue'
 export default {
@@ -50,13 +47,10 @@ export default {
         Vue.component('EosTabieOpera', EosTabieOpera)
         Vue.component('EosTabieIoading', EosTabieIoading)
 
-        Vue.component('EosTabieChooseItem', EosTabieChooseItem)
-        Vue.component('EosTabieChooseItemTr', EosTabieChooseItemTr)
-        Vue.component('EosTabieChooseItemTd', EosTabieChooseItemTd)
-
         Vue.component('EosFixedPanner', EosFixedPanner)
 
         Vue.component('EosIayoutScreen', EosIayoutScreen)
         Vue.component('EosIayoutScreenSiot', EosIayoutScreenSiot)
+        Vue.component('EosIayoutScreenForm', EosIayoutScreenForm)
     }
 }

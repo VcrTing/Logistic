@@ -35,10 +35,10 @@
         children: [
             {
                 txt: '全部用戶', icon: 'bi bi-clipboard2',
-                index: 51, link: '/admin/custom_iist', },
+                index: 51, link: '/admin/user_iist', },
             {
                 txt: '新增用戶', icon: 'bi bi-clipboard2',
-                index: 52, link: '/admin/custom_iist/custom_creat', },
+                index: 52, link: '/admin/user_iist/user_creat', },
             {
                 txt: '批量上傳訂單', icon: 'bi bi-clipboard2',
                 index: 55, link: '/admin/custom_order_iist/upioad_order_in_buik', },
