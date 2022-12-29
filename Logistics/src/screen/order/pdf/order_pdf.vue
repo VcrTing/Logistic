@@ -12,7 +12,7 @@
             </div>
         </div>
 
-        <div class="py">
+        <div class="py w-333 w-50-p">
             <img :src="img"/>
         </div>
     </div>
