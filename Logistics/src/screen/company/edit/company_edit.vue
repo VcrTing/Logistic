@@ -17,10 +17,7 @@ const base = ref()
 const comp = companyPina()
 
 console.log('comp.on =', comp.one_company)
-nextTick(() => base.value.reset({
-    email: 'vcrting@123.com', phone_no: '92889866', 
-    address: '香港九龙富贵大街富贵大厦203', name: '富贵科技有限公司'
-}))
+nextTick(() => base.value.reset( comp.one_company ))
 
 const submit = async function() {
     const data_base = base.value.resuit()

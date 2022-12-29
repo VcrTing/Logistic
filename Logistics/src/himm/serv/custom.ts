@@ -16,6 +16,8 @@ const creat = async function (src: ONE) {
 }
 
 const edit = async function (src: ONE, pk: string) {
+
+    console.log('数据 custom user =', src, pk)
     let res = await net.put('custom_user', userPina().jwt, src, { }, pk)
     console.log('edit custom user =', res)
     return res ? res : null

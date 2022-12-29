@@ -1,0 +1,1 @@
+import{d as e,o as s,c as o,h as n}from"./index.e7fbfebc.js";const c="/assets/LOGO.4c4292ff.png",t=["src"],m=e({__name:"Iogo",setup(r){return(_,a)=>(s(),o("img",{src:n(c)},null,8,t))}});export{m as _};

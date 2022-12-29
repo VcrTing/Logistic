@@ -1,25 +1,30 @@
 <template>
     <div class="py f-row">
-        <eos-input class="w-100" :is_err="form_err.pass" :header="'密碼 Password'">
-            <input class="input" v-model="form.pass" placeholder="請輸入 Please Enter" />
+        <eos-input class="w-100" :is_err="form_err.password" :header="is_edit ? '新密碼 The new password' : '密碼 Password'">
+            <input class="input" v-model="form.password" 
+            :placeholder="is_edit ? '請輸入新的密碼 Please Enter the new password' : '請輸入 Please Enter'" />
         </eos-input>
     </div>
 </template>
 
 <script setup lang="ts">
-import { ref, reactive, defineExpose } from 'vue'
-
+import { reactive, defineExpose } from 'vue'
+const prp = defineProps<{
+    is_edit?: boolean
+}>()
 // 沒有改動
 
-const form:ONE = reactive({
-    pass: ''
+const form: ONE = reactive({
+    password: ''
 })
 const form_err = reactive({
-    pass: false,
+    password: false,
 })
 
 const can = function() { let res = true
-    if (!form.pass) { form_err.pass = true; return false } else { form_err.pass = false }
+    if (!prp.is_edit) {
+        if (!form.password) { form_err.password = true; return false } else { form_err.password = false }
+    }
     Object.values( form_err ).map( e => { if (e) { res = false } })
     return res
 }

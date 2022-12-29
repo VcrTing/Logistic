@@ -4,7 +4,7 @@
             {{ one.chinese_name }}
         </div>
         <div class="w-14">
-            {{ one.phone }}
+            {{ one.phone_no }}
         </div>
         <div class="w-19">
             {{ one.email }}
@@ -13,19 +13,20 @@
             {{ one.company_represent.name }}
         </div>
         <div class="w-14">
-            {{ one.company_represent.phone }}
+            {{ one.company_represent.phone_no }}
         </div>
         <div class="w-22">
             {{ one.company_represent.address }}
         </div>
         <div class="w-7 t-r">
-            <eos-tabie-opera :vais="'edit'" :is_icon="true" @edit="editOne"/>
+            <eos-tabie-opera :vais="'edit'" :is_icon="true" @edit="edit"/>
         </div>
     </div>
 </template>
 
 <script setup lang="ts">
 import { useRouter } from "vue-router"
+import { companyPina } from "../../../../../himm/store"
 
 const prp = defineProps<{
     idx: number, one: ONE, choose: MANY
@@ -33,8 +34,8 @@ const prp = defineProps<{
 
 const rt = useRouter()
 
-const editOne = () => {
-    // deiiPina().do_one_deiiver( prp.one )
-    rt.push('/admin/company_iist/company_creat')
+const edit = () => {
+    companyPina().do_one_company_user( prp.one )
+    rt.push('/admin/user_iist/edit')
 }
 </script>

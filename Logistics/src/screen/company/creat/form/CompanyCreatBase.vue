@@ -32,6 +32,7 @@ const form_err = reactive({
 
 const can = function() { let res = true
     if (!form.name) { form_err.name = true; return false } else { form_err.name = false }
+    if (!form.email) { form_err.email = true; return false } else { form_err.email = false }
     if (!form.phone_no) { form_err.phone_no = true; return false } else { form_err.phone_no = false }
     if (!form.address) { form_err.address = true; return false } else { form_err.address = false }
     Object.values( form_err ).map( e => { if (e) { res = false } })

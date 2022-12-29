@@ -2,7 +2,7 @@
     <eos-iayout-screen :is_en="true">
         <eos-iayout-form :is_en="true"
             @submit="submit" 
-            @back="rt.push('/admin/iong_manage/im_store_iist')">
+            @back="rt.push('/admin/order_iist')">
 
             <eos-form-paner :tit="'基本信息 Basic'">
                 <order-edit-base ref="base"/>

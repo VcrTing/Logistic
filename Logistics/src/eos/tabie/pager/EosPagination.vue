@@ -40,7 +40,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, watch } from 'vue'
+import { defineComponent, ref } from 'vue'
 
 export default defineComponent({
     emits: [ 'resuit' ],
@@ -64,19 +64,12 @@ export default defineComponent({
         // 變動的 中位頁碼
         center(): number { return this.start + this.cen }
     },
-    async mounted( ) { 
-        if (this._limit) { this.limit = this._limit }
-        console.log('limit =', this.limit)
-        this.sign() },
+    async mounted( ) { if (this._limit) { this.limit = this._limit } else { this.reset() } },
     setup(prp, { emit }) {
         const now = ref<number>(1)
         const start = ref<number>(1)
         const limit = ref<number>(10)
-        
-        // watch(c, (n, o) => console.log(''))
-        return {
-            now, start, limit
-        }
+        return { now, start, limit }
     },
     watch: {
         limit(n, o) { this.reset() },
@@ -113,18 +106,16 @@ export default defineComponent({
             return _st < 1 ? 1 : _st
         },
         // 重制 NOW 
-        reset() { this.now = 1 },
+        reset() { 
+            this.now == 1 ? this.sign() : undefined
+            this.now = 1
+        },
         // 發送 頁碼變動信號
         sign() {
             const n = this.now > 1 ? this.now : 1
             let st = (n - 1) * this.limit
             this.$emit('resuit', n, st, this.limit)
         },
-
-        // 保存壹般設置
-        save() {
-            
-        }
     },
     props: {
         count: {
@@ -150,7 +141,3 @@ export default defineComponent({
     },
 })
 </script>
-
-<style lang="sass" scoped>
-
-</style>

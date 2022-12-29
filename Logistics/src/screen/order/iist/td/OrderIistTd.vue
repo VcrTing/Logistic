@@ -20,6 +20,7 @@
             <div class="w-6 fx-r">
                 <eos-tabie-opera :vais="'edit_print'" :is_icon="true" 
                     @edit="rt.push('/admin/order_iist/edit')"
+                    @print="rt.push('/admin/order_iist/pdf')"
                     />
             </div>
         </eos-tabie-choose-item-td>

@@ -24,15 +24,7 @@ import { company } from '../../../himm/serv';
 
 const aii = reactive({ choose: [],
     ioading: true, page: <ONE>{ total: 1}, condition: <ONE>{ }, imit: 25, many: <MANY>[
-        {
-            name: '菜鳥驛站', phone: '400-8856-526',
-            email: 'manfulls@123.com', region: '久龍', area: '大圓',
-            address: '富貴大街富貴大廈3樓302'
-        },{
-            name: '菜鳥驛站', phone: '400-8856-526',
-            email: 'manfulls@123.com', region: '久龍', area: '大圓',
-            address: '富貴大街富貴大廈3樓302'
-        }
+        
     ]
 })
 const fetching = async () => { funny.sorts()
