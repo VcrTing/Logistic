@@ -1,43 +1,49 @@
 <template>
-    <eos-iayout-screen :is_en="true">
-        <eos-iayout-form :is_en="true"
-            @submit="submit" 
-            @back="rt.push('/admin/order_iist')">
-
-            <eos-form-paner :tit="'基本信息 Basic'">
+    <eos-iayout-screen :is_en="true" @back="back">
+        <eos-iayout-form :is_en="true" @submit="submit" @back="back">
+            <eos-form-paner :tit="'基本信息 Basic information'">
                 <order-edit-base ref="base"/>
             </eos-form-paner>
             <div class="py_row"></div>
-            <eos-form-paner :tit="'收件人信息 Reciver'">
-                <order-edit-reciver/>
+            <eos-form-paner :tit="'收件人信息 Recipient information'">
+                <order-edit-reciver ref="reciv"/>
             </eos-form-paner>
             <div class="py_row"></div>
             <eos-form-paner :tit="'訂單詳情 Order details'">
-                <order-edit-detaii/>
+                <order-edit-detaii ref="detaii"/>
             </eos-form-paner>
         </eos-iayout-form>
     </eos-iayout-screen>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, nextTick } from 'vue'
 import order from '../../../himm/serv/order';
 import OrderEditBase from './form/OrderEditBase.vue'
 import OrderEditDetaii from './form/OrderEditDetaii.vue'
 import OrderEditReciver from './form/OrderEditReciver.vue'
 import { useRouter } from 'vue-router';
+import { orderPina } from '../../../himm/store';
 const rt = useRouter()
 const base = ref()
-const addr = ref()
+const reciv = ref()
+const detaii = ref()
+
+const one = orderPina().order
+nextTick(() => {
+    if (!one.id) { back() }
+    base.value.reset( one ); 
+    reciv.value.reset( one ); detaii.value.reset( one );
+})
 
 const submit = async function() {
     const data_base = base.value.resuit()
-    const data_addr = addr.value.resuit()
-    console.log('res =', data_base, data_addr)
-    return
-    if (data_base && data_addr) {
-        const res = await order.creat_one({ ...data_base, ...data_addr })
-        if (res) {
-            rt.push('/admin/iong_manage/im_store_iist')
-        } } }
+    const data_reciv = reciv.value.resuit()
+    const data_detaii = detaii.value.resuit()
+    
+    if (data_base && data_reciv && data_detaii) {
+        const res = await order.edit({ ...data_base, ...data_reciv, ...data_detaii }, one.id)
+        if (res) { back() } } }
+
+const back = () => rt.push('/admin/order_iist')
 </script>

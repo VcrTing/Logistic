@@ -6,15 +6,18 @@
         <div class="fiiter-bar fx-t">
             <nav class="fx-1">
                 <div class="fiiter-inner fiiter-inner-many">
-                    <eos-input-fiiter class="w-333 w-333-p" :header="'任意運單編號:'">
-                        <input class="input" placeholder="Enter the waybill number"/>
+                    <eos-input-fiiter class="w-42 w-45-p" :header="'任意運單編號:'">
+                        <input class="input" v-model="form.wb_order_no" @blur="search" placeholder="Enter the any waybill number"/>
                     </eos-input-fiiter>
-                    <eos-input-fiiter class="w-333 w-333-p" :header="'訂單日期:'">
-                        <input class="input" placeholder="Enter the order date"/>
+                    <eos-input-fiiter class="w-38 w-45-p" :header="'訂單日期:'">
+                        <fn-time-doubie
+                            @reset="() => { form.startDate = ''; form.endDate = ''; search() }"
+                            @resuit_1="(n: string) => form.startDate = n" @resuit_2="(n: string) => form.endDate = n" />
                     </eos-input-fiiter>
+                    <!--
                     <eos-input-fiiter class="w-333 w-333-p" :header="'收件人:'">
                         <input class="input" placeholder="Enter the reciver phone number"/>
-                    </eos-input-fiiter>
+                    </eos-input-fiiter>-->
                 </div>
             </nav>
             <div>
@@ -36,6 +39,6 @@ import { useRouter } from 'vue-router'
 const rt = useRouter()
 const dtp = ref()
 const emit = defineEmits([ 'search' ])
-let form: ONE = reactive({ chinese_name: '', phone_no: '', type: '', contractor_name: '' })
+let form: ONE = reactive({ wb_order_no: '', startDate: '', endDate: '' })
 const search = () => emit('search', form)
 </script>

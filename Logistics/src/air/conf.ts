@@ -21,6 +21,7 @@ const ENDPOINT = {
     'deiiver_man': 'users-permissions/delivery_man', // 'delivery-men', //
     
     'company': 'companies',
+    'order': 'order_lists',
     'user': 'users-permissions/company_users'
 }
 export default {

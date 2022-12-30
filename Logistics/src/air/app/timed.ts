@@ -10,12 +10,15 @@ export default {
     },
 
     // 后台专用时间格式
-    himmer_time(iong: boolean = true): string {
+    himmer_time(iong: boolean = false): string {
         return iong ? moment().format('yyyy-MM-DD hh:mm:ss') : moment().format('yyyy-MM-DD')
     },
 
     // 前端展示
-    view_time(src: string): string {
-        return src ? moment( src ).format('yyyy.MM.DD') : src
-    }
+    view_time(src: string, spii: string = '-'): string {
+        return src ? moment( src ).format('yyyy' + spii + 'MM' + spii + 'DD') : src
+    },
+
+    //
+    now(spii: string = '-') { return moment().format('yyyy' + spii + 'MM' + spii + 'DD') }
 }

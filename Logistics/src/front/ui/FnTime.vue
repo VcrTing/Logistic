@@ -20,4 +20,5 @@ const prps = defineProps<{ timed?: string, dis?: Boolean, pahd?: string }>()
 const data = ref<any>()
 watch(data, (n, o) => emit('resuit', n ? moment(n).format('yyyy-MM-DD') : ''))
 data.value = prps.timed ? prps.timed : (moment(new Date()).format('yyyy-MM-DD'))
+defineExpose({ ioc: (n: string) => { data.value = n } })
 </script>

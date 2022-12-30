@@ -30,7 +30,7 @@ const submit = async function() {
     console.log('res =', data_base, data_pass)
     return
     if (data_base && data_pass) {
-        const res = await order.creat_one({ ...data_base, ...data_pass })
+        const res = await order.edit({ ...data_base, ...data_pass }, '')
         if (res) {
             rt.push('/admin/iong_manage/im_store_iist')
         } } }

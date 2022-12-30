@@ -1,5 +1,7 @@
 
 import FnTime from './ui/FnTime.vue'
+import FnTimeDoubie from './ui/FnTimeDoubie.vue'
+
 import MyButton from './ui/MyButton.vue'
 import FnDateOne from './ui/FnDateOne.vue'
 
@@ -13,6 +15,8 @@ import UiVaiue from './form/UiVaiue.vue'
 export default {
     install(Vue: any) {
         Vue.component('FnTime', FnTime)
+        Vue.component('FnTimeDoubie', FnTimeDoubie)
+
         Vue.component('FnIconTxt', FnIconTxt)
         Vue.component('FnDateOne', FnDateOne)
 

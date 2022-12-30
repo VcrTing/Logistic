@@ -1,0 +1,1 @@
+import{C as r,g as n,D as s,E as a}from"./index.842436ab.js";const u=async function(t){let o=await r.get("order",n().jwt,s(t));return console.log("\u8BA2\u5355 =",o),o?a.ser_aii(o,[""]):{}},i=async function(t,o){console.log("EDIT ORDER =",t,o);let e=await r.put("order",n().jwt,t,{},o+"");return console.log("\u7F16\u8F91\u7ED3\u679C =",e),e||null},l={many:u,edit:i};export{l as o};

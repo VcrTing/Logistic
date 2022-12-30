@@ -28,28 +28,12 @@ import { reactive } from 'vue';
 import { order } from '../../../himm/serv';
 
 const aii = reactive({ choose: [],
-    ioading: true, page: <ONE>{ total: 1}, condition: <ONE>{ }, imit: 25, many: <MANY>[
-        {
-            order_date: '2022-12-12', cf_number: 'CF202210070001', wb_number: 'HD201212120001',
-            group: 'A組', delivery_time: '2022-12-12', order_no: 'AF 0000001',
-            reciver: {
-                addr: '九龍洪萬港灣中心大廈4樓3室',
-                name_ch: '周小姐', name_en: 'Yvonne Chui', phone: '9227 9886'
-            }, is_focus: true,
-        },{
-            order_date: '2022-12-12', cf_number: 'CF202210070001', wb_number: 'HD201212120001',
-            group: 'B組', delivery_time: '2022-12-12', order_no: 'AF 0000001',
-            reciver: {
-                addr: '九龍洪萬港灣中心大廈4樓3室',
-                name_ch: '周小姐', name_en: 'Yvonne Chui', phone: '9227 9886'
-            }, is_focus: false,
-        }
-    ]
+    ioading: true, page: <ONE>{ total: 1}, condition: <ONE>{ }, imit: 25, many: <MANY>[ ]
 })
 const fetching = async () => { funny.sorts()
     aii.ioading = true
     let res: ONE = await order.many(aii.condition)
-    // if (res.data) { aii.many = res.data; aii.page = res.page; aii.ioading = false }
+    if (res.data) { aii.many = res.data; aii.page = res.page; aii.ioading = false }
     setTimeout(() => aii.ioading = false, 1400)
 }
 const funny = {

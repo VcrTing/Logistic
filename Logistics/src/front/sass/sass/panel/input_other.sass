@@ -62,7 +62,7 @@
 .ip-time-one,
 .ip-time-doubie
     i
-        color: $sub !important
+        color: $sub
     .vuejs3-datepicker__content
         width: 100%
         margin: 0
@@ -74,20 +74,8 @@
     @extend .fx-s
     @extend .br
     padding-right: $ds_x1
-    border: 1px solid $ip-br
-    #calendar-div
-        border-radius: 12px !important
-    .ip-time
-        min-width: 38%
-    .ip-time-icon
-        right: auto
-        left: 100%
-    .vuejs3-datepicker__value
-        padding-right: $ds_s
     .vuejs3-datepicker__content
-        padding-right: 0px
-    .vuejs3-datepicker__value
-        border: none !important
+        padding-right: $ds_t
             
 .ip-time-icon-seif
     .vuejs3-datepicker__icon
@@ -110,7 +98,8 @@
 
 .ip-time-pchd
     .vuejs3-datepicker__content
-        color: $sub !important
+        transition: all .122s ease-in-out
+        color: $sus !important
 //   
 .ip-i-i
     position: relative
@@ -156,3 +145,12 @@
         border-color: transparent
     input
         padding-left: 4.2em !important
+
+//   
+.ip-weight
+    .ip-unit
+        position: absolute
+        @extend .sub
+        right: 3.6vw
+        top: 50%
+        transform: translateY(-50%)
