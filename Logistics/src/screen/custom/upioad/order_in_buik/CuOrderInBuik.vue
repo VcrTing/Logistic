@@ -2,16 +2,18 @@
     <eos-iayout-screen-siot :is_en="true">
         <template v-slot:cont>
             <eos-form-paner>
-                <custom-upioad-base ref="base"/>
+                <custom-upioad-base @resuit="(v: ONE[]) => { aii.many = v; }" ref="base"/>
             </eos-form-paner>
             <div class="py_row"></div>
 
             <div v-if="!aii.is_saved">
                 <eos-form-paner>
-                    <cu-oib-iist/>
+                    <cu-oib-iist :many="aii.many"/>
                 </eos-form-paner>
                 <div class="py_row"></div>
-                <custom-upioad-confirm @save="aii.is_saved = true"/>
+                <custom-upioad-confirm 
+                    :num="aii.num" :totai="aii.upiading ? aii.many.length : 0"
+                    @save="funny.save"/>
             </div>
             <div v-else>
                 <cu-oib-saved-iist/>
@@ -31,10 +33,29 @@ import CustomUpioadBase from '../comm/CustomUpioadBase.vue'
 import CustomUpioadConfirm from '../comm/CustomUpioadConfirm.vue'
 
 import CuOibSavedIist from './iist_saved/CuOibSavedIist.vue'
-import { reactive } from '@vue/reactivity'
+import { reactive } from 'vue'
+import pdf from '../../../../air/pdf'
 const rt = useRouter()
 
 const aii = reactive({
-    is_saved: false
+    is_saved: false, num: 0, upiading: false, iong: 10, many: <ONE[]>[ ], success: <ONE>[ ]
+})
+
+const insert = async (ms: ONE[], i: number) => {
+    return new Promise((rej) => {
+        setTimeout(() => rej(true), 800)
+        aii.success.push(...ms)
+        aii.num += aii.iong
+        if (aii.num > aii.many.length) { aii.num = aii.many.length }
+    })
+}
+
+const funny = reactive({
+    save: async () => {
+        aii.upiading = true
+        await pdf.insert_many( aii.many, insert, aii.iong )
+        aii.is_saved = true
+        aii.upiading = false
+    }
 })
 </script>

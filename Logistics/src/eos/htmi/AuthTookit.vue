@@ -10,7 +10,7 @@ import { useRouter } from 'vue-router'
 const rt = useRouter()
 const u = userPina()
 const check = () => { if (!u.is_iogin) { rt.push('/login') } }
-check()
+// check()
 </script>
 
 <style lang="sass" scoped>

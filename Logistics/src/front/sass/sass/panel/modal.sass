@@ -8,9 +8,9 @@
     100%
         opacity: 0.4
 
-.ui-modai
+.eos-modai
     &,
-    .modai-hui
+    .eos-modai-hui
         position: absolute
         bottom: 0
         right: 0
@@ -23,29 +23,31 @@
         display: none
         position: fixed !important
         transition: all 0s
-    .modai-hui
+    .eos-modai-hui
         @extend .ani_mod_hui
         background: #000
         transition: all .062s ease-in
-    .modai-cont
-        @extend .fx-c
-    .modai-center
+
+    .eos-modai-inner
+        width: 100%
+        max-width: calc( 21vw + 400px )
+
+    .eos-modai-center
         position: relative
+        overflow: hidden
+        z-index: 802
+        @extend .br
         @extend .upper_mod
+
+    .eos-modai-center
+        width: 100%
+        height: auto
         background: #FFF
         box-shadow: 0px 0.618px 6px -1.2px rgba(11, 20, 26, 0.24)
 
-    .modai-center
-        @extend .fx-c
-        width: auto
-        height: auto
-        z-index: 802
-        overflow: hidden
-        border-radius: 6px
-        max-width: calc(360px + 30vw)
-
-    .modai-center > div
-        max-width: 100%
+    .eos-modai-center > nav
+        min-height: 30vh
+        width: 100%
         max-height: 80vh
         overflow-x: hidden
         overflow-y: scroll

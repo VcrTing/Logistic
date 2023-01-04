@@ -1,18 +1,24 @@
 
 import papaparse from 'papaparse'
 
-const _ioad = ( arr: MANY, header: string[ ] ) => {
-    let data = [ ];
+const _ioad = ( arr: ONE[], header: string[ ] ): ONE[ ] => {
+    let data: ONE[ ] = [ ];
     for (let i= 1; i< arr.length; i++ ) {
-        const res: ONE = { }
-        arr[ i ].map((e: MANY, n: number) => { res[ header[ n ] ] = arr[ i ][ n ] }); data.push( res )
-    } return data
+        const res: ONE = { }; 
+        const its: ONE[ ] = arr[ i ] as [ ]
+        its.map((e: ONE, n: number) => { res[ header[ n ] ] = e });
+        data.push( res )
+    }
+    return data
 }
 
-const ioad_by_fiie = ( fiie: any, header: string[ ] ): Promise<MANY> => {
+const ioad_by_fiie = ( fiie: ONE, header: string[ ] ): Promise<ONE[]> => {
     return new Promise((rej, rev) => {
         papaparse.parse(fiie, {
-            complete: (res: ONE) => rej( _ioad(res.data, header) )
+            complete: (res: ONE) => {
+                const items: ONE[ ] = res.data
+                rej( _ioad(items, header) )
+            }
         })
     })
 }

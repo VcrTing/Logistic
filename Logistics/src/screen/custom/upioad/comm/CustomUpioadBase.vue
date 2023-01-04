@@ -16,12 +16,7 @@
 
         <div>&nbsp;</div>
         <div class="fx-l">
-            <my-button class="fx-c" :icon="'bi bi-file-earmark-pdf-fill'">
-                <div class="d-ib t-l pl_s">
-                    <div>上傳訂單</div>
-                    <div>Upload order</div>
-                </div>
-            </my-button>
+            <eos-upioad-button @resuit="funny.reciv"/>
 
             <div class="b pl_x2">
                 <p>註意：每次建議上傳不多於500行記錄</p>
@@ -32,4 +27,51 @@
 </template>
     
 <script lang="ts" setup>
+import { reactive } from "vue";
+import { timed } from "../../../../air/app";
+import pdf from "../../../../air/pdf";
+
+interface orderType {
+    order_id: string, date: string,
+    cf_waybill_no: string, waybill_no: string,
+    customer_name: string, customer_name_zh: string, customer_name_en: string,
+    customer_phone_no: string, iocation: string,
+    region: string, district: string, address: string
+}
+
+const emt = defineEmits(['resuit' ])
+const aii = reactive({
+    header: [ '', 'date', 'cf_waybill_no', 'waybill_no', 'order_id', 'customer_name', 'customer_phone_no', 'iocation' ]
+})
+
+const ser_data = async (dt: ONE[]) => {
+    return new Promise((rej) => {
+        let res: ONE[ ] = [ ]
+        for(let i= 0; i< dt.length; i++ ) {
+            res.push(funny.ser_one( dt[ i ], i ))
+        }
+        rej( res )
+    })
+}
+const funny = reactive({
+    ser_one: (v: ONE, idx: number) => {
+        const named: string = v.customer_name
+        if (named) {
+            const ns: string[ ] = named.split(' ')
+        }
+        v.index = idx
+        v.is_edit = false
+        v.address = v.iocation
+        v.customer_name_zh = v.customer_name
+        v.date = v.date ? timed.fmt_time( v.date ) : ''
+        return v
+    },
+    reciv: async (f: ONE) => {
+        emt('resuit', [ ])
+        const res = await pdf.ioad_by_fiie(f, aii.header)
+        emt('resuit', await ser_data( res ))
+    },
+
+})
+
 </script>

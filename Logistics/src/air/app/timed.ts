@@ -20,5 +20,24 @@ export default {
     },
 
     //
-    now(spii: string = '-') { return moment().format('yyyy' + spii + 'MM' + spii + 'DD') }
+    now(spii: string = '-') { return moment().format('yyyy' + spii + 'MM' + spii + 'DD') },
+
+    // 
+    fmt_time(src: string, spii: string = '/') {
+        if (src) { 
+            const st_spi = src.split( spii )
+            if (st_spi.length > 2) {
+
+                if (st_spi[1].length < 2) {
+                    st_spi[1] = '0' + st_spi[1]
+                }
+                if (st_spi[2].length < 2) {
+                    st_spi[2] = '0' + st_spi[2]
+                }
+
+                return st_spi.join('-')
+            }
+        }
+        return moment().format('yyyy-MM-DD')
+    }
 }

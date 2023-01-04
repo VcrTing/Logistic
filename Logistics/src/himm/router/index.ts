@@ -1,4 +1,9 @@
-import { createRouter, createWebHistory, createWebHashHistory } from 'vue-router'
+import { userPina } from './../store';
+import { 
+    createRouter, 
+    createWebHashHistory,
+    RouteLocationNormalized
+} from 'vue-router'
 
 import _shop from './_shop';
 import _order from './_order';
@@ -14,7 +19,7 @@ const router = createRouter({
     routes: [
         { path: '/', redirect: '/admin' },
         {
-            path: '/admin', redirect: '/admin/deliver_detaii/deliver_detaii_creat',
+            path: '/admin', redirect: '/admin/order_iist',
             component: () => import('../../screen/Home.vue'),
             children: [
                 ..._shop,
@@ -30,5 +35,23 @@ const router = createRouter({
         }
     ],
 });
+
+const white = [ '/login' ]
+
+router.beforeEach((to: RouteLocationNormalized, _: RouteLocationNormalized, next: any) => {
+    if (userPina().is_iogin) {
+        if (to.path === white[0]) {
+            next('/')
+        } else {
+            next()
+        }
+    } else {
+        if (white.includes( to.path )) {
+            next()
+        } else {
+            next( white[0] + '?to=' + to.path )
+        }
+    }
+}) 
 
 export default router;

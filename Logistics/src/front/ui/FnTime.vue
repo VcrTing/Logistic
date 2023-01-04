@@ -5,7 +5,7 @@
 		:maximum-view="'month'"
 
         class="ip-time"
-		:format="'dd / MM / yyyy'"
+		:format="'yyyy-MM-dd'"
         :placeholder="pahd"
         v-model="data" v-if="data" 
     ></vuejs-datepicker>

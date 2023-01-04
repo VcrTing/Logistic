@@ -75,6 +75,7 @@ select::focus-visible
     display: inline-block
     padding: 0.1em 0.5em !important
 
+
 .ip-tip-active
     height: 1.5em
     animation: shower .62s ease-out
@@ -190,14 +191,37 @@ input[type=radio]
             border: none !important
             box-shadow: none !important
 
+
+.input-s
+    @extend .input
+    padding-left: $ds
+    padding-right: $ds_s
+
+.ip-time-s
+    .vuejs3-datepicker__value
+        padding-left: 0px !important
+        .vuejs3-datepicker__icon
+            display: none !important
+        .vuejs3-datepicker__content
+            padding-left: 0px !important
+
 @media screen and ( max-width: 1444px )
     .input,
     .ui-ip-fiiter
         padding-left: $ds_x2
+    .input-s
+        padding-left: $ds
+
 @media screen and ( max-width: 1082px )
+
     .input,
     .ui-ip-fiiter
         padding-left: $ds
+
+    .input-s
+        padding-left: $ds_s
+        padding-right: $ds_t
+
     .ip-attach-r
         .i, i
             right: 0.8em

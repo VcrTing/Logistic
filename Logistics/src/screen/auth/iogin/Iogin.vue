@@ -29,9 +29,12 @@ import AuthIayout from '../AuthIayout.vue'
 import AuthOperaBar from '../comm/AuthOperaBar.vue'
 
 import conf from '../../../air/conf'
-import { useRouter } from 'vue-router'
+import { useRouter, useRoute } from 'vue-router'
 import { auth } from '../../../himm/serv'
-const rt = useRouter()
+const rt = useRoute()
+const rtr = useRouter()
+
+console.log('rt =', rt.query)
 
 const form = reactive({ name: '',  pass: '' })
 const form_err = reactive({ name: false, pass: false })
@@ -42,7 +45,11 @@ const submit = async function() {
     if (! form.name ) {  form_err.name  = true; return }
     if (! form.pass ) {  form_err.pass  = true; return }
     const res = await auth.iogin( form.name ,  form.pass )
-    if (res) { rt.push('/') }
+    if (res) { 
+        const qry: ONE = rt.query; 
+        const to: string | null = qry.to
+        to ? rtr.push( to ) : rtr.push('/') 
+    }
 }
 </script>
 
