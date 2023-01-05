@@ -17,6 +17,8 @@
         <eos-mod>
             <cu-oib-td-form @refresh="refresh"/>
         </eos-mod>
+
+        <cu-oib-fix-panner/>
     </div>
 </template>
     
@@ -24,6 +26,7 @@
 import CuOibTdForm from './form/CuOibTdForm.vue';
 import CuOibIistTr from './tabie/CuOibIistTr.vue';
 import CuOibIistTd from './tabie/CuOibIistTd.vue';
+import CuOibFixPanner from '../../pan/CuOibFixPanner.vue';
 import { reactive } from '@vue/reactivity';
 import { watch } from '@vue/runtime-core';
 

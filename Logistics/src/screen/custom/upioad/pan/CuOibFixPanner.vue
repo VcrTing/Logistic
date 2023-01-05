@@ -10,13 +10,10 @@
 <script lang="ts" setup>
 import { watch, ref } from 'vue';
 import { storeToRefs } from 'pinia';
-import { orderPina } from '../../../../himm/store';
+import { appPina } from '../../../../himm/store';
 import CoOrderFpCont from '../../../../components/order/CoOrderFpCont.vue';
 
-const appREF = storeToRefs(orderPina())
+const appREF = storeToRefs(appPina())
 const one: ONE = ref()
-watch(appREF.order, (n: ONE) => {
-    (one.value = n);
-    console.log('ONE ORDER =', n)
-})
+watch(appREF.one, (n: ONE) => (one.value = n))
 </script>

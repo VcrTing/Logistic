@@ -44,5 +44,5 @@ const submit = async function() {
 
 <style lang="sass" scoped>
 .bi
-    transform: translateY(-0.3em)
+    // transform: translateY(-0.3em)
 </style>

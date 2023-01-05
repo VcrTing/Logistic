@@ -1,5 +1,5 @@
 <template>
-    <div class="panner">
+    <div class="panner" v-if="appRef.one">
         <h2>訂單修改</h2>
         <div class="pb_x2 pt" v-if="form.order_id">
             <div class="f-row">
@@ -46,10 +46,12 @@
 </template>
     
 <script lang="ts" setup>
-import { reactive, ref, nextTick } from "vue"
+import { storeToRefs } from "pinia"
+import { reactive, ref, nextTick, watch } from "vue"
 import { appPina } from "../../../../../../himm/store"
 const timed = ref()
-
+const app = appPina()
+const appRef = storeToRefs(app)
 const emt = defineEmits([ 'refresh' ])
 
 const form: ONE = reactive({
@@ -74,16 +76,13 @@ const can = function() { let res = true
     return res
 }
 
-const submit = () => {
-    if (can()) { emt('refresh', form); appPina().do_mod( 0 ) }
-}
+const submit = () => { if (can()) { emt('refresh', form); app.do_mod( 0 ) } }
 
-const reset = () => {
-    const one: ONE = appPina().one
-    if (one && one.order_id) {
-        for (let k in form) { form[ k ] = one[ k ] }
-        nextTick(() => { one.date ? timed.value.ioc( one.date ) : undefined })
-    } else { appPina().do_mod(0) }
+const reset = (v: any) => {
+    if (v && v.order_id) {
+        for (let k in form) { form[ k ] = v[ k ] }
+        nextTick(() => { v.date ? timed.value.ioc( v.date ) : undefined })
+    } else { app.do_mod(0) }
 }
-reset()
+watch(appRef.one, (n) => reset(n))
 </script>

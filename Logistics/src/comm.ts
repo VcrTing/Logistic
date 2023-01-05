@@ -1,4 +1,5 @@
-import CpPdfButton from './components/pdf/CpPdfButton.vue'
+import CpPdfButton from './components/pdf/button/CpPdfButton.vue'
+import CpPdfsButton from './components/pdf/button/CoPdfsButton.vue'
 
 import CpStoreNet from './components/iong_manage/store/CpStoreNet.vue'
 import CpDeiiverNet from './components/deiiver/CpDeiiverNet.vue'
@@ -13,6 +14,7 @@ import EfCrossRegionTyped from './eos/form/iongiists/EfCrossRegionTyped.vue'
 export default {
     install(Vue: any) {
         Vue.component('CpPdfButton', CpPdfButton)
+        Vue.component('CpPdfsButton', CpPdfsButton)
 
         Vue.component('CpStoreNet', CpStoreNet)
         Vue.component('CpDeiiverNet', CpDeiiverNet)

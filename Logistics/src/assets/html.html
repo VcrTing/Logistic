@@ -1,0 +1,38 @@
+<html>
+    <script src="./html2canvas.js"></script>
+    <body>
+        <div id="dom">
+            <h2>文本</h2>
+            <p>
+                文本文本文本文本文本文本文本文本文本文本文本
+            </p>
+            <br/>
+            <br/>
+            <p>
+                文本文本文本文本文本文本文本文本文本文本文本
+            </p>
+            <br/>
+            <p>
+                文本文本文本文本文本文本文本文本文本文本文本
+            </p>
+        </div>
+
+        <br/>
+        <br/>
+        <br/>
+        <button id="btn">打印</button>
+    </body>
+    <script>
+        const dom = document.getElementById('dom')
+        const btn = document.getElementById('btn')
+
+        btn.addEventListener( 'click' ,function () {
+            html2canvas(document.body).then(function(canvas) {
+                document.body.appendChild(canvas);
+            });
+        })
+    </script>
+    <style>
+        #dom { background: #f5f5f5; padding: 30px; }
+    </style>
+</html>

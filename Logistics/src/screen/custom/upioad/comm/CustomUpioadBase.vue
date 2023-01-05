@@ -30,18 +30,24 @@
 import { reactive } from "vue";
 import { timed } from "../../../../air/app";
 import pdf from "../../../../air/pdf";
-
+/*
 interface orderType {
     order_id: string, date: string,
     cf_waybill_no: string, waybill_no: string,
     customer_name: string, customer_name_zh: string, customer_name_en: string,
     customer_phone_no: string, iocation: string,
     region: string, district: string, address: string
-}
+}*/
 
 const emt = defineEmits(['resuit' ])
 const aii = reactive({
-    header: [ '', 'date', 'cf_waybill_no', 'waybill_no', 'order_id', 'customer_name', 'customer_phone_no', 'iocation' ]
+    header: [
+        'create_date', 'waybill_no', 'order_group', 'order_id',
+        'customer_name', 'customer_phone_no', 'address',
+        'route', 'district', 'product_content',
+        'weight', 'total_item_count', 'delivery_charge',
+        'collection_payment', 'remarks'
+    ]
 })
 
 const ser_data = async (dt: ONE[]) => {
@@ -50,28 +56,24 @@ const ser_data = async (dt: ONE[]) => {
         for(let i= 0; i< dt.length; i++ ) {
             res.push(funny.ser_one( dt[ i ], i ))
         }
-        rej( res )
-    })
+        rej( res ) })
 }
 const funny = reactive({
     ser_one: (v: ONE, idx: number) => {
-        const named: string = v.customer_name
-        if (named) {
-            const ns: string[ ] = named.split(' ')
-        }
         v.index = idx
-        v.is_edit = false
-        v.address = v.iocation
-        v.customer_name_zh = v.customer_name
-        v.date = v.date ? timed.fmt_time( v.date ) : ''
-        return v
+        v.weight = pdf.parse_int(v.weight)
+
+        v.delivery_charge = pdf.parse_int(v.delivery_charge)
+        v.total_item_count = pdf.parse_int(v.total_item_count)
+        v.collection_payment = pdf.parse_int(v.collection_payment)
+        
+        v.create_date = v.create_date ? timed.fmt_time( v.create_date ) : ''; return v
     },
     reciv: async (f: ONE) => {
         emt('resuit', [ ])
         const res = await pdf.ioad_by_fiie(f, aii.header)
         emt('resuit', await ser_data( res ))
     },
-
 })
 
 </script>

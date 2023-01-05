@@ -1,7 +1,7 @@
 <template>
     <div class="py f-row">
-        <eos-input class="w-50 w-50-p" :is_err="form_err.date" :header="'訂單日期 Order date'">
-            <fn-time :timed="form.date" ref="dateRef" @resuit="(n: string) => form.date = n"/>
+        <eos-input class="w-50 w-50-p" :is_err="form_err.create_date" :header="'訂單日期 Order date'">
+            <fn-time :timed="form.create_date" ref="dateRef" @resuit="(n: string) => form.create_date = n"/>
         </eos-input>
         <eos-input class="w-50 w-50-p" :is_err="false" :header="'翔烽運單編號 CF waybill number'">
             <input class="input" disabled :value="''" placeholder="暫不可更改 Cannot be changed" />
@@ -34,10 +34,10 @@ import { reactive, defineExpose, ref } from 'vue'
 const dateRef = ref()
 
 const form:ONE = reactive({
-    date: '', waybill_no: '', order_id: '', order_group: '', product_content: ''
+    create_date: '', waybill_no: '', order_id: '', order_group: '', product_content: ''
 })
 const form_err = reactive({
-    date: false, waybill_no: false, order_id: false, order_group: false, product_content: false
+    create_date: false, waybill_no: false, order_id: false, order_group: false, product_content: false
 })
 
 const can = function() { let res = true
@@ -51,6 +51,6 @@ const can = function() { let res = true
 
 defineExpose({ 
     resuit: () => (can() ? form : undefined), 
-    reset: (v: ONE) => { for (let k in form) { form[ k ] = v[ k ] } dateRef.value.ioc(v.date) } 
+    reset: (v: ONE) => { for (let k in form) { form[ k ] = v[ k ] } dateRef.value.ioc(v.receipt_date) } 
 })
 </script>

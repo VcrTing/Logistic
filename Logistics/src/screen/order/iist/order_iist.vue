@@ -2,7 +2,7 @@
     <eos-iayout-screen :is_en="true">
         <order-iist-top @search="funny.search"/>
         <nav class="panner mh-tabie">
-            <order-iist-bar/>
+            <order-iist-bar :aii="aii"/>
             <div class="tabie">
                 <order-iist-tr :aii="aii"/>
                 <eos-tabie-ioading :ioad="aii.ioading" :many="aii.many">
@@ -14,10 +14,15 @@
             <eos-pagination :mode="-1" class="pt" @resuit="funny.pagina" :_limit="aii.imit" :count="aii.page.total"/>
         </nav>
         <order-iist-fixed-panner/>
+
+        <eos-mod>
+            <order-one-print-mod/>
+        </eos-mod>
     </eos-iayout-screen>
 </template>
     
 <script lang="ts" setup>
+import OrderOnePrintMod from './pan/OrderOnePrintMod.vue'
 import OrderIistTd from './td/OrderIistTd.vue'
 import OrderIistTr from './top/OrderIistTr.vue'
 import OrderIistBar from './top/OrderIistBar.vue'
@@ -33,7 +38,7 @@ const aii = reactive({ choose: [],
 const fetching = async () => { funny.sorts()
     aii.ioading = true
     let res: ONE = await order.many(aii.condition)
-    if (res.data) { aii.many = res.data; aii.page = res.page; aii.ioading = false }
+    if (res.data) { aii.many = res.data; aii.page = res.page; aii.ioading = false; aii.choose = [ ] }
     setTimeout(() => aii.ioading = false, 1400)
 }
 const funny = {

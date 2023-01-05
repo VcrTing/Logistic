@@ -15,7 +15,7 @@ export const appPina = defineStore("appPina", {
         one: { },
 
         // 更新的 trigger
-        refresh: ''
+        refresh: '',
     }),
     actions: {
         do_one(m: ONE) { this.one = m ? m : { } },

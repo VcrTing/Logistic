@@ -3,6 +3,16 @@ import moment from "moment"
 const WEEK = [
     '星期一', '星期二', '星期三', '星期四', '星期五', '星期六', '星期日',
 ]
+
+const time_two_ien = (src: string, spii: string) => {
+    const st_spi = src.split( spii )
+    if (st_spi.length > 2) {
+        if (st_spi[1].length < 2) { st_spi[1] = '0' + st_spi[1] }
+        if (st_spi[2].length < 2) { st_spi[2] = '0' + st_spi[2] }
+        return st_spi.join('-')
+    } return src
+}
+
 export default {
     // 获取 星期的句子
     week_word (mmt_or_str: string | moment.MomentInput): string {
@@ -23,21 +33,14 @@ export default {
     now(spii: string = '-') { return moment().format('yyyy' + spii + 'MM' + spii + 'DD') },
 
     // 
-    fmt_time(src: string, spii: string = '/') {
-        if (src) { 
-            const st_spi = src.split( spii )
-            if (st_spi.length > 2) {
-
-                if (st_spi[1].length < 2) {
-                    st_spi[1] = '0' + st_spi[1]
-                }
-                if (st_spi[2].length < 2) {
-                    st_spi[2] = '0' + st_spi[2]
-                }
-
-                return st_spi.join('-')
-            }
+    fmt_time(src: string) {
+        let m = undefined
+        if (src.includes('/')) {
+            m = moment(src, 'DD/MM/yyyy')
+        } else 
+        if (src.includes('-')) {
+            m = moment(src, 'yyyy-MM-DD')
         }
-        return moment().format('yyyy-MM-DD')
+        return m ? m.format('yyyy-MM-DD') : src
     }
 }

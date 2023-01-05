@@ -2,28 +2,27 @@
     <div class="td">
         <eos-tabie-choose-item-td :one="one" :choose="choose">
             <div class="w-11">
-                {{ one.date }}
+                {{ one.create_date }}
             </div>
             <div class="w-14">
-                {{ one.number }}
+                {{ one.waybill_no }}
             </div>
             <div class="w-8">
-                {{ one.group }}
+                {{ one.order_group }}
             </div>
             <div class="w-10 ">
-                <span class="pri hand" @click="app.do_panner(1)">{{ one.order_no }}</span>
+                <span class="pri hand" @click="() => {
+                        app.do_one( one ); app.do_panner(1)
+                    }">{{ one.order_id }}</span>
             </div>
             <div class="w-11">
-                {{ one.reciver.name_hk }}<br/>
-                {{ one.reciver.name_en }}
+                {{ one.customer_name }}
             </div>
             <div class="w-11">
-                {{ one.reciver.phone }}
+                {{ one.customer_phone_no }}
             </div>
             <div class="w-32">
-                {{ one.reciver.region }}
-                {{ one.reciver.area }}
-                {{ one.reciver.address }}
+                {{ one.address }}
             </div>
             <div class="w-4 t-r">
                 <eos-tabie-opera :vais="'edit'" :is_icon="true"/>
@@ -37,7 +36,5 @@ import { useRouter } from "vue-router"
 import { appPina } from "../../../../../../himm/store"
 const app = appPina()
 const rt = useRouter()
-const prp = defineProps<{
-    idx: number, one: ONE, choose: MANY
-}>()
+const prp = defineProps<{ idx: number, one: ONE, choose: MANY }>()
 </script>

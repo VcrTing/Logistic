@@ -32,11 +32,14 @@
     background: $err
 
 
-$die: #b3b4b5
+$die: #edeae0
 .btn-die
-    background: none
-    color: $sus
-    border-color: $die
+    &, &:hover, &:focus, &:active, &:focus-visible
+        cursor: not-allowed
+        background: $die
+        color: $sub
+        border-color: $die
+        box-shadow: none !important
 
 /// . 
 .buib-succ

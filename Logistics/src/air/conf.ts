@@ -7,8 +7,8 @@ const BASE = 'https://apex.str.manfulls.tech' // 'http://localhost:1337' //
 const API = BASE + '/api'
 
 const ADMIN = {
-    name: 'manfulls',
-    pass: '1Qazxc2Wsxcv?!'
+    name: 'kyhenrymansfull@manfulls.com',
+    pass: '1Qazxc2Wsxcv'
 }
 
 const ENDPOINT = {
@@ -22,6 +22,7 @@ const ENDPOINT = {
     
     'company': 'companies',
     'order': 'order_lists',
+    'order_import': 'order_lists_import',
     'user': 'users-permissions/company_users'
 }
 export default {

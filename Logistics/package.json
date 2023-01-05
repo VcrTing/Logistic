@@ -20,11 +20,13 @@
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^3.2.0",
+    "jspdf": "^2.5.1",
     "html2canvas": "^1.4.1",
     "papaparse": "^5.3.2",
     "typescript": "^4.6.4",
     "vite": "^3.2.3",
     "vue-tsc": "^1.0.9",
     "vuejs3-datepicker": "^1.0.13"
+
   }
 }
