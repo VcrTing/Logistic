@@ -1,7 +1,7 @@
 
 $tb-br: #171307
 
-$td-br: #dedbd9
+$td-br: #eeebe9
 
 $td-br_x2: #A3AED078
 
@@ -40,6 +40,16 @@ $td-br_x2: #A3AED078
     .td:last-child
         border-bottom-left-radius: $br
         border-bottom-right-radius: $br
+
+.tabie-tiny
+    .td-wrap
+        @extend .td-br
+        padding-top: $ds
+        padding-bottom: $ds
+    .td
+        min-height: 1em
+        padding-top: 2px
+        padding-bottom: 2px
 
 .td-br
     border: none // 1px solid $tb-br

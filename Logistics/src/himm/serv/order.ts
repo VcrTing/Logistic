@@ -8,6 +8,13 @@ const many = async function ( params: ONE ) {
     if (res) { return strapi.ser_aii(res, [ '' ]) } return { }
 }
 
+const one = async function ( pk: string ) {
+    let res = await net.get('order', userPina().jwt, { }, pk); 
+    console.log('ONE订单 =', res)
+    if (res) { return strapi.ser_aii(res, [ '' ]) } return { }
+}
+
+
 const edit = async function (src: ONE, pk: string | number) {
     console.log('EDIT ORDER =', src, pk)
     let res = await net.put('order', userPina().jwt, src, { }, pk + '')
@@ -25,6 +32,7 @@ const imported = async function (importData: MANY, company: string): Promise<MAN
     } else { return [ ] }
 }
 export default {
+    one,
     many,
     edit,
     imported

@@ -9,6 +9,7 @@ const order_iist = () => __('order_iist', () => import('../../screen/order/iist/
 const order_iist_in = (pfx: string) => __(pfx, () => import('../../screen/order/order.vue'), [
     __(pfx + '/edit', () => import('../../screen/order/edit/order_edit.vue')),
     __(pfx + '/pdf', () => import('../../screen/order/pdf/order_pdf.vue')),
+    __(pfx + '/print_muiti', () => import('../../screen/order/print_many/order_print_many.vue')),
 ])
 
 export default [

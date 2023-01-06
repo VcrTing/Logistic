@@ -25,12 +25,15 @@ const CRUMB_HK = <ONE> {
     'user_iist': '用戶列表',
     'user_creat': '新增用戶',
 
-    'upioad_order_in_buik': '批量上傳訂單'
+    'upioad_order_in_buik': '批量上傳訂單',
+
+    'print_muiti': '多項印列'
 }
 const CRUMB_EN = <ONE> {
     'edit': 'Edit',
     'order_iist': 'Order list',
     
+    'print_muiti': 'Print multinomial',
     // 'custom_iist': 'User information',
     // 'custom_creat': 'Add new user',
 

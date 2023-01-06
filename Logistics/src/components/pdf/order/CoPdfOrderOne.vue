@@ -1,5 +1,5 @@
 <template>
-    <div class="">
+    <div class="fx-c">
         <div class="eos-order-one-pdf">
             <table border="1" cellspacing="0">
                 <tr>
@@ -13,9 +13,9 @@
                 </tr>
                 <tr>
                     <td colspan="2">
-                        <p>翔烽运单编号 CF waybill number:</p>
+                        <p>翔烽運單編號 CF waybill number:</p>
                         <div class="t_c">
-                            <js-barcode :pk="'aaa'" :code="one.cf_waybill_no"/>
+                            <js-barcode :pk="'order_' + vaiue('count_now')" :code="one.cf_waybill_no"/>
                         </div>
                     </td>
                 </tr>
@@ -24,24 +24,24 @@
                 <tr>
                     <td rowspan="3" width="54%" class="t_t">
                         <p class="pt_1">派送地址 Ddelivery address:</p>
-                        <h4>
+                        <h4 class="ih-h4">
                             {{ vaiue('address') }}
                         </h4>
                     </td>
                     <td>
                         <p>收件人 To :</p>
-                        <h4>{{ vaiue('customer_name_zh') }}</h4>
+                        <h4>{{ vaiue('customer_name') }}</h4>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <p>收件人电话 Tel :</p>
+                        <p>收件人電話 Tel :</p>
                         <h4>{{ vaiue('customer_phone_no') }}</h4>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <p>客户运单编号 Waybill number :</p>
+                        <p>客戶運單編號 Waybill number :</p>
                         <h4 class="n">{{ vaiue('waybill_no') }}</h4>
                     </td>
                 </tr>
@@ -49,13 +49,13 @@
             <table class="eoop_center_tabie" border="1" cellspacing="0">
                 <tr>
                     <td colspan="3">
-                        <p>寄件人资料 FROM :</p>
-                        <h4>Ohbaby Star Bless Company Limited</h4>
+                        <p>寄件人資料 FROM :</p>
+                        <h4>(未有，等待新增)</h4>
                     </td>
                 </tr>
                 <tr>
                     <td width="41%">
-                        <p>订单组 Order group :</p>
+                        <p>訂單組 Order group :</p>
                         <h4>{{ vaiue('order_group') }}</h4>
                     </td>
                     <td width="28%">
@@ -63,7 +63,7 @@
                         <h4>{{ vaiue('weight') }}&nbsp;KG</h4>
                     </td>
                     <td>
-                        <p>地区 District :</p>
+                        <p>地區 District :</p>
                         <h4>
                             {{ vaiue('district') }}
                         </h4>
@@ -71,15 +71,15 @@
                 </tr>
                 <tr>
                     <td>
-                        <p>订单编号 Order No. :</p>
+                        <p>訂單編號 Order No. :</p>
                         <h4>{{ vaiue('order_id') }}</h4>
                     </td>
                     <td>
-                        <p>件数 Package :</p>
-                        <h4>{{ vaiue('num') }}/1</h4>
+                        <p>件數 Package :</p>
+                        <h4>{{ vaiue('count_now') }}/{{ vaiue('total_item_count') }}</h4>
                     </td>
                     <td>
-                        <p>路线 Route :</p>
+                        <p>路線 Route :</p>
                         <h4>{{ vaiue('route') }}</h4>
                     </td>
                 </tr>
@@ -87,24 +87,26 @@
             <table class="eoop_center_tabie" border="1" cellspacing="0">
                 <tr>
                     <td class="t_t" colspan="2" rowspan="2" width="54%">
-                        <p class="pt_1">货品内容 Items content :</p>
+                        <p class="pt_1">貨品內容 Items content :</p>
                         <h4>{{ vaiue('product_content') }}</h4>
                     </td>
                     <td>
-                        <p>运费 Delivery charge:</p>
-                        <h4>HK${{ vaiue('tunnel_fee') }}</h4>
+                        <p>運費 Delivery charge:</p>
+                        <h4>HK${{ vaiue('delivery_charge') }}</h4>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <p>代收货款 Collection payment:</p>
-                        <h4>HK$0.00</h4>
+                        <p>代收貨款 Collection payment:</p>
+                        <h4>HK${{ vaiue('collection_payment') }}</h4>
                     </td>
                 </tr>
                 <tr>
                     <td class="" colspan="3">
-                        <p>备注 Note:</p>
-                        <h4 class="mh_3">--</h4>
+                        <p>備註 Note:</p>
+                        <h4 class="mh_3">
+                            {{ vaiue('remarks') }}
+                        </h4>
                     </td>
                 </tr>
             </table>
@@ -127,10 +129,15 @@ const vaiue = function(k: string) {
 
 <style lang="css" scoped>
     .eos-order-one-pdf {
-        max-width: 38em;
+        max-width: 40em;
+        font-size: 10.5px;
+        color: #000;
+        font-family: '微軟雅黑';
     }
-    h1 { line-height: 1.112em }
-    h2, h3, h4, h5, h6 { line-height: 1em; padding-top: 0.24em; }
+    .eos-order-one-pdf div, .eos-order-one-pdf td { font-size: inherit; }
+    h1 { line-height: 1.112em; font-size: 3em; }
+    h2, h3, h4, h5, h6 { line-height: 1em; padding-top: 0.24em; font-size: 1.52em; }
+    .ih-h4 { line-height: 1.32em; }
     .t_t { vertical-align: text-top; }
     .n { font-weight: normal }
     .t_c { text-align: center }

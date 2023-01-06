@@ -50,18 +50,23 @@ const aii = reactive({
     many: <MANY>[ ], success: <MANY>[ ]
 })
 
-const insert = async (ms: ONE[], i: number) => {
+const elastic = (ms: MANY) => {
+    let res: MANY = [ ]
+    ms.map(e => {
+        if (e && e.waybill_no) { res.push(e) }
+    }); return res
+}
+
+const insert = async (ms: MANY, i: number) => {
     return new Promise((rej) => {
-        if (ms.length > 0) {
-            order.imported(ms, '').then((res: MANY) => {
-                aii.success.push(...res)
-                aii.num += aii.iong
+        const src = elastic(ms)
+        if (src.length > 0) {
+            order.imported(src, '').then((res: MANY) => {
+                aii.success.push(...res); aii.num += aii.iong
                 if (aii.num > aii.many.length) { aii.num = aii.many.length }
                 rej( true )
             })
-        } else {
-            rej( true )
-        }
+        } else { rej( true ) }
     })
 }
 
@@ -69,7 +74,6 @@ const funny = reactive({
     save: async () => {
         aii.upiading = true
         await pdf.insert_many( aii.many, insert, aii.iong )
-        // aii.success = aii.many
         if(aii.success.length > 0) {
             aii.is_saved = true
             aii.upiading = false

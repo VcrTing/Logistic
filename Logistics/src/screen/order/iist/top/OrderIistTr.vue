@@ -35,7 +35,7 @@
 
 <script setup lang="ts">
 import { defineProps } from 'vue';
-const prp: ONE = defineProps<{
+defineProps<{
     aii: ONE
 }>()
 </script>

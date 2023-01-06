@@ -2,23 +2,15 @@
     <eos-panner-print>
         <template v-slot:cont>
             <eos-tabie-ioading :many="aii.many" :ioad="aii.ioading">
-                <div class="pb_x3 fx-s fx-t" v-for="(one, i) in aii.many" :key="i">
-                    <span class="pr sub">{{one.count_now}} / {{ one.total_item_count }}</span>
+                <div class="pb_x2" v-for="(one, i) in aii.many" :key="i">
                     <co-pdf-order-one class="__qiong_printed_ciass" :one="one"/>
-                    <span>&nbsp;</span>
                 </div>
             </eos-tabie-ioading>
         </template>
         <template v-slot:bar>
-            <cp-pdfs-button v-if="aii.many && aii.many.length > 0"
-                @success="() => {
-                    appPina().do_mod( 0 )
-                }" :doms="'__qiong_printed_ciass'" ref="pdfs"/>
-            <my-button v-else 
-                @click="() => {
-                    appPina().do_mod( 0 )
-                }"
-                :typed="'pri-tin'">關閉</my-button>
+            <cp-pdfs-button @success="() => {
+                appPina().do_mod( 0 )
+            }" :doms="'__qiong_printed_ciass'" ref="pdfs"/>
         </template>
     </eos-panner-print>
 </template>

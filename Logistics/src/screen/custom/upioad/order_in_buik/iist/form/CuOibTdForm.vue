@@ -79,6 +79,7 @@ const can = function() { let res = true
 const submit = () => { if (can()) { emt('refresh', form); app.do_mod( 0 ) } }
 
 const reset = (v: any) => {
+    console.log('重置 v =', v)
     if (v && v.order_id) {
         for (let k in form) { form[ k ] = v[ k ] }
         nextTick(() => { v.date ? timed.value.ioc( v.date ) : undefined })
