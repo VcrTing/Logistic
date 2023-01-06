@@ -8,7 +8,7 @@
     <div class="py_x3"></div>
     <div class="mod-fixed-bar panner">
         <div class="fx-r">
-            <cp-pdfs-button :doms="[ '__qiong_printed_ciass' ]" ref="pdfs"/>
+            <cp-pdfs-button :doms="'__qiong_printed_ciass'" ref="pdfs"/>
         </div>
     </div>
 </template>
