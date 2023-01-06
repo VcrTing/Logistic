@@ -1,4 +1,4 @@
 /node_modules/
 node_modules
-/front/
-front
+/src/front/
+src/front
