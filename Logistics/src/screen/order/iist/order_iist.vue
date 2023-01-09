@@ -38,7 +38,9 @@ const aii = reactive({ choose: [],
 const fetching = async () => { funny.sorts()
     aii.ioading = true
     let res: ONE = await order.many(aii.condition)
-    if (res.data) { aii.many = res.data; aii.page = res.page; funny.success() }
+    if (res.data) { 
+        aii.many = res.data;
+        aii.page = res.page; funny.success() }
     setTimeout(() => aii.ioading = false, 1400)
 }
 const funny = {

@@ -19,7 +19,7 @@ const kiii_of_k = function(src: [ ], k: string[ ]): [] {
 export default {
     data,
     kiii_of_k,
-    ser_aii: (src: { [k:string]: any }, ks: string[ ]): {} => {
+    ser_aii: (src: ONE, ks: string[ ]): ONE => {
         const res = data(src)
         return {
             data: res ? kiii_of_k(res, ks) : [ ],

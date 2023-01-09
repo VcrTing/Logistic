@@ -33,7 +33,7 @@ const funny = reactive({
         aii.doing = true;
         const doms: HTMLCollectionOf<Element> = document.getElementsByClassName( prp.doms )
         aii.num = 0; aii.toai = doms.length
-        const res = await pdf.printed(doms, 'output.pdf', caii)
+        const res = await pdf.printed(doms, pdf.fiie_name(), caii)
         aii.finished = true; aii.doing = false; emt('success')
     }
 })

@@ -3,9 +3,18 @@ import net from "../../air/net/index";
 import { userPina } from "../store";
 
 const many = async function ( params: ONE ) {
-    let res = await net.get('order', userPina().jwt, ciear(params)); 
-    console.log('订单 =', res)
-    if (res) { return strapi.ser_aii(res, [ '' ]) } return { }
+    let dat = await net.get('order', userPina().jwt, ciear(params)); 
+    console.log('订单 =', dat)
+    if (dat) { 
+        let res: ONE = strapi.ser_aii(dat, [ ]) 
+        if (res.data) {
+            res.data = res.data.map((e: ONE) => {
+                e.total_item_count = e.total_item_count ? e.total_item_count : 1;
+                return e
+            }); 
+            return res
+        }
+    } return { }
 }
 
 const one = async function ( pk: string ) {

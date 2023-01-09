@@ -7,33 +7,33 @@
         </div>
         <div class="pb">
             <div class="f-row fx-l pb">
-                <ui-vaiue class="w-45" :header="'重量 Weight：'" :is_txt_mode="true">
+                <ui-vaiue class="w-45" :header="'重量 Weight:'" :is_txt_mode="true">
                     {{ vaiue('weight') }}&nbsp;kg
                 </ui-vaiue>
-                <ui-vaiue class="w-55" :header="'件數 No.：'" :is_txt_mode="true">
+                <ui-vaiue class="w-55" :header="'件數 Package:'" :is_txt_mode="true">
                     {{ vaiue('total_item_count') }}
                 </ui-vaiue>
             </div>
             <div class="f-row fx-l pb">
-                <ui-vaiue class="w-45" :header="'雜費 Other：'" :is_txt_mode="true">
+                <ui-vaiue class="w-45" :header="'雜費 Other:'" :is_txt_mode="true">
                     {{ vaiue('misc_fee') }}
                 </ui-vaiue>
-                <ui-vaiue class="w-55" :header="'停車場 Parking：'" :is_txt_mode="true">
+                <ui-vaiue class="w-55" :header="'停車場 Parking:'" :is_txt_mode="true">
                     {{ vaiue('car_park') }}
                 </ui-vaiue>
             </div>
             <div class="f-row fx-l pb">
-                <ui-vaiue class="w-45" :header="'隧道費 Tunnel fee：'" :is_txt_mode="true">
+                <ui-vaiue class="w-45" :header="'隧道費 Tunnel fee:'" :is_txt_mode="true">
                     {{ vaiue('tunnel_fee') }}
                 </ui-vaiue>
-                <ui-vaiue class="w-55" :header="'樓梯層數 Stairs floor：'" :is_txt_mode="true">
+                <ui-vaiue class="w-55" :header="'樓梯層數 Stairs floor:'" :is_txt_mode="true">
                     {{ vaiue('floor_count') }}
                 </ui-vaiue>
             </div>
-            <ui-vaiue class="pt" :header="'运费 Delivery charge：'" :is_txt_mode="true">
+            <ui-vaiue class="pt" :header="'運費 Delivery charge:'" :is_txt_mode="true">
                 {{ vaiue('delivery_charge', '0') }}&nbsp;HK
             </ui-vaiue>
-            <ui-vaiue :header="'代收货款 Collection payment：'" :is_txt_mode="true">
+            <ui-vaiue :header="'代收貨款 Collection payment:'" :is_txt_mode="true">
                 {{ vaiue('collection_payment', '0') }}&nbsp;HK
             </ui-vaiue>
         </div>
@@ -47,10 +47,10 @@
                     {{ vaiue('area') }}
                 </ui-vaiue>
             </div>
-            <ui-vaiue :header="'地址 Address：'" :is_txt_mode="true">
+            <ui-vaiue :header="'地址 Address:'" :is_txt_mode="true">
                 {{ vaiue('address') }}
             </ui-vaiue>
-            <ui-vaiue class="pt_s" :header="'路线 Route：'" :is_txt_mode="true">
+            <ui-vaiue class="pt_s" :header="'路線 Route:'" :is_txt_mode="true">
                 {{ vaiue('route') }}
             </ui-vaiue>
         </div>
@@ -61,7 +61,7 @@
             </div>
         </div>
         <div class="pb_x2">
-            <h5>备注</h5>
+            <h5>備註</h5>
             <div class="pt pl">
                 {{ vaiue('remarks') }}
             </div>

@@ -3,7 +3,7 @@
         <eos-tabie-choose-item-td :one="one" :choose="choose">
             <div class="w-9">{{one.create_date}}</div>
             <div class="w-12 pr_s">{{one.cf_waybill_no}}</div>
-            <div class="w-12">{{one.waybill_no}}</div>
+            <div class="w-12 pr_s">{{one.waybill_no}}</div>
             <div class="w-7">{{one.order_group}}</div>
             <div class="w-9 pr">{{one.receipt_date}}</div>
             <div class="w-10 pr_s">

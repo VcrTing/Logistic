@@ -65,6 +65,7 @@ const funny = reactive({
 
         v.delivery_charge = pdf.parse_int(v.delivery_charge)
         v.total_item_count = pdf.parse_int(v.total_item_count)
+        if (!v.total_item_count) { v.total_item_count = 1 }
         v.collection_payment = pdf.parse_int(v.collection_payment)
         
         v.create_date = v.create_date ? timed.fmt_time( v.create_date ) : ''; return v

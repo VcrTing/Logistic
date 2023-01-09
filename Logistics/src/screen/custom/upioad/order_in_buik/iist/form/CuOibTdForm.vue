@@ -21,6 +21,12 @@
             </div>
             <div class="py_row"></div>
             <div class="f-row">
+                <eos-input class="w-50" :is_err="form_err.total_item_count" :header="'件數 Package'">
+                    <input class="input" type="number" v-model="form.total_item_count" placeholder="請輸入 Please Enter"/>
+                </eos-input>
+            </div>
+            <div class="py_row"></div>
+            <div class="f-row">
                 <eos-input class="w-50" :is_err="form_err.customer_name" :header="'收件人 Recipient'">
                     <input class="input" v-model="form.customer_name" placeholder="請輸入 Please Enter"/>
                 </eos-input>
@@ -31,7 +37,7 @@
 
             <div class="py_row"></div>
             <eos-input class="w-100" :header="'地址 Address'">
-                <input class="input" v-model="form.address" placeholder="請輸入 Please Enter"/>
+                <textarea class="input" v-model="form.address" placeholder="請輸入 Please Enter"></textarea>
             </eos-input>
         </div>
         <div class="fx-c upper">
@@ -50,14 +56,14 @@ const emt = defineEmits([ 'refresh' ])
 
 const form: ONE = reactive({
     create_date: '', order_id: '', index: 0, 
-    waybill_no: '', order_group: '',
+    waybill_no: '', order_group: '', total_item_count: 0,
     customer_name: '', 
     customer_phone_no: '', address: ''
 })
 
 const form_err = reactive({
     create_date: false, order_id: false,
-    waybill_no: false, order_group: false,
+    waybill_no: false, order_group: false, total_item_count: false,
     customer_name: false, 
     customer_phone_no: false, address: false
 })

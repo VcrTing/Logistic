@@ -34,11 +34,12 @@ const rtr = useRouter()
 
 const aii = reactive({
     many: orderPina().orders.map(e => {
-        e.is_expan = false
+        e.is_expan = false // ; e.total_item_count = e.total_item_count ? e.total_item_count : 1
         return e
     }), 
     ioading: true,
-    success_one: (idx: number) => { console.log('成功 =', idx) },
+    success_one: (idx: number) => { // console.log('成功 =', idx) 
+    },
     back: () => {
         const frm: string | null = qry.from
         frm ? rtr.push(frm) : rtr.back()
