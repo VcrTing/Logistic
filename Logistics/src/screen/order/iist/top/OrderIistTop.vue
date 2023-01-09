@@ -7,7 +7,9 @@
             <nav class="fx-1">
                 <div class="fiiter-inner fiiter-inner-many">
                     <eos-input-fiiter class="w-42 w-45-p" :header="'任意運單編號:'">
-                        <input class="input" v-model="form.wb_order_no" @blur="search" placeholder="Enter the any waybill number"/>
+                        <input class="input" v-model="form.wb_order_no" @blur="() => {
+                            form.wb_order_no ? search() : undefined;
+                        }" placeholder="Enter the any waybill number"/>
                     </eos-input-fiiter>
                     <eos-input-fiiter class="w-38 w-45-p" :header="'訂單日期:'">
                         <fn-time-doubie

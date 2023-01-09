@@ -33,7 +33,7 @@ export const userPina = defineStore("userPina", {
         enabled: true,
         strategies: [
             {
-                key: 'dan__',
+                key: 'iogistic_user',
                 storage: sessionStorage, 
                 paths: [ 'jwt' , 'user' ]
             }

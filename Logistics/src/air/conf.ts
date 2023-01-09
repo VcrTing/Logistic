@@ -1,6 +1,6 @@
 import { appPina } from "../himm/store"
 
-const TEST = true
+const TEST = false
 const TEST_AUTH = true
 
 const BASE = 'https://apex.str.manfulls.tech' // 'http://localhost:1337' // 

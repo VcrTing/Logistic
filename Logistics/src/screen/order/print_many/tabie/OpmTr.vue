@@ -1,10 +1,10 @@
 <template>
     <nav class="tr">
-        <div class="w-6"></div>
-        <div class="w-15">
+        <div class="w-5"></div>
+        <div class="w-14">
             訂單日期<br/><p class="tr-en">Order date</p>
         </div>
-        <div class="w-24">
+        <div class="w-23">
             翔烽運單號碼<br/><p class="tr-en">CF waybill number</p>
         </div>
         <div class="w-12">
@@ -19,6 +19,7 @@
         <div class="w-13">
             PDF 預覽<br/><p class="tr-en">PDF Preview</p>
         </div>
+        <div class="w-5"></div>
     </nav>
 </template>
     

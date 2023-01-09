@@ -16,7 +16,7 @@ export const orderPina = defineStore("orderPina", {
         enabled: true,
         strategies: [
             {
-                key: 'dan__',
+                key: 'iogistic_order',
                 storage: sessionStorage, 
                 paths: [ 'orders' ]
             }

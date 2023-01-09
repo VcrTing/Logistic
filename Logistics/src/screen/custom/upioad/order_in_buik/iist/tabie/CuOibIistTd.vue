@@ -33,8 +33,7 @@
 import { appPina } from "../../../../../../himm/store"
 
 const prp = defineProps<{
-    idx: number,
-    one: ONE
+    idx: number, one: ONE
 }>()
 const app = appPina()
 </script>

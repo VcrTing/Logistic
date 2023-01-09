@@ -112,11 +112,29 @@ select::focus-visible
         padding-left: 2.86em
 
 // 
-$checkbox: #c2c2c2
+$checkbox: #a1adc1
 .checkbox
+    position: relative
     @extend .hand
-    border: 1px solid $checkbox !important
-
+    border-radius: 2px
+    border: 1px solid $checkbox
+    width: 13px
+    height: 13px
+    i, .i
+        position: absolute
+        opacity: 0
+        left: 50%
+        top: 50%
+        width: 1em // 0.82em
+        height: 1em
+        transform: translate(-50%, -70%)
+.checkbox-iive
+    background: $pri
+    border-color: $pri
+    border-radius: 100%
+    i, .i
+        opacity: 1
+        color: #ffffffF2
 
 // RADIO
 $radio: 1.4em

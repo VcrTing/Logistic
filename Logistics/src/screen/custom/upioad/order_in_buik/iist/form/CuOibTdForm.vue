@@ -1,70 +1,64 @@
 <template>
-    <div class="panner" v-if="appRef.one">
-        <h2>訂單修改</h2>
-        <div class="pb_x2 pt" v-if="form.order_id">
+    <div class="panner" v-if="one">
+        <h2>修改導入前的訂單&nbsp;Edit</h2>
+        <div class="pb_x2 pt_x" v-if="form.order_id">
             <div class="f-row">
-                <eos-input class="w-50" :header="'訂單日期'">
-                    <fn-time ref="timed" @resuit="(n: string) => form.date = n"/>
+                <eos-input class="w-50" :header="'訂單日期 Order date'">
+                    <fn-time ref="timed" @resuit="(n: string) => form.create_date = n"/>
                 </eos-input>
-                <eos-input class="w-50" :is_err="form_err.order_id" :header="'訂單編號'">
+                <eos-input class="w-50" :is_err="form_err.order_id" :header="'訂單編號 Order no.'">
                     <input class="input" v-model="form.order_id" placeholder="請輸入 Please Enter"/>
                 </eos-input>
             </div>
             <div class="py_row"></div>
             <div class="f-row">
-                <eos-input class="w-50" :header="'客戶運單編號'">
-                    <input class="input" v-model="form.cf_waybill_number" placeholder="請輸入 Please Enter"/>
-                </eos-input>
-                <eos-input class="w-50" :is_err="form_err.waybill_no" :header="'運單編號'">
+                <eos-input class="w-50" :is_err="form_err.waybill_no" :header="'運單編號 Waybill number'">
                     <input class="input" v-model="form.waybill_no" placeholder="請輸入 Please Enter"/>
+                </eos-input>
+                <eos-input class="w-50" :is_err="form_err.order_group" :header="'訂單組 Order group'">
+                    <input class="input" v-model="form.order_group" placeholder="請輸入 Please Enter"/>
                 </eos-input>
             </div>
             <div class="py_row"></div>
             <div class="f-row">
-                <eos-input class="w-50" :header="'收件人中文名'">
-                    <input class="input" v-model="form.customer_name_zh" placeholder="請輸入 Please Enter"/>
+                <eos-input class="w-50" :is_err="form_err.customer_name" :header="'收件人 Recipient'">
+                    <input class="input" v-model="form.customer_name" placeholder="請輸入 Please Enter"/>
                 </eos-input>
-                <eos-input class="w-50" :header="'收件人英文名'">
-                    <input class="input"  v-model="form.customer_name_en" placeholder="請輸入 Please Enter"/>
+                <eos-input class="w-50" :is_err="form_err.customer_phone_no" :header="'電話號碼 Phone number'">
+                    <input class="input" v-model="form.customer_phone_no" placeholder="請輸入 Please Enter"/>
                 </eos-input>
             </div>
 
             <div class="py_row"></div>
-            <eos-input class="w-100" :is_err="form_err.customer_phone_no" :header="'電話號碼'">
-                <input class="input" v-model="form.customer_phone_no" placeholder="請輸入 Please Enter"/>
-            </eos-input>
-
-            <div class="py_row"></div>
-            <eos-input class="w-100" :header="'地址'">
+            <eos-input class="w-100" :header="'地址 Address'">
                 <input class="input" v-model="form.address" placeholder="請輸入 Please Enter"/>
             </eos-input>
         </div>
-        <div class="fx-c">
+        <div class="fx-c upper">
             <my-button @click="submit">儲存</my-button>
         </div>
     </div>
 </template>
     
 <script lang="ts" setup>
-import { storeToRefs } from "pinia"
-import { reactive, ref, nextTick, watch } from "vue"
+import { reactive, ref, nextTick } from "vue"
 import { appPina } from "../../../../../../himm/store"
 const timed = ref()
 const app = appPina()
-const appRef = storeToRefs(app)
+const one = appPina().one
 const emt = defineEmits([ 'refresh' ])
 
 const form: ONE = reactive({
-    date: '', order_id: '', index: 0,
-    cf_waybill_number: '', waybill_no: '',
-    customer_name_zh: '', customer_name_en: '',
+    create_date: '', order_id: '', index: 0, 
+    waybill_no: '', order_group: '',
+    customer_name: '', 
     customer_phone_no: '', address: ''
 })
 
 const form_err = reactive({
-    date: false, order_id: false,
-    cf_waybill_number: false, waybill_no: false,
-    customer_name_zh: false, customer_name_en: false,
+    create_date: false, order_id: false,
+    waybill_no: false, order_group: false,
+    customer_name: false, 
     customer_phone_no: false, address: false
 })
 
@@ -79,11 +73,10 @@ const can = function() { let res = true
 const submit = () => { if (can()) { emt('refresh', form); app.do_mod( 0 ) } }
 
 const reset = (v: any) => {
-    console.log('重置 v =', v)
     if (v && v.order_id) {
         for (let k in form) { form[ k ] = v[ k ] }
-        nextTick(() => { v.date ? timed.value.ioc( v.date ) : undefined })
+        nextTick(() => { v.create_date ? timed.value.ioc( v.create_date ) : undefined })
     } else { app.do_mod(0) }
 }
-watch(appRef.one, (n) => reset(n))
+reset( one )
 </script>

@@ -1,6 +1,6 @@
 <template>
     <nav class="panner">
-        <cu-oib-iist-saved-bar/>
+        <cu-oib-iist-saved-bar :aii="aii"/>
         <div class="tabie">
             <cu-oib-iist-saved-tr :aii="aii"/>
 
@@ -13,7 +13,7 @@
             </eos-tabie-ioading>
         </div>
         <div class="pt" v-if="success && success.length > 0">
-            <eos-pagination @resuit="funny.pagina" :count="success.length" :_limit="aii.imit"/>
+            <eos-pagination :mode="0" @resuit="funny.pagina" :count="success.length" :_limit="aii.imit"/>
         </div>
     </nav>
 </template>
@@ -27,8 +27,6 @@ import { reactive } from 'vue'
 const prp = defineProps<{
     success: MANY
 }>()
-
-console.log('success =', prp.success)
 
 const aii = reactive({ choose: [], start: 0, imit: 25,
     ioading: true, page: <ONE>{ total: 1}, condition: <ONE>{ },

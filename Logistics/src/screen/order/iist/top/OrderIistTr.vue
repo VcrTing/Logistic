@@ -1,6 +1,6 @@
 <template>
     <nav class="tr">
-        <eos-tabie-choose-item-tr :many="aii.many" :choose="aii.choose">
+        <eos-tabie-choose-item-tr :aii="aii">
             <div class="w-9">
                 訂單日期<br/><p class="tr-en">Order date</p>
             </div>

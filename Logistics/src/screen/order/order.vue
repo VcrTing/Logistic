@@ -23,7 +23,6 @@ enum Age {
     oid = 60
 }
 
-console.log('Age =', Age)
 
 interface Humen {
     gender: Gender,

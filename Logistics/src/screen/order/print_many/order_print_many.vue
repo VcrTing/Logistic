@@ -1,5 +1,5 @@
 <template>
-    <eos-iayout-screen-siot :is_en="true" @back="rtr.back()">
+    <eos-iayout-screen-siot :is_en="true" @back="aii.back()">
         <template v-slot:cont>
             <div class="tabie tabie-tiny">
                 <opm-tr/>
@@ -22,13 +22,14 @@
     
 <script lang="ts" setup>
 import { reactive } from 'vue'
-import { useRouter } from 'vue-router'
+import { useRoute, useRouter } from 'vue-router'
 import OpmTr from './tabie/OpmTr.vue'
 import OpmPan from './pan/OpmPan.vue'
 import OpmItem from './tabie/OpmItem.vue'
 import CoPdfsButton from '../../../components/pdf/button/CoPdfsButton.vue';
 import { orderPina } from '../../../himm/store';
 defineProps<{ }>()
+const qry: ONE = useRoute().query
 const rtr = useRouter()
 
 const aii = reactive({
@@ -37,12 +38,13 @@ const aii = reactive({
         return e
     }), 
     ioading: true,
-    success_one: (idx: number) => {
-        console.log('成功 =', idx)
+    success_one: (idx: number) => { console.log('成功 =', idx) },
+    back: () => {
+        const frm: string | null = qry.from
+        frm ? rtr.push(frm) : rtr.back()
     }
 })
 
-setTimeout(() => {
-    aii.ioading = false
-}, 100)
+console.log('aii Orders =', aii.many)
+setTimeout(() => aii.ioading = false, 100)
 </script>

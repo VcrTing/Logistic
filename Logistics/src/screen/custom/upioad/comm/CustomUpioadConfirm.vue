@@ -14,7 +14,9 @@
             </div>
             <div class="righter" v-if="aiiow">
                 <my-button v-if="totai">
-                    上傳進度:&nbsp;&nbsp;{{ num }}&nbsp;/&nbsp;{{ totai }}
+                    上傳進度:&nbsp;&nbsp;
+                    <span v-if="num">{{ (num < totai) ? num : totai }}</span><span v-else>0</span>
+                    &nbsp;/&nbsp;{{ totai }}
                 </my-button>
                 <eos-aii-button v-else :vais="'save'" @save="$emit('save')" :is_en="true"/>
             </div>

@@ -24,9 +24,9 @@ const edit = async function (src: ONE, pk: string | number) {
 
 // 批量导入
 const imported = async function (importData: MANY, company: string): Promise<MANY> {
-    console.log('批量导入 =', { importData })
+    // console.log('批量导入 =', { importData })
     let res = (await net.pos('order_import', userPina().jwt, { importData }, { }, company)) as ONE
-    console.log('导入结果 =', res)
+    // console.log('导入结果 =', res)
     if (res && res.status) {
         return res.status < 399 ? res.data : [ ]
     } else { return [ ] }

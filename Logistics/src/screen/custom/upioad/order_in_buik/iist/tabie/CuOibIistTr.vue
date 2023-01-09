@@ -13,7 +13,7 @@
             訂單編號<br/><p class="tr-en">Order No.</p>
         </div>
         <div class="w-12">
-            收件人<br/><p class="tr-en">Reciver</p>
+            收件人<br/><p class="tr-en">Recipient</p>
         </div>
         <div class="w-11">
             電話<br/><p class="tr-en">Phone</p>

@@ -2,7 +2,7 @@
     <eos-iayout-screen-siot :is_en="true">
         <template v-slot:cont>
             <eos-form-paner>
-                <custom-upioad-base @resuit="(v: ONE[]) => { aii.many = v; }" ref="base"/>
+                <custom-upioad-base @resuit="(v: ONE[]) => { aii.many = v; funny.compiete() }" ref="base"/>
             </eos-form-paner>
             <div class="py_row"></div>
 
@@ -20,9 +20,9 @@
                 <cu-oib-saved-iist :success="aii.success"/>
                 <div class="py_row"></div>
                 <div class="fx-r">
-                    <my-button @click="aii.is_saved = false" :typed="'pri-tin'">返回 Back</my-button>
-                    <span class="px_s"></span>
-                    <my-button @click="aii.is_saved = false">完成上传 Complete</my-button>
+                    <!--<my-button @click="aii.is_saved = false" :typed="'pri-tin'">返回 Back</my-button>
+                    <span class="px_s"></span>-->
+                    <my-button @click="funny.compiete()">完成上傳 Complete</my-button>
                 </div>
             </div>
         </template>
@@ -50,16 +50,9 @@ const aii = reactive({
     many: <MANY>[ ], success: <MANY>[ ]
 })
 
-const elastic = (ms: MANY) => {
-    let res: MANY = [ ]
-    ms.map(e => {
-        if (e && e.waybill_no) { res.push(e) }
-    }); return res
-}
-
 const insert = async (ms: MANY, i: number) => {
     return new Promise((rej) => {
-        const src = elastic(ms)
+        const src = funny.elastic(ms)
         if (src.length > 0) {
             order.imported(src, '').then((res: MANY) => {
                 aii.success.push(...res); aii.num += aii.iong
@@ -71,14 +64,18 @@ const insert = async (ms: MANY, i: number) => {
 }
 
 const funny = reactive({
+    // 过滤
+    elastic: (ms: MANY) => {
+        let res: MANY = [ ]
+        ms.map(e => { if (e && e.waybill_no) { res.push(e) } }); return res
+    },
+    // 储存
     save: async () => {
         aii.upiading = true
         await pdf.insert_many( aii.many, insert, aii.iong )
-        if(aii.success.length > 0) {
-            aii.is_saved = true
-            aii.upiading = false
-            aii.many = [ ]
-        }
-    }
+        if(aii.success.length > 0) { aii.is_saved = true; aii.upiading = false; aii.many = [ ] }
+    },
+    // 完成上传
+    compiete: () => { aii.is_saved = false; aii.success = [ ] }
 })
 </script>

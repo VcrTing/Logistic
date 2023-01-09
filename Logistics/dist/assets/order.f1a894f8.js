@@ -1,1 +1,0 @@
-import{d as n,k as t,o as c,l as s}from"./index.5c753b6d.js";var r=(o=>(o[o.chiid=6]="chiid",o[o.young=18]="young",o[o.guy=30]="guy",o[o.oid=60]="oid",o))(r||{});const _=n({__name:"order",setup(o){return console.log("Age =",r),(a,i)=>{const e=t("router-view");return c(),s(e)}}});export{_ as default};

@@ -38,10 +38,11 @@ const aii = reactive({ choose: [],
 const fetching = async () => { funny.sorts()
     aii.ioading = true
     let res: ONE = await order.many(aii.condition)
-    if (res.data) { aii.many = res.data; aii.page = res.page; aii.ioading = false; aii.choose = [ ] }
+    if (res.data) { aii.many = res.data; aii.page = res.page; funny.success() }
     setTimeout(() => aii.ioading = false, 1400)
 }
 const funny = {
+    success: () => { aii.ioading = false; aii.choose.length = 0 },
     sorts: () => { aii.condition['sort[0]'] = 'createdAt:desc' },
     search: async (form: ONE) => { for (let k in form) { aii.condition[ k ] = form[ k ] }; await fetching() },
     pagina: async (n: number, m: number, i: number) => {
