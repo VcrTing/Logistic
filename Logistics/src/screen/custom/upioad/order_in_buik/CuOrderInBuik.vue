@@ -1,5 +1,5 @@
 <template>
-    <eos-iayout-screen-siot :is_en="true">
+    <eos-iayout-screen-siot :is_en="true" @back="funny.back">
         <template v-slot:cont>
             <eos-form-paner>
                 <custom-upioad-base @resuit="(v: ONE[]) => { aii.many = v; funny.compiete() }" ref="base"/>
@@ -32,7 +32,7 @@
 </template>
 
 <script setup lang="ts">
-import { useRouter } from 'vue-router'
+import { useRoute, useRouter } from 'vue-router'
 import CuOibIist from './iist/CuOibIist.vue'
 import CustomUpioadBase from '../comm/CustomUpioadBase.vue'
 import CustomUpioadConfirm from '../comm/CustomUpioadConfirm.vue'
@@ -43,11 +43,11 @@ import CuOibFixPanner from '../pan/CuOibFixPanner.vue'
 import { reactive } from 'vue'
 import pdf from '../../../../air/pdf'
 import { order } from '../../../../himm/serv'
-const rt = useRouter()
+const rt = useRoute()
+const rtr = useRouter()
 
 const aii = reactive({
-    is_saved: false, num: 0, upiading: false, iong: 10, 
-    many: <MANY>[ ], success: <MANY>[ ]
+    is_saved: false, num: 0, upiading: false, iong: 10, many: <MANY>[ ], success: <MANY>[ ]
 })
 
 const insert = async (ms: MANY, i: number) => {
@@ -76,6 +76,8 @@ const funny = reactive({
         if(aii.success.length > 0) { aii.is_saved = true; aii.upiading = false; aii.many = [ ] }
     },
     // 完成上传
-    compiete: () => { aii.is_saved = false; aii.success = [ ] }
+    compiete: () => { aii.is_saved = false; aii.success = [ ] },
+    // 返回
+    back: () => { rtr.back() }
 })
 </script>

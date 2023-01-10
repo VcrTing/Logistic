@@ -7,7 +7,7 @@
                     <eos-tabie-ioading :ioad="aii.ioading" :many="aii.many">
                         <div v-for="(v, i) in aii.many" :key="i">
                             <opm-item :one="v" :idx="i"/>
-                            <opm-pan :one="v" :idx="i"/>
+                            <!--<opm-pan class="expan" :one="v" :idx="i"/>-->
                         </div>
                     </eos-tabie-ioading>
                 </nav>
@@ -18,6 +18,8 @@
             <co-pdfs-button :doms="'__qiong_printed_muiti_ciass'" :caii="aii.success_one"/>
         </template>
     </eos-iayout-screen-siot>
+
+    <opm-mod :aii="aii" v-if="aii.many && aii.many.length > 0"/>
 </template>
     
 <script lang="ts" setup>
@@ -25,6 +27,7 @@ import { reactive } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import OpmTr from './tabie/OpmTr.vue'
 import OpmPan from './pan/OpmPan.vue'
+import OpmMod from './pan/OpmMod.vue'
 import OpmItem from './tabie/OpmItem.vue'
 import CoPdfsButton from '../../../components/pdf/button/CoPdfsButton.vue';
 import { orderPina } from '../../../himm/store';

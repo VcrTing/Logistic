@@ -1,7 +1,7 @@
 <template>
     <div class="td">
         <div class="w-11">
-            {{ one.create_date }}
+            {{ one.receipt_date }}
         </div>
         <div class="w-14">
             {{ one.waybill_no }} 

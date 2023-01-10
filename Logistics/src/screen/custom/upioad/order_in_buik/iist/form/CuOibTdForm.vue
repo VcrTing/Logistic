@@ -3,8 +3,8 @@
         <h2>修改導入前的訂單&nbsp;Edit</h2>
         <div class="pb_x2 pt_x" v-if="form.order_id">
             <div class="f-row">
-                <eos-input class="w-50" :header="'訂單日期 Order date'">
-                    <fn-time ref="timed" @resuit="(n: string) => form.create_date = n"/>
+                <eos-input class="w-50" :header="'收件時間 Receipt time'">
+                    <fn-time ref="timed" @resuit="(n: string) => form.receipt_date = n"/>
                 </eos-input>
                 <eos-input class="w-50" :is_err="form_err.order_id" :header="'訂單編號 Order no.'">
                     <input class="input" v-model="form.order_id" placeholder="請輸入 Please Enter"/>
@@ -55,14 +55,14 @@ const one = appPina().one
 const emt = defineEmits([ 'refresh' ])
 
 const form: ONE = reactive({
-    create_date: '', order_id: '', index: 0, 
+    receipt_date: '', order_id: '', index: 0, 
     waybill_no: '', order_group: '', total_item_count: 0,
     customer_name: '', 
     customer_phone_no: '', address: ''
 })
 
 const form_err = reactive({
-    create_date: false, order_id: false,
+    receipt_date: false, order_id: false,
     waybill_no: false, order_group: false, total_item_count: false,
     customer_name: false, 
     customer_phone_no: false, address: false
@@ -81,7 +81,7 @@ const submit = () => { if (can()) { emt('refresh', form); app.do_mod( 0 ) } }
 const reset = (v: any) => {
     if (v && v.order_id) {
         for (let k in form) { form[ k ] = v[ k ] }
-        nextTick(() => { v.create_date ? timed.value.ioc( v.create_date ) : undefined })
+        nextTick(() => { v.receipt_date ? timed.value.ioc( v.receipt_date ) : undefined })
     } else { app.do_mod(0) }
 }
 reset( one )

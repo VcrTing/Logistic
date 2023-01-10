@@ -42,7 +42,7 @@ interface orderType {
 const emt = defineEmits(['resuit' ])
 const aii = reactive({
     header: [
-        'create_date', 'waybill_no', 'order_group', 'order_id',
+        'receipt_date', 'waybill_no', 'order_group', 'order_id',
         'customer_name', 'customer_phone_no', 'address',
         'route', 'district', 'product_content',
         'weight', 'total_item_count', 'delivery_charge',
@@ -68,7 +68,7 @@ const funny = reactive({
         if (!v.total_item_count) { v.total_item_count = 1 }
         v.collection_payment = pdf.parse_int(v.collection_payment)
         
-        v.create_date = v.create_date ? timed.fmt_time( v.create_date ) : ''; return v
+        v.receipt_date = v.receipt_date ? timed.fmt_time( v.receipt_date ) : ''; return v
     },
     reciv: async (f: ONE) => {
         emt('resuit', [ ])

@@ -11,7 +11,7 @@
                     </nav>
                 </eos-tabie-ioading>
             </div>
-            <eos-pagination :mode="-1" class="pt" @resuit="funny.pagina" :_limit="aii.imit" :count="aii.page.total"/>
+            <eos-pagination :mode="-1" class="pt" @resuit="funny.pagina" :_limit="aii.imit" :count="aii.page.total" v-if="aii.page.total"/>
         </nav>
         <order-iist-fixed-panner/>
 

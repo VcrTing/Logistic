@@ -2,7 +2,7 @@
     <div class="td">
         <eos-tabie-choose-item-td :one="one" :choose="choose">
             <div class="w-11">
-                {{ one.create_date }}
+                {{ one.receipt_date }}
             </div>
             <div class="w-14">
                 {{ one.waybill_no }}

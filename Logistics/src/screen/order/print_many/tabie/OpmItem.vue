@@ -34,9 +34,11 @@
             </div>
         </div>
         <div class="w-5 fx-r">
+            <!--
             <eos-tabie-opera :vais="'edit'" :is_icon="true" 
                 @edit="() => { orderPina().do_order( one ) }"
                 />
+                -->
         </div>
     </div>
 </template>

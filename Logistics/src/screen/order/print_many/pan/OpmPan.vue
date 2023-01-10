@@ -1,8 +1,9 @@
 <template>
-    <div class="expan expan-iive">
-        <div class="px py f-l" v-if="aii.many && aii.many.length > 0">
+    <div class="">
+        <div class="" v-if="aii.many && aii.many.length > 0">
             <div v-for="(v, i) in aii.many" :key="i">
                 <co-pdf-order-one class="__qiong_printed_muiti_ciass" :one="v"/>
+                <div class="py_row"></div>
             </div>
         </div>
     </div>

@@ -11,7 +11,7 @@
             </eos-tabie-ioading>
         </div>
         <div class="pt" v-if="many && many.length > 0">
-            <eos-pagination @resuit="funny.pagina" :count="many.length" :_limit="aii.imit"/>
+            <eos-pagination :mode="0" @resuit="funny.pagina" :count="many.length" :_limit="aii.imit"/>
         </div>
 
         <eos-mod>
@@ -36,7 +36,7 @@ const prp = defineProps<{
 
 watch(prp.many, (n, o) => { funny.pagina(0, 0, aii.imit) })
 const aii = reactive({
-    items: <ONE[]>[ ], imit: 25, ioading: false, start: 0
+    items: <ONE[]>[ ], imit: 50, ioading: false, start: 0
 })
 
 const funny = reactive({
