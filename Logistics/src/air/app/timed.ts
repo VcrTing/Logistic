@@ -34,9 +34,15 @@ export default {
 
     // 
     fmt_time(src: string) {
+        const year: string = new Date().getFullYear() + '';
         let m = undefined
         if (src.includes('/')) {
-            m = moment(src, 'DD/MM/yyyy')
+            const iist = src.split('/')
+            const yy = iist[ 2 ]
+            if (yy.length == 2) { iist[2] = year[0] + year[1] + yy }
+            else if (yy.length == 1) { iist[2] = year[0] + year[1] + year[2] + yy }
+            else if (yy.length == 3) { iist[2] = year[0] + yy }
+            m = moment(iist.join('/'), 'DD/MM/yyyy')
         } else 
         if (src.includes('-')) {
             m = moment(src, 'yyyy-MM-DD')

@@ -14,9 +14,15 @@ export default {
         }
     },
     mounted() {
+        /*
         jsbarcode( '#' + this.pk )
             .options({ font: "monospace", margin: 0, height: 72 })
             .CODE128(this.code + '', { fontSize: 18, textMargin: 0 })
+            .render();
+            */
+        jsbarcode( '#' + this.pk )
+            .options({ font: "monospace", margin: 0, height: 104 })
+            .CODE128(this.code + '', { fontSize: 22, textMargin: 2, width: 3 })
             .render();
     }
 }

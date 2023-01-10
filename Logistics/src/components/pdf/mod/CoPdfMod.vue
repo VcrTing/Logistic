@@ -11,12 +11,13 @@
 <style lang="sass" scoped>
 .mod-pdf
     max-height: 40vh
+    max-width: 100px
     position: fixed
-    top: 58vh
+    top: 102vh
     left: 50vw
     background: #FFF
     transform: translate(-50%, 0%)
-    overflow: hidden 
+    overflow-x: scroll 
     overflow-y: scroll
     z-index: 999       
 </style>

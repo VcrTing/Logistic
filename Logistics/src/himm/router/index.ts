@@ -5,6 +5,7 @@ import {
     RouteLocationNormalized
 } from 'vue-router'
 
+import _widget from './_widget';
 import _shop from './_shop';
 import _order from './_order';
 import _delier from './_delier';
@@ -32,7 +33,8 @@ const router = createRouter({
         },
         {
             path: '/login', component: () => import('../../screen/auth/iogin/Iogin.vue')
-        }
+        },
+        ..._widget
     ],
 });
 

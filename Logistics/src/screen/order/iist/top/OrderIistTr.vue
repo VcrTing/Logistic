@@ -14,7 +14,7 @@
                 訂單組<br/><p class="tr-en">Group</p>
             </div>
             <div class="w-9">
-                派送時間<br/><p class="tr-en">Delivery time</p>
+                收件時間<br/><p class="tr-en">Receipt time</p>
             </div>
             <div class="w-10">
                 訂單編號<br/><p class="tr-en">Order No.</p>

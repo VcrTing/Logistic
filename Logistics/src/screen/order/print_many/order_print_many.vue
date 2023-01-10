@@ -19,7 +19,9 @@
         </template>
     </eos-iayout-screen-siot>
 
+    <!--
     <opm-mod :aii="aii" v-if="aii.many && aii.many.length > 0"/>
+        -->
 </template>
     
 <script lang="ts" setup>
