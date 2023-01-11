@@ -16,6 +16,9 @@ export const appPina = defineStore("appPina", {
 
         // 更新的 trigger
         refresh: '',
+
+        // 500 分页的记录
+        pagi_500: <ONE>{ }
     }),
     actions: {
         do_one(m: ONE) { this.one = m ? m : { } },
@@ -24,7 +27,13 @@ export const appPina = defineStore("appPina", {
         // 面板
         do_mod(m: number) { this.mod = m ? m : 0 },
         do_menu(m: number) { this.menu = m ? m : 0 },
-        do_panner(m: number) { this.panner = m ? m : 0 }
+        do_panner(m: number) { this.panner = m ? m : 0 },
+
+        // 计算 500 分页
+        do_pagi_500( k: string, page: ONE) {
+            this.pagi_500[ k ] = page
+        },
+        got_pagi_500( k:string ): ONE { const res = this.pagi_500[ k ]; return res ? res : { } }
     },
     getters: {
         

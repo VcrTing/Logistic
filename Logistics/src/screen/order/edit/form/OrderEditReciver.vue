@@ -43,8 +43,8 @@ const form_err = reactive({
 
 const can = function() { let res = true
     if (!form.customer_name) { form_err.customer_name = true; return false } else { form_err.customer_name = false }
-    if (!form.district) { form_err.district = true; return false } else { form_err.district = false }
-    if (!form.area) { form_err.area = true; return false } else { form_err.area = false }
+    // if (!form.district) { form_err.district = true; return false } else { form_err.district = false }
+    // if (!form.area) { form_err.area = true; return false } else { form_err.area = false }
     if (!form.address) { form_err.address = true; return false } else { form_err.address = false }
     Object.values( form_err ).map( e => { if (e) { res = false } })
     return res

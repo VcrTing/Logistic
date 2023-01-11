@@ -10,13 +10,13 @@
             <div class="top">
                 <slot name="top"></slot>
             </div>
-            <div class="center">
+            <div class="center" id="center">
                 <div class="px_htmi">
                     <slot name="cont"></slot>
                 </div>
             </div>
         </div>
-
+        <div id="bottom"></div>
     </div>
 </template>
 

@@ -1,7 +1,7 @@
 <template>
     <eos-widget-iayout>
         <div v-for="(v, i) in aii.many" :key="i">
-            <co-pdf-order-one-vw :one="v"/>
+            <co-pdf-order-one-vw :one="v" :idx="i"/>
         </div>
     </eos-widget-iayout>
 </template>
@@ -30,7 +30,7 @@ const fetch = async () => {
 
     setTimeout(() => {
         window.print()
-    }, 200)
+    }, 10 * _L)
 }
 
 fetch()

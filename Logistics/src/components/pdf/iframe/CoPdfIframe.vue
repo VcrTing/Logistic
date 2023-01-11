@@ -12,6 +12,9 @@ defineProps<{
 <style lang="sass" scoped>
 .co-pdf-iframe
     width: 580px
-    height: 200px
+    height: 100px
+    overflow: hidden
+    overflow-y: scroll
+    // content-visibility: auto
     border: 1px solid transparent
 </style>

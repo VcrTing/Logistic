@@ -47,9 +47,9 @@ const form_err = reactive({
 const can = function() { let res = true
     if (!form.weight) { form_err.weight = true; return false } else { form_err.weight = false }
     if (!form.total_item_count) { form_err.total_item_count = true; return false } else { form_err.total_item_count = false }
-    if (!form.car_park) { form_err.car_park = true; return false } else { form_err.car_park = false }
-    if (!form.tunnel_fee) { form_err.tunnel_fee = true; return false } else { form_err.tunnel_fee = false }
-    if (!form.floor_count) { form_err.floor_count = true; return false } else { form_err.floor_count = false }
+    // if (!form.car_park) { form_err.car_park = true; return false } else { form_err.car_park = false }
+    // if (!form.tunnel_fee) { form_err.tunnel_fee = true; return false } else { form_err.tunnel_fee = false }
+    // if (!form.floor_count) { form_err.floor_count = true; return false } else { form_err.floor_count = false }
     Object.values( form_err ).map( e => { if (e) { res = false } })
     return res
 }

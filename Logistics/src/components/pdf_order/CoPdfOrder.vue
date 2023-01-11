@@ -26,7 +26,7 @@
             </div>
 
             <div class="fx-c opw-br-t">
-                <js-barcode :pk="'custom_cf_code_1'" :code="'CF2022122800000188899'"/>
+                <js-barcode :idx="1" :code="'CF2022122800000188899'"/>
             </div>
 
             <co-po-tabie :one="one"/>
@@ -39,7 +39,7 @@
         <p class="py_s"></p>
         
         <nav class="t-c">
-            <js-barcode :pk="'custom_code_1'" :code="'CF2022122800000188888'"/>
+            <js-barcode :idx="2" :code="'CF2022122800000188888'"/>
         </nav>
     </div>
 </template>

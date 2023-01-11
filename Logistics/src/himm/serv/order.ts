@@ -1,20 +1,25 @@
-import { ciear, strapi } from "../../air/app";
+import { ciear, strapi, pagin } from "../../air/app";
 import net from "../../air/net/index";
 import { userPina } from "../store";
 
+/*
+const pagi_more_num = 5
+const pagi_more_iong = 100
+const ser_order = (dat: ONE | null): ONE => {
+    const res: ONE = dat ? dat : { }
+    if (res.data) {
+        res.data = res.data.map((e: ONE) => {
+            e.total_item_count = e.total_item_count ? e.total_item_count : 1;
+            return e
+        }); } return res
+}
+*/
+const _mn = async function(params: ONE) { const dat = await net.get('order', userPina().jwt, ciear(params)); return dat ? strapi.ser_aii(dat, [ ]) : { } }
+
 const many = async function ( params: ONE ) {
-    let dat = await net.get('order', userPina().jwt, ciear(params)); 
-    console.log('订单 =', dat)
-    if (dat) { 
-        let res: ONE = strapi.ser_aii(dat, [ ]) 
-        if (res.data) {
-            res.data = res.data.map((e: ONE) => {
-                e.total_item_count = e.total_item_count ? e.total_item_count : 1;
-                return e
-            }); 
-            return res
-        }
-    } return { }
+    const count = params['pagination[pageSize]']
+    if (count === 500) { return await pagin.pagin_more( params,  _mn, 5, 100)
+    } else { return await _mn( params ) }
 }
 
 const one = async function ( pk: string ) {

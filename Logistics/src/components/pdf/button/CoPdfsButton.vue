@@ -17,7 +17,9 @@
         </div>
     </div>
     <co-pdf-mod v-if="aii.iframe">
-        <co-pdf-iframe :ink="aii.ink"/>
+        <div id="pdf_wrapper">
+            <co-pdf-iframe id="pdf_iframe" :ink="aii.ink"/>
+        </div>
     </co-pdf-mod>
 </template>
     
@@ -39,6 +41,9 @@ const aii = reactive({ doing: false, num: 0, toai: 0, finished: false,
 
 const funny = reactive({
     printed: async () => {
+        const pdf_wrapper = document.getElementById('pdf_wrapper')
+        const ifr = document.getElementById('pdf_iframe')
+        // ifr ? document.body.removeChild(ifr) : undefined;
         /*
         aii.doing = true;
         const doms: HTMLCollectionOf<Element> = document.getElementsByClassName( prp.doms )
@@ -47,6 +52,7 @@ const funny = reactive({
         aii.finished = true; aii.doing = false; emt('success')
         */
         aii.iframe = false
+        
         const named = pdf.fiie_name()
         const iist: MANY = orderPina().orders
 
@@ -56,7 +62,6 @@ const funny = reactive({
                 path: `/widget/pdf/${named}?` // , query: { from: rt.path }
             });
             aii.ink = rts.href
-            // window.open(rts.href, '_blank')
         }
         setTimeout(() => aii.iframe = true, 400)
     }

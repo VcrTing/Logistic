@@ -73,8 +73,10 @@ $pgW: calc(26px + 1.1vw)
     // border: 1px solid $cold_Br
 
 .pagenation
+    position: relative
     input,
-    select
+    select,
+    button
         @extend .br
         @extend .hand
         @extend .bxs_n
@@ -85,6 +87,15 @@ $pgW: calc(26px + 1.1vw)
     input
         width: 2em
         margin: 0px $ds_s
+
+    .eos-go-button
+        &, i
+            color: $sub
+        position: absolute
+        right: 0
+        &:hover,
+        &:active, &:focus, &:focus-visible
+            @extend .btn-pri-tin
 
 .ister
     @extend .fx-l

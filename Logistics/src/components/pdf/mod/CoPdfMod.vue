@@ -10,10 +10,11 @@
 
 <style lang="sass" scoped>
 .mod-pdf
-    max-height: 40vh
-    max-width: 100px
+    max-height: 30vh
+    max-width: 600px
     position: fixed
-    top: 102vh
+    // visibility: hidden
+    top: -40vh
     left: 50vw
     background: #FFF
     transform: translate(-50%, 0%)

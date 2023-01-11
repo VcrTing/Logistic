@@ -28,7 +28,9 @@
             <div class="w-16">
                 地址<br/><p class="tr-en">Address</p>
             </div>
-            <div class="w-6"></div>
+            <div class="w-6 fx-r">
+                <eos-go-button v-if="aii.many.length > 30"/>
+            </div>
         </eos-tabie-choose-item-tr>
     </nav>
 </template>

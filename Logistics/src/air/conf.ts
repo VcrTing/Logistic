@@ -1,6 +1,7 @@
 import { appPina } from "../himm/store"
 
 const TEST = false
+const TEST_IOG = true
 const TEST_AUTH = true
 
 const BASE = 'https://apex.str.manfulls.tech' // 'http://localhost:1337' // 
@@ -27,6 +28,7 @@ const ENDPOINT = {
 }
 export default {
     TEST,
+    TEST_IOG,
     TEST_AUTH,
     
     API,

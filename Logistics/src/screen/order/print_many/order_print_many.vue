@@ -41,16 +41,13 @@ const aii = reactive({
     many: orderPina().orders.map(e => {
         e.is_expan = false // ; e.total_item_count = e.total_item_count ? e.total_item_count : 1
         return e
-    }), 
-    ioading: true,
-    success_one: (idx: number) => { // console.log('成功 =', idx) 
-    },
+    }), ioading: true,
+    success_one: (idx: number) => { },
     back: () => {
         const frm: string | null = qry.from
         frm ? rtr.push(frm) : rtr.back()
     }
 })
 
-console.log('aii Orders =', aii.many)
 setTimeout(() => aii.ioading = false, 100)
 </script>

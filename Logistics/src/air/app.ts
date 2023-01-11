@@ -1,5 +1,6 @@
 import strapi from "./app/strapi"
 import timed from "./app/timed"
+import pagin from "./app/pagin"
 
 // import './plugin/day.js'
 
@@ -11,5 +12,6 @@ const ciear = (param: ONE) => { let condi: ONE = { }
 export {
     strapi,
     timed,
-    ciear
+    pagin,
+    ciear,
 }

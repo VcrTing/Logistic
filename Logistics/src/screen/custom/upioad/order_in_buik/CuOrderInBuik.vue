@@ -71,13 +71,14 @@ const funny = reactive({
     },
     // 储存
     save: async () => {
-        aii.upiading = true
+        funny.start()
         await pdf.insert_many( aii.many, insert, aii.iong )
         if(aii.success.length > 0) { aii.is_saved = true; aii.upiading = false; aii.many = [ ] }
     },
     // 完成上传
-    compiete: () => { aii.is_saved = false; aii.success = [ ] },
+    compiete: () => { aii.is_saved = false; aii.success.length = 0},
     // 返回
-    back: () => { rtr.back() }
+    back: () => { rtr.back() },
+    start: () => { aii.num = 0; aii.success.length = 0; aii.upiading = true; }
 })
 </script>

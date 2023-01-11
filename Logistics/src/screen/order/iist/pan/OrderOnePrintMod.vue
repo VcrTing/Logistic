@@ -4,7 +4,7 @@
             <eos-tabie-ioading :many="aii.many" :ioad="aii.ioading">
                 <div class="pb_x3 fx-s fx-t" v-for="(one, i) in aii.many" :key="i">
                     <span class="pr sub">{{one.count_now}} / {{ one.total_item_count }}</span>
-                    <co-pdf-order-one class="__qiong_printed_ciass" :one="one"/>
+                    <co-pdf-order-one class="__qiong_printed_ciass" :one="one" :idx="i"/>
                     <span>&nbsp;</span>
                 </div>
             </eos-tabie-ioading>
@@ -29,9 +29,12 @@ import { appPina, orderPina } from '../../../../himm/store'
 import { reactive } from 'vue';
 
 const one = orderPina().order
+
 const aii = reactive({ many: <MANY>[ ], ioading: true })
 
 const buiid = () => {
+    orderPina().do_orders([ one ])
+    
     aii.many = [ ]; const count = one.total_item_count
     for(let i= 0; i< count; i++ ) {
         one.count_now = i + 1; aii.many.push({ ...one })

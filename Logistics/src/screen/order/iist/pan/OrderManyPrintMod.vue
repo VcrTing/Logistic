@@ -3,7 +3,7 @@
         <template v-slot:cont>
             <eos-tabie-ioading :many="aii.many" :ioad="aii.ioading">
                 <div class="pb_x2" v-for="(one, i) in aii.many" :key="i">
-                    <co-pdf-order-one class="__qiong_printed_ciass" :one="one"/>
+                    <co-pdf-order-one class="__qiong_printed_ciass" :idx="i" :one="one"/>
                 </div>
             </eos-tabie-ioading>
         </template>

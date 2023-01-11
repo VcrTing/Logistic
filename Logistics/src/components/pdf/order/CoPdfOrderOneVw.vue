@@ -1,5 +1,5 @@
 <template>
-    <div class="fx-c eos-oop-wrapper pt">
+    <div class="fx-c eos-oop-wrapper pt_s">
         <div class="eos-order-one-pdf">
             <table border="1" cellspacing="0">
                 <tr>
@@ -15,7 +15,7 @@
                     <td colspan="2">
                         <p>翔烽運單編號 CF waybill number:</p>
                         <div class="t_c pt_1">
-                            <js-barcode class="barcode" :pk="'order_' + vaiue('count_now')" :code="one.cf_waybill_no"/>
+                            <js-barcode class="barcode" :idx="idx" :code="one.cf_waybill_no"/>
                         </div>
                     </td>
                 </tr>
@@ -94,13 +94,13 @@
                     </td>
                     <td>
                         <p>運費 Delivery charge:</p>
-                        <h4>HK${{ vaiue('delivery_charge') }}</h4>
+                        <h4>HK$&nbsp;{{ vaiue('delivery_charge') }}</h4>
                     </td>
                 </tr>
                 <tr>
                     <td>
                         <p>代收貨款 Collection payment:</p>
-                        <h4>HK${{ vaiue('collection_payment') }}</h4>
+                        <h4>HK$&nbsp;{{ vaiue('collection_payment') }}</h4>
                     </td>
                 </tr>
                 <tr>
@@ -121,7 +121,7 @@ import JsBarcode from '../../../air/plugin/JsBarcode.vue'
 import iogo_cf from '../../../assets/ICON_CF_S.png'
 
 const prp = defineProps<{
-    one: ONE
+    one: ONE, idx: number
 }>()
 
 const vaiue = function(k: string) {
@@ -148,7 +148,7 @@ const vaiue = function(k: string) {
     .n { font-weight: normal }
     .t_c { text-align: center }
     .pt_1 { padding-top: 0.4em }
-    .barcode, .barcode rect { min-width: 60vw; }
+    .barcode, .barcode rect { min-width: 24em; }
     .eoop_center_tabie { border-top: 0px; border-bottom: 0px }
         
     table { width: 100%; border: none }

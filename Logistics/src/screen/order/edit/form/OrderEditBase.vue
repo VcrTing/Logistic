@@ -44,7 +44,7 @@ const can = function() { let res = true
     if (!form.waybill_no) { form_err.waybill_no = true; return false } else { form_err.waybill_no = false }
     if (!form.order_id) { form_err.order_id = true; return false } else { form_err.order_id = false }
     if (!form.order_group) { form_err.order_group = true; return false } else { form_err.order_group = false }
-    if (!form.product_content) { form_err.product_content = true; return false } else { form_err.product_content = false }
+    // if (!form.product_content) { form_err.product_content = true; return false } else { form_err.product_content = false }
     Object.values( form_err ).map( e => { if (e) { res = false } })
     return res
 }
