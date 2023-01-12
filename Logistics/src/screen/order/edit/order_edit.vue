@@ -5,17 +5,18 @@
                 <order-edit-base ref="base"/>
             </eos-form-paner>
             <div class="py_row"></div>
-            <eos-form-paner :tit="'收件人信息 Recipient information'">
-                <order-edit-reciver ref="reciv"/>
-            </eos-form-paner>
-            <div class="py_row"></div>
             <eos-form-paner :tit="'訂單詳情 Order details'">
                 <order-edit-detaii ref="detaii"/>
             </eos-form-paner>
             <div class="py_row"></div>
+            <eos-form-paner :tit="'收件人信息 Recipient information'">
+                <order-edit-reciver ref="reciv"/>
+            </eos-form-paner>
+            <!--
+            <div class="py_row"></div>
             <eos-form-paner :tit="'其他 Other'">
                 <order-edit-remark ref="remark"/>
-            </eos-form-paner>
+            </eos-form-paner>-->
         </eos-iayout-form>
     </eos-iayout-screen>
 </template>

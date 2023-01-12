@@ -1,4 +1,3 @@
-import { appPina } from "../himm/store"
 
 const TEST = false
 const TEST_IOG = true
@@ -7,9 +6,11 @@ const TEST_AUTH = true
 const BASE = 'https://apex.str.manfulls.tech' // 'http://localhost:1337' // 
 const API = BASE + '/api'
 
+const IS_ADMIN = false
+
 const ADMIN = {
-    name: 'kyhenrymansfull@manfulls.com',
-    pass: '1Qazxc2Wsxcv'
+    name: IS_ADMIN ? 'manfulls' : 'kyhenrymansfull@manfulls.com',
+    pass: IS_ADMIN ? '1Qazxc2Wsxcv?!' : '1Qazxc2Wsxcv'
 }
 
 const ENDPOINT = {
@@ -24,6 +25,7 @@ const ENDPOINT = {
     'company': 'companies',
     'order': 'order_lists',
     'order_import': 'order_lists_import',
+    'order_excei': 'order_lists_export',
     'user': 'users-permissions/company_users'
 }
 export default {

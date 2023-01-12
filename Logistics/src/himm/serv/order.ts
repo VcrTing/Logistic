@@ -45,9 +45,17 @@ const imported = async function (importData: MANY, company: string): Promise<MAN
         return res.status < 399 ? res.data : [ ]
     } else { return [ ] }
 }
+
+// 导出为 excel
+const excei = async (data: ONE) => {
+    let res = await net.pos('order_excei', userPina().jwt, ciear( data )) 
+    console.log('Excei =', res)
+}
+
 export default {
     one,
     many,
     edit,
+    excei,
     imported
 }

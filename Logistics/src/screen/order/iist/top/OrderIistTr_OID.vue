@@ -4,30 +4,30 @@
             <div class="w-9">
                 創建日期<br/><p class="tr-en">Create date</p>
             </div>
-            <div class="w-14">
+            <div class="w-12">
                 翔烽運單號碼<br/><p class="tr-en">CF waybill number</p>
             </div>
             <div class="w-12">
                 客戶運單編號<br/><p class="tr-en">Waybill number</p>
             </div>
-            <div class="w-8">
+            <div class="w-7">
                 訂單組<br/><p class="tr-en">Group</p>
             </div>
-            <div class="w-12">
+            <div class="w-10">
                 訂單編號<br/><p class="tr-en">Order No.</p>
             </div>
 
-            <div class="w-10">
-                派送日期<br/><p class="tr-en">Delivery Date</p>
-            </div>
-            <div class="w-10">
-                收件日期<br/><p class="tr-en">Receipt Date</p>
-            </div>
-
-            <div class="w-10">
-                收件人<br/><p class="tr-en">Reciver</p>
+            <div class="w-16 ">
+                派送日期<br/><p class="tr-en">Address</p>
             </div>
             <div class="w-9">
+                收件日期<br/><p class="tr-en">Receipt time</p>
+            </div>
+
+            <div class="w-9">
+                收件人<br/><p class="tr-en">Reciver</p>
+            </div>
+            <div class="w-10">
                 收件電話<br/><p class="tr-en">Phone</p>
             </div>
             <!--

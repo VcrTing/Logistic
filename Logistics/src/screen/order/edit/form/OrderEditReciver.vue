@@ -17,11 +17,11 @@
     </div>
     <div class="py f-row">
         <eos-input class="w-100 w-100-p" :is_err="form_err.address" :header="'地址詳情 Address'">
-            <input class="input" v-model="form.address" placeholder="請輸入 Please enter" />
+            <textarea class="input" v-model="form.address" placeholder="請輸入 Please enter"></textarea>
         </eos-input>
     </div>
     <div class="py f-row">
-        <eos-input class="w-100 w-100-p" :is_err="form_err.route" :header="'路线 Route'">
+        <eos-input class="w-50 w-50-p" :is_err="form_err.route" :header="'路线 Route'">
             <input class="input" v-model="form.route" placeholder="請輸入 Please enter" />
         </eos-input>
     </div>

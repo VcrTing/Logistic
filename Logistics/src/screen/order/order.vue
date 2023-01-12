@@ -12,6 +12,8 @@
 </template>
 
 <script setup lang="ts">
+import { order } from '../../himm/serv';
+
 enum Gender {
     Boy, Girl
 }
@@ -22,7 +24,6 @@ enum Age {
     guy = 30,
     oid = 60
 }
-
 
 interface Humen {
     gender: Gender,
@@ -66,4 +67,10 @@ const testing = async () => {
     }
 }
 
+// 获取 excei
+const export_excei = async () => {
+    const res = await order.excei({ })
+}
+export_excei()
+// https://blog.csdn.net/johnZhangqi/article/details/123693520
 </script>

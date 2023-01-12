@@ -1,11 +1,7 @@
 <template>
     <div class="py f-row">
-        <eos-input class="w-50 w-50-p ip-weight" :is_err="form_err.weight" :header="'重量 Weight'">
-            <input class="input" type="number" v-model="form.weight" placeholder="請輸入 Please enter" />
-            <span class="ip-unit">kg</span>
-        </eos-input>
-        <eos-input class="w-50 w-50-p" :is_err="form_err.total_item_count" :header="'件數 No.'">
-            <input class="input" type="number" v-model="form.total_item_count" placeholder="請輸入 Please enter" />
+        <eos-input class="w-50 w-50-p" :is_err="false" :header="'派送日期 Delivery date'">
+            <fn-time :timed="form.delivery_date" ref="dateRef" @resuit="(n: string) => form.delivery_date = n"/>
         </eos-input>
     </div>
     <div class="py f-row">
@@ -25,6 +21,9 @@
         </eos-input>
     </div>
     <div class="py f-row">
+        <eos-input class="w-50 w-50-p" :is_err="form_err.delivery_charge" :header="'運費 Delivery charges'">
+            <input class="input" type="number" v-model="form.delivery_charge" placeholder="請輸入 Please enter" />
+        </eos-input>
         <eos-input class="w-50 w-50-p" :is_err="form_err.collection_payment" :header="'代收货款 Collection Payment'">
             <input class="input" type="number" v-model="form.collection_payment" placeholder="請輸入 Please enter" />
         </eos-input>
@@ -37,11 +36,11 @@ import { reactive, defineExpose } from 'vue'
 
 const form:ONE = reactive({
     weight: '', total_item_count: '', car_park: '', tunnel_fee: '', misc_fee: '', 
-    floor_count: '',  collection_payment: '',
+    floor_count: '',  collection_payment: '', delivery_date: '', delivery_charge: ''
 })
 const form_err = reactive({
     weight: false, total_item_count: false, car_park: false, tunnel_fee: false, misc_fee: false, 
-    floor_count: false, collection_payment: false
+    floor_count: false, collection_payment: false, delivery_charge: false
 })
 
 const can = function() { let res = true

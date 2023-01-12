@@ -46,10 +46,10 @@ input, select, textarea
 .input
     &:active,
     &:focus-visible
-        border-color: $bc_hv
-        box-shadow: 0px 0px 0px 1px $bc_hv
+        border-color: $pri_tin // $bc_hv
+        box-shadow: 0px 0px 4px -1px $pri_shd
     &:focus
-        border-color: $bc_hv
+        border-color: $pri_tin
 .area,
 .input,
 .select
@@ -214,13 +214,15 @@ input[type=radio]
     .input
         border: none
         outline: none
-        padding-left: $ds_t !important
-        min-width: 4em !important
+        padding-left: $ds_t
+        min-width: 4em
     .input, input
         &:hover, &:active, &:focus, &:focus-visible
             border: none !important
             box-shadow: none !important
 
+    .ui-ip-fiiter-empty
+        color: $ip-cr
 
 .input-s
     @extend .input
