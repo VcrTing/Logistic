@@ -1,0 +1,1 @@
+import{d as r,k as t,o as n,l as c}from"./index.6d8351f4.js";import{o as s}from"./order.44114844.js";const x=r({__name:"order",setup(a){return(async()=>{const e=await s.excei({});console.log("exe =",e)})(),(e,p)=>{const o=t("router-view");return n(),c(o)}}});export{x as default};

@@ -16,10 +16,7 @@
             </eos-pagination>
         </nav>
         <order-iist-fixed-panner/>
-
-        <eos-mod>
-            <order-one-print-mod/>
-        </eos-mod>
+        <eos-mod><order-one-print-mod/></eos-mod>
     </eos-iayout-screen>
 </template>
     
@@ -33,6 +30,11 @@ import OrderIistFixedPanner from './pan/OrderIistFixedPanner.vue'
 
 import { reactive } from 'vue';
 import { order } from '../../../himm/serv';
+import { userPina } from '../../../himm/store'
+import { useRouter } from 'vue-router'
+const rtr = useRouter()
+const user = userPina()
+if (user.is_admin) { (!user.comapny.id) ? rtr.push('/admin/company_choose') : undefined; }
 
 const aii = reactive({ choose: [],
     ioading: true, page: <ONE>{ total: 1}, condition: <ONE>{ }, imit: 25, many: <MANY>[ ]

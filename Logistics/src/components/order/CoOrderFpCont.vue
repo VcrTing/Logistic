@@ -8,7 +8,7 @@
         <div class="pb">
             <div class="f-row fx-l pb">
                 <ui-vaiue class="w-45" :header="'重量 Weight:'" :is_txt_mode="true">
-                    {{ vaiue('weight') }}&nbsp;kg
+                    {{ vaiue('weight', '0') }}&nbsp;kg
                 </ui-vaiue>
                 <ui-vaiue class="w-55" :header="'件數 Package:'" :is_txt_mode="true">
                     {{ vaiue('total_item_count') }}
@@ -31,14 +31,17 @@
                 </ui-vaiue>
             </div>
             <ui-vaiue class="pt" :header="'運費 Delivery charge:'" :is_txt_mode="true">
-                {{ vaiue('delivery_charge', '0') }}&nbsp;HK
+                HK$&nbsp;&nbsp;{{ vaiue('delivery_charge', '0.00') }}
             </ui-vaiue>
             <ui-vaiue :header="'代收貨款 Collection payment:'" :is_txt_mode="true">
-                {{ vaiue('collection_payment', '0') }}&nbsp;HK
+                HK$&nbsp;&nbsp;{{ vaiue('collection_payment', '0.00') }}
             </ui-vaiue>
         </div>
         <div class="pb_x2">
             <h5>地址</h5>
+            <div class="pt_x" v-if="userPina().is_admin">
+                送貨員 Delivery men:&nbsp;&nbsp;{{ vaiue('delivery_man_info.chinese_name') }}
+            </div>
             <div class="f-row fx-l pt pb_x">
                 <ui-vaiue class="w-45" :header="'地域 District'" :is_txt_mode="true">
                     {{ vaiue('district') }}
@@ -50,9 +53,12 @@
             <ui-vaiue :header="'地址 Address:'" :is_txt_mode="true">
                 {{ vaiue('address') }}
             </ui-vaiue>
-            <ui-vaiue class="pt_s" :header="'路線 Route:'" :is_txt_mode="true">
+            <div class="py">
+                路線 Route:&nbsp;&nbsp;{{ vaiue('route') }}
+            </div>
+            <!--ui-vaiue class="pt_s" :header="'路線 Route:'" :is_txt_mode="true">
                 {{ vaiue('route') }}
-            </ui-vaiue>
+            </!--ui-vaiue-->
         </div>
         <div class="pb_x2">
             <h5>貨品內容</h5>
@@ -71,6 +77,7 @@
     
 <script lang="ts" setup>
 import { defineProps } from 'vue'
+import { userPina } from '../../himm/store'
 const prp = defineProps<{
     one: ONE
 }>()

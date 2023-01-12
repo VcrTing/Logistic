@@ -4,6 +4,10 @@
             <custom-user-creat-base ref="base"/>
         </eos-form-paner>
         <div class="py_row"></div>
+        <eos-form-paner :tit="'所屬公司 Company'">
+            <custom-user-creat-company ref="company"/>
+        </eos-form-paner>
+        <div class="py_row"></div>
         <eos-form-paner :tit="'用戶密碼 Security'">
             <custom-user-creat-pass ref="pass"/>
         </eos-form-paner>
@@ -16,17 +20,21 @@ import { useRouter } from 'vue-router'
 import { user } from '../../../../himm/serv'
 import CustomUserCreatBase from './form/CustomUserCreatBase.vue'
 import CustomUserCreatPass from './form/CustomUserCreatPass.vue'
+import CustomUserCreatCompany from './form/CustomUserCreatCompany.vue'
 const rt = useRouter()
 const base = ref()
 const pass = ref()
+const company = ref()
 
 const submit = async function() {
     const data_base = base.value.resuit()
     const data_pass = pass.value.resuit()
-    console.log('res =', data_base, data_pass)
+    const data_company = company.value.resuit()
 
-    if (data_base && data_pass) {
-        const res = await user.creat({ ...data_base, ...data_pass })
+    console.log('res =', data_base, data_pass, data_company)
+
+    if (data_base && data_pass &&  data_company) {
+        const res = await user.creat({ ...data_base, ...data_pass, ...data_company })
         if (res) { dump() } } }
 const dump = () => rt.push('/admin/user_iist')
 </script>

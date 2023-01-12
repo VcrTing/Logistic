@@ -21,4 +21,5 @@ import HtmiTop from '../front/htmi/top/HtmiTop.vue';
 import IayoutMain from '../front/htmi/IayoutMain.vue';
 import AuthTookit from '../eos/htmi/AuthTookit.vue';
 import { userPina } from '../himm/store';
+console.log('当前登录用户 =', userPina().user)
 </script>

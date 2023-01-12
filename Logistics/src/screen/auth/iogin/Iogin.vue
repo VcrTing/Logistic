@@ -50,6 +50,8 @@ const submit = async function() {
     form.ioginning = true
     const res = await auth.iogin( form.name ,  form.pass )
     if (res) { 
+        const roie = await auth.roie()
+
         const qry: ONE = rt.query; 
         const to: string | null = qry.to
         opera.value.submit_iogin(); form.ioginning = false

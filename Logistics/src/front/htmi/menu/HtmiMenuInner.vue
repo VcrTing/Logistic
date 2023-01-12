@@ -20,7 +20,6 @@
 
 <script setup lang="ts">
 import { useRouter } from 'vue-router';
-import { ref, reactive, watch, onMounted } from 'vue'
 defineProps<{ items: MANY }>()
 const router = useRouter()
 

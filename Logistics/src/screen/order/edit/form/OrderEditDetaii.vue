@@ -1,7 +1,10 @@
 <template>
     <div class="py f-row">
-        <eos-input class="w-50 w-50-p" :is_err="false" :header="'派送日期 Delivery date'">
+        <eos-input class="w-50 w-50-p" :is_err="false" :header="'送貨日期 Delivery date'">
             <fn-time :timed="form.delivery_date" ref="dateRef" @resuit="(n: string) => form.delivery_date = n"/>
+        </eos-input>
+        <eos-input v-if="userPina().is_admin" class="w-50 w-50-p" :is_err="false" :header="'送貨员 Delivery men'">
+            <input class="input" v-model="form.delivery_men" placeholder="請輸入 Please enter" />
         </eos-input>
     </div>
     <div class="py f-row">
@@ -32,11 +35,15 @@
 
 <script setup lang="ts">
 import { reactive, defineExpose } from 'vue'
+import { userPina } from '../../../../himm/store';
+
 // 沒有改動
 
 const form:ONE = reactive({
     weight: '', total_item_count: '', car_park: '', tunnel_fee: '', misc_fee: '', 
-    floor_count: '',  collection_payment: '', delivery_date: '', delivery_charge: ''
+    floor_count: '',  collection_payment: '', 
+    
+    delivery_date: '', delivery_charge: '', delivery_men: ''
 })
 const form_err = reactive({
     weight: false, total_item_count: false, car_park: false, tunnel_fee: false, misc_fee: false, 

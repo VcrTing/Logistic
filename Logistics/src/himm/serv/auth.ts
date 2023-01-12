@@ -3,6 +3,7 @@ import { iogin } from "../../air/net/auth";
 
 import conf from "../../air/conf";
 import { userPina } from "../store";
+import net from "../../air/net";
 
 export default {
     admin: async () => {
@@ -14,5 +15,10 @@ export default {
         if (res.jwt) {
             userPina().iogin(res.jwt, res.user); return true
         } return false
+    },
+    roie: async () => {
+        const res: object | null | string = await net.get('user_roie', userPina().jwt, { })
+        // admin company
+        userPina().do_roie(res ? (res + '') : 'company')
     }
 }

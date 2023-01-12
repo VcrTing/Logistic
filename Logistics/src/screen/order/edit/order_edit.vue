@@ -42,17 +42,17 @@ nextTick(() => {
     one.receipt_date = one.receipt_date ? one.receipt_date : timed.now()
     if (!one.id) { back() }
     base.value.reset( one ); reciv.value.reset( one ); 
-    detaii.value.reset( one ); remark.value.reset( one );
+    detaii.value.reset( one ); // remark.value.reset( one );
 })
 
 const submit = async function() {
     const data_base = base.value.resuit()
     const data_reciv = reciv.value.resuit()
     const data_detaii = detaii.value.resuit()
-    const data_remark = remark.value.resuit()
-    
+    // const data_remark = remark.value.resuit()
+    console.log(data_base, data_reciv, data_detaii)
     if (data_base && data_reciv && data_detaii) {
-        const res = await order.edit({ ...data_base, ...data_reciv, ...data_detaii, ...data_remark }, one.id)
+        const res = await order.edit({ ...data_base, ...data_reciv, ...data_detaii }, one.id)
         if (res) { back() } } }
 
 const back = () => rt.push('/admin/order_iist')

@@ -16,7 +16,9 @@ const CRUMB_HK = <ONE> {
     'im_iist': '場表列表',
     'im_detaii': '場表詳情',
     'im_detaii_creat': '創建場表',
+
     'company_creat': '新增公司',
+    'company_choose': '選擇公司',
 
     // 'custom_creat': '新增用戶',
     // 'custom_iist': '客戶列表',
@@ -27,7 +29,7 @@ const CRUMB_HK = <ONE> {
 
     'upioad_order_in_buik': '批量上傳訂單',
 
-    'print_muiti': '多項印列'
+    'print_muiti': '多項印列',
 }
 const CRUMB_EN = <ONE> {
     'edit': 'Edit',
@@ -42,6 +44,7 @@ const CRUMB_EN = <ONE> {
 
     'company_iist': 'Company list',
     'company_creat': 'Add new company',
+    'company_choose': 'Select company',
 
     'upioad_order_in_buik': 'Upload orders in bulk'
 }

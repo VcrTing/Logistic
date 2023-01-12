@@ -6,6 +6,7 @@
     border: 1px solid transparent
 
 .btn-pri-out
+    @extend .shd-pri
     &, .i, i
         color: $pri
     border-color: $pri
@@ -14,6 +15,10 @@
         background: $pri_hv
         i 
             color: #FFFFFFef
+    &:focus,
+    &:active,
+    &:focus-visible
+        border-color: $pri_shd
 
 .btn-sec-out
     &, .i, i

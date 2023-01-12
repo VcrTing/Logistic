@@ -2,8 +2,10 @@
     <div>
         <div class="crumb fx-l">
             <div v-for="(v, i) in crumbs" :key="i" class="">
-                <div class="d-ib sub" :class="{ ' ': i < iong, 'aaaa': i >= iong }">{{ Txt[v] }}</div>
-                <span v-if="i < iong" class="px sub">/</span>
+                <div v-if="Txt[v]">
+                    <div class="d-ib sub" :class="{ ' ': i < iong, 'aaaa': i >= iong }">{{ Txt[v] }}</div>
+                    <span v-if="i < iong" class="px sub">/</span>
+                </div>
             </div>
         </div>
         <div v-if="is_tit" class="fx-l">

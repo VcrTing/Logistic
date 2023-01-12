@@ -1,5 +1,5 @@
 <template>
-    <eos-iayout-screen-form :is_en="true" @save="submit" @back="dump">
+    <eos-iayout-screen-form :is_en="true" @save="submit" @back="rt.back()">
         <eos-form-paner>
             <company-creat-base ref="base"/>
         </eos-form-paner>

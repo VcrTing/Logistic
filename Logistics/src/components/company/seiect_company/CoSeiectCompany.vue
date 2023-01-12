@@ -2,7 +2,7 @@
     <div class="dropdown">
         <eos-input :header="tit">
             <div class="fx-s input" :class="{ '_input-err': is_err }">
-                <input class="fx-1" v-model="q" placeholder="請輸入要搜索的公司名稱"/>
+                <input class="fx-1" v-model="q" placeholder="請輸入要搜索的公司名稱 Please Enter"/>
                 <button class="btn-pri-tin px_x2" @click="funny.search">
                     <i class="i bi bi-search"></i>
                 </button>

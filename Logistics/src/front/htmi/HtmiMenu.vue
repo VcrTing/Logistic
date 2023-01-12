@@ -4,7 +4,17 @@
             <iogo/>
         </div>
 
-        <htmi-menu-inner :items="[
+        <htmi-menu-inner :items="menus"/>
+    </div>
+</template>
+
+<script setup lang="ts">
+import { appPina, userPina } from '../../himm/store'
+import Iogo from '../static/Iogo.vue'
+import HtmiMenuInner from './menu/HtmiMenuInner.vue'
+
+const user = userPina()
+const menus: MANY = [
     {
         txt: '訂單管理', icon: 'bi bi-clipboard2',
         index: 1, link: null,
@@ -74,14 +84,12 @@
                 index: 32, link: '/admin/deliver_iist', },
         ]
     },
-]"
-/>
-    </div>
-</template>
+]
 
-<script setup lang="ts">
-import Iogo from '../static/Iogo.vue'
-import HtmiMenuInner from './menu/HtmiMenuInner.vue'
+
+user.is_admin ? menus[0].children.push({
+                txt: '選擇公司', icon: 'bi bi-clipboard2',
+                index: 11, link: '/admin/company_choose', }) : undefined;
 </script>
 
 <style lang="sass" scoped>

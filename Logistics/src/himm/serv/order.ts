@@ -14,7 +14,11 @@ const ser_order = (dat: ONE | null): ONE => {
         }); } return res
 }
 */
-const _mn = async function(params: ONE) { const dat = await net.get('order', userPina().jwt, ciear(params)); return dat ? strapi.ser_aii(dat, [ ]) : { } }
+const _mn = async function(params: ONE) { 
+    const comp_id = userPina().comapny.uuid
+    const is_admin = userPina().is_admin
+    const dat = await net.get('order', userPina().jwt, ciear(params), is_admin ? comp_id : ''); return dat ? strapi.ser_aii(dat, [ ]) : { } 
+}
 
 const many = async function ( params: ONE ) {
     const count = params['pagination[pageSize]']

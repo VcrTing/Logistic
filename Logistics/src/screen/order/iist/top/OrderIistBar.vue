@@ -1,5 +1,8 @@
 <template>
-    <cp-tabie-pdf-bar @p_aii="funny.p_aii()"/>
+    <div class="fx-s">
+        <cp-tabie-pdf-bar @p_aii="funny.p_aii()"/>
+        <my-button :typed="'pri-out'" :icon="'bi-file-earmark-excel'">导出 Excel Export Excel</my-button>
+    </div>
     <div class="py_t"></div>
 </template>
     

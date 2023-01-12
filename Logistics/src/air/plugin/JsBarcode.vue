@@ -48,9 +48,7 @@ const funny = {
                 */
                // alert('AAA')
                 const ss = funny.tofix(0.0017303 * w)
-                svg_dom.style.transform = 'scale(' + 
-                    (ss <= 1 ? 1 : ss)
-                + ')'
+                // svg_dom.style.transform = 'scale(' + (ss <= 1 ? 1 : ss) + ')'
             }
             rej(true)
         })
