@@ -1,5 +1,5 @@
 <template>
-    <eos-iayout-screen-form :is_en="true" @save="submit" @back="rt.back()">
+    <eos-iayout-screen-form :is_en="true" @save="save" @back="dump">
         <eos-form-paner>
             <company-creat-base ref="base"/>
         </eos-form-paner>
@@ -12,17 +12,16 @@ import { useRouter } from 'vue-router'
 import { company } from '../../../himm/serv'
 import { companyPina } from '../../../himm/store'
 import CompanyCreatBase from '../creat/form/CompanyCreatBase.vue'
-const rt = useRouter()
+const rtr = useRouter()
 const base = ref()
-const comp = companyPina()
 
-console.log('comp.on =', comp.one_company)
+const comp = companyPina()
 nextTick(() => base.value.reset( comp.one_company ))
 
-const submit = async function() {
+const save = async function() {
     const data_base = base.value.resuit()
     if (data_base) {
         const res = await company.edit({ ...data_base }, comp.one_company.id); res ? dump() : undefined } }
 
-const dump = () => rt.push('/admin/company_iist')
+const dump = () => rtr.back()
 </script>

@@ -46,10 +46,10 @@ input, select, textarea
 .input
     &:active,
     &:focus-visible
-        border-color: $pri_tin // $bc_hv
-        box-shadow: 0px 0px 4px -1px $pri_shd
+        border-color: $bc_hv
+        box-shadow: 0px 0px 0px 1px $bc_hv
     &:focus
-        border-color: $pri_tin
+        border-color: $bc_hv
 .area,
 .input,
 .select
@@ -190,9 +190,12 @@ input[type=radio]
 
 ._input-err
     border-color: $err
+    box-shadow: 0px 0.4px 3px 0px $err
     animation: ip_err 2s ease-in-out
     animation-iteration-count: infinite
-
+    &:hover, &:active, &:focus-visible, &:focus
+        box-shadow: 0px 0.4px 3px 0px $err
+        
 .input-err
     input
         @extend ._input-err

@@ -38,18 +38,13 @@ const funny = {
                 .options(funny.option())
                 .CODE128(prp.code + '', funny.code128())
                 .render();
-
+            /*
             const svg_dom = document.getElementById('piugin_barcode_div_' + prp.idx)
             if (svg_dom) {
-                /*
-                styi.value = {
-                    'transform': 'scale(' + (0.0017303 * w) + ') !important'
-                }
-                */
-               // alert('AAA')
                 const ss = funny.tofix(0.0017303 * w)
-                // svg_dom.style.transform = 'scale(' + (ss <= 1 ? 1 : ss) + ')'
+                svg_dom.style.transform = 'scale(' + (ss <= 1 ? 1 : ss) + ')'
             }
+            */
             rej(true)
         })
     },

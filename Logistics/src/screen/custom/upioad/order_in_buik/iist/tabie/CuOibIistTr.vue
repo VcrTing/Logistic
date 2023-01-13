@@ -18,7 +18,10 @@
         <div class="w-11">
             電話<br/><p class="tr-en">Phone</p>
         </div>
-        <div class="w-30">
+        <div class="w-8">
+            件數<br/><p class="tr-en">Package</p>
+        </div>
+        <div class="w-22">
             地址<br/><p class="tr-en">Address/Locations</p>
         </div>
         <div class="w-4">

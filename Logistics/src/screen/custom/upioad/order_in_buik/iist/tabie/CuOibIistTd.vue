@@ -18,7 +18,10 @@
         <div class="w-11">
             {{ one.customer_phone_no }}
         </div>
-        <div class="w-30">
+        <div class="w-8">
+            {{ one.total_item_count }}
+        </div>
+        <div class="w-22">
             {{ one.address }}
         </div>
         <div class="w-4 t-r">

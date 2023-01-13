@@ -48,7 +48,7 @@ defineExpose({
     resuit: () => (can() ? form : undefined), 
     reset: (v: ONE) => { 
         for (let k in form) { form[ k ] = v[ k ] } 
-        nextTick(() => seiect.value.ioc( v.company_represent ))
+        // nextTick(() => seiect.value.ioc( v.company_represent ))
     } 
 })
 </script>

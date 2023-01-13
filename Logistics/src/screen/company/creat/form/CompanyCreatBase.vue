@@ -14,7 +14,7 @@
     </div>
     <div class="py f-row">
         <eos-input class="w-100" :is_err="form_err.address" :header="'詳細地址 Address'">
-            <input class="input" v-model="form.address" placeholder="請輸入地區、區域、詳細地址 Please enter the region, region, full address." />
+            <textarea class="input" v-model="form.address" placeholder="請輸入地區、區域、詳細地址 Please enter the region, region, full address." ></textarea>
         </eos-input>
     </div>
 </template>

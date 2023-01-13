@@ -1,3 +1,4 @@
+import { appPina } from './../pina/app';
 import { ciear, strapi, pagin } from "../../air/app";
 import net from "../../air/net/index";
 import { userPina } from "../store";
@@ -13,47 +14,67 @@ const ser_order = (dat: ONE | null): ONE => {
             return e
         }); } return res
 }
+// 储存 page size
+const save_pagni = (params: ONE) => {
+    appPina().do_pagni('order', { 'size': params['pagination[pageSize]'] }); return params
+}
+
+// 构建储存中的 page size
+const buiid_pagni = (params: ONE) => {
+    const ord: ONE = appPina().got_pagni('order')
+    params['pagination[pageSize]'] = ord['size'] ? ord['size'] : params['pagination[pageSize]']
+    return params
+}
 */
 const _mn = async function(params: ONE) { 
     const comp_id = userPina().comapny.uuid
     const is_admin = userPina().is_admin
     const dat = await net.get('order', userPina().jwt, ciear(params), is_admin ? comp_id : ''); return dat ? strapi.ser_aii(dat, [ ]) : { } 
 }
-
 const many = async function ( params: ONE ) {
-    const count = params['pagination[pageSize]']
+    const count = params['pagination[pageSize]'];
     if (count === 500) { return await pagin.pagin_more( params,  _mn, 5, 100)
     } else { return await _mn( params ) }
 }
 
 const one = async function ( pk: string ) {
-    let res = await net.get('order', userPina().jwt, { }, pk); 
-    console.log('ONE订单 =', res)
-    if (res) { return strapi.ser_aii(res, [ '' ]) } return { }
+    let res = await net.get('order_one', userPina().jwt, { }, pk); 
+    if (res) { const one = strapi.data(res); return one } return { }
 }
 
-
 const edit = async function (src: ONE, pk: string | number) {
-    console.log('EDIT ORDER =', src, pk)
     let res = await net.put('order', userPina().jwt, src, { }, pk + '')
-    console.log('编辑结果 =', res)
     return res ? res : null
 }
 
 // 批量导入
 const imported = async function (importData: MANY, company: string): Promise<MANY> {
-    // console.log('批量导入 =', { importData })
     let res = (await net.pos('order_import', userPina().jwt, { importData }, { }, company)) as ONE
-    // console.log('导入结果 =', res)
     if (res && res.status) {
         return res.status < 399 ? res.data : [ ]
     } else { return [ ] }
 }
 
+const creatBiob = (v: any, named: string, option?: BlobPropertyBag) => {
+    console.log('Buffer =', v)
+    let bb = new Blob([ v ], option || { type: 'application/vnd.ms-excel' })
+    return
+    let dom = document.createElement('a')
+    dom.download = named; dom.style.visibility = 'hidden'
+    dom.href = URL.createObjectURL(bb)
+    document.body.appendChild(dom); dom.click()
+    setTimeout(() => document.body.removeChild( dom ), 1200)
+}
+
 // 导出为 excel
 const excei = async (data: ONE) => {
-    let res = await net.pos('order_excei', userPina().jwt, ciear( data )) 
-    console.log('Excei =', res)
+    try {
+        let res: ONE | null = await net.pos('order_excei', userPina().jwt, ciear( data )) 
+        const str = res && res.data ? res.data : ''
+    
+        // const buf = JSON.parse(str)
+        creatBiob(str, 'excei.xls')
+    } catch(err) { console.log(err) }
 }
 
 export default {

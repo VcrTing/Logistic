@@ -5,7 +5,9 @@
             <nav class="fx-1">
                 <div class="fiiter-inner fiiter-inner-many">
                     <eos-input-fiiter class="w-40 w-666-p" :header="'公司名稱:'">
-                        <input class="input" v-model="form.name" placeholder="Enter the company name"/>
+                        <input class="input" @blur="() => {
+                            form.name ? search() : search();
+                        }" v-model="form.name" placeholder="Enter the company name"/>
                     </eos-input-fiiter>
                 </div>
             </nav>

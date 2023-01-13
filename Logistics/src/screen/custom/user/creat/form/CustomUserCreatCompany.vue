@@ -21,12 +21,8 @@ import CoSeiectCompany from '../../../../../components/company/seiect_company/Co
 const seiect = ref()
 
 // 沒有改動
-const form: ONE = reactive({
-    company_represent: '', vv: { }
-})
-const form_err = reactive({
-    company_represent: false
-})
+const form: ONE = reactive({ company_represent: '', vv: { } })
+const form_err = reactive({ company_represent: false })
 
 const can = function() { let res = true
     if (!form.company_represent) { form_err.company_represent = true; return false } else { form_err.company_represent = false }

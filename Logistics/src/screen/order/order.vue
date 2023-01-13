@@ -69,20 +69,8 @@ const testing = async () => {
 
 // 获取 excei
 const export_excei = async () => {
-    const res = await order.excei({ })
-    console.log('exe =', res)
+   await order.excei({ })
 }
 export_excei()
 // https://blog.csdn.net/johnZhangqi/article/details/123693520
-
-const creatBiob = (v: any, named: string, option: BlobPropertyBag) => {
-    console.log('VVV =', v)
-    let bb = new Blob([ v ], option || { type: 'application/vnd.ms-excel' })
-    console.log('BB =', bb)
-    let dom = document.createElement('a')
-    dom.download = named; dom.style.visibility = 'hidden'
-    dom.href = URL.createObjectURL(bb)
-    document.body.appendChild(dom); dom.click()
-    setTimeout(() => document.body.removeChild( dom ), 1200)
-}
 </script>

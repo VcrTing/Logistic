@@ -25,6 +25,7 @@ const ENDPOINT = {
     'company': 'companies',
 
     'order': 'order_lists',
+    'order_one': 'order_lists_one',
     'order_admin_get': 'companies_order_list',
     
     'order_import': 'order_lists_import',

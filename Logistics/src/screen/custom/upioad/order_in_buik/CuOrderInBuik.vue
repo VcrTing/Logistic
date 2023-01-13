@@ -78,7 +78,7 @@ const funny = reactive({
     // 完成上传
     compiete: () => { aii.is_saved = false; aii.success.length = 0},
     // 返回
-    back: () => { rtr.back() },
+    back: () => rtr.back(),
     start: () => { aii.num = 0; aii.success.length = 0; aii.upiading = true; }
 })
 </script>

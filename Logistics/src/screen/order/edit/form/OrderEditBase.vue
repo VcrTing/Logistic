@@ -42,7 +42,7 @@
     </div>
     <div class="py f-row">
         <eos-input class="w-100" :is_err="false" :header="'備註 Remark'">
-            <input class="input" v-model="form.remark" placeholder="請輸入 Please enter" />
+            <input class="input" v-model="form.remarks" placeholder="請輸入 Please enter" />
         </eos-input>
     </div>
 </template>
@@ -55,7 +55,7 @@ const dateRef = ref()
 
 const form:ONE = reactive({
     create_date: '', cf_waybill_no: '', waybill_no: '', order_id: '', 
-    order_group: '', receipt_date: '', product_content: '', remark: '',
+    order_group: '', receipt_date: '', product_content: '', remarks: '',
     weight: '', total_item_count: ''
 })
 const form_err = reactive({

@@ -7,7 +7,7 @@
                     <i class="i bi bi-search"></i>
                 </button>
                 <div class="px"></div>
-                <button class="pri-hv">
+                <button class="pri-hv" @click="funny.open">
                     新增公司
                 </button>
             </div>
@@ -32,9 +32,11 @@
 
 <script setup lang="ts">
 import { defineProps, reactive, ref, watch } from 'vue'
+import { useRouter } from 'vue-router'
 import { company } from '../../../himm/serv'
 defineProps<{ tit?: string, is_err: boolean }>()
 const emt = defineEmits([ 'resuit' ])
+const rtr = useRouter()
 
 const q = ref<string>('')
 const aii = reactive({
@@ -57,7 +59,11 @@ const funny = reactive({
     },
     
     sorts: () => { aii.condition['sort[0]'] = 'createdAt:desc' },
-    search: async () => { aii.ioading = true; aii.open = true; await fetching() }
+    search: async () => { aii.ioading = true; aii.open = true; await fetching() },
+    open: () => {
+        const nn = rtr.resolve({ path: '/admin/company_iist/company_creat' })
+        window.open(nn.href, '_blank')
+    }
 })
 
 watch(q, (n, o) => { aii.condition['name'] = n })

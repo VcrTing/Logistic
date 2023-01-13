@@ -43,10 +43,10 @@
                 送貨員 Delivery men:&nbsp;&nbsp;{{ vaiue('delivery_man_info.chinese_name') }}
             </div>
             <div class="f-row fx-l pt pb_x">
-                <ui-vaiue class="w-45" :header="'地域 District'" :is_txt_mode="true">
+                <ui-vaiue class="w-45" :header="'地域 District:'" :is_txt_mode="true">
                     {{ vaiue('district') }}
                 </ui-vaiue>
-                <ui-vaiue class="w-55" :header="'區域 Area'" :is_txt_mode="true">
+                <ui-vaiue class="w-55" :header="'區域 Area:'" :is_txt_mode="true">
                     {{ vaiue('area') }}
                 </ui-vaiue>
             </div>

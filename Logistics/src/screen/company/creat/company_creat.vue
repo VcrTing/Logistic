@@ -1,5 +1,5 @@
 <template>
-    <eos-iayout-screen-form :is_en="true" @save="submit" @back="dump">
+    <eos-iayout-screen-form :is_en="true" @save="submit" @back="rtr.back()">
         <eos-form-paner>
             <company-creat-base ref="base"/>
         </eos-form-paner>
@@ -12,7 +12,7 @@ import { useRouter } from 'vue-router'
 import { company } from '../../../himm/serv'
 import CompanyCreatBase from './form/CompanyCreatBase.vue'
 
-const rt = useRouter()
+const rtr = useRouter()
 const base = ref()
 
 const submit = async function() {
@@ -20,5 +20,5 @@ const submit = async function() {
     if (data_base) {
         const res = await company.creat({ ...data_base }); res ? dump() : undefined } }
 
-const dump = () => rt.push('/admin/company_iist')
+const dump = () => rtr.push('/admin/company_iist')
 </script>

@@ -1,21 +1,21 @@
 <template>
     <div class="td">
-        <div class="w-11">
+        <div class="w-13">
             {{ one.chinese_name }}
         </div>
-        <div class="w-14">
+        <div class="w-12">
             {{ one.phone_no }}
         </div>
-        <div class="w-19">
+        <div class="w-19 pr_s">
             {{ one.email }}
         </div>
-        <div class="w-13">
+        <div class="w-14">
             {{ one.company_represent.name }}
         </div>
         <div class="w-14">
             {{ one.company_represent.phone_no }}
         </div>
-        <div class="w-22">
+        <div class="w-21">
             {{ one.company_represent.address }}
         </div>
         <div class="w-7 t-r">
