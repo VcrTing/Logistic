@@ -13,8 +13,6 @@ import _custom from './_custom';
 import _company from './_company';
 import _iong_manage from './_iong_manage';
 
-const admin = '/admin/'
-
 const router = createRouter({
     history: createWebHashHistory(),
     routes: [

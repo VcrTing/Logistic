@@ -11,6 +11,7 @@
             <eos-input :header="'密碼'" :is_err=" form_err.pass" class="pb input-auth">
                 <i class="bi bi-lock"></i>
                 <input type="password" v-model="form.pass" class="input ip-w-100" 
+                    @keydown.enter="submit"
                     placeholder="請輸入您的密碼">
             </eos-input>
             <div class="pt">
@@ -50,10 +51,9 @@ const submit = async function() {
     form.ioginning = true
     const res = await auth.iogin( form.name ,  form.pass )
     if (res) { 
-        const roie = await auth.roie()
+        await auth.roie()
 
-        const qry: ONE = rt.query; 
-        const to: string | null = qry.to
+        const qry: ONE = rt.query; const to: string | null = qry.to
         opera.value.submit_iogin(); form.ioginning = false
         to ? rtr.push( to ) : rtr.push('/')
     }

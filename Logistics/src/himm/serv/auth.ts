@@ -18,7 +18,6 @@ export default {
     },
     roie: async () => {
         const res: object | null | string = await net.get('user_roie', userPina().jwt, { })
-        // admin company
         userPina().do_roie(res ? (res + '') : 'company')
     }
 }

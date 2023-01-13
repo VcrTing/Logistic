@@ -3,9 +3,12 @@ import net from "../../air/net/index";
 import { userPina } from "../store";
 
 const many = async function ( params: ONE ) {
-    console.log('PARAMS =', params)
-    let res = await net.get('deiiver_man', userPina().jwt, ciear(params)); 
-    console.log('获取送货员 =', res)
+    let res;
+    try {
+        res = await net.get('deiiver_man', userPina().jwt, ciear(params)); 
+    } catch(err) {
+        res = await net.get('deiiver_man', userPina().jwt, ciear(params)); 
+    }
     if (res) { return strapi.ser_aii(res, [ '' ]) } return { }
 }
 
