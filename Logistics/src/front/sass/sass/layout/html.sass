@@ -17,13 +17,16 @@ $menuTxt: $sus // rgba(255, 255, 255, 0.92)
     position: relative
 
 .menu
-    overflow-y: scroll
     background: $menuBg
     min-width: $menuW
-    min-height: 100%
+    height: 100vh
     width: $menuW
     z-index: 600
     bottom: 0
+    & > div
+        width: 100%
+        height: 100%
+        overflow: hidden
     button
         color: $menuTxt
 
@@ -147,3 +150,27 @@ $menuTxt: $sus // rgba(255, 255, 255, 0.92)
     100%
         opacity: 1
         display: block
+
+
+.top
+    animation: ani_htmi_top .482s ease-in-out
+
+@keyframes ani_htmi_top
+    0%
+        opacity: 0
+        transform: translate(0px, -6px)
+    100%
+        opacity: 1
+        transform: translate(0px, 0px)
+        
+.menu
+    animation: ani_htmi_menu .482s ease-in-out
+
+@keyframes ani_htmi_menu
+    0%
+        opacity: 0
+        transform: translate(-6px, 0px)
+    100%
+        opacity: 1
+        transform: translate(0px, 0px)
+        

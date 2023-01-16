@@ -1,5 +1,5 @@
 <template>
-    <nav class="panner">
+    <nav class="panner upper">
         <h4>
             <div>確認儲存</div>
             <div>Confirm Save</div>

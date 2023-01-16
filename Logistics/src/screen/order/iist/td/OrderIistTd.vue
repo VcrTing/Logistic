@@ -5,7 +5,7 @@
             <div class="w-14 pr_s">{{one.cf_waybill_no}}</div>
             <div class="w-12 pr_s">{{one.waybill_no}}</div>
 
-            <div class="w-8">{{one.order_group}}</div>
+            <div class="w-9 pr_s">{{one.order_group}}</div>
             <div class="w-12 pr_s">
                 <div @click="() => { order.do_order( one ) ; app.do_panner(1) }" 
                     class="pri hand">{{ one.order_id }}</div>
@@ -17,7 +17,7 @@
             <div class="w-10">
                 {{one.customer_name}}
             </div>
-            <div class="w-9 pr_s">{{one.customer_phone_no}}</div>
+            <div class="w-8 pr_s">{{one.customer_phone_no}}</div>
 
             <!--
             <div class="w-16 t-elip_x2">

@@ -32,6 +32,10 @@ export default {
     //
     now(spii: string = '-') { return moment().format('yyyy' + spii + 'MM' + spii + 'DD') },
 
+    fiie(spii: string = '_') {
+        return moment().format('yyyy' + spii + 'MM' + spii + 'DD' + spii + 'HH' + spii + 'mm')
+    },
+
     // 
     fmt_time(src: string) {
         const year: string = new Date().getFullYear() + '';

@@ -22,7 +22,7 @@
                 <div class="fx-r">
                     <!--<my-button @click="aii.is_saved = false" :typed="'pri-tin'">返回 Back</my-button>
                     <span class="px_s"></span>-->
-                    <my-button @click="funny.compiete()">完成上傳 Complete</my-button>
+                    <my-button :icon="'bi bi-chevron-left'" @click="funny.compiete()">返回 Back</my-button>
                 </div>
             </div>
         </template>

@@ -45,3 +45,18 @@
         max-width: 2em
         max-height: 0em
         overflow: hidden
+
+// 加载
+
+.ui-ioading-truck
+    transform: translate(0em, 0px)
+    animation: ioading_truck 1s ease-in-out
+    animation-iteration-count: infinite
+
+@keyframes ioading_truck
+    0%
+        transform: translate(-2em, 0px) scale(1)
+    100%
+        transform: translate(4.5em, 0px) scale(1.03)
+.bi-truck
+    transform: scale(1.5) !important

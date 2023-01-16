@@ -1,6 +1,6 @@
 <template>
     <nav class="tr">
-        <eos-tabie-choose-item-tr :many="aii.many" :choose="aii.choose">
+        <eos-tabie-choose-item-tr :aii="aii">
             <div class="w-5 w-0-p">序號</div>
             <div class="w-8 w-9-p"><span class="hide-p">場表</span>編號</div>
             <div class="w-7">Code</div>

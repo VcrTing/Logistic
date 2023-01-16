@@ -3,6 +3,7 @@
         <div class="w-25 w-333-p mb_x" v-for="(v, i) in many" :key="i">
             <cp-custom-card 
                 :tit="v.name"
+                class="ani_proj_card"
                 @order_manage="() => {
                     user.do_comapny(v);
                     rtr.push(`/admin/${v.name}/order_iist`)

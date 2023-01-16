@@ -5,6 +5,7 @@ const TEST_AUTH = true
 
 const BASE = 'https://apex.str.manfulls.tech' // 'http://localhost:1337' // 
 const API = BASE + '/api'
+const API_MEDIA = BASE + '/uploads'
 
 const IS_ADMIN = false
 
@@ -41,6 +42,7 @@ export default {
     TEST_AUTH,
     
     API,
+    API_MEDIA,
     BASE,
 
     ADMIN,

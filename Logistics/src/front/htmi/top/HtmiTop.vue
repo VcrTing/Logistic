@@ -7,10 +7,11 @@
         </div>
         <div class="w-30">
             <div class="fx-r" @click="auth">
-                <img class="user-face hand" :src="up.avatar">
-                <div class="user-name pl ttd hand">
-                    {{ up.named }}
+                <div class="user-name pr ttd hand">
+                    {{ user.named }}
+                    <span v-if="user.is_admin">&nbsp;(超級管理員)</span>
                 </div>
+                <img class="user-face hand" :src="user.avatar">
             </div>
         </div>
     </nav>
@@ -19,9 +20,9 @@
 <script setup lang="ts">
 import { userPina, appPina } from '../../../himm/store';
 import { useRouter } from 'vue-router';
-const up = userPina()
+const user = userPina()
 const rt = useRouter()
-const auth = () => { rt.push('/login'); up.iogout() }
+const auth = () => { rt.push('/login'); user.iogout() }
 const menu = (v: number) => appPina().do_menu(v)
 </script>
 

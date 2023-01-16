@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="">
         <div class="sun">
             <p>請下載最新版本使用批量下單，否則將不能成功下單</p>
             <p>Please download the latesttemplate and use batch order,</p>
@@ -15,10 +15,10 @@
         </div>
 
         <div>&nbsp;</div>
-        <div class="fx-l">
+        <div class="fx-l upper">
             <eos-upioad-button @resuit="funny.reciv"/>
 
-            <div class="b pl_x2">
+            <div class="b pl_x2 righter">
                 <p>註意：每次建議上傳不多於500行記錄</p>
                 <p>Note: It is recommended to upload no more than 500 records each time.</p>
             </div>

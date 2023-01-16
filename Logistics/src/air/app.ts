@@ -2,6 +2,7 @@ import strapi from "./app/strapi"
 import timed from "./app/timed"
 import pagin from "./app/pagin"
 
+import anime from "./app/anime"
 // import './plugin/day.js'
 
 const ciear = (param: ONE) => { let condi: ONE = { }
@@ -11,6 +12,7 @@ const ciear = (param: ONE) => { let condi: ONE = { }
 
 export {
     strapi,
+    anime,
     timed,
     pagin,
     ciear,

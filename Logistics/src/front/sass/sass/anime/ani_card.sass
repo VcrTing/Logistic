@@ -1,11 +1,14 @@
 
 .ani_proj_card
-    animation: ani_proj_card .422s ease-in
+    animation: ani_proj_card .422s ease-in-out
     
 @keyframes ani_proj_card
     0%
-        opacity: 0.4
-        transform: translate3d(0, 3em, 0) scale(.97)
+        opacity: 0.382
+        transform: translate3d(0, 3em, 0) scale(.92)
+    90%
+        opacity: 1
+        transform: translate3d(0, 0px, 0) scale(1.04)
     100%
         opacity: 1
         transform: translate3d(0, 0px, 0) scale(1)
@@ -15,3 +18,26 @@
     // animation: ani_jelly .422s linear both
     animation-delay: .362s
  
+
+.ani_search_button
+    animation: ani_search_button .482s ease-in-out
+
+@keyframes ani_search_button
+    0%
+        opacity: 0
+        transform: translate(-6px, 0px)
+    100%
+        opacity: 1
+        transform: translate(0px, 0px)
+
+.ani_menu_item
+    animation: ani_menu_item .482s ease-in-out
+
+@keyframes ani_menu_item 
+    0%
+        opacity: 0.618
+        transform: translateX(-6px)
+    100%
+        opacity: 1
+        transform: translateX(0px)
+        

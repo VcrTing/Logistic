@@ -1,9 +1,6 @@
 
 // 总体
 .menu-wrapper
-    height: 100%
-    overflow-x: hidden
-    overflow-y: scroll
     color: $menuTxt
     padding-top: 2em
     padding-left: 2em
@@ -56,3 +53,31 @@
 .menu-space
     width: 100%
     height: calc( 80px + 1vw )
+
+// LOGO
+
+.iogo
+    width: 100%
+    padding: 1vw 0
+    padding-top: calc(8px + 1.2vw)
+    img
+        width: 100%
+        max-width: calc( 146px + 4.6vw )
+
+
+.iogo-user
+    padding: 6px 0px 0px 0px !important
+    position: relative
+    &::after
+        z-index: 2
+        position: absolute
+        content: ''
+        top: 0
+        left: 0
+        width: 120%
+        height: 120%
+        background: linear-gradient(to bottom, $pri-tin, rgba(255, 255, 255, 0.001), rgba(255, 255, 255, 0.001))
+        transform: rotate(-22deg) translate3d(-5em, -5.4em, 0)
+    img
+        z-index: 200
+        max-width: calc(76px + 3.8vw) !important

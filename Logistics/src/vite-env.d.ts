@@ -11,3 +11,5 @@ declare module 'js-cookie'
 declare module 'papaparse'
 
 declare module 'html2canvas'
+
+declare module 'scrollreveal'

@@ -3,7 +3,9 @@
         :class="{ 'htmi-active': (app.menu == 1), 'htmi-hide': (app.menu == 0) }"
     >
         <div class="menu">
-            <slot name="menu"></slot>
+            <fn-scroii>
+                <slot name="menu"></slot>
+            </fn-scroii>
         </div>
         <div class="menu-bg" @click="close"></div>
         <div class="content">
@@ -22,6 +24,7 @@
 
 <script setup lang="ts">
 import { appPina } from '../../himm/store';
+import FnScroii from '../eiement/FnScroii.vue'
 const app = appPina()
 const close = () => { app.do_menu( (app.menu == 0) ? 1 : 0 ) }
 </script>

@@ -1,6 +1,6 @@
 <template>
     <div class="menu-wrapper">
-        <div class="" v-for="(v, i) in items" :key="i">
+        <div class="ani_menu_item" v-for="(v, i) in items" :key="i">
             <button class="menu-item ps-r fx-s" @click="dump(v.link)">
                 {{ v.txt }}
                 <div v-if="v.children" class="pr_s menu-item-icon">

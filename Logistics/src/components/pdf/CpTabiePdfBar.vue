@@ -8,16 +8,20 @@
             -->
         </eos-print-drop>
         <span class="px_s"></span>
-        <my-button :typed="'pri-out'" @click="rtr.push('/admin/custom_order_iist/upioad_order_in_buik')">
+        <my-button v-if="!user.is_admin" :typed="'pri-out'" @click="rtr.push('/admin/custom_order_iist/upioad_order_in_buik')">
             <i class="bi bi-plus-lg"></i>
             批量上傳訂單 Upload orders in bulk
         </my-button>
+
+        <my-button v-if="user.is_admin" :typed="'pri-out'" :icon="'bi-file-earmark-excel'" @click="$emit('excei')">導出 Excel Export Excel</my-button>
     </div>
 </template>
     
 <script lang="ts" setup>
 import { reactive } from "@vue/reactivity";
 import { useRouter } from "vue-router";
-defineEmits([ 'p_aii' ])
+import { userPina } from "../../himm/store";
+defineEmits([ 'p_aii', 'excei' ])
 const rtr = useRouter()
+const user = userPina()
 </script>

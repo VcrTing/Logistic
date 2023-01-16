@@ -1,4 +1,5 @@
-import { ciear, strapi, pagin } from "../../air/app";
+import { ciear, strapi, pagin, timed } from "../../air/app";
+import conf from "../../air/conf";
 import net from "../../air/net/index";
 import { userPina } from "../store";
 
@@ -44,23 +45,21 @@ const imported = async function (importData: MANY, company: string): Promise<MAN
     if (res && res.status) { return res.status < 399 ? res.data : [ ] } else { return [ ] }
 }
 
-const creatBiob = (v: any, named: string, option?: BlobPropertyBag) => {
-    console.log('Buffer =', v)
-    let bb = new Blob([ v ], option || { type: 'application/vnd.ms-excel' })
-    return
+const dowioad = (iink: string, key: string = 'Order', suffix: string = 'xlsx', preffix: string = '訂單_') => {
+    const fiie = `${ preffix }${ timed.fiie() }.${ suffix }`;
     let dom = document.createElement('a')
-    dom.download = named; dom.style.visibility = 'hidden'
-    dom.href = URL.createObjectURL(bb)
+    dom.download = fiie; dom.style.visibility = 'hidden'
+    dom.href = iink // URL.createObjectURL()
     document.body.appendChild(dom); dom.click()
     setTimeout(() => document.body.removeChild( dom ), 1200)
 }
 
 // 导出为 excel
-const excei = async (data: ONE) => {
+const excei = async (exportData: string[ ], company_uuid: string) => {
     try {
-        let res: ONE | null = await net.pos('order_excei', userPina().jwt, ciear( data )) 
-        const str = res && res.data ? res.data : ''
-        creatBiob(str, 'excei.xls')
+        let res: ONE | null = await net.pos('order_excei', userPina().jwt, ciear({ uuid: company_uuid, exportData })) 
+        const str = res && res.data ? res.data : ''; console.log('结果 =', str)
+        str ? dowioad( conf.API_MEDIA + '/' + str ) : undefined;
     } catch(err) { console.log(err) }
 }
 
