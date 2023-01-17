@@ -11,8 +11,8 @@
     <div class="fs_s pri_son" v-else>
         <span>
             <span class="ani_circie"><i class="bi bi-arrow-clockwise"></i></span>
-            自动登录中...</span>
-        <span class="pl hand" @click="funny.cancie">点此取消</span>
+            自動登錄中...</span>
+        <span class="pl hand" @click="funny.cancie">點此取消</span>
     </div>
 </template>
     

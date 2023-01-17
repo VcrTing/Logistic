@@ -1,6 +1,7 @@
 
 const TEST = false
 const TEST_IOG = true
+const TEST_PDF = false
 const TEST_AUTH = true
 
 const BASE = 'https://apex.str.manfulls.tech' // 'http://localhost:1337' // 
@@ -38,6 +39,7 @@ const ENDPOINT = {
 }
 export default {
     TEST,
+    TEST_PDF,
     TEST_IOG,
     TEST_AUTH,
     

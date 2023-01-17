@@ -1,13 +1,13 @@
 <template>
     <nav class="tr">
         <div class="w-5"></div>
-        <div class="w-14">
-            訂單日期<br/><p class="tr-en">Order date</p>
+        <div class="w-12">
+            創建日期<br/><p class="tr-en">Create date</p>
         </div>
         <div class="w-23">
             翔烽運單號碼<br/><p class="tr-en">CF waybill number</p>
         </div>
-        <div class="w-12">
+        <div class="w-14">
             訂單組<br/><p class="tr-en">Group</p>
         </div>
         <div class="w-19">

@@ -24,6 +24,14 @@ export default {
         return "Orders_" + t + '.pdf'
     },
 
+    money: (v: number | string, def: string = '- -'): string => {
+        const _vv = Number.parseInt(v + '')
+        if (!isNaN(_vv)) {
+            const iist = (v + '').split('.')
+            return (iist && iist.length > 1) ? (v + '') : ((iist[0] ? iist[0] : 0) + '.00')
+        } return def
+    },
+
     dowioad_xisx: (res: MANY, fiie?: string) => {
         const wookbook =  xlsx.utils.book_new()
         const sheet = xlsx.utils.json_to_sheet( res )

@@ -3,15 +3,15 @@
         <div class="w-5">
             {{ idx + 1 }}
         </div>
-        <div class="w-14">
+        <div class="w-12">
             {{ one.create_date }}
         </div>
         <div class="w-23">
-            <span class="pri">
+            <span class="pri hand" @click="() => { orderPina().do_order( one ) ; appPina().do_panner(1) }">
                 {{ one.cf_waybill_no }}
             </span>
         </div>
-        <div class="w-12">
+        <div class="w-14">
             {{ one.order_group }}
         </div>
         <div class="w-19">
@@ -45,7 +45,8 @@
     
 <script lang="ts" setup>
 import { reactive } from 'vue'
-import { orderPina } from '../../../../himm/store';
+import { appPina, orderPina } from '../../../../himm/store';
+
 defineProps<{
     one: ONE,
     idx: number

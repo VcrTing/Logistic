@@ -17,6 +17,5 @@ const appREF = storeToRefs(orderPina())
 const one: ONE = ref()
 watch(appREF.order, (n: ONE) => {
     (one.value = n);
-    console.log('ONE ORDER =', n)
 })
 </script>

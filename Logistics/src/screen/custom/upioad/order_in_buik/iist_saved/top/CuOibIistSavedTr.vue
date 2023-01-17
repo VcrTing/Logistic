@@ -5,6 +5,9 @@
                 收件時間<br/><p class="tr-en">Receipt time</p>
             </div>
             <div class="w-14">
+                翔烽運單編號<br/><p class="tr-en">Waybill number</p>
+            </div>
+            <div class="w-14">
                 客戶運單編號<br/><p class="tr-en">Waybill number</p>
             </div>
             <div class="w-8">
@@ -16,10 +19,10 @@
             <div class="w-11">
                 收件人<br/><p class="tr-en">Reciver</p>
             </div>
-            <div class="w-11">
+            <div class="w-10">
                 電話<br/><p class="tr-en">Phone</p>
             </div>
-            <div class="w-32">
+            <div class="w-19">
                 地址<br/><p class="tr-en">Address/Locations</p>
             </div>
             <div class="w-4">

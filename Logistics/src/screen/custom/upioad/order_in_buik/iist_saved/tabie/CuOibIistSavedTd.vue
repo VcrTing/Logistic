@@ -4,24 +4,29 @@
             <div class="w-11">
                 {{ one.receipt_date }}
             </div>
-            <div class="w-14">
+            <div class="w-14 pr_s">
+                <span class="pri hand" @click="() => {
+                        app.do_one( one ); app.do_panner(1)
+                    }">
+                    {{ one.cf_waybill_no }}
+                </span>
+            </div>
+            <div class="w-14 pr_s">
                 {{ one.waybill_no }}
             </div>
             <div class="w-8">
                 {{ one.order_group }}
             </div>
-            <div class="w-10 ">
-                <span class="pri hand" @click="() => {
-                        app.do_one( one ); app.do_panner(1)
-                    }">{{ one.order_id }}</span>
+            <div class="w-10 pr_s">
+                {{ one.order_id }}
             </div>
             <div class="w-11">
                 {{ one.customer_name }}
             </div>
-            <div class="w-11">
+            <div class="w-10">
                 {{ one.customer_phone_no }}
             </div>
-            <div class="w-32">
+            <div class="w-19 t-elip_x2">
                 {{ one.address }}
             </div>
             <div class="w-4 t-r">

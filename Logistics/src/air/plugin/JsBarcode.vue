@@ -19,13 +19,13 @@ const w = prp.w ? prp.w : window.innerWidth
 
 const funny = {
     option() {
-        return { font: "monospace", margin: 0, height: this.tofix(0.1939308 * w) }
+        return { font: "monospace", margin: 0, height: this.tofix(0.168 * w) } // 0.1939308
     },
     code128() {
         return { 
             fontSize: this.tofix(12 + (0.017304 * w)), 
             textMargin: this.tofix(1 + (0.00176 * w)), 
-            width: this.tofix(0.0051905 * w) 
+            width: this.tofix(0.0052 * w) // 0.0051905
         }
     },
 

@@ -10,7 +10,7 @@
 import { nextTick, reactive } from 'vue'
 import EosWidgetIayout from '../../eos/widget/EosWidgetIayout.vue';
 import CoPdfOrderOneVw from '../../components/pdf/order/CoPdfOrderOneVw.vue'
-
+import conf from '../../air/conf';
 const aii = reactive({ many: <MANY>[ ] })
 
 const funny = {
@@ -29,6 +29,7 @@ const fetch = async () => {
     for (let i= 0; i< _L; i++ ) { funny.buiid( iist[i] ) }
 
     setTimeout(() => {
+        // conf.TEST_PDF ? undefined : window.print()
         window.print()
     }, 10 * _L)
 }
