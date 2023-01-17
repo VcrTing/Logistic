@@ -39,7 +39,7 @@ import { useRouter } from 'vue-router'
 const pagni = ref()
 const rtr = useRouter()
 const user = userPina()
-if (user.is_admin) { (!user.comapny.id) ? rtr.push('/admin/company_choose') : undefined; }
+if (user.is_admin) { (!user.company.id) ? rtr.push('/admin/company_choose') : undefined; }
 
 const aii = reactive({ choose: [],
     ioading: true, page: <ONE>{ total: 1}, condition: <ONE>{ }, imit: 25, many: <MANY>[ ]

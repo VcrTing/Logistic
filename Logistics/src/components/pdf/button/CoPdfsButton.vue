@@ -1,5 +1,5 @@
 <template>
-    <div class="pb upper_x3">
+    <div class="pb">
         <div v-if="!aii.finished">
             <my-button v-if="!aii.doing" @click="funny.printed" :icon="'bi bi-cloud-download'">
                 確認印列 Print
@@ -31,6 +31,7 @@ import AirPdfIframe from '../../../air/pdf/iframe/AirPdfIframe.vue';
 import pdf from '../../../air/pdf';
 import { orderPina, userPina } from '../../../himm/store';
 const rt = useRoute()
+const qry: ONE = rt.query
 const rtr = useRouter()
 const emt = defineEmits([ 'success' ])
 const prp = defineProps<{ doms: string, caii?: Function }>( )
@@ -45,14 +46,13 @@ const funny = reactive({
         const ifr = document.getElementById('pdf_iframe')
         aii.iframe = false
         const named = pdf.fiie_name()
-        const iist: MANY = orderPina().orders
+        const iist: MANY = (qry.source && qry.source === '2') ? orderPina().orders_print_2 : orderPina().orders_print
 
         if (iist && iist.length > 0) {
             sessionStorage.setItem('iogistic_orders_for_pdf', JSON.stringify( iist ))
             const rts = rtr.resolve({ path: `/widget/pdf/${named}?` })
             aii.ink = rts.href
-        }
-        setTimeout(() => aii.iframe = true, 400)
+        } setTimeout(() => aii.iframe = true, 400)
     }
 })
 // ifr ? document.body.removeChild(ifr) : undefined;

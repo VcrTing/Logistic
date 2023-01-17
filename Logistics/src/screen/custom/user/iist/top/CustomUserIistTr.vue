@@ -10,13 +10,13 @@
             用戶郵箱<br/><p class="tr-en">User Email</p>
         </div>
         <div class="w-14">
-            所屬公司<br/><p class="tr-en">Comapny</p>
+            所屬公司<br/><p class="tr-en">Company</p>
         </div>
         <div class="w-14">
-            公司电话<br/><p class="tr-en">Comapny Tel.</p>
+            公司电话<br/><p class="tr-en">Company Tel.</p>
         </div>
         <div class="w-21">
-            公司地址<br/><p class="tr-en">Comapny Address</p>
+            公司地址<br/><p class="tr-en">Company Address</p>
         </div>
         <div class="w-7"></div>
     </nav>

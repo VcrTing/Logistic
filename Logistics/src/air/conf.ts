@@ -2,12 +2,12 @@
 const TEST = false
 const TEST_IOG = true
 const TEST_PDF = false
-const TEST_AUTH = true
 
 const BASE = 'https://apex.str.manfulls.tech' // 'http://localhost:1337' // 
 const API = BASE + '/api'
 const API_MEDIA = BASE + '/uploads'
 
+const TEST_AUTH = true
 const IS_ADMIN = false
 
 const ADMIN = {
@@ -32,6 +32,7 @@ const ENDPOINT = {
     
     'order_import': 'order_lists_import',
     'order_excei': 'order_lists_export',
+    'order_read': 'order_lists_is_new',
 
 
     'user': 'users-permissions/company_users',

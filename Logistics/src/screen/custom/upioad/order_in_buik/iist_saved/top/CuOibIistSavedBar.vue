@@ -18,11 +18,11 @@ const funny = reactive({
     p_aii: () => {
         const cos: MANY = prp.aii.choose ? prp.aii.choose : [ ]
         if (cos && cos.length > 0) {
-            orderPina().do_orders( cos )
+            orderPina().do_orders_print_2(cos)
             const rts = rtr.resolve({
-                path: '/admin/order_iist/print_muiti', query: { from: rt.path }
+                path: '/admin/order_iist/print_muiti', 
             }); 
-            window.open(rts.href, '_blank')
+            window.open(rts.href + '?from=' + rt.path + '&source=2', '_blank')
         }
     }
 })

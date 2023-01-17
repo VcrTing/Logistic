@@ -50,13 +50,21 @@
 
 .ui-ioading-truck
     transform: translate(0em, 0px)
-    animation: ioading_truck 1s ease-in-out
+    animation: ioading_truck 1.62s ease-out
     animation-iteration-count: infinite
 
 @keyframes ioading_truck
     0%
-        transform: translate(-2em, 0px) scale(1)
+        opacity: 0
+        transform: translate(-2.8em, 0px) scale(1)
+    5%
+        opacity: 1
+        transform: translate(-2.8em, 0px) scale(1)
+    95%
+        opacity: 1
+        transform: translate(3.8em, 0px) scale(1.03)
     100%
-        transform: translate(4.5em, 0px) scale(1.03)
+        opacity: 0
+        transform: translate(3.8em, 0px) scale(1.03)
 .bi-truck
     transform: scale(1.5) !important

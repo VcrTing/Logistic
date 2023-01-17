@@ -19,9 +19,15 @@
         <div class="w-13">
             PDF 預覽<br/><p class="tr-en">PDF Preview</p>
         </div>
-        <div class="w-5"></div>
+        <div class="w-5">
+
+            <eos-go-button v-if="aii.many.length > 30"/>
+        </div>
     </nav>
 </template>
     
 <script lang="ts" setup>
+defineProps<{
+    aii: ONE
+}>()
 </script>

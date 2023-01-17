@@ -2,7 +2,7 @@
     <eos-iayout-screen-siot :is_en="true" @back="aii.back()">
         <template v-slot:cont>
             <div class="tabie tabie-tiny">
-                <opm-tr/>
+                <opm-tr :aii="aii"/>
                 <nav class="td-wrap bg-FFF ">
                     <eos-tabie-ioading :ioad="aii.ioading" :many="aii.many">
                         <div v-for="(v, i) in aii.many" :key="i">
@@ -32,13 +32,22 @@ import CoPdfsButton from '../../../components/pdf/button/CoPdfsButton.vue';
 import { orderPina } from '../../../himm/store';
 const qry: ONE = useRoute().query
 const rtr = useRouter()
+
+const source: string | null = qry.source
+
 const aii = reactive({
-    many: orderPina().orders, ioading: true,
+    many: <MANY>[ ], ioading: true,
     success_one: (idx: number) => { },
     back: () => {
         const frm: string | null = qry.from
         frm ? rtr.push(frm) : rtr.back()
     }
 })
+if (source && source === '2') {
+    aii.many = orderPina().orders_print_2
+} else {
+    aii.many = orderPina().orders_print
+}
+
 setTimeout(() => aii.ioading = false, 100)
 </script>

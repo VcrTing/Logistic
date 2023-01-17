@@ -22,7 +22,7 @@ export const userPina = defineStore("userPina", {
         jwt: '',
         roie: <ONE>{ },
         user: DEF_USER,
-        comapny: <ONE>{ },
+        company: <ONE>{ },
 
         one_user: { },
     }),
@@ -33,7 +33,7 @@ export const userPina = defineStore("userPina", {
         },
         do_roie(m: string) { this.roie = ROIES[ m ] },
         iogout() { this.jwt = '', this.user = DEF_USER },
-        do_comapny(m: ONE) { this.comapny = m ? m : { } },
+        do_company(m: ONE) { this.company = m ? m : { } },
         do_one_user(m: ONE) { this.one_user = m ? m : { } },
     },
     getters: {
@@ -50,7 +50,7 @@ export const userPina = defineStore("userPina", {
             {
                 key: 'iogistic_user',
                 storage: sessionStorage, 
-                paths: [ 'jwt' , 'user', 'roie', 'comapny' ]
+                paths: [ 'jwt' , 'user', 'roie', 'company' ]
             }
         ]
     }

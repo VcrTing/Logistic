@@ -19,10 +19,8 @@
 import CoPdfOrderOne from '../../../../components/pdf/order/CoPdfOrderOne.vue';
 import { appPina, orderPina } from '../../../../himm/store'
 import { reactive } from 'vue';
-
 const one = orderPina().order
 const aii = reactive({ many: <MANY>[ ], ioading: true })
-
 const buiid = () => {
     aii.many = [ ]; const count = one.total_item_count
     for(let i= 0; i< count; i++ ) {

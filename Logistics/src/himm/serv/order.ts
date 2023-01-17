@@ -4,7 +4,7 @@ import net from "../../air/net/index";
 import { userPina } from "../store";
 
 const _mn = async function(params: ONE) { 
-    const comp_id = userPina().comapny.uuid
+    const comp_id = userPina().company.uuid
     const is_admin = userPina().is_admin
     let dat;
     try {
@@ -64,10 +64,20 @@ const excei = async (exportData: string[ ], company_uuid: string) => {
     } catch(err) { console.log(err) }
 }
 
+// 已读
+const read = async (id: string | number) => {
+    try {
+        await net.get('order_read', userPina().jwt, { }, id + '' )
+    } catch(err) {
+        await net.get('order_read', userPina().jwt, { }, id + '' )
+    }
+}
 export default {
     one,
     many,
     edit,
+    
+    read,
     excei,
     imported
 }

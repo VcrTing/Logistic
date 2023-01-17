@@ -15,7 +15,7 @@
                     <td colspan="2">
                         <p>翔烽運單編號 CF waybill number:</p>
                         <div class="t_c pt_1">
-                            <js-barcode class="barcode" :idx="idx" :code="one.cf_waybill_no"/>
+                            <js-barcode class="barcode" :w="420" :idx="idx" :code="one.cf_waybill_no"/>
                         </div>
                     </td>
                 </tr>

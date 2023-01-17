@@ -10,7 +10,7 @@
             公司郵箱<br/><p class="tr-en">Company Email</p>
         </div>
         <div class="w-40">
-            公司地址<br/><p class="tr-en">Comapny Location</p>
+            公司地址<br/><p class="tr-en">Company Location</p>
         </div>
         <div class="w-8"></div>
     </nav>

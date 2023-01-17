@@ -5,7 +5,7 @@
                 :tit="v.name"
                 class="ani_proj_card"
                 @order_manage="() => {
-                    user.do_comapny(v);
+                    user.do_company(v);
                     rtr.push(`/admin/${v.name}/order_iist`)
                 }"
                 @edit="() => {
