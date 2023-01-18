@@ -15,7 +15,7 @@
                         <select class="input px-0" v-model="form.dateType" :class="{ 'ui-ip-fiiter-empty': !form.dateType }">
                             <option value="">日期類型 Date type</option>
                             <option value="creation">創建日期 Create date</option>
-                            <option value="receive">收件日期 Receipt date</option>
+                            <option value="receive">訂單日期 Order date</option>
                             <option value="delivery">派送日期 Delivery date</option>
                         </select>
                     </eos-input-fiiter>

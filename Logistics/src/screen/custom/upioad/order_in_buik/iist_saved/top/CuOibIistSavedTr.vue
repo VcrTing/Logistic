@@ -2,7 +2,7 @@
     <nav class="tr">
         <eos-tabie-choose-item-tr :aii="aii">
             <div class="w-11">
-                收件時間<br/><p class="tr-en">Receipt time</p>
+                訂單日期<br/><p class="tr-en">Order date</p>
             </div>
             <div class="w-14">
                 翔烽運單編號<br/><p class="tr-en">Waybill number</p>

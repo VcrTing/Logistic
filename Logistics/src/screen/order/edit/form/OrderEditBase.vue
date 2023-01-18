@@ -22,12 +22,12 @@
         <eos-input class="w-50 w-50-p" :is_err="form_err.order_group" :header="'訂單組 Group'">
             <input class="input" v-model="form.order_group" placeholder="請輸入 Please enter" />
         </eos-input>
-        <eos-input class="w-50 w-50-p" :is_err="false" :header="'收件日期 Receipt date'">
+        <eos-input class="w-50 w-50-p" :is_err="false" :header="'訂單日期 Order date'">
             <fn-time :timed="form.receipt_date" ref="dateRef" @resuit="(n: string) => form.receipt_date = n"/>
         </eos-input>
     </div>
     <div class="py f-row">
-        <eos-input class="w-50 w-50-p" :is_err="false" :header="'件數 Package'">
+        <eos-input class="w-50 w-50-p" :is_err="form_err.total_item_count" :header="'件數 Package'">
             <input class="input" type="number" v-model="form.total_item_count" placeholder="請輸入 Please enter" />
         </eos-input>
         <eos-input class="w-50 w-50-p ip-weight" :is_err="false" :header="'重量 Weight'">
@@ -59,13 +59,15 @@ const form:ONE = reactive({
     weight: '', total_item_count: ''
 })
 const form_err = reactive({
-    create_date: false, waybill_no: false, order_id: false, order_group: false, product_content: false
+    create_date: false, waybill_no: false, order_id: false, order_group: false, product_content: false,
+    total_item_count: false
 })
 
 const can = function() { let res = true
     if (!form.waybill_no) { form_err.waybill_no = true; return false } else { form_err.waybill_no = false }
-    if (!form.order_id) { form_err.order_id = true; return false } else { form_err.order_id = false }
-    if (!form.order_group) { form_err.order_group = true; return false } else { form_err.order_group = false }
+    if (!form.total_item_count) { form_err.total_item_count = true; return false } else { form_err.total_item_count = false }
+    // if (!form.order_id) { form_err.order_id = true; return false } else { form_err.order_id = false }
+    // if (!form.order_group) { form_err.order_group = true; return false } else { form_err.order_group = false }
     // if (!form.product_content) { form_err.product_content = true; return false } else { form_err.product_content = false }
     Object.values( form_err ).map( e => { if (e) { res = false } })
     return res

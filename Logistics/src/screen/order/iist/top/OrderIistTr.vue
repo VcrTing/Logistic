@@ -18,14 +18,14 @@
             </div>
 
             <div class="w-10">
-                派送日期<br/><p class="tr-en">Delivery Date</p>
+                派送日期<br/><p class="tr-en">Delivery date</p>
             </div>
             <div class="w-10">
-                收件日期<br/><p class="tr-en">Receipt Date</p>
+                訂單日期<br/><p class="tr-en">Order date</p>
             </div>
 
             <div class="w-10">
-                收件人<br/><p class="tr-en">Reciver</p>
+                收件人<br/><p class="tr-en">Recipient</p>
             </div>
             <div class="w-8">
                 收件電話<br/><p class="tr-en">Phone</p>

@@ -1,1 +1,0 @@
-import{L as c}from"./ICON_CF_S.c52d5a84.js";import{d as o,f as r,o as t,c as a,i as s}from"./index.97fabf70.js";const i="/assets/LOGO.4c4292ff.png",m=["src"],p=o({__name:"Iogo",props:{src:null},setup(e){const n=r();return(f,u)=>(t(),a("img",{src:e.src?e.src:s(n).is_admin?s(i):s(c)},null,8,m))}});export{i as I,p as _};

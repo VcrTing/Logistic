@@ -3,7 +3,7 @@
         <h2>修改導入前的訂單&nbsp;Edit</h2>
         <div class="pb_x2 pt_x" v-if="form.order_id">
             <div class="f-row">
-                <eos-input class="w-50" :header="'收件時間 Receipt time'">
+                <eos-input class="w-50" :header="'訂單日期 Order time'">
                     <fn-time ref="timed" @resuit="(n: string) => form.receipt_date = n"/>
                 </eos-input>
                 <eos-input class="w-50" :is_err="form_err.order_id" :header="'訂單編號 Order no.'">
