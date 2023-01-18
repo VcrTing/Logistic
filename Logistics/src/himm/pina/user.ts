@@ -31,7 +31,9 @@ export const userPina = defineStore("userPina", {
             user.face = DEF_FACE
             this.jwt = jwt; this.user = user;
         },
-        do_roie(m: string) { this.roie = ROIES[ m ] },
+        do_roie(ro: ONE) { this.roie = ROIES[ ro?.userRole ];
+            if (ro.company) { this.company = ro.company }
+        },
         iogout() { this.jwt = '', this.user = DEF_USER },
         do_company(m: ONE) { this.company = m ? m : { } },
         do_one_user(m: ONE) { this.one_user = m ? m : { } },

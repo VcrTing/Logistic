@@ -36,7 +36,8 @@ const ENDPOINT = {
 
 
     'user': 'users-permissions/company_users',
-    'user_roie': 'users-permissions/users/getUserRole'
+    // 'user_roie': 'users-permissions/users/getUserRole'
+    'user_roie': 'users-permissions/users/getUserInfo'
 }
 export default {
     TEST,

@@ -17,7 +17,8 @@ export default {
         } return false
     },
     roie: async () => {
-        const res: object | null | string = await net.get('user_roie', userPina().jwt, { })
-        userPina().do_roie(res ? (res + '') : 'company')
+        const res: ONE | null = await net.get('user_roie', userPina().jwt, { })
+        console.log('权限 =', res)
+        userPina().do_roie((res && res?.userRole) ? res : { userRole: 'authenticated' })
     }
 }
