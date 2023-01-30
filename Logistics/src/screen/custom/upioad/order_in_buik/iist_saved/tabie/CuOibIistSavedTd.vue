@@ -1,6 +1,6 @@
 <template>
     <div class="td">
-        <eos-tabie-choose-item-td :one="one" :choose="choose">
+        <eos-tabie-choose-item-td :one="one" :aii="aii">
             <div class="w-11">
                 {{ one.receipt_date }}
             </div>
@@ -41,5 +41,5 @@ import { useRouter } from "vue-router"
 import { appPina } from "../../../../../../himm/store"
 const app = appPina()
 const rt = useRouter()
-const prp = defineProps<{ idx: number, one: ONE, choose: MANY }>()
+const prp = defineProps<{ idx: number, one: ONE, aii: ONE }>()
 </script>

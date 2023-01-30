@@ -9,6 +9,7 @@ interface _Net {
     get( endpoint: string, token: string, params: object, suffix?: string ): Promise<object | null>;
     pos( endpoint: string, token: string, data: object, params: object, suffix?: string ): Promise<object | null>;
     put( endpoint: string, token: string, data: object, params: object, suffix?: string ): Promise<object | null>;
+    dei( endpoint: string, token: string, suffix: string ): Promise<object | null>;
 }
 
 class NeTooi {
@@ -28,7 +29,7 @@ class Net extends NeTooi implements _Net {
     async get(endpoint: string, token: string, params: object, suffix?: string | undefined): Promise<object | null> {
         const uri = super.uri(API, endpoint, suffix) + super.params(params)
         conf.TEST_IOG ? console.log('GET URI =', uri) : undefined;
-        let res = await axios.get(uri, { headers: super.headers(token) })
+        const res = await axios.get(uri, { headers: super.headers(token) })
         return (res && res.status < 399) ? res.data : false
     }
     async pos(endpoint: string, token: string, data: object, params?: object, suffix?: string | undefined): Promise<object | null> {
@@ -39,9 +40,14 @@ class Net extends NeTooi implements _Net {
     }
     async put(endpoint: string, token: string, data: object, params: object, suffix?: string | undefined): Promise<object | null> {
         const uri = super.uri(API, endpoint, suffix)
-        return axios.patch(uri, data, { headers: super.headers(token), params })
+        return await axios.patch(uri, data, { headers: super.headers(token), params })
     }
 
+    async dei(endpoint: string, token: string, suffix: string): Promise<object> {
+        const uri = super.uri(API, endpoint, suffix)
+        const res = await axios.delete(uri, { headers: super.headers(token) })
+        return (res && res.status < 399) ? res.data : { }
+    }
     /*
     async __net(url: string, method: 'GET' | 'POST' | 'PUT', data: object, params: object, headers: object): Promise<object | null> {
         console.log('URL =', url, ' data =', data, method)

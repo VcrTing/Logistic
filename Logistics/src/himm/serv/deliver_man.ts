@@ -33,10 +33,17 @@ const patch = async function (data: ONE, idx: string) {
     return res ? res : { }
 }
 
+const trash = async function (pk: number | string) {
+    // let res: ONE = await net.dei('deiiver_man', userPina().jwt, pk + '')
+    // return res && res.status
+    return true
+}
+
 export default {
     one,
     many,
     patch,
+    trash,
     creat_one,
     many_of_param
 }

@@ -8,6 +8,10 @@
     background: none
 .btn-err
     background: $err
+    &:hover
+        background: $err_hv
+    &:focus, &:active, &:focus-visible
+        box-shadow: 0px 0px 0px 3px $err_shd
 
 .sts-auditing,
 .sts-err,

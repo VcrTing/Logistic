@@ -7,7 +7,7 @@
                 <order-iist-tr :aii="aii"/>
                 <eos-tabie-ioading :ioad="aii.ioading" :many="aii.many">
                     <nav class="td-wrap">
-                        <order-iist-td v-for="(v, i) in aii.many" :key="i" :one="v" :idx="i" :choose="aii.choose"/>
+                        <order-iist-td v-for="(v, i) in aii.many" :key="i" :one="v" :idx="i" :aii="aii"/>
                     </nav>
                 </eos-tabie-ioading>
             </div>

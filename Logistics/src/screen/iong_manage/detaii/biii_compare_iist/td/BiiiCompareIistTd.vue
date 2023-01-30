@@ -1,6 +1,6 @@
 <template>
     <div class="td">
-        <eos-tabie-choose-item-td :one="one" :choose="choose">
+        <eos-tabie-choose-item-td :one="one" :aii="aii">
             <div class="w-9 pr">{{one.list_id}}</div>
             <div class="w-6 w-7-p pr_s">{{one.wellcome_shop_info ? one.wellcome_shop_info.code : ''}}</div>
             <div class="w-6 w-0-p">{{one.wellcome_shop_info ? one.wellcome_shop_info.code_1 : ''}}</div>
@@ -48,7 +48,7 @@ import { defineProps } from 'vue'
 const prp = defineProps<{
     idx: number,
     one: ONE,
-    choose: MANY
+    aii: ONE
 }>()
 
 </script>

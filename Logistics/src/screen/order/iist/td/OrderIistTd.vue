@@ -1,6 +1,6 @@
 <template>
     <div class="td" :class="{ 'td-focus-err': one.is_new }">
-        <eos-tabie-choose-item-td :one="one" :choose="choose">
+        <eos-tabie-choose-item-td :one="one" :aii="aii">
             <div class="w-9">{{timed.view_time(one.create_date, '/')}}</div>
             <div class="w-14 pr_s">{{one.cf_waybill_no}}</div>
             <div class="w-12 pr_s">{{one.waybill_no}}</div>
@@ -26,8 +26,10 @@
             -->
             <div class="w-6 fx-r">
                 <eos-tabie-opera :vais="'edit_print'" :is_icon="true" 
-                    @edit="() => { order.do_order( prp.one ); rt.push('/admin/order_iist/edit') }"
-                    @print="() => { order.do_order( prp.one ); app.do_mod(1); order.read(one.id, one.is_new); one.is_new = false; }"
+                    @edit="() => { order.do_order( one ); rt.push('/admin/order_iist/edit') }"
+                    @print="() => { 
+                        order.do_order( one ); app.do_mod(1); order.do_orders_print([ one ])
+                        order.read(one.id, one.is_new); one.is_new = false; }"
                     />
             </div>
         </eos-tabie-choose-item-td>
@@ -42,6 +44,6 @@ const app = appPina()
 const order = orderPina()
 const rt = useRouter()
 
-const prp = defineProps<{ idx: number, one: ONE, choose: MANY }>()
+const prp = defineProps<{ idx: number, one: ONE, aii: ONE }>()
 
 </script>

@@ -28,6 +28,10 @@ export default (head = 'iong_manage') => [
             {
                 path: admin + head + '/im_detaii/im_detaii_creat',
                 component: () => import('../../screen/iong_manage/detaii/im_detaii_creat/im_detaii_creat.vue')
+            },
+            {
+                path: admin + head + '/im_detaii/edit',
+                component: () => import('../../screen/iong_manage/detaii/im_detaii_edit/im_detaii_edit.vue')
             }
         ]
     }

@@ -7,7 +7,7 @@
             <eos-tabie-ioading :ioad="aii.ioading" :many="aii.many">
                 <nav class="td-wrap">
                     <div v-for="(v, i) in aii.many" :key="i">
-                        <cu-oib-iist-saved-td :one="v" :idx="i" :choose="aii.choose"/>
+                        <cu-oib-iist-saved-td :one="v" :idx="i" :aii="aii"/>
                     </div>
                 </nav>
             </eos-tabie-ioading>

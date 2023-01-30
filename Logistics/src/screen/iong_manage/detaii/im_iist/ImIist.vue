@@ -14,7 +14,7 @@
                     <im-iist-tr :aii="aii"/>
                     <eos-tabie-ioading :ioad="aii.ioading" :many="aii.many">
                         <nav class="td-wrap">
-                            <im-iist-td v-for="(v, i) in aii.many" :key="i" :one="v" :idx="i" :choose="aii.choose"/>
+                            <im-iist-td v-for="(v, i) in aii.many" :key="i" :one="v" :idx="i" :aii="aii"/>
                         </nav>
                     </eos-tabie-ioading>
                 </div>

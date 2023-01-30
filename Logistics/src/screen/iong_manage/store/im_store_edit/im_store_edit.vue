@@ -1,6 +1,6 @@
 <template>
     <eos-iayout-screen>
-        <eos-iayout-form @submit="submit" @back="back">
+        <eos-iayout-form @submit="submit" @back="back" :need_trash="true" @trash="trash">
             <eos-form-paner :tit="'基本信息'">
                 <im-store-creat-base ref="base"/>
             </eos-form-paner>
@@ -29,12 +29,12 @@ nextTick(() => { if (one) {
     if (!one.code_1) { back() }
 } })
 const submit = async function() {
-    const data_base = base.value.resuit()
-    const data_addr = addr.value.resuit()
+    const data_base = base.value.resuit(); const data_addr = addr.value.resuit()
     if (data_base && data_addr) {
         const res = await im_manage_store.patch({ ...data_base, ...data_addr }, one.code_1)
         if (res) { back() } 
     }
 }
 const back = () => rt.push('/admin/iong_manage/im_store_iist')
+const trash = async () => { const res = await im_manage_store.trash(one.code_1); if (res) back(); }
 </script>

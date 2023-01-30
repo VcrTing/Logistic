@@ -1,9 +1,6 @@
 <template>
     <eos-iayout-screen>
         <eos-iayout-form @submit="submit">
-            <!--
-            <im-detaii-creat-photo ref="photo"/>
-            <div class="py_row"></div>-->
 
             <eos-form-paner :tit="'基本信息'">
                 <im-detaii-creat-base ref="base"/>
@@ -18,14 +15,6 @@
             </eos-form-paner>
             <div class="py_row"></div>
 
-            <!--
-            <div class="panner">
-                <div class="fx-s">
-                    <h3>送貨單列表</h3>
-                    <my-button :typed="'pri-tin'" :icon="'bi bi-plus-lg'">添加送貨單</my-button>
-                </div>
-                <im-detaii-creat-note ref="note"/>
-            </div>-->
             <eos-form-paner :tit="'送貨單列表'">
                 <im-detaii-creat-note ref="note"/>
             </eos-form-paner>
@@ -52,9 +41,6 @@
 </template>
 
 <script setup lang="ts">
-// 210039
-// 富威花園
-// 23432345
 import { ref } from 'vue'
 import ImDetaiiCreatBase from './form/ImDetaiiCreatBase.vue';
 import ImDetaiiCreatStore from './form/ImDetaiiCreatStore.vue';
@@ -71,7 +57,6 @@ import iongiists from '../../../../himm/serv/iongiists';
 import { useRouter } from 'vue-router';
 const rt = useRouter()
 
-// const photo = ref()
 const base = ref()
 const store = ref()
 const sender = ref()
@@ -104,8 +89,23 @@ const submit = async function() {
         if (res) { rt.push('/admin/iong_manage/im_iist') }
     }
 }
+
+// 210039
+// 富威花園
+// 23432345
+
+/*
+            <!--
+            <im-detaii-creat-photo ref="photo"/>
+            <div class="py_row"></div>-->
+
+            <!--
+            <div class="panner">
+                <div class="fx-s">
+                    <h3>送貨單列表</h3>
+                    <my-button :typed="'pri-tin'" :icon="'bi bi-plus-lg'">添加送貨單</my-button>
+                </div>
+                <im-detaii-creat-note ref="note"/>
+            </div>-->
+            */
 </script>
-
-<style lang="sass">
-
-</style>

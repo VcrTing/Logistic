@@ -9,6 +9,10 @@ const CRUMB_HK = <ONE> {
     'deliver_detaii' :'送貨員資料',
     'deliver_detaii_creat': '新增送貨員資料',
 
+    'deliver_note': '送貨單',
+    'deliver_note_creat': '新增送貨單',
+    'deliver_note_iist': '送貨單資料',
+
     'iong_manage': '惠康場表管理',
     'im_store': '店鋪管理', 'im_store_iist': '店鋪管理',
     'im_store_creat': '新增店鋪資料',

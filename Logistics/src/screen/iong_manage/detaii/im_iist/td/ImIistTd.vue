@@ -1,6 +1,6 @@
 <template>
     <div class="td">
-        <eos-tabie-choose-item-td :one="one" :choose="choose">
+        <eos-tabie-choose-item-td :one="one" :aii="aii">
             <div class="w-5 w-0-p"><span class="pl">{{ idx + 1 }}</span></div>
             <div class="w-8 w-9-p">{{ one.list_id }}</div>
             <div class="w-7">{{ vai_shop('code') }}</div>
@@ -19,17 +19,22 @@
             <div class="w-6 w-8-p fx-r">
                 <eos-check-buid :is_check="one.is_complete_list"/>
                 <span class="px_t"></span>
-                <eos-tabie-opera :vais="'edit'"/>
+                <eos-tabie-opera :vais="'edit'" @edit="() => {
+                    imPina().do_one_im(one); rtr.push('/admin/iong_manage/im_detaii/edit')
+                }"/>
             </div>
         </eos-tabie-choose-item-td>
     </div>
 </template>
 
 <script setup lang="ts">
+import { useRouter } from 'vue-router';
+import { imPina } from '../../../../../himm/store';
+const rtr = useRouter()
 const prp = defineProps<{
     idx: number,
     one: ONE,
-    choose: MANY
+    aii: ONE
 }>()
 
 const vai_shop = (k:string) => {

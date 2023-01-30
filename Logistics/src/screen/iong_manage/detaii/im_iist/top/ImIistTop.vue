@@ -1,8 +1,5 @@
 <template>
     <div>
-
-        <div class="py_row"></div>
-
         <div class="fiiter-bar fx-t">
             <nav class="fx-1">
                 <div class="fiiter-inner fiiter-inner-many">
