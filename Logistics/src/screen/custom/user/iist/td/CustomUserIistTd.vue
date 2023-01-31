@@ -1,18 +1,18 @@
 <template>
     <div class="td">
-        <div class="w-13">
+        <div class="w-14 pr_s">
             {{ one.chinese_name }}
         </div>
-        <div class="w-12">
+        <div class="w-11">
             {{ one.phone_no }}
         </div>
         <div class="w-19 pr_s">
             {{ one.email }}
         </div>
-        <div class="w-14">
+        <div class="w-17 pr_s">
             {{ one.company_represent.name }}
         </div>
-        <div class="w-14">
+        <div class="w-11">
             {{ one.company_represent.phone_no }}
         </div>
         <div class="w-21">

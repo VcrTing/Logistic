@@ -10,9 +10,9 @@
         </h4>
     </div>
     <div class="pl" v-if="form.company_represent">
-        <p class="pb_s">公司名称：&nbsp;{{ form.vv.name }}</p>
-        <p class="pb_s">公司电话：&nbsp;{{ form.vv.phone_no }}</p>
-        <p class="pb_s">公司邮箱：&nbsp;{{ form.vv.email }}</p>
+        <p class="pb_s">公司名稱：&nbsp;{{ form.vv.name }}</p>
+        <p class="pb_s">公司電話：&nbsp;{{ form.vv.phone_no }}</p>
+        <p class="pb_s">公司郵箱：&nbsp;{{ form.vv.email }}</p>
         <p class="pb_s">公司地址：&nbsp;{{ form.vv.address }}</p>
     </div>
 </template>

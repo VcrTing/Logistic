@@ -1,6 +1,6 @@
 <template>
     <nav class="panner fx-l">
-        <h3>编辑送货员信息
+        <h3>編輯送貨員信息
             &nbsp;
         </h3>
         <div class="py f-row">

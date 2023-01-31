@@ -1,19 +1,19 @@
 <template>
     <div>
         <div class="py f-row">
-            <eos-input class="w-25 w-333-p" :is_err="form_err.order_num" :header="'订单编号：'">
+            <eos-input class="w-25 w-333-p" :is_err="form_err.order_num" :header="'訂單編號：'">
                 <input class="input" v-model="form.order_num" placeholder="請輸入" />
             </eos-input>
-            <eos-input class="w-25 w-333-p" :is_err="form_err.order_date" :header="'订单日期：'">
+            <eos-input class="w-25 w-333-p" :is_err="form_err.order_date" :header="'訂單日期：'">
                 <input class="input" v-model="form.order_date" placeholder="請輸入" />
             </eos-input>
-            <eos-input class="w-25 w-333-p" :is_err="form_err.company" :header="'公司名称：'">
+            <eos-input class="w-25 w-333-p" :is_err="form_err.company" :header="'公司名稱：'">
                 <input class="input" v-model="form.company" placeholder="請輸入" />
             </eos-input>
         </div>
 
         <div class="py f-row">
-            <div>对接公司：</div>
+            <div>對接公司：</div>
         </div>
     </div>
 </template>

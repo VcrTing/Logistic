@@ -1,0 +1,1 @@
+import{s as r,f as e,S as a,T as u}from"./index.ad32aa99.js";const i=async function(s){let t=await r.get("user",e().jwt,a(s));return t?u.ser_aii(t,[]):{}},c=async function(s){let t=await r.pos("user",e().jwt,s);return t||null},o=async function(s,t){let n=await r.put("user",e().jwt,s,{},t);return n||null},f={many:i,edit:o,creat:c};export{f as u};

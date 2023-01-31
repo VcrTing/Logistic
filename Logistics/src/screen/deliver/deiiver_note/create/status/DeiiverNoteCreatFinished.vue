@@ -1,6 +1,6 @@
 <template>
     <div class="fx-l">
-        <h3>订单已完成送货
+        <h3>訂單已完成送貨
             &nbsp;&nbsp;&nbsp;&nbsp;
             &nbsp;&nbsp;&nbsp;&nbsp;
             &nbsp;&nbsp;&nbsp;&nbsp;

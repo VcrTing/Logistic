@@ -1,13 +1,13 @@
 <template>
     <div>
         <div class="py f-row">
-            <eos-input class="w-25 w-25-p" :is_err="form_err.order_num" :header="'分配时间：'">
+            <eos-input class="w-25 w-25-p" :is_err="form_err.order_num" :header="'分配時間：'">
                 <input class="input" v-model="form.order_num" placeholder="請輸入" />
             </eos-input>
-            <eos-input class="w-25 w-25-p" :is_err="form_err.big" :header="'大件数量：'">
+            <eos-input class="w-25 w-25-p" :is_err="form_err.big" :header="'大件數量：'">
                 <input class="input" v-model="form.big" placeholder="請輸入" />
             </eos-input>
-            <eos-input class="w-25 w-25-p" :is_err="form_err.big" :header="'小件数量：'">
+            <eos-input class="w-25 w-25-p" :is_err="form_err.big" :header="'小件數量：'">
                 <input class="input" v-model="form.big" placeholder="請輸入" />
             </eos-input>
             <eos-input class="w-25 w-25-p" :is_err="form_err.big" :header="'重量：'">
@@ -16,7 +16,7 @@
         </div>
 
         <div class="py f-row">
-            <eos-input class="w-100" :is_err="form_err.remark" :header="'备注：'">
+            <eos-input class="w-100" :is_err="form_err.remark" :header="'備註：'">
                 <textarea class="input" v-model="form.remark" placeholder="請輸入" ></textarea>
             </eos-input>
         </div>

@@ -1,19 +1,19 @@
 <template>
     <div>
         <div class="py f-row">
-            <eos-input class="w-25 w-25-p" :is_err="form_err.order_num" :header="'客户姓名：'">
+            <eos-input class="w-25 w-25-p" :is_err="form_err.order_num" :header="'客戶姓名：'">
                 <input class="input" v-model="form.order_num" placeholder="請輸入" />
             </eos-input>
-            <eos-input class="w-25 w-25-p" :is_err="form_err.order_num" :header="'区域：'">
+            <eos-input class="w-25 w-25-p" :is_err="form_err.order_num" :header="'區域：'">
                 <input class="input" v-model="form.order_num" placeholder="請輸入" />
             </eos-input>
-            <eos-input class="w-25 w-25-p" :is_err="form_err.big" :header="'地区：'">
+            <eos-input class="w-25 w-25-p" :is_err="form_err.big" :header="'地區：'">
                 <input class="input" v-model="form.big" placeholder="請輸入" />
             </eos-input>
         </div>
 
         <div class="py f-row">
-            <eos-input class="w-100" :is_err="form_err.remark" :header="'详细地址：'">
+            <eos-input class="w-100" :is_err="form_err.remark" :header="'詳細地址：'">
                 <textarea class="input" v-model="form.remark" placeholder="請輸入" ></textarea>
             </eos-input>
         </div>

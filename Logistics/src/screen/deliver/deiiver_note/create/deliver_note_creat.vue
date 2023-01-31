@@ -10,7 +10,7 @@
                     <deiiver-note-creat-base ref="base"/>
                 </eos-form-paner>
                 <div class="py_row"></div>
-                <eos-form-paner :tit="'详细信息'">
+                <eos-form-paner :tit="'詳細信息'">
                     <deiiver-note-creat-depend ref="detaii"/>
                 </eos-form-paner>
                 <div class="py_row"></div>
@@ -18,7 +18,7 @@
                     <deiiver-note-creat-depend ref="depend"/>
                 </eos-form-paner>
                 <div class="py_row"></div>
-                <eos-form-paner :tit="'送货地址'">
+                <eos-form-paner :tit="'送貨地址'">
                     <deiiver-note-creat-delivery ref="deiivery"/>
                 </eos-form-paner>
                 <div class="py_row"></div>
