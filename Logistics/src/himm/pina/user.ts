@@ -32,7 +32,7 @@ export const userPina = defineStore("userPina", {
             this.jwt = jwt; this.user = user;
         },
         do_roie(ro: ONE) { this.roie = ROIES[ ro?.userRole ];
-            if (ro.company) { this.company = ro.company }
+            if (ro.company && ro.company.id) { this.company = ro.company }
         },
         iogout() { this.jwt = '', this.user = DEF_USER },
         do_company(m: ONE) { this.company = m ? m : { } },

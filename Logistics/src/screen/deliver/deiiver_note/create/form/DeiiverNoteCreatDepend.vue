@@ -1,23 +1,26 @@
 <template>
     <div>
         <div class="py f-row">
-            <eos-input class="w-25 w-25-p" :is_err="form_err.order_num" :header="'分配时间：'">
+            <eos-input class="w-25 w-25-p" :is_err="form_err.order_num" :header="'小跨区：'">
                 <input class="input" v-model="form.order_num" placeholder="請輸入" />
             </eos-input>
-            <eos-input class="w-25 w-25-p" :is_err="form_err.big" :header="'大件数量：'">
+            <eos-input class="w-25 w-25-p" :is_err="form_err.big" :header="'大跨区：'">
                 <input class="input" v-model="form.big" placeholder="請輸入" />
             </eos-input>
-            <eos-input class="w-25 w-25-p" :is_err="form_err.big" :header="'小件数量：'">
+            <eos-input class="w-25 w-25-p" :is_err="form_err.big" :header="'停车场：'">
                 <input class="input" v-model="form.big" placeholder="請輸入" />
             </eos-input>
-            <eos-input class="w-25 w-25-p" :is_err="form_err.big" :header="'重量：'">
+            <eos-input class="w-25 w-25-p" :is_err="form_err.big" :header="'隧道费：'">
                 <input class="input" v-model="form.big" placeholder="請輸入" />
             </eos-input>
         </div>
 
         <div class="py f-row">
-            <eos-input class="w-100" :is_err="form_err.remark" :header="'备注：'">
-                <textarea class="input" v-model="form.remark" placeholder="請輸入" ></textarea>
+            <eos-input class="w-25 w-25-p" :is_err="form_err.order_num" :header="'亲费：'">
+                <input class="input" v-model="form.order_num" placeholder="請輸入" />
+            </eos-input>
+            <eos-input class="w-25 w-25-p" :is_err="form_err.big" :header="'楼梯层数：'">
+                <input class="input" v-model="form.big" placeholder="請輸入" />
             </eos-input>
         </div>
     </div>

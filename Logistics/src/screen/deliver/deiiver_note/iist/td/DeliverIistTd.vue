@@ -1,15 +1,35 @@
 <template>
     <div class="td">
-        <div class="w-8">訂單編號</div>
-        <div class="w-12">送貨員電話號碼</div>
-        <div class="w-11">公司名稱</div>
-        <div class="w-10">日期</div>
-        <div class="w-7">大件</div>
-        <div class="w-6">小件</div>
-        <div class="w-8">重量</div>
-        <div class="w-10">客戶姓名</div>
-        <div class="w-14">地址</div>
-        <div class="w-8">備註</div>
+        <div class="w-8">
+            {{ one.order_id }}
+        </div>
+        <div class="w-12">
+            {{ funny.vai_man('phone_no') }}
+        </div>
+        <div class="w-11">
+            {{ funny.vai_shop('company_name') }}
+        </div>
+        <div class="w-10">
+            {{ one.date }}
+        </div>
+        <div class="w-7">
+            {{ one.large_item_count }}
+        </div>
+        <div class="w-6">
+            {{ one.small_item_count }}
+        </div>
+        <div class="w-8">
+            {{ one.weight }}
+        </div>
+        <div class="w-10">
+            {{ funny.vai_man('chinese_name') }}
+        </div>
+        <div class="w-14">
+            {{ one.is_complete_list }}
+        </div>
+        <div class="w-8">
+            {{ one.remarks }}
+        </div>
         <div class="w-6"></div>
     </div>
 </template>
@@ -20,8 +40,18 @@ import { deiiPina } from "../../../../../himm/store"
 const rt = useRouter()
 const prp = defineProps<{ idx: number, one: ONE }>()
 
+const funny = {
+    vai_man: (k: string) => {
+        const src: ONE | null = prp.one.delivery_man_info
+        return src ? src[ k ] : ''
+    },
+    vai_shop: (k: string) => {
+        const src: ONE | null = prp.one.normal_shop_customer
+        return src ? src[ k ] : ''
+    }
+}
+
 const editOne = () => {
-    deiiPina().do_one_deiiver( prp.one )
-    rt.push('/admin/deliver_detaii/edit')
+    deiiPina().do_one_deiiver( prp.one ); rt.push('/admin/deliver_detaii/edit')
 }
 </script>

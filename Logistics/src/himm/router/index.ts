@@ -13,10 +13,18 @@ import _custom from './_custom';
 import _company from './_company';
 import _iong_manage from './_iong_manage';
 
+const index = () => {
+    return [
+        { path: '/', redirect: '/admin/dashboard' },
+        { path: '/index', redirect: '/admin/dashboard' },
+        { path: '/dashboard', redirect: '/admin/dashboard' },
+    ]
+}
+
 const router = createRouter({
     history: createWebHashHistory(),
     routes: [
-        { path: '/', redirect: '/admin' },
+        ...index(),
         {
             path: '/admin', redirect: '/admin/order_iist',
             component: () => import('../../screen/Home.vue'),
@@ -26,7 +34,8 @@ const router = createRouter({
                 ..._delier,
                 ..._custom,
                 ..._company,
-                ..._iong_manage()
+                ..._iong_manage(),
+                { path: '/admin/dashboard', component: () => import('../../screen/dashboard/dashboard.vue') },
             ]
         },
         {

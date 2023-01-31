@@ -30,6 +30,7 @@ const CRUMB_HK = <ONE> {
 
     'user_iist': '用戶列表',
     'user_creat': '新增用戶',
+    'dashboard': '主面板',
 
     'upioad_order_in_buik': '批量上傳訂單',
 

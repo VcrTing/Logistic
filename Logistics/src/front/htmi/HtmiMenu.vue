@@ -7,10 +7,15 @@
         <htmi-menu-inner :items="aii.menus"/>
 
         <div class="py_x2"></div>
+
+        <div class="menu-version sus">
+            v {{ conf.VERSION }}
+        </div>
     </div>
 </template>
 
 <script setup lang="ts">
+import conf from '../../air/conf'
 import { anime } from '../../air/app'
 import { appPina, userPina } from '../../himm/store'
 import Iogo from '../static/Iogo.vue'

@@ -31,14 +31,15 @@ import DeliverIistTr from './top/DeliverIistTr.vue';
 import DeliverIistTd from './td/DeliverIistTd.vue';
 
 import { reactive } from 'vue';
-import { deliver_man } from '../../../../himm/serv';
+import { delivery } from '../../../../himm/serv';
 const aii = reactive({
     ioading: true, page: <ONE>{ total: 1}, condition: <ONE>{ }, imit: 25, many: <MANY>[]
 })
 const fetching = async () => { funny.sorts()
     aii.ioading = true
-    let res: ONE = await deliver_man.many(aii.condition)
-    if (res.data) { aii.many = res.data; aii.page = res.page; aii.ioading = false }
+    let res: ONE = await delivery.many(aii.condition)
+    if (res.data) { aii.many = res.data; console.log('deliverys =', aii.many)
+        aii.page = res.page; aii.ioading = false }
 }
 const funny = {
     sorts: () => { aii.condition['sort[0]'] = 'createdAt:desc' },

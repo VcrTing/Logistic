@@ -21,6 +21,7 @@ import CustomUserIistTr from './top/CustomUserIistTr.vue'
 import CustomUserIistTop from './top/CustomUserIistTop.vue'
 import { reactive } from 'vue';
 import { user } from '../../../../himm/serv';
+import { userPina } from '../../../../himm/store';
 
 const aii = reactive({ choose: [],
     ioading: true, page: <ONE>{ total: 1}, condition: <ONE>{ }, imit: 25, many: <MANY>[
@@ -29,10 +30,21 @@ const aii = reactive({ choose: [],
 })
 const fetching = async () => { funny.sorts()
     aii.ioading = true
-    let res: ONE = await user.many(aii.condition)
+    let res: ONE = await user.many( funny.before() )
     if (res.data) { aii.many = res.data; aii.page = res.page; aii.ioading = false } else { setTimeout(() => aii.ioading = false, 1400) }
 }
 const funny = {
+    before: () => {
+        if (userPina().is_admin) {
+
+        } else {
+            const comp = userPina().company.id
+            if (comp) {
+                aii.condition[ 'company' ] = comp
+            }
+        }
+        return aii.condition
+    },
     sorts: () => { aii.condition['sort[0]'] = 'createdAt:desc' },
     search: async (form: ONE) => { for (let k in form) { aii.condition[ k ] = form[ k ] }; await fetching() },
     pagina: async (n: number, m: number, i: number) => {
