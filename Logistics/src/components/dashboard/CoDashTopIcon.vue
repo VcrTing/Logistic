@@ -1,6 +1,8 @@
 <template>
-    <div class="co-dash-top-icon">
-        <img :src="srcs[ icon ]"/>
+    <div class="co-dash-top-icon" :class="'cdti-' + icon">
+        <div>
+            <img :src="srcs[ icon ]"/>
+        </div>
     </div>
 </template>
     

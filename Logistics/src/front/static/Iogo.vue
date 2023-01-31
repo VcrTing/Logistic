@@ -1,5 +1,5 @@
 <template> 
-<img :src="src ? src : user.is_admin ? LOGO_ADMIN : LOGO" />
+<img :src="src ? src : user.is_admin ? LOGO : LOGO" />
 </template>
 
 <script setup lang="ts">

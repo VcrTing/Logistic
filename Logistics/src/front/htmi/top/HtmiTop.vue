@@ -24,8 +24,6 @@ const user = userPina()
 const rt = useRouter()
 const auth = () => { rt.push('/login'); user.iogout() }
 const menu = (v: number) => appPina().do_menu(v)
+
+console.log(user.company, user.user)
 </script>
-
-<style lang="sass" scoped>
-
-</style>

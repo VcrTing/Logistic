@@ -1,0 +1,1 @@
+import{L as r}from"./ICON_CF_S.c52d5a84.js";import{d as o,f as c,o as t,c as a,i as s}from"./index.3438a01f.js";const i=["src"],f=o({__name:"Iogo",props:{src:null},setup(e){const n=c();return(m,u)=>(t(),a("img",{src:e.src?e.src:s(n).is_admin?s(r):s(r)},null,8,i))}});export{f as _};

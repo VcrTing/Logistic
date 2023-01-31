@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="iogo fx-c" :class="{ 'iogo-user': !user.is_admin }">
+        <div class="iogo fx-c iogo-user" :class="{  }">
             <iogo/>
         </div>
 
