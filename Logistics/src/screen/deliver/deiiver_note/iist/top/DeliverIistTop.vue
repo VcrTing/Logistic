@@ -3,16 +3,16 @@
         <div class="fiiter-bar fx-t">
             <nav class="fx-1">
                 <div class="fiiter-inner fiiter-inner-many">
-                    <eos-input-fiiter class="w-25 w-333-p" :header="'中文名:'">
+                    <eos-input-fiiter class="w-25 w-333-p" :header="'公司名稱:'">
                         <input class="input" placeholder="請輸入"/>
                     </eos-input-fiiter>
-                    <eos-input-fiiter class="w-25 w-333-p" :header="'電話號碼:'">
+                    <eos-input-fiiter class="w-25 w-333-p" :header="'送貨員電話:'">
                         <input class="input" placeholder="請輸入"/>
                     </eos-input-fiiter>
-                    <eos-input-fiiter class="w-25 w-333-p" :header="'送貨員類別:'">
+                    <eos-input-fiiter class="w-25 w-333-p" :header="'區域:'">
                         <ef-deliver-typed-select class="input" ref="dtp" @change="(v: string) => form.type = v"/>
                     </eos-input-fiiter>
-                    <eos-input-fiiter class="w-25 w-333-p" :header="'判头名称:'">
+                    <eos-input-fiiter class="w-25 w-333-p" :header="'地區:'">
                         <input class="input" v-model="form.contractor_name" placeholder="請輸入"/>
                     </eos-input-fiiter>
                 </div>

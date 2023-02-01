@@ -1,14 +1,25 @@
 <template>
     <div class="f-row">
-        <div class="w-25" v-for="(v, i) in many" :key="i">
-            <co-dash-top-pan :one="v"></co-dash-top-pan>
+        <div class="w-28">
+            <co-dash-top-pan :one="many[0]">
+                <co-dash-top-constract/>
+            </co-dash-top-pan>
+        </div>
+        <div class="w-24">
+            <co-dash-top-pan :one="many[1]" :kiii_i="true"></co-dash-top-pan>
+        </div>
+        <div class="w-24">
+            <co-dash-top-pan :one="many[2]"></co-dash-top-pan>
+        </div>
+        <div class="w-24">
+            <co-dash-top-pan :one="many[3]"></co-dash-top-pan>
         </div>
     </div>
-    <div class="py_row"></div>
 </template>
     
 <script lang="ts" setup>
-import CoDashTopPan from '../../../components/dashboard/CoDashTopPan.vue';
+import CoDashTopPan from '../../../components/dashboard/top/CoDashTopPan.vue';
+import CoDashTopConstract from '../../../components/dashboard/top/CoDashTopConstract.vue';
 
 const many = [
     {

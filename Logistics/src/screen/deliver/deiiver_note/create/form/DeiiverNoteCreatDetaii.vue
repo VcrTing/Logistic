@@ -1,23 +1,23 @@
 <template>
-    <div>
+    <div> 
         <div class="py f-row">
-            <eos-input class="w-25 w-25-p" :is_err="form_err.order_num" :header="'分配時間：'">
-                <input class="input" v-model="form.order_num" placeholder="請輸入" />
+            <eos-input class="w-25 w-25-p" :is_err="form_err.distribute_time" :header="'分配時間：'">
+                <fn-time @resuit="(v: string) => form.distribute_time = v"/>
             </eos-input>
-            <eos-input class="w-25 w-25-p" :is_err="form_err.big" :header="'大件數量：'">
-                <input class="input" v-model="form.big" placeholder="請輸入" />
+            <eos-input class="w-25 w-25-p" :is_err="form_err.large_item_count" :header="'大件數量：'">
+                <input class="input" v-model="form.large_item_count" placeholder="請輸入" />
             </eos-input>
-            <eos-input class="w-25 w-25-p" :is_err="form_err.big" :header="'小件數量：'">
-                <input class="input" v-model="form.big" placeholder="請輸入" />
+            <eos-input class="w-25 w-25-p" :is_err="form_err.small_item_count" :header="'小件數量：'">
+                <input class="input" v-model="form.small_item_count" placeholder="請輸入" />
             </eos-input>
-            <eos-input class="w-25 w-25-p" :is_err="form_err.big" :header="'重量：'">
-                <input class="input" v-model="form.big" placeholder="請輸入" />
+            <eos-input class="w-25 w-25-p" :is_err="form_err.weight" :header="'重量：'">
+                <input class="input" v-model="form.weight" placeholder="請輸入" />
             </eos-input>
         </div>
 
         <div class="py f-row">
-            <eos-input class="w-100" :is_err="form_err.remark" :header="'備註：'">
-                <textarea class="input" v-model="form.remark" placeholder="請輸入" ></textarea>
+            <eos-input class="w-100" :is_err="false" :header="'備註：'">
+                <textarea class="input" v-model="form.remarks" placeholder="請輸入" ></textarea>
             </eos-input>
         </div>
     </div>
@@ -27,14 +27,15 @@
 import { ref, reactive, defineExpose } from 'vue'
 
 const form: ONE = reactive({
-    order_num: '', big: '', remark: ''
+    distribute_time: '', large_item_count: '', small_item_count: '', weight: '', remarks: ''
 })
 const form_err = reactive({
-    order_num: false, big: false, remark: false
+    distribute_time: false, large_item_count: false, small_item_count: false, weight: false
 })
 
 const can = function() { let res = true
-    if (!form.big) { form_err.big = true; return false } else { form_err.big = false }
+    if (!form.distribute_time) { form_err.distribute_time = true; return false } else { form_err.distribute_time = false }
+    if (!form.weight) { form_err.weight = true; return false } else { form_err.weight = false }
     Object.values( form_err ).map( e => { if (e) { res = false } })
     return res
 }

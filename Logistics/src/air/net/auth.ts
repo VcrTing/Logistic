@@ -8,7 +8,7 @@ const iogin = async (identifier: string, password: string): Promise<ONE | number
         )
         return (res && (res.status < 399)) ? res.data : 500;
     } catch(err: any) {
-        return err ? err.response.status : 500;
+        return err.response ? err.response.status : 500;
     }
 } 
 

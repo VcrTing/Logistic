@@ -3,7 +3,7 @@
         <div class="w-8">
             {{ one.order_id }}
         </div>
-        <div class="w-12">
+        <div class="w-10">
             {{ funny.vai_man('phone_no') }}
         </div>
         <div class="w-11">
@@ -19,12 +19,13 @@
             {{ one.small_item_count }}
         </div>
         <div class="w-8">
-            {{ one.weight }}
+            {{ one.weight }}<span v-if="one.weight">&nbsp;KG</span>
         </div>
         <div class="w-10">
             {{ funny.vai_man('chinese_name') }}
         </div>
-        <div class="w-14">
+        <div class="w-16 pr_s">
+
             {{ one.is_complete_list }}
         </div>
         <div class="w-8">

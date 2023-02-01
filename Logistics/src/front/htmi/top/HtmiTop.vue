@@ -11,7 +11,7 @@
                     {{ user.named }}
                     <span v-if="user.is_admin">&nbsp;(超級管理員)</span>
                 </div>
-                <img class="user-face hand" :src="user.avatar">
+                <img class="user-face hand" :src="iogo()">
             </div>
         </div>
     </nav>
@@ -25,5 +25,9 @@ const rt = useRouter()
 const auth = () => { rt.push('/login'); user.iogout() }
 const menu = (v: number) => appPina().do_menu(v)
 
-console.log(user.company, user.user)
+const iogo = () => {
+    const cp = user.company
+    return cp.company_logo ? cp.company_logo : user.avatar
+}
+
 </script>

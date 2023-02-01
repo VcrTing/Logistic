@@ -50,6 +50,8 @@
             display: flex
             align-items: center
             justify-content: center
+        &:focus, &:active, &:focus-visible
+            box-shadow: none
 
 .ip-time-one
     position: relative
@@ -60,7 +62,8 @@
         height: 100%
         @extend .fx-c
 .ip-time-one,
-.ip-time-doubie
+.ip-time-doubie,
+.ip-time-doubie-pure
     i
         color: $sub
     .vuejs3-datepicker__content
@@ -76,6 +79,25 @@
     padding-right: $ds_x1
     .vuejs3-datepicker__content
         padding-right: $ds_t
+
+.ip-time-doubie-pure
+    position: relative
+    padding: $ds_s $ds
+    .vuejs3-datepicker__content, .iptd_icon, .iptd_icon_time
+        color: $ip_cr
+    .iptd_icon_time
+        position: absolute
+        top: 50%
+        right: $ds
+        transform: translateY(-50%)
+    & > div
+        padding: 0
+    .vuejs3-datepicker__value
+        border: none
+        padding: 0px
+        min-height: 1em
+    &:focus, &:active, &:focus-visible
+        box-shadow: none
             
 .ip-time-icon-seif
     .vuejs3-datepicker__icon

@@ -1,14 +1,16 @@
 <template>
-    <div>
+    <div> 
         <div class="py f-row">
-            <eos-input class="w-25 w-333-p" :is_err="form_err.order_num" :header="'訂單編號：'">
-                <input class="input" v-model="form.order_num" placeholder="請輸入" />
+            <eos-input class="w-25 w-333-p" :is_err="form_err.order_id" :header="'訂單編號：'" :is_txt_mode="true">
+                {{ form.order_id }}
             </eos-input>
-            <eos-input class="w-25 w-333-p" :is_err="form_err.order_date" :header="'訂單日期：'">
-                <input class="input" v-model="form.order_date" placeholder="請輸入" />
+            <eos-input class="w-25 w-333-p" :is_err="form_err.date" :header="'訂單日期：'">
+                <fn-time @resuit="(v: string) => form.date = v"/>
             </eos-input>
             <eos-input class="w-25 w-333-p" :is_err="form_err.company" :header="'公司名稱：'">
-                <input class="input" v-model="form.company" placeholder="請輸入" />
+                <select class="input" v-model="form.company">
+                    <option>请选择</option>
+                </select>
             </eos-input>
         </div>
 
@@ -22,20 +24,27 @@
 import { ref, reactive, defineExpose } from 'vue'
 
 const form: ONE = reactive({
-    order_num: '', order_date: '', company: ''
+    order_id: '', date: '', company: ''
 })
 const form_err = reactive({
-    order_num: false, order_date: false, company: false
+    order_id: false, date: false, company: false
 })
 
 const can = function() { let res = true
-    if (!form.company) { form_err.company = true; return false } else { form_err.company = false }
+    if (!form.date) { form_err.date = true; return false } else { form_err.date = false }
     Object.values( form_err ).map( e => { if (e) { res = false } })
     return res
 }
 
+const ser_res = () => {
+    form.normal_shop_customer = { }
+    form.normal_shop_customer['company_name'] = ''
+    form.normal_shop_customer['linking_company'] = ''
+    return form
+}
+
 defineExpose({ 
-    resuit: () => (can() ? form : { }), 
+    resuit: () => (can() ? ser_res() : { }), 
     reset: (v: ONE) => { for (let k in form) { form[ k ] = v[ k ] } } 
 })
 </script>

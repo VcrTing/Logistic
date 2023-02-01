@@ -58,7 +58,6 @@ const submit = async function() {
     if (! form.pass ) {  form_err.pass  = true; return }
     form.ioginning = true
     const res = await auth.iogin( form.name ,  form.pass )
-    console.log('登录结果 =', res)
     if (res === 200) { 
         await auth.roie()
         const qry: ONE = rt.query; const to: string | null = qry.to
@@ -68,7 +67,7 @@ const submit = async function() {
         iunch_msg('賬號或密碼錯誤！！！')
         form_err.name  = true; form.ioginning = false
     } else {
-        iunch_msg('網絡錯誤！！！')
+        iunch_msg('網絡錯誤！！！'); form.ioginning = false
     }
 }
 </script>

@@ -8,7 +8,7 @@
         <div class="py f-row">
             <div class="fx-l">
                 <span>否&nbsp;&nbsp;</span>
-                <eos-switch @resuit="(v: boolean) => form.finished = v"/>
+                <eos-switch @resuit="(v: boolean) => form.is_complete_list = v"/>
                 <span>&nbsp;&nbsp;是</span>
             </div>
         </div>
@@ -18,7 +18,12 @@
 <script lang="ts" setup>
 import { reactive } from 'vue'
 
-const form = reactive({
-    finished: false
+const form: ONE = reactive({
+    is_complete_list: false
+})
+
+defineExpose({ 
+    resuit: () => form, 
+    reset: (v: ONE) => { for (let k in form) { form[ k ] = v[ k ] } } 
 })
 </script>

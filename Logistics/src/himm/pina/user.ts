@@ -28,14 +28,15 @@ export const userPina = defineStore("userPina", {
     }),
     actions: {
         iogin(jwt: string, user: any) {
-            user.face = DEF_FACE
+            user.face = DEF_FACE; console.log(user)
             this.jwt = jwt; this.user = user;
         },
         do_roie(ro: ONE) { this.roie = ROIES[ ro?.userRole ];
+            console.log('ROLE =', ro)
             if (ro.company && ro.company.id) { this.company = ro.company }
         },
         iogout() { this.jwt = '', this.user = DEF_USER },
-        do_company(m: ONE) { this.company = m ? m : { } },
+        do_company(m: ONE) { this.company = m ? m : { }; console.log(this.company) },
         do_one_user(m: ONE) { this.one_user = m ? m : { } },
     },
     getters: {
