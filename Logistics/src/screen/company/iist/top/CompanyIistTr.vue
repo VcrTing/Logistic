@@ -12,7 +12,10 @@
         <div class="w-40">
             公司地址<br/><p class="tr-en">Company Location</p>
         </div>
-        <div class="w-8"></div>
+        <div class="w-12">
+            公司圖標<br/><p class="tr-en">Company Logo</p>
+        </div>
+        <div class="w-6"></div>
     </nav>
 </template>
 

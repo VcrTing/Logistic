@@ -16,6 +16,7 @@ const rtr = useRouter()
 const base = ref()
 
 const comp = companyPina()
+console.log(comp.one_company)
 nextTick(() => base.value.reset( comp.one_company ))
 
 const save = async function() {

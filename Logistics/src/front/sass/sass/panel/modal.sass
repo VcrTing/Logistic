@@ -1,12 +1,21 @@
 
 .ani_mod_hui
     opacity: 0.4
-    animation: ani_mod_hui .062s ease-in
+    animation: ani_mod_hui 0.122s ease-in
 @keyframes ani_mod_hui
     0%
         opacity: 0
     100%
         opacity: 0.4
+
+.ani_mod_hui_s
+    opacity: 0.122
+    animation: ani_mod_hui 0.082s ease-in
+@keyframes ani_mod_hui
+    0%
+        opacity: 0
+    100%
+        opacity: 0.122
 
 .eos-modai
     &,
@@ -24,11 +33,13 @@
         position: fixed !important
         transition: all 0s
     .eos-modai-hui
-        @extend .ani_mod_hui
         background: #000
-        transition: all .062s ease-in
+        transition: all .122s ease-in
+        @extend .ani_mod_hui
 
     .eos-modai-inner
+        position: relative
+        z-index: 802
         width: 100%
         max-width: calc( 21vw + 400px )
 
@@ -78,3 +89,8 @@
         max-width: 60vw
         & > div 
             width: 100%
+
+//   
+.eos-mod-media
+    .eos-modai-hui
+        @extend .ani_mod_hui_s

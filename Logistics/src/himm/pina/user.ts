@@ -35,7 +35,7 @@ export const userPina = defineStore("userPina", {
             console.log('ROLE =', ro)
             if (ro.company && ro.company.id) { this.company = ro.company }
         },
-        iogout() { this.jwt = '', this.user = DEF_USER },
+        iogout() { this.jwt = ''; this.user = DEF_USER; this.company = { }; this.roie = { } },
         do_company(m: ONE) { this.company = m ? m : { }; console.log(this.company) },
         do_one_user(m: ONE) { this.one_user = m ? m : { } },
     },

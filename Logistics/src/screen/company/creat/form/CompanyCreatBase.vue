@@ -1,15 +1,26 @@
 <template>
     <div class="py f-row">
+        <eos-input class="w-100" :is_err="false" :header="'公司圖標 Company logo'">
+            <div class="fx-s">
+                <div class="mw-4em pr_x2">
+                    <img class="ccb-iogo br" v-if="form.company_logo" :src="form.company_logo" @click="appPina().do_img(form.company_logo)"/>
+                    <div class="ccb-iogo br" v-else></div>
+                </div>
+                <textarea class="input fx-1" v-model="form.company_logo" placeholder="請輸入圖片連結 Please enter an image link"></textarea>
+            </div>
+        </eos-input>
+    </div>
+    <div class="py f-row">
         <eos-input class="w-50 w-666-p" :is_err="form_err.name" :header="'公司名稱 Company name'">
-            <input class="input" v-model="form.name" placeholder="請輸入 Please Enter" />
+            <input class="input" v-model="form.name" placeholder="請輸入 Please enter" />
         </eos-input>
         <eos-input class="w-50 w-333-p" :is_err="form_err.phone_no" :header="'公司電話 Company phone'">
-            <input class="input" v-model="form.phone_no" placeholder="請輸入 Please Enter" />
+            <input class="input" v-model="form.phone_no" placeholder="請輸入 Please enter" />
         </eos-input>
     </div>
     <div class="py f-row">
         <eos-input class="w-50 w-50-p" :is_err="form_err.email" :header="'公司郵箱 Company email'">
-            <input class="input" v-model="form.email" placeholder="請輸入 Please Enter" />
+            <input class="input" v-model="form.email" placeholder="請輸入 Please enter" />
         </eos-input>
     </div>
     <div class="py f-row">
@@ -21,10 +32,10 @@
 
 <script setup lang="ts">
 import { reactive, defineExpose } from 'vue'
-
+import { appPina } from '../../../../himm/store'
 // 沒有改動
 const form: ONE = reactive({
-    email: '', phone_no: '', address: '', name: ''
+    email: '', phone_no: '', address: '', name: '', company_logo: ''
 })
 const form_err = reactive({
     email: false, phone_no: false, address: false, name: false

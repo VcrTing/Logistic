@@ -18,9 +18,13 @@ export const appPina = defineStore("appPina", {
         refresh: '',
 
         // 500 分页的记录
-        pagni: <ONE>{ }
+        pagni: <ONE>{ },
+
+        // 媒體文件
+        img: 'https://img.shoplineapp.com/media/image_clips/5fe97c988da690002f1d7b03/original.jpg?1609137304'
     }),
     actions: {
+        do_img(m?: string) { this.img = m ? m : ''; this.mod = -100 },
         do_one(m: ONE) { this.one = m ? m : { } },
         do_refresh(m: string) { this.refresh = m ? m : '' },
 

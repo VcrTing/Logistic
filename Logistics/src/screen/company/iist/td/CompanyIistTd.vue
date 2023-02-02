@@ -12,7 +12,10 @@
         <div class="w-40">
             {{ one.region }} {{ one.area }} {{ one.address }}
         </div>
-        <div class="w-8 t-r">
+        <div class="w-12 fx-l">
+            <img class="td-img" :src="one.company_logo" @click="appPina().do_img(one.company_logo)"/>
+        </div>
+        <div class="w-6 t-r">
             <eos-tabie-opera :vais="'edit'" :is_icon="true" @edit="edit"/>
         </div>
     </div>
@@ -20,7 +23,7 @@
 
 <script setup lang="ts">
 import { useRouter } from "vue-router"
-import { companyPina } from "../../../../himm/store"
+import { companyPina, appPina } from "../../../../himm/store"
 
 const prp = defineProps<{
     idx: number, one: ONE, choose: MANY
