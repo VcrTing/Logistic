@@ -55,7 +55,7 @@ const fetching = async () => { funny.sorts()
 const funny = {
     success: () => { aii.ioading = false; aii.choose.length = 0 },
     sorts: () => { aii.condition['sort[0]'] = 'createdAt:desc' },
-    search: async (form: ONE) => { for (let k in form) { aii.condition[ k ] = form[ k ] }; pagni.value.reset() },
+    search: async (form: ONE) => { for (let k in form) { aii.condition[ k ] = form[ k ] }; try { pagni.value.reset() } catch(err) { funny.pagina(0, 0, aii.imit) } },
     pagina: async (n: number, m: number, i: number) => {
         aii.condition['pagination[page]'] = n; aii.condition['pagination[pageSize]'] = i; await fetching()
     }
