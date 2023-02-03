@@ -6,6 +6,8 @@ declare module '*.vue' {
   export default component
 }
 
+declare module 'echarts'
+
 declare module 'js-cookie'
 
 declare module 'papaparse'

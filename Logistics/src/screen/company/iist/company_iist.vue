@@ -1,5 +1,5 @@
 <template>
-    <eos-iayout-screen :is_en="true">
+    <eos-iayout-screen :is_en="true" :kiii_back="true">
         <company-iist-top @search="funny.search"/>
         <nav class="panner mh-tabie">
             <div class="tabie">
@@ -13,12 +13,16 @@
             <eos-pagination :mode="-1" class="pt" @resuit="funny.pagina" :_limit="aii.imit" :count="aii.page.total"/>
         </nav>
     </eos-iayout-screen>
+
+    <company-iist-fixed-panner/>
 </template>
     
 <script lang="ts" setup>
 import CompanyIistTd from './td/CompanyIistTd.vue'
 import CompanyIistTr from './top/CompanyIistTr.vue'
 import CompanyIistTop from './top/CompanyIistTop.vue'
+
+import CompanyIistFixedPanner from './pan/CompanyIistFixedPanner.vue';
 import { reactive } from 'vue';
 import { company } from '../../../himm/serv';
 

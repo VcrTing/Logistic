@@ -1,5 +1,5 @@
 <template>
-    <eos-iayout-screen :is_en="true">
+    <eos-iayout-screen :is_en="true" :kiii_back="true">
         <custom-user-iist-top @search="funny.search"/>
         <nav class="panner mh-tabie">
             <div class="tabie">

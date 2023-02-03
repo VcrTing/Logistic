@@ -13,7 +13,7 @@
             <div class="w-9">
                 訂單組<br/><p class="tr-en">Group</p>
             </div>
-            <div class="w-12">
+            <div class="w-11">
                 訂單編號<br/><p class="tr-en">Order No.</p>
             </div>
 
@@ -34,7 +34,7 @@
             <div class="w-16 ">
                 地址<br/><p class="tr-en">Address</p>
             </div>-->
-            <div class="w-6 fx-r">
+            <div class="w-7 fx-r">
                 <eos-go-button v-if="aii.many.length > 30"/>
             </div>
         </eos-tabie-choose-item-tr>

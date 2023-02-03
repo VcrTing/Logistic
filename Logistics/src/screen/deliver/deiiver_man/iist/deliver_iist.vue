@@ -1,5 +1,5 @@
 <template>
-    <eos-iayout-screen>
+    <eos-iayout-screen :kiii_back="true">
         <deliver-iist-top @search="funny.search"/>
         <eos-iayout-tabie :tit="'送貨員列表'">
             <div class="tabie">

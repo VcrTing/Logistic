@@ -28,11 +28,23 @@
             <textarea class="input" v-model="form.address" placeholder="請輸入地區、區域、詳細地址 Please enter the region, region, full address." ></textarea>
         </eos-input>
     </div>
+    <div class="py f-row">
+        <eos-input class="w-50" :is_err="form_err.address" :header="'對接公司 Docking company'">
+            <ef-company-docking-company class="input"/>
+        </eos-input>
+    </div>
+    <div class="py f-row">
+        <eos-input class="w-50" :is_err="form_err.address" :header="'結算 Settle form'">
+            <ef-company-settle-form class="input"/>
+        </eos-input>
+    </div>
 </template>
 
 <script setup lang="ts">
 import { reactive, defineExpose } from 'vue'
 import { appPina } from '../../../../himm/store'
+import EfCompanySettleForm from '../../../../eos/form/company/EfCompanySettleForm.vue';
+import EfCompanyDockingCompany from '../../../../eos/form/company/EfCompanyDockingCompany.vue';
 // 沒有改動
 const form: ONE = reactive({
     email: '', phone_no: '', address: '', name: '', company_logo: ''

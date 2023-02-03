@@ -43,46 +43,6 @@ $drop_bxs: rgba(11, 20, 26, .26)
         padding: $ds 0
         max-height: 20em
         
-// switch
-.switch-wrapper
-    width: 3em
-    height: 1em
-    position: relative
-
-.switch
-    position: absolute
-    top: 50%
-    transform: translateY(-50%)
-    cursor: pointer
-    padding: 0.2em
-    min-width: 3em
-    background: $sut
-    transition: all .152s ease-in-out
-    .switch-inner
-        width: 1.2em
-        height: 1.2em
-        background: #FFF
-        border-radius: 100%
-.switch-active
-    background: $pri
-    .switch-inner
-        margin-left: 1.4em
-        animation: switch-active .162s ease-in-out
-@keyframes switch-active
-    0%
-        margin-left: 0em
-    100%
-        margin-left: 1.4em
-.switch-die
-    background: $sut
-    .switch-inner
-        margin-left: 0em
-        animation: switch-die .162s ease-in-out
-@keyframes switch-die
-    0%
-        margin-left: 1.4em
-    100%
-        margin-left: 0em
 ///import css-variables from 
 
 .expan

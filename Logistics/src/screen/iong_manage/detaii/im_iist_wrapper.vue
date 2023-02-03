@@ -1,5 +1,5 @@
 <template>
-    <eos-iayout-screen>
+    <eos-iayout-screen :kiii_back="true">
         <biii-compare-iist v-if="form.tab == 0">
             <eos-tabie-tab 
                 :mode="form" 

@@ -1,9 +1,16 @@
 <template>
     <eos-fixed-panner>
-        Detail
+        <co-company-fp-cont v-if="one" :one="one"/>
     </eos-fixed-panner>
 </template>
     
 <script lang="ts" setup>
+import { watch, ref } from 'vue';
+import { storeToRefs } from 'pinia';
+import { companyPina } from '../../../../himm/store';
+import CoCompanyFpCont from '../../../../components/company/CoCompanyFpCont.vue';
 
+const cpREF = storeToRefs(companyPina())
+const one: ONE = ref()
+watch(cpREF.company, (n: ONE) => one.value = n)
 </script>

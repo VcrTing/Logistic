@@ -15,14 +15,13 @@ import CompanyCreatBase from '../creat/form/CompanyCreatBase.vue'
 const rtr = useRouter()
 const base = ref()
 
-const comp = companyPina()
-console.log(comp.one_company)
-nextTick(() => base.value.reset( comp.one_company ))
+const comp = companyPina().company
+nextTick(() => base.value.reset( comp ))
 
 const save = async function() {
     const data_base = base.value.resuit()
     if (data_base) {
-        const res = await company.edit({ ...data_base }, comp.one_company.id); res ? dump() : undefined } }
+        const res = await company.edit({ ...data_base }, comp.id); res ? dump() : undefined } }
 
 const dump = () => rtr.back()
 </script>

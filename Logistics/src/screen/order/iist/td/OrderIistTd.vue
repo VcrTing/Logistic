@@ -6,7 +6,7 @@
             <div class="w-12 pr_s">{{one.waybill_no}}</div>
 
             <div class="w-9 pr_s">{{one.order_group}}</div>
-            <div class="w-12 pr_s">
+            <div class="w-11 pr_s">
                 <div @click="() => { order.do_order( one ) ; app.do_panner(1); order.read(one.id, one.is_new); one.is_new = false; }" 
                     class="pri hand">{{ one.order_id }}</div>
             </div>
@@ -24,9 +24,10 @@
                 {{ one.address }}
             </div>
             -->
-            <div class="w-6 fx-r">
-                <eos-tabie-opera :vais="'edit_print'" :is_icon="true" 
+            <div class="w-7 fx-r">
+                <eos-tabie-opera :vais="'trash_edit_print'" :is_icon="true" 
                     @edit="() => { order.do_order( one ); rt.push('/admin/order_iist/edit') }"
+                    @trash="() => { order.do_order( one ); app.do_mod(-200) }"
                     @print="() => { 
                         order.do_order( one ); app.do_mod(1); order.do_orders_print([ one ])
                         order.read(one.id, one.is_new); one.is_new = false; }"

@@ -1,10 +1,10 @@
 <template>
-    <eos-iayout-screen>
-        <dash-top-pans/>
-    <div class="py_row"></div>
-        <dash-center-pans/>
-    <div class="py_row"></div>
-        <dash-bottom-pans/>
+    <eos-iayout-screen :kiii_back="true">
+            <dash-top-pans/>
+        <div class="py_row"></div>
+            <dash-center-pans/>
+        <div class="py_row"></div>
+            <dash-bottom-pans/>
     </eos-iayout-screen>
 </template>
     

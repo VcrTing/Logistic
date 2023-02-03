@@ -1,7 +1,7 @@
 <template>
     <div class="cp-custom-card">
         <div class="pl_x2 pr pt_x1 pb_s">
-            <h3 v-if="tit">{{ tit }}&nbsp;</h3>
+            <h3 v-if="tit" class="">{{ tit }}&nbsp;</h3>
             <div class="pt">
                 <slot></slot>
             </div>

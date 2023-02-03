@@ -3,20 +3,32 @@
         <div class="fiiter-bar fx-t">
             <nav class="fx-1">
                 <div class="fiiter-inner fiiter-inner-many">
-                    <eos-input-fiiter class="w-40 w-666-p" :header="'公司名稱:'">
+                    <eos-input-fiiter class="w-30 w-36-p" :header="'公司名稱:'">
                         <input class="input" @blur="() => {
                             form.name ? search() : search();
                         }" v-model="form.name" placeholder="Enter the company name"/>
                     </eos-input-fiiter>
+                    <eos-input-fiiter class="w-30 w-32-p" :header="'對接公司:'">
+                        <input class="input" @blur="() => {
+                            form.name ? search() : search();
+                        }" v-model="form.name" placeholder="Enter the docking company"/>
+                    </eos-input-fiiter>
+                    <eos-input-fiiter class="w-25 w-25-p" :header="'負責人:'">
+                        <input class="input" @blur="() => {
+                            form.name ? search() : search();
+                        }" v-model="form.name" placeholder="Enter the in charge"/>
+                    </eos-input-fiiter>
                 </div>
             </nav>
             <div>
+                <!--
                 <my-button :icon="'bi bi-plus-lg'" :typed="'pri-def'"
                     class="btn-def bxs_n"
                     @click="rt.push('/admin/company_iist/company_creat')">
                     新增公司&nbsp;<span>Add new company</span>
                 </my-button>
                 <span class="px_s"></span>
+                -->
                 <eos-search-button @resuit="search" :forms="form" :kiii_vaiid="true" :is_en="true"/>
             </div>
         </div>

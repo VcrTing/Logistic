@@ -1,5 +1,5 @@
 <template>
-    <div class="fx-s">
+    <div class="fx-s pr_x1">
         <h3>
             訂單派送數量
         </h3>

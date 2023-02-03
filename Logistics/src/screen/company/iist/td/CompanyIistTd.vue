@@ -1,22 +1,37 @@
 <template>
     <div class="td">
-        <div class="w-15">
-            {{ one.name }}
-        </div>
-        <div class="w-15">
-            {{ one.phone_no }}
-        </div>
-        <div class="w-20">
-            {{ one.email }}
-        </div>
-        <div class="w-40">
-            {{ one.region }} {{ one.area }} {{ one.address }}
-        </div>
-        <div class="w-12 fx-l">
+        <div class="w-9 fx-l">
             <img class="td-img" :src="one.company_logo" @click="appPina().do_img(one.company_logo)"/>
         </div>
-        <div class="w-6 t-r">
-            <eos-tabie-opera :vais="'edit'" :is_icon="true" @edit="edit"/>
+        <div class="w-15 pr_s pri">
+            <span class="hand" 
+                @click="() => {
+                    companyPina().do_company( one );
+                    appPina().do_panner(1)
+                }">
+                {{ one.name }}
+            </span>
+        </div>
+        <div class="w-12">
+            {{ one.phone_no }}
+        </div>
+        <div class="w-18">
+            {{ one.email }}
+        </div>
+        <div class="w-30 pr_s">
+            {{ one.region }} {{ one.area }} {{ one.address }}
+        </div>
+        <div class="w-10">
+            翔烽
+        </div>
+        <div class="w-10">
+            張三
+        </div>
+        <div class="w-4 t-r">
+            <eos-tabie-opera :vais="'edit'" :is_icon="true" @edit="() => {
+                companyPina().do_company( one )
+                rt.push('/admin/company_iist/edit')
+            }"/>
         </div>
     </div>
 </template>
@@ -30,9 +45,4 @@ const prp = defineProps<{
 }>()
 
 const rt = useRouter()
-
-const edit = ( ) => {
-    companyPina().do_one_company( prp.one )
-    rt.push('/admin/company_iist/edit')
-}
 </script>

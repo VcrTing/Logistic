@@ -1,11 +1,13 @@
 $h_ip: 42px
 
-$ip-br: $bc
-$ip-br_hv: $bc
+$ip-br: rgba(165, 175, 205, 0.5)
+$ip-br_hv: rgba(165, 175, 205, 0.5)
 
 $ip-cr: $sus // #667085 
 
 $ip-br_x2: #a2a6af
+
+$switch_die: #bebcb8
 
 .ip-wrap > nav
     padding-top: $ds_s
@@ -46,10 +48,10 @@ input, select, textarea
 .input
     &:active,
     &:focus-visible
-        border-color: $bc_hv
-        box-shadow: 0px 0px 0px 1px $bc_hv
+        border-color: $ip-br_hv
+        box-shadow: 0px 0px 0px 1px $ip-br_hv
     &:focus
-        border-color: $bc_hv
+        border-color: $ip-br_hv
 .area,
 .input,
 .select
@@ -271,5 +273,45 @@ input[type=radio]
         .input
             padding-left: 0px !important
 
+//// switch
+.switch-wrapper
+    width: 3em
+    height: 1em
+    position: relative
+
+.switch
+    position: absolute
+    top: 50%
+    transform: translateY(-50%)
+    cursor: pointer
+    padding: 0.2em
+    min-width: 3em
+    background: $switch_die
+    transition: all .152s ease-in-out
+    .switch-inner
+        width: 1.2em
+        height: 1.2em
+        background: #FFF
+        border-radius: 100%
+.switch-active
+    background: $pri
+    .switch-inner
+        margin-left: 1.4em
+        animation: switch-active .162s ease-in-out
+@keyframes switch-active
+    0%
+        margin-left: 0em
+    100%
+        margin-left: 1.4em
+.switch-die
+    background: $switch_die
+    .switch-inner
+        margin-left: 0em
+        animation: switch-die .162s ease-in-out
+@keyframes switch-die
+    0%
+        margin-left: 1.4em
+    100%
+        margin-left: 0em
 
 @import './input_other'

@@ -1,5 +1,5 @@
 <template>
-    <eos-iayout-screen :is_en="true">
+    <eos-iayout-screen :is_en="true" :kiii_back="true">
         <company-choose-top @search="funny.search"/>
         <div class="py_s"></div>
         <eos-tabie-ioading :ioad="aii.ioading" :many="aii.many" :ciass="'pt_x4'">

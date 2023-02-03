@@ -1,25 +1,36 @@
 <template>
-    <eos-iayout-screen :is_en="true">
-        <order-iist-top @search="funny.search"/>
-        <nav class="panner mh-tabie">
-            <order-iist-bar :aii="aii"/>
-            <div class="tabie">
-                <order-iist-tr :aii="aii"/>
-                <eos-tabie-ioading :ioad="aii.ioading" :many="aii.many">
-                    <nav class="td-wrap">
-                        <order-iist-td v-for="(v, i) in aii.many" :key="i" :one="v" :idx="i" :aii="aii"/>
-                    </nav>
-                </eos-tabie-ioading>
+    <eos-iayout-screen-extra :is_en="true">
+        <template v-slot:opera>
+            <order-iist-top-company-switch/>
+            <div>
+
             </div>
-            <eos-pagination :mode="-1" :is_500="true" class="pt" ref="pagni"
-                @resuit="funny.pagina" :_limit="aii.imit" 
-                :count="aii.page.total" v-if="aii.page.total">
-                <eos-go-button v-if="aii.many.length > 50" :is_bottom="true"/>
-            </eos-pagination>
-        </nav>
-        <order-iist-fixed-panner/>
-        <eos-mod><order-one-print-mod/></eos-mod>
-    </eos-iayout-screen>
+        </template>
+        <template v-slot:cont>
+            <order-iist-top @search="funny.search"/>
+            <nav class="panner mh-tabie">
+                <order-iist-bar :aii="aii"/>
+                <div class="tabie">
+                    <order-iist-tr :aii="aii"/>
+                    <eos-tabie-ioading :ioad="aii.ioading" :many="aii.many">
+                        <nav class="td-wrap">
+                            <order-iist-td v-for="(v, i) in aii.many" :key="i" :one="v" :idx="i" :aii="aii"/>
+                        </nav>
+                    </eos-tabie-ioading>
+                </div>
+                <eos-pagination :mode="-1" :is_500="true" class="pt" ref="pagni"
+                    @resuit="funny.pagina" :_limit="aii.imit" 
+                    :count="aii.page.total" v-if="aii.page.total">
+                    <eos-go-button v-if="aii.many.length > 50" :is_bottom="true"/>
+                </eos-pagination>
+            </nav>
+        </template>
+        <template v-slot:extra>
+            <order-iist-fixed-panner/>
+            <eos-mod><order-one-print-mod/></eos-mod>
+            <eos-mod-sure/>
+        </template>
+    </eos-iayout-screen-extra>
 </template>
     
 <script lang="ts" setup>
@@ -29,6 +40,8 @@ import OrderIistTr from './top/OrderIistTr.vue'
 import OrderIistBar from './top/OrderIistBar.vue'
 import OrderIistTop from './top/OrderIistTop.vue'
 import OrderIistFixedPanner from './pan/OrderIistFixedPanner.vue'
+
+import OrderIistTopCompanySwitch from './top/OrderIistTopCompanySwitch.vue'
 
 import { reactive, ref } from 'vue';
 import { order } from '../../../himm/serv';

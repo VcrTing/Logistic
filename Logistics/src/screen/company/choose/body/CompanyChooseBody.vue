@@ -14,6 +14,8 @@
                 }"
                 >
                 <div class="py_s">負責人：{{ v.incharge }}</div>
+                <div class="">對接公司：翔烽</div>
+                <div class="pb_s">結算方式：月結30日</div>
                 <!--
                 <div>電話：{{ v.phone }}</div>
                 <div class="pb_s">郵箱：{{ v.email }}</div>-->
