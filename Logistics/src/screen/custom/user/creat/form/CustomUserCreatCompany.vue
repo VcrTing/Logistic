@@ -13,7 +13,10 @@
         <p class="pb_s">公司名稱：&nbsp;{{ form.vv.name }}</p>
         <p class="pb_s">公司電話：&nbsp;{{ form.vv.phone_no }}</p>
         <p class="pb_s">公司郵箱：&nbsp;{{ form.vv.email }}</p>
-        <p class="pb_s">公司地址：&nbsp;{{ form.vv.address }}</p>
+        <p class="pb_n">公司地址：&nbsp;{{ form.vv.address }}</p>
+
+        <p class="pb_s">對接公司：&nbsp;翔烽</p>
+        <p class="pb_s">結算方式：&nbsp;月結30日</p>
     </div>
 </template>
 

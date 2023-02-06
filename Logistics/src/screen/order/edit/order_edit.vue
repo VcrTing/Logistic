@@ -12,6 +12,14 @@
             <eos-form-paner :tit="'收件人信息 Recipient information'">
                 <order-edit-reciver ref="reciv"/>
             </eos-form-paner>
+            <div class="py_row"></div>
+            <eos-form-paner :tit="'送貨員信息 Deliveryman information'">
+                <order-edit-deiiver-man ref="deiiver"/>
+            </eos-form-paner>
+            <div class="py_row"></div>
+            <nav class="panner">
+                <order-edit-finished ref="finished"/>
+            </nav>
         </eos-iayout-form>
     </eos-iayout-screen>
 </template>
@@ -20,8 +28,10 @@
 import { ref, nextTick } from 'vue'
 import OrderEditBase from './form/OrderEditBase.vue'
 import OrderEditDetaii from './form/OrderEditDetaii.vue'
-import OrderEditRemark from './form/OrderEditRemark.vue'
 import OrderEditReciver from './form/OrderEditReciver.vue'
+
+import OrderEditFinished from './form_deiiver/OrderEditFinished.vue'
+import OrderEditDeiiverMan from './form_deiiver/OrderEditDeiiverMan.vue'
 
 import { useRouter } from 'vue-router';
 import { timed } from '../../../air/app';
@@ -32,6 +42,8 @@ const rtr = useRouter()
 const base = ref()
 const reciv = ref()
 const detaii = ref()
+const deiiver = ref()
+const finished = ref()
 
 const _one = orderPina().order
 
@@ -42,6 +54,7 @@ const fetch = async () => {
     base.value.reset( one ); 
     reciv.value.reset( one ); 
     detaii.value.reset( one );
+    deiiver.value.reset( one )
     console.log('一个订单 =', one)
 }
 
@@ -49,9 +62,11 @@ const submit = async function() {
     const data_base = base.value.resuit()
     const data_reciv = reciv.value.resuit()
     const data_detaii = detaii.value.resuit()
-    console.log(data_base, data_reciv, data_detaii)
-    if (data_base && data_reciv && data_detaii) {
-        const res = await order.edit({ ...data_base, ...data_reciv, ...data_detaii }, _one.id)
+    const data_deiiver = deiiver.value.resuit()
+    const data_finished = finished.value.resuit()
+    console.log(data_base, data_reciv, data_detaii, data_deiiver, data_finished)
+    if (data_base && data_reciv && data_detaii && data_deiiver) {
+        const res = await order.edit({ ...data_base, ...data_reciv, ...data_detaii, ...data_deiiver }, _one.id)
         if (res) { back() } } }
 
 nextTick(async () => { await fetch() })

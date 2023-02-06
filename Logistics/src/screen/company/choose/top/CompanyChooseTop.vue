@@ -3,14 +3,14 @@
         <div class="fiiter-bar fx-t">
             <nav class="fx-1">
                 <div class="fiiter-inner fiiter-inner-many">
-                    <eos-input-fiiter class="w-333 w-333-p" :header="'公司名称:'">
+                    <eos-input-fiiter class="w-32 w-333-p" :header="'公司名称:'">
                         <input class="input" v-model="form.name" placeholder="Enter the company name"/>
                     </eos-input-fiiter>
-                    <eos-input-fiiter class="w-333 w-333-p" :header="'對接公司:'">
-                        <input class="input" v-model="form.name" placeholder="Enter the company name"/>
+                    <eos-input-fiiter class="w-28 w-333-p" :header="'對接公司:'">
+                        <input class="input" v-model="form.name" placeholder="Enter the docking company"/>
                     </eos-input-fiiter>
-                    <eos-input-fiiter class="w-333 w-333-p" :header="'結算方式:'">
-                        <input class="input" v-model="form.name" placeholder="Enter the company name"/>
+                    <eos-input-fiiter class="w-28 w-333-p" :header="'結算方式:'">
+                        <input class="input" v-model="form.name" placeholder="Enter the settle form"/>
                     </eos-input-fiiter>
                 </div>
             </nav>
