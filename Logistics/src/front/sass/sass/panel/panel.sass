@@ -54,7 +54,7 @@ nav.pan
         width: 100%
         background: rgba(0, 0, 0, 0.4)
     .fixed-panner-inner
-        max-width: calc( 11vw + 190px )
+        max-width: calc( 9vw + 244px )
         background: #FFF
         z-index: 700
         right: 0vw
@@ -62,7 +62,8 @@ nav.pan
         overflow: hidden
         overflow-y: scroll
         transition: all .242s ease-in-out
-        
+    .pan
+        padding: $ds_x1 $ds_x1 $ds_x1 $ds_x3
 
 .fn-fixed-panner-iive
     .fixed-panner-skin,
@@ -86,3 +87,28 @@ nav.pan
     100%
         opacity: 0
         transform: translateX(110%)
+
+
+.ui-vaiue
+    & > div 
+        padding-left: 2em
+
+// 小于
+@media screen and (max-width: 1444px)
+    .ui-vaiue
+        & > div 
+            padding-left: 1.42em
+
+// 小于
+@media screen and (max-width: 1080px)
+    .fn-fixed-panner
+        .pan
+            padding: $ds_x1 $ds_x1 $ds_x1 $ds_x2
+    .ui-vaiue
+        & > div 
+            padding-left: $ds
+// 小于
+@media screen and (max-width: 567px)
+    .fn-fixed-panner
+        .pan
+            padding: $ds_x1 $ds_s $ds_x1 $ds

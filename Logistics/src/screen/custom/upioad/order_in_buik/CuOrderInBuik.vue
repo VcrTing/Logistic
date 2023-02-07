@@ -67,7 +67,9 @@ const funny = reactive({
     // 过滤
     elastic: (ms: MANY) => {
         let res: MANY = [ ]
-        ms.map(e => { if (e && e.waybill_no) { res.push(e) } }); return res
+        ms.map(e => { if (e 
+            // && e.waybill_no
+        ) { res.push(e) } }); return res
     },
     // 储存
     save: async () => {

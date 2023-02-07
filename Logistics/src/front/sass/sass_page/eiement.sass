@@ -1,6 +1,7 @@
 
     
-.eos-print-drop
+.eos-print-drop, 
+.eos-company-switch-drop
     .dropdown
         &, div
             @extend .br
@@ -87,3 +88,19 @@
     width: 4.4em
     height: 4.4em
     background: $def
+
+//    
+.eos-company-switch-drop
+    transition: all .242s ease-in-out
+    .eos-company-switch-drop-trig
+        @extend .fx-s
+        @extend .py_n
+        padding-right: $ds
+        min-width: 16em 
+        transition: all .242s ease-in-out
+        &:hover
+            color: $pri
+
+    .dropdown > div
+        overflow: visible
+    

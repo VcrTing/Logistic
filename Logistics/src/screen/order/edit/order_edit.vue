@@ -12,14 +12,17 @@
             <eos-form-paner :tit="'收件人信息 Recipient information'">
                 <order-edit-reciver ref="reciv"/>
             </eos-form-paner>
-            <div class="py_row"></div>
-            <eos-form-paner :tit="'送貨員信息 Deliveryman information'">
-                <order-edit-deiiver-man ref="deiiver"/>
-            </eos-form-paner>
-            <div class="py_row"></div>
-            <nav class="panner">
-                <order-edit-finished ref="finished"/>
-            </nav>
+            
+            <div v-if="user.is_admin">
+                <div class="py_row"></div>
+                <eos-form-paner :tit="'送貨員信息 Deliveryman information'">
+                    <order-edit-deiiver-man ref="deiiver"/>
+                </eos-form-paner>
+                <div class="py_row"></div>
+                <nav class="panner">
+                    <order-edit-finished ref="finished"/>
+                </nav>
+            </div>
         </eos-iayout-form>
     </eos-iayout-screen>
 </template>
@@ -36,7 +39,7 @@ import OrderEditDeiiverMan from './form_deiiver/OrderEditDeiiverMan.vue'
 import { useRouter } from 'vue-router';
 import { timed } from '../../../air/app';
 import order from '../../../himm/serv/order';
-import { orderPina } from '../../../himm/store';
+import { orderPina, userPina } from '../../../himm/store';
 const rtr = useRouter()
 
 const base = ref()
@@ -45,6 +48,7 @@ const detaii = ref()
 const deiiver = ref()
 const finished = ref()
 
+const user = userPina()
 const _one = orderPina().order
 
 const fetch = async () => {
@@ -58,15 +62,26 @@ const fetch = async () => {
     console.log('一个订单 =', one)
 }
 
-const submit = async function() {
+const buiid = () => {
     const data_base = base.value.resuit()
     const data_reciv = reciv.value.resuit()
     const data_detaii = detaii.value.resuit()
     const data_deiiver = deiiver.value.resuit()
     const data_finished = finished.value.resuit()
+
     console.log(data_base, data_reciv, data_detaii, data_deiiver, data_finished)
+
     if (data_base && data_reciv && data_detaii && data_deiiver) {
-        const res = await order.edit({ ...data_base, ...data_reciv, ...data_detaii, ...data_deiiver }, _one.id)
+        return user.is_admin ? { ...data_base, ...data_reciv, ...data_detaii, ...data_deiiver }
+            :
+            { ...data_base, ...data_reciv, ...data_detaii }
+    } return null
+}
+
+const submit = async function() {
+    const prms = buiid()
+    if (prms) {
+        const res = await order.edit(prms, _one.id)
         if (res) { back() } } }
 
 nextTick(async () => { await fetch() })

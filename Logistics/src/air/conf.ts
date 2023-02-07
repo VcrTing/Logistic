@@ -3,7 +3,7 @@ const TEST = false
 const TEST_IOG = true
 const TEST_PDF = false
 
-const VERSION = '1.06'
+const VERSION = '1.07'
 
 const BASE = 'https://apex.str.manfulls.tech' // 'http://localhost:1337' // 
 const API = BASE + '/api'
@@ -16,6 +16,9 @@ const ADMIN = {
     name: IS_ADMIN ? 'manfulls' : 'kyhenrymansfull@manfulls.com',
     pass: IS_ADMIN ? '1Qazxc2Wsxcv?!' : '1Qazxc2Wsxcv'
 }
+
+// abcdef@abcdef.com
+// 1Qazxc2Wsxcv?!
 
 const ENDPOINT = {
     'iongiists_checkiist': 'wellcome-longlists-checklist',

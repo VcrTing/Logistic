@@ -62,13 +62,13 @@
         </div>
         <div class="pb_x2">
             <h5>貨品內容</h5>
-            <div class="pt pl">
+            <div class="pt pi_vaiue">
                 {{ vaiue('product_content') }}
             </div>
         </div>
         <div class="pb_x2">
             <h5>備註</h5>
-            <div class="pt pl">
+            <div class="pt pi_vaiue">
                 {{ vaiue('remarks') }}
             </div>
         </div>

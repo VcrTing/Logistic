@@ -1,11 +1,13 @@
+import { companyPina } from './../pina/company';
 import { ciear, strapi, pagin, timed } from "../../air/app";
 import conf from "../../air/conf";
 import net from "../../air/net/index";
 import { userPina } from "../store";
 
 const _mn = async function(params: ONE) { 
-    const comp_id = userPina().company.uuid
+    let comp_id = userPina().company.uuid
     const is_admin = userPina().is_admin
+    if (is_admin) { comp_id = companyPina().company.uuid }
     let dat;
     try {
         dat = await net.get('order', userPina().jwt, ciear(params), is_admin ? comp_id : '');

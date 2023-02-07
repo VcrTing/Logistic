@@ -1,7 +1,7 @@
 <template>
     <eos-iayout-screen-extra :is_en="true">
         <template v-slot:opera>
-            <order-iist-top-company-switch/>
+            <order-iist-top-company-switch @refresh="funny.pagina(0, 0, aii.imit)"/>
             <div>
 
             </div>
@@ -45,14 +45,15 @@ import OrderIistTopCompanySwitch from './top/OrderIistTopCompanySwitch.vue'
 
 import { reactive, ref } from 'vue';
 import { order } from '../../../himm/serv';
-import { userPina } from '../../../himm/store'
+import { companyPina, userPina } from '../../../himm/store'
 import { useRouter } from 'vue-router'
 
 // 
 const pagni = ref()
 const rtr = useRouter()
 const user = userPina()
-if (user.is_admin) { (!user.company.id) ? rtr.push('/admin/company_choose') : undefined; }
+const comp = companyPina()
+if (user.is_admin) { (!comp.company.id) ? rtr.push('/admin/company_choose') : undefined; }
 
 const aii = reactive({ choose: [],
     ioading: true, page: <ONE>{ total: 1}, condition: <ONE>{ }, imit: 25, many: <MANY>[ ]

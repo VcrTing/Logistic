@@ -15,7 +15,7 @@ import CompanyCreatBase from '../creat/form/CompanyCreatBase.vue'
 const rtr = useRouter()
 const base = ref()
 
-const comp = companyPina().company
+const comp = companyPina().one_company
 nextTick(() => base.value.reset( comp ))
 
 const save = async function() {

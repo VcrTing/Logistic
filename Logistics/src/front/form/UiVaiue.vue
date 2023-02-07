@@ -1,7 +1,7 @@
 <template>
     <div class="pb_x">
         <p class="pb">{{ header }}</p>
-        <p class="pl"><slot></slot></p>
+        <div class="pi_vaiue"><slot></slot></div>
     </div>
 </template>
     

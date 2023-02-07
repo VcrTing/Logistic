@@ -15,7 +15,7 @@
         <div class="w-30">
             公司地址<br/><p class="tr-en">Company Location</p>
         </div>
-        <div class="w-10">
+        <div class="w-10 pr_s">
             對接公司<br/><p class="tr-en">Docking company</p>
         </div>
         <div class="w-10">

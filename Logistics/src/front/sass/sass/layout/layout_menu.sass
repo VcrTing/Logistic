@@ -30,18 +30,25 @@
     border-radius: 1em
     background: $menuHr
     
-.pl_menu
+.pl_menu, .pi_vaiue
     padding-left: 2em !important
     
 .menu-txt
     padding-left: calc(10px + 0.5vw)
 
 // MENU 动画
+// 小于
+@media screen and (max-width: 1280px)
+    .pl_menu, .pi_vaiue
+        padding-left: 1.42em !important
 
 // 小于
-@media screen and (max-width: 1444px)
+@media screen and (max-width: 768px)
     .pl_menu
         padding-left: 1em !important
+    .pi_vaiue
+        padding-left: $ds !important
+
     //
 
 .menu-item-icon

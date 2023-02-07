@@ -1,13 +1,13 @@
 <template>
     <div class="td">
         <div class="w-9 fx-l">
-            <img class="td-img" :src="one.company_logo" @click="appPina().do_img(one.company_logo)"/>
+            <img class="td-img" :src="one.company_logo" @click="app.do_img(one.company_logo)"/>
         </div>
         <div class="w-15 pr_s pri">
             <span class="hand" 
                 @click="() => {
-                    companyPina().do_company( one );
-                    appPina().do_panner(1)
+                    comp.do_one_company( one );
+                    app.do_panner(1)
                 }">
                 {{ one.name }}
             </span>
@@ -29,7 +29,7 @@
         </div>
         <div class="w-4 t-r">
             <eos-tabie-opera :vais="'edit'" :is_icon="true" @edit="() => {
-                companyPina().do_company( one )
+                comp.do_one_company( one )
                 rt.push('/admin/company_iist/edit')
             }"/>
         </div>
@@ -38,11 +38,14 @@
 
 <script setup lang="ts">
 import { useRouter } from "vue-router"
-import { companyPina, appPina } from "../../../../himm/store"
+import { companyPina, appPina, userPina } from "../../../../himm/store"
 
 const prp = defineProps<{
     idx: number, one: ONE, choose: MANY
 }>()
+
+const comp = companyPina()
+const app = appPina()
 
 const rt = useRouter()
 </script>

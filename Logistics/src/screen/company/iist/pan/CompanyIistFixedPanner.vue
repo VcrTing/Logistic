@@ -12,5 +12,5 @@ import CoCompanyFpCont from '../../../../components/company/CoCompanyFpCont.vue'
 
 const cpREF = storeToRefs(companyPina())
 const one: ONE = ref()
-watch(cpREF.company, (n: ONE) => one.value = n)
+watch(cpREF.one_company, (n: ONE) => one.value = n)
 </script>
