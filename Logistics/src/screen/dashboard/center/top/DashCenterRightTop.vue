@@ -1,6 +1,6 @@
 <template>
     <div class="fx-s fx-wp dash-center-right-top">
-        <h3 class="fx-1">
+        <h3 class="fx-1 pb_s">
             康惠派送方式
         </h3>
         <div class="fx-r">

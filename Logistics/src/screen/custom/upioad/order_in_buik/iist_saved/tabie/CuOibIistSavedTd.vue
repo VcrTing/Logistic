@@ -30,7 +30,7 @@
                 {{ one.address }}
             </div>
             <div class="w-4 t-r">
-                <eos-tabie-opera :vais="'edit'" :is_icon="true"/>
+                <!--eos-tabie-opera :vais="'edit'" :is_icon="true"/-->
             </div>
         </eos-tabie-choose-item-td>
     </div>

@@ -9,7 +9,7 @@ import { nextTick, reactive, ref } from 'vue'
 import * as echarts from 'echarts';
 const co_send_way_echart = ref()
 
-const grid = { top: '5%', left: '3.2%', right: '0.3%', bottom: '2%' }
+const grid = { top: '5%', left: '3.2%', right: '0.3%', bottom: '0%' }
 
 const aii = reactive({
     series: [

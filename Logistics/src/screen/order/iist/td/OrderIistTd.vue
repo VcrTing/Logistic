@@ -25,7 +25,7 @@
             </div>
             -->
             <div class="w-7 fx-r">
-                <eos-tabie-opera :vais="'trash_edit_print'" :is_icon="true" 
+                <eos-tabie-opera :vais="is_admin ? 'trash_edit_print' : 'edit_print'" :is_icon="true" 
                     @edit="() => { order.do_order( one ); rt.push('/admin/order_iist/edit') }"
                     @trash="() => { order.do_order( one ); app.do_mod(-200) }"
                     @print="() => { 
@@ -39,9 +39,10 @@
 
 <script setup lang="ts">
 import { useRouter } from "vue-router"
-import { appPina, orderPina } from "../../../../himm/store"
+import { appPina, orderPina, userPina } from "../../../../himm/store"
 import { timed } from "../../../../air/app";
 const app = appPina()
+const is_admin = userPina().is_admin
 const order = orderPina()
 const rt = useRouter()
 

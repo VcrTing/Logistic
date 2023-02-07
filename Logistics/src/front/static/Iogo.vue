@@ -1,5 +1,5 @@
 <template> 
-<img :src="src ? src : LOGO" @click="appPina().do_img(src ? src : LOGO)"/>
+<img :src="src ? src : LOGO" @click="() => { }"/>
 </template>
 
 <script setup lang="ts">

@@ -1,6 +1,7 @@
 <template>
     <eos-iayout-screen-siot :is_en="true" @back="funny.back">
         <template v-slot:cont>
+            <div class="pt"></div>
             <eos-form-paner>
                 <custom-upioad-base @resuit="(v: ONE[]) => { aii.many = v; funny.compiete() }" ref="base"/>
             </eos-form-paner>

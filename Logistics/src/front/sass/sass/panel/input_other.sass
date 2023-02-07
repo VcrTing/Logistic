@@ -69,7 +69,7 @@
     .vuejs3-datepicker__content
         width: 100%
         margin: 0
-        padding-right: 1.62em
+        padding-right: 0.82em
     .vuejs3-datepicker__icon
         display: none !important
 
@@ -83,8 +83,10 @@
 .ip-time-doubie-pure
     position: relative
     padding: $ds_s $ds
-    .vuejs3-datepicker__content, .iptd_icon, .iptd_icon_time
+    .iptd_icon, .iptd_icon_time
         color: $ip_cr
+    .vuejs3-datepicker__content
+        padding-left: $ds
     .iptd_icon_time
         position: absolute
         top: 50%
@@ -98,6 +100,20 @@
         min-height: 1em
     &:focus, &:active, &:focus-visible
         box-shadow: none
+
+.ip-time-pchd
+    .vuejs3-datepicker__content
+        transition: all .122s ease-in-out
+        color: $sus
+
+.vuejs3-datepicker__content
+    @extend .hand
+
+// 小于
+@media screen and (max-width: 1280px)
+    .ip-time-doubie-pure
+        .vuejs3-datepicker__content
+            padding-left: 0px
             
 .ip-time-icon-seif
     .vuejs3-datepicker__icon
@@ -118,10 +134,6 @@
     .ip-time .vuejs3-datepicker__value
         border-width: 0px
 
-.ip-time-pchd
-    .vuejs3-datepicker__content
-        transition: all .122s ease-in-out
-        color: $sus !important
 //   
 .ip-i-i
     position: relative
