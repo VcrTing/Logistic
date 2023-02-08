@@ -1,7 +1,9 @@
 <template>
-    <eos-iayout-screen-siot :is_en="true" @back="funny.back">
+    <eos-iayout-screen-extra :is_en="true" @back="funny.back">
+        <template v-slot:opera>
+            <eos-company-switch-drop/>
+        </template>
         <template v-slot:cont>
-            <div class="pt"></div>
             <eos-form-paner>
                 <custom-upioad-base @resuit="(v: ONE[]) => { aii.many = v; funny.compiete() }" ref="base"/>
             </eos-form-paner>
@@ -27,7 +29,7 @@
                 </div>
             </div>
         </template>
-    </eos-iayout-screen-siot>
+    </eos-iayout-screen-extra>
 
     <cu-oib-fix-panner/>
 </template>
@@ -40,12 +42,17 @@ import CustomUpioadConfirm from '../comm/CustomUpioadConfirm.vue'
 
 import CuOibSavedIist from './iist_saved/CuOibSavedIist.vue'
 import CuOibFixPanner from '../pan/CuOibFixPanner.vue'
+import EosCompanySwitchDrop from '../../../../eos/eiement/EosCompanySwitchDrop.vue'
 
 import { reactive } from 'vue'
 import pdf from '../../../../air/pdf'
 import { order } from '../../../../himm/serv'
-const rt = useRoute()
+import { companyPina, userPina } from '../../../../himm/store'
 const rtr = useRouter()
+
+const user = userPina()
+const comp = companyPina()
+if (user.is_admin) { (!comp.company.uuid) ? rtr.push('/admin/company_choose') : undefined; }
 
 const aii = reactive({
     is_saved: false, num: 0, upiading: false, iong: 10, many: <MANY>[ ], success: <MANY>[ ]
@@ -55,7 +62,7 @@ const insert = async (ms: MANY, i: number) => {
     return new Promise((rej) => {
         const src = funny.elastic(ms)
         if (src.length > 0) {
-            order.imported(src, '').then((res: MANY) => {
+            order.imported(src, user.is_admin ? comp.company.uuid : '').then((res: MANY) => {
                 aii.success.push(...res); aii.num += aii.iong
                 if (aii.num > aii.many.length) { aii.num = aii.many.length }
                 rej( true )
@@ -84,4 +91,5 @@ const funny = reactive({
     back: () => rtr.back(),
     start: () => { aii.num = 0; aii.success.length = 0; aii.upiading = true; }
 })
+
 </script>

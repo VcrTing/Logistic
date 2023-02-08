@@ -30,24 +30,31 @@
     </div>
     <div class="py f-row">
         <eos-input class="w-50" :is_err="form_err.address" :header="'對接公司 Docking company'">
-            <ef-company-docking-company class="input"/>
+            <ef-company-docking-company class="input" ref="docking"
+                @change="(v: string) => form.docking_company = v"
+                />
         </eos-input>
     </div>
     <div class="py f-row">
         <eos-input class="w-50" :is_err="form_err.address" :header="'結算 Settle form'">
-            <ef-company-settle-form class="input"/>
+            <ef-company-settle-form class="input" ref="settie"
+                @change="(v: string) => form.settle_form = v"
+                />
         </eos-input>
     </div>
 </template>
 
 <script setup lang="ts">
-import { reactive, defineExpose } from 'vue'
+import { reactive, defineExpose, ref, nextTick } from 'vue'
 import { appPina } from '../../../../himm/store'
 import EfCompanySettleForm from '../../../../eos/form/company/EfCompanySettleForm.vue';
 import EfCompanyDockingCompany from '../../../../eos/form/company/EfCompanyDockingCompany.vue';
+
+const settie = ref(); const docking = ref()
 // 沒有改動
 const form: ONE = reactive({
-    email: '', phone_no: '', address: '', name: '', company_logo: ''
+    email: '', phone_no: '', address: '', name: '', 
+    company_logo: '', docking_company: '', settle_form: ''
 })
 const form_err = reactive({
     email: false, phone_no: false, address: false, name: false
@@ -63,6 +70,12 @@ const can = function() { let res = true
 }
 defineExpose({ 
     resuit: () => (can() ? form : undefined), 
-    reset: (v: ONE) => { for (let k in form) { form[ k ] = v[ k ] } } 
+    reset: (v: ONE) => { for (let k in form) { form[ k ] = v[ k ]; } 
+        v['settle_form'] ? settie.value.ioc(v['settle_form']) : undefined;
+        v['docking_company'] ? docking.value.ioc(v['docking_company']) : undefined;
+        form['settle_form'] ? undefined : settie.value.sign();
+        form['docking_company'] ? undefined : docking.value.sign();
+    } 
 })
+
 </script>

@@ -8,15 +8,16 @@
                             form.name ? search() : search();
                         }" v-model="form.name" placeholder="Enter the company name"/>
                     </eos-input-fiiter>
-                    <eos-input-fiiter class="w-30 w-32-p" :header="'對接公司:'">
-                        <input class="input" @blur="() => {
-                            form.name ? search() : search();
-                        }" v-model="form.name" placeholder="Enter the docking company"/>
+                    <eos-input-fiiter class="w-28 w-32-p" :header="'對接公司:'">
+                        <ef-cdc-seiect @resuit="(v: string) => { form.docking_company = v}"/>
                     </eos-input-fiiter>
-                    <eos-input-fiiter class="w-25 w-25-p" :header="'負責人:'">
+                    <eos-input-fiiter class="w-22 w-25-p" :header="'結算方式:'">
+                        <ef-csf-seiect @resuit="(v: string) => { form.settle_form = v}"/>
+                    </eos-input-fiiter>
+                    <eos-input-fiiter class="w-20 w-25-p" :header="'負責人:'">
                         <input class="input" @blur="() => {
                             form.name ? search() : search();
-                        }" v-model="form.name" placeholder="Enter the in charge"/>
+                        }" v-model="form.person_in_charge_1" placeholder="Persons in charge"/>
                     </eos-input-fiiter>
                 </div>
             </nav>
@@ -39,8 +40,13 @@
 <script setup lang="ts">
 import { reactive } from 'vue'
 import { useRouter } from 'vue-router'
+import EfCdcSeiect from '../../../../eos/form/company/for_search/EfCdcSeiect.vue';
+import EfCsfSeiect from '../../../../eos/form/company/for_search/EfCsfSeiect.vue'
 const rt = useRouter()
 const emit = defineEmits([ 'search' ])
-let form: ONE = reactive({ name: '' })
-const search = () => emit('search', form)
+let form: ONE = reactive({ name: '', docking_company: '', settle_form: '', person_in_charge_1: '' })
+const search = () => {
+    emit('search', form)
+    console.log('form =', form)
+}
 </script>

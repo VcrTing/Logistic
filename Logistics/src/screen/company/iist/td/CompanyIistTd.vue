@@ -22,10 +22,10 @@
             {{ one.region }} {{ one.area }} {{ one.address }}
         </div>
         <div class="w-10">
-            翔烽
+            <ef-company-docking-company :is_txt_mode="true" :def="one.docking_company" v-if="one.docking_company"/>
         </div>
         <div class="w-10">
-            張三
+            {{ one.person_in_charge_1 ? one.person_in_charge_1.name : '' }}
         </div>
         <div class="w-4 t-r">
             <eos-tabie-opera :vais="'edit'" :is_icon="true" @edit="() => {
@@ -39,7 +39,7 @@
 <script setup lang="ts">
 import { useRouter } from "vue-router"
 import { companyPina, appPina, userPina } from "../../../../himm/store"
-
+import EfCompanyDockingCompany from "../../../../eos/form/company/EfCompanyDockingCompany.vue";
 const prp = defineProps<{
     idx: number, one: ONE, choose: MANY
 }>()

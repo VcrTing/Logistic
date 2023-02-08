@@ -13,9 +13,13 @@
                     rtr.push('/admin/company_iist/edit')
                 }"
                 >
-                <div class="py_s">負責人：{{ v.incharge }}</div>
-                <div class="">對接公司：翔烽</div>
-                <div class="pb_s">結算方式：月結30日</div>
+                <div class="py_s">負責人：{{ v.person_in_charge_1 ? v.person_in_charge_1.name : '' }}</div>
+                <div class="">對接公司：
+                    <ef-company-docking-company class="d-ib" :is_txt_mode="true" :def="v.docking_company" v-if="v.docking_company"/>
+                </div>
+                <div class="pb_s">結算方式：
+                    <ef-company-settle-form class="d-ib" :is_txt_mode="true" :def="v.settle_form" v-if="v.settle_form"/>
+                </div>
                 <!--
                 <div>電話：{{ v.phone }}</div>
                 <div class="pb_s">郵箱：{{ v.email }}</div>-->
@@ -45,6 +49,8 @@ import { reactive } from 'vue'
 import { useRouter } from 'vue-router';
 import CpCustomCard from '../../../../components/custom/CpCustomCard.vue';
 import { companyPina, orderPina, userPina } from '../../../../himm/store';
+import EfCompanySettleForm from '../../../../eos/form/company/EfCompanySettleForm.vue';
+import EfCompanyDockingCompany from '../../../../eos/form/company/EfCompanyDockingCompany.vue';
 defineProps<{
     many: MANY
 }>()

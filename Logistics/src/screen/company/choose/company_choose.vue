@@ -14,6 +14,7 @@ import CompanyChooseBody from './body/CompanyChooseBody.vue';
 
 import { reactive } from '@vue/reactivity';import { company } from '../../../himm/serv';
 import { anime } from '../../../air/app';
+import { companyPina, userPina } from '../../../himm/store';
 
 const aii = reactive({ choose: [ ],
     ioading: true, page: <ONE>{ total: 1 }, condition: <ONE>{ }, imit: 25, 

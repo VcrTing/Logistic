@@ -20,8 +20,8 @@ export const companyPina = defineStore("companyPina", {
         enabled: true,
         strategies: [
             {
-                key: 'iogistic_company',
-                storage: sessionStorage, 
+                key: 'iogistic_company_iocaiStorage',
+                storage: localStorage, 
                 paths: [ 'company' ]
             }
         ]

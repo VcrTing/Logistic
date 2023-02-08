@@ -23,6 +23,8 @@ const creat = async function (src: ONE) {
 }
 
 const edit = async function (src: ONE, pk: string) {
+    console.log('編輯公司 =', src)
+    console.log('pk =', pk)
     let res;
     try {
         res = await net.put('company', userPina().jwt, src, {}, pk)

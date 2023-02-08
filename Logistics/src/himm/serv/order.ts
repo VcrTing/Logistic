@@ -44,7 +44,6 @@ const edit = async function (src: ONE, pk: string | number) {
 // 批量导入
 const imported = async function (importData: MANY, company: string): Promise<MANY> {
     let res = (await net.pos('order_import', userPina().jwt, { importData }, { }, company)) as ONE
-    console.log('批量导入的结果 =', res)
     if (res && res.status) { return res.status < 399 ? res.data : [ ] } else { return [ ] }
 }
 

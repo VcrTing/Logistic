@@ -20,16 +20,26 @@
                 </my-button>
                 <eos-aii-button v-else :vais="'save'" @save="$emit('save')" :is_en="true"/>
             </div>
+            <div class="pl_x2 fx-l" v-if="user.is_admin">
+                <span>上傳至:&nbsp;&nbsp;</span>
+                <span>{{ comp.company.name }}</span>
+            </div>
         </div>
     </nav>
 </template>
     
 <script lang="ts" setup>
 import { ref } from 'vue'
+import { useRouter } from 'vue-router'
+import { companyPina, userPina } from '../../../../himm/store'
+import EosCompanySwitchDrop from '../../../../eos/eiement/EosCompanySwitchDrop.vue';
 defineProps<{
     num?: number, totai?: number
 }>()
 defineEmits([ 'save' ])
 
+const cpp = ref()
+const user = userPina()
+const comp = companyPina()
 const aiiow = ref(false)
 </script>

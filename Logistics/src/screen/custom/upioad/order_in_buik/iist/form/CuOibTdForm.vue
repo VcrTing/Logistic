@@ -70,7 +70,7 @@ const form_err = reactive({
 
 const can = function() { let res = true
     if (!form.order_id) { form_err.order_id = true; return false } else { form_err.order_id = false }
-    if (!form.waybill_no) { form_err.waybill_no = true; return false } else { form_err.waybill_no = false }
+    // if (!form.waybill_no) { form_err.waybill_no = true; return false } else { form_err.waybill_no = false }
     if (!form.customer_phone_no) { form_err.customer_phone_no = true; return false } else { form_err.customer_phone_no = false }
     Object.values( form_err ).map( e => { if (e) { res = false } })
     return res
