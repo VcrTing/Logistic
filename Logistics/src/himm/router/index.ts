@@ -1,4 +1,5 @@
 import { userPina } from './../store';
+import conf from '../../air/conf';
 import { 
     createRouter, 
     createWebHashHistory,
@@ -47,19 +48,22 @@ const router = createRouter({
 
 const white = [ '/login' ]
 
+const nextAdmin = (src: string, next: any, res?: string) => {
+    if (userPina().is_admin) { next(); return 0 }
+    conf.ADMIN_PATH.map((_p: string) => {
+        if (_p === src) res = conf.USER_INDEX;
+    }); next( res )
+}
+
 router.beforeEach((to: RouteLocationNormalized, _: RouteLocationNormalized, next: any) => {
     if (userPina().is_iogin) {
         if (to.path === white[0]) {
             next('/')
         } else {
-            next()
+            (to.path === conf.USER_INDEX) ? next() : nextAdmin(to.path, next)
         }
     } else {
-        if (white.includes( to.path )) {
-            next()
-        } else {
-            next( white[0] + '?to=' + to.path )
-        }
+        white.includes( to.path ) ? next() : next( white[0] + '?to=' + to.path )
     }
 }) 
 

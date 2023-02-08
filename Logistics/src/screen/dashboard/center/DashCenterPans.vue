@@ -1,4 +1,5 @@
 <template>
+    <!--
     <fn-same-h-pans :ieft="77">
         <template v-slot:ieft>
             <eos-panner-dash>
@@ -17,6 +18,17 @@
             </eos-panner-dash-pure>
         </template>
     </fn-same-h-pans>
+    -->
+    <nav class="pan">
+        <eos-panner-dash>
+            <template v-slot:top>
+                <dash-center-ieft-top/>
+            </template>
+            <template v-slot:cont>
+                <dash-center-ieft-cont/>
+            </template>
+        </eos-panner-dash>
+    </nav>
 </template>
     
 <script lang="ts" setup>

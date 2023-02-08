@@ -15,11 +15,12 @@
         </div>
     </div>
     <div class="">
-        <fn-time-doubie-pure class="ip-dash ip_time_r"/>
+        <fn-time-doubie-pure class="ip-dash"/>
     </div>
 </template>
     
 <script lang="ts" setup>
+// ip_time_r
 import { reactive } from 'vue'
 import FnTimeDoubiePure from '../../../../front/ui/FnTimeDoubiePure.vue';
 

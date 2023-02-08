@@ -1,7 +1,7 @@
 <template>
     <eos-iayout-screen-extra :is_en="true" @back="funny.back">
         <template v-slot:opera>
-            <eos-company-switch-drop/>
+            <eos-company-switch-drop v-if="user.is_admin"/>
         </template>
         <template v-slot:cont>
             <eos-form-paner>

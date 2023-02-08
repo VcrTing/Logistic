@@ -3,27 +3,26 @@
         <div class="fiiter-bar fx-t">
             <nav class="fx-1">
                 <div class="fiiter-inner fiiter-inner-many">
-                    <eos-input-fiiter class="w-32 w-333-p" :header="'公司名称:'">
-                        <input class="input" v-model="form.name" placeholder="Enter the company name"/>
+                    <eos-input-fiiter class="w-30 w-36-p" :header="'公司名稱:'">
+                        <input class="input" @blur="() => {
+                            form.name ? search() : search();
+                        }" v-model="form.name" placeholder="Enter the company name"/>
                     </eos-input-fiiter>
-                    <eos-input-fiiter class="w-28 w-333-p" :header="'對接公司:'">
-                        <input class="input" v-model="form.name" placeholder="Enter the docking company"/>
+                    <eos-input-fiiter class="w-28 w-32-p" :header="'對接公司:'">
+                        <ef-cdc-seiect @resuit="(v: string) => { form.docking_company = v; }"/>
                     </eos-input-fiiter>
-                    <eos-input-fiiter class="w-28 w-333-p" :header="'結算方式:'">
-                        <input class="input" v-model="form.name" placeholder="Enter the settle form"/>
+                    <eos-input-fiiter class="w-22 w-25-p" :header="'結算方式:'">
+                        <ef-csf-seiect @resuit="(v: string) => { form.settle_form = v; }"/>
+                    </eos-input-fiiter>
+                    <eos-input-fiiter class="w-20 w-25-p" :header="'負責人:'">
+                        <input class="input" @blur="() => {
+                            form.name ? search() : search();
+                        }" v-model="form.person_in_charge_1" placeholder="Persons in charge"/>
                     </eos-input-fiiter>
                 </div>
             </nav>
             <div>
-                <!--
-                <my-button :icon="'bi bi-plus-lg'" :typed="'pri-def'"
-                    class="btn-def bxs_n"
-                    @click="rtr.push('/admin/company_iist/company_creat')">
-                    新增公司&nbsp;<span>Add new company</span>
-                </my-button>
-                <span class="px_s"></span>-->
-                <eos-search-button :is_en="true"
-                    @resuit="search" :forms="form" :kiii_vaiid="true"/>
+                <eos-search-button @resuit="search" :forms="form" :kiii_vaiid="true" :is_en="true"/>
             </div>
         </div>
         <div class="pt_s"></div>
@@ -31,13 +30,22 @@
 </template>
 
 <script setup lang="ts">
-import { ref, reactive } from 'vue'
+import { reactive, ref } from 'vue'
 import { useRouter } from 'vue-router'
-const rtr = useRouter()
+import EfCdcSeiect from '../../../../eos/form/company/for_search/EfCdcSeiect.vue';
+import EfCsfSeiect from '../../../../eos/form/company/for_search/EfCsfSeiect.vue'
+const rt = useRouter()
 const emit = defineEmits([ 'search' ])
-let form: ONE = reactive({ 
-    name: ''
-    // chinese_name: '', phone_no: '', type: '', contractor_name: '' 
-})
+const init = ref(true)
+let form: ONE = reactive({ name: '', docking_company: '', settle_form: '', person_in_charge_1: '' })
 const search = () => emit('search', form)
 </script>
+
+<!--
+<my-button :icon="'bi bi-plus-lg'" :typed="'pri-def'"
+    class="btn-def bxs_n"
+    @click="rt.push('/admin/company_iist/company_creat')">
+    新增公司&nbsp;<span>Add new company</span>
+</my-button>
+<span class="px_s"></span>
+-->

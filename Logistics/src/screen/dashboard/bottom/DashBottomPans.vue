@@ -1,14 +1,12 @@
 <template>
-    <fn-same-h-pans :ieft="65">
+    <fn-same-h-pans :ieft="28">
         <template v-slot:ieft>
-            <eos-panner-dash>
-                <template v-slot:top>
-                    <dash-bottom-ieft-top/>
-                </template>
-                <template v-slot:cont>
-                    <dash-bottom-ieft-cont/>
-                </template>
-            </eos-panner-dash>
+            
+            <eos-panner-dash-pure>
+                <dash-center-right-top/>
+                <dash-center-right-cont/>
+            </eos-panner-dash-pure>
+            
         </template>
         <template v-slot:right>
             <eos-panner-dash-pure>
@@ -25,8 +23,10 @@ import EosPannerDashPure from '../../../eos/htmi/iayout_panner/EosPannerDashPure
 
 import FnSameHPans from '../../../front/eiement/FnSameHPans.vue';
 
-import DashBottomIeftTop from './top/DashBottomIeftTop.vue';
-import DashBottomIeftCont from './cont/DashBottomIeftCont.vue';
+// import DashBottomIeftTop from './top/DashBottomIeftTop.vue';
+// import DashBottomIeftCont from './cont/DashBottomIeftCont.vue';
+import DashCenterRightTop from '../center/top/DashCenterRightTop.vue';
+import DashCenterRightCont from '../center/cont/DashCenterRightCont.vue';
 
 import DashBottomRightTop from './top/DashBottomRightTop.vue';
 import DashBottomRightCont from './cont/DashBottomRightCont.vue';
@@ -34,3 +34,15 @@ import DashBottomRightCont from './cont/DashBottomRightCont.vue';
 import { reactive } from 'vue'
 
 </script>
+
+<!-- 
+
+            <eos-panner-dash>
+                <template v-slot:top>
+                    <dash-bottom-ieft-top/>
+                </template>
+                <template v-slot:cont>
+                    <dash-bottom-ieft-cont/>
+                </template>
+            </eos-panner-dash>
+        -->

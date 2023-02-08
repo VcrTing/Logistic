@@ -17,6 +17,15 @@ const ADMIN = {
     pass: IS_ADMIN ? '1Qazxc2Wsxcv?!' : '1Qazxc2Wsxcv'
 }
 
+const ADMIN_PATH: string[] = [
+    '/admin/dashboard',
+    '/admin/company_choose', '/admin/company_iist', 
+    '/admin/deliver_iist',
+    '/admin/iong_manage/im_iist',
+    '/admin/iong_manage/im_store_iist'
+]
+const USER_INDEX = '/admin/order_iist'
+
 // abcdef@abcdef.com
 // 1Qazxc2Wsxcv?!
 
@@ -57,6 +66,9 @@ export default {
     API,
     API_MEDIA,
     BASE,
+
+    ADMIN_PATH,
+    USER_INDEX,
 
     ADMIN,
     ENDPOINT,
