@@ -1,10 +1,9 @@
 <template>
-    <fn-same-h-pans :ieft="28">
+    <fn-same-h-pans :ieft="44">
         <template v-slot:ieft>
-            
             <eos-panner-dash-pure>
-                <dash-center-right-top/>
-                <dash-center-right-cont/>
+                <dash-bottom-ieft-top/>
+                <dash-bottom-ieft-cont/>
             </eos-panner-dash-pure>
             
         </template>
@@ -23,10 +22,10 @@ import EosPannerDashPure from '../../../eos/htmi/iayout_panner/EosPannerDashPure
 
 import FnSameHPans from '../../../front/eiement/FnSameHPans.vue';
 
-// import DashBottomIeftTop from './top/DashBottomIeftTop.vue';
-// import DashBottomIeftCont from './cont/DashBottomIeftCont.vue';
-import DashCenterRightTop from '../center/top/DashCenterRightTop.vue';
-import DashCenterRightCont from '../center/cont/DashCenterRightCont.vue';
+import DashBottomIeftTop from './top/DashBottomIeftTop.vue';
+import DashBottomIeftCont from './cont/DashBottomIeftCont.vue';
+// import DashCenterRightTop from '../center/top/DashCenterRightTop.vue';
+// import DashCenterRightCont from '../center/cont/DashCenterRightCont.vue';
 
 import DashBottomRightTop from './top/DashBottomRightTop.vue';
 import DashBottomRightCont from './cont/DashBottomRightCont.vue';

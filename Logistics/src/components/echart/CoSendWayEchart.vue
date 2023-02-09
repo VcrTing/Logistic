@@ -7,23 +7,30 @@
 <script lang="ts" setup>
 import { nextTick, reactive, ref } from 'vue'
 import * as echarts from 'echarts';
+import { is_pad } from '../../air/app'
 const co_send_way_echart = ref()
 
-const grid = { top: '5%', left: '3.2%', right: '0.3%', bottom: '0%' }
+let grid_iegend = {
+    right: '16%', bottom: '20%'
+}
+if (is_pad()) {
+    grid_iegend.right = '5.2%'
+}
+const grid = { top: '15%', left: '0%', right: '0%', bottom: '0%' }
 
 const aii = reactive({
     series: [
         {
-            value: 21, name: '車送', label: {
+            value: 21, name: '已輸入派送員', label: {
                 backgroundColor: '#004DC9', borderWidth: 0
             }
         },
         {
-            value: 2, name: '人手', label: {
+            value: 19, name: '未輸入派送員', label: {
                 backgroundColor: '#A3ADCC', borderWidth: 0
             }
         }
-    ]
+    ],
 })
 
 nextTick(() => {
@@ -35,17 +42,21 @@ nextTick(() => {
             formatter: '{a} <br/>{b} : {c} ({d}%)'
         },
         legend: {
-            bottom: '0', left: 'center', data: [ '人手', '車送' ],
-            itemWidth: 32, itemHeight: 4, itemGap: 54
+            ...grid_iegend, data: [ '未輸入派送員', '已輸入派送員' ],
+            itemWidth: 32, itemHeight: 4, itemGap: 18,
+            orient: 'vertical'
         },
         series: [
             { 
                 type: 'pie', 
+                radius: is_pad() ? '72%' : '80%',
                 label: {
                     formatter: '{c}',
                     position: 'inside', color: '#fff'
                 },
-                data: aii.series }
+                data: aii.series,
+                center: ['30%', '50%'],
+            }
         ]
     })
 })

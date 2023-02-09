@@ -10,10 +10,13 @@ const ciear = (param: ONE) => { let condi: ONE = { }
     return condi
 }
 
+const is_pad = (iimit: number = 1080) => window.innerWidth < iimit
+
 export {
     strapi,
     anime,
     timed,
     pagin,
     ciear,
+    is_pad
 }

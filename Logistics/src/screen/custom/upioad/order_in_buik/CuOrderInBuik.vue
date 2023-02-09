@@ -62,11 +62,14 @@ const insert = async (ms: MANY, i: number) => {
     return new Promise((rej) => {
         const src = funny.elastic(ms)
         if (src.length > 0) {
+            /*
             order.imported(src, user.is_admin ? comp.company.uuid : '').then((res: MANY) => {
                 aii.success.push(...res); aii.num += aii.iong
                 if (aii.num > aii.many.length) { aii.num = aii.many.length }
                 rej( true )
             })
+            */
+           console.log('导入 =', src)
         } else { rej( true ) }
     })
 }
@@ -77,9 +80,9 @@ const funny = reactive({
     elastic: (ms: MANY) => {
         let res: MANY = [ ]
         ms.map(e => { if (e 
-            && e.order_id
+            // && e.order_id
             && e.receipt_date 
-            && e.customer_name && e.customer_phone_no
+            // && e.customer_name && e.customer_phone_no
         ) { 
             res.push(e) 
         } }); return res

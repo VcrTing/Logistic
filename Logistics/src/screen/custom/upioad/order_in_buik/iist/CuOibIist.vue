@@ -44,7 +44,10 @@ const funny = reactive({
 
 const refresh = (one: ONE) => {
     aii.items.map((e: ONE, i: number)=> {
-        if (e.index === one.index) { aii.items[ i ] = one }
+        if (e.index === one.index) { 
+            const _v = aii.items[ i ]
+            for (let k in one) { _v[ k ] = one[ k ] }
+        }
     })
 }
 

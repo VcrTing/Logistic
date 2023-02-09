@@ -19,15 +19,23 @@ import DbrcTd from '../tabie/DbrcTd.vue';
 const aii = reactive({
     many: [
         {
-            name: '高佬', charge: ' CHENG KA HUNG', num: 13
+            name: '高佬', charge: ' CHENG KA HUNG', num: 13, typed: '步兵'
         },
 
         {
-            name: '劉件雲', charge: ' CHENG KA HUNG', num: 1
+            name: '劉件雲', charge: ' CHENG KA HUNG', num: 1, typed: '貨車司機'
         },
 
         {
-            name: '小張', charge: ' CHENG KA HUNG', num: 999
+            name: '小張', charge: ' CHENG KA HUNG', num: 999, typed: '電動車'
+        },
+
+        {
+            name: '小張', charge: ' CHENG KA HUNG', num: 999, typed: '電動車'
+        },
+
+        {
+            name: '小張', charge: ' CHENG KA HUNG', num: 999, typed: '電動車'
         }
     ]
 })

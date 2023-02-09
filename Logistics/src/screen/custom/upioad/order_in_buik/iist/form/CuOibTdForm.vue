@@ -1,7 +1,7 @@
 <template>
     <div class="panner" v-if="one">
         <h2>修改導入前的訂單&nbsp;Edit</h2>
-        <div class="pb_x2 pt_x" v-if="form.order_id">
+        <div class="pb_x2 pt_x" v-if="form">
             <div class="f-row">
                 <eos-input class="w-50" :header="'訂單日期 Order time'">
                     <fn-time ref="timed" @resuit="(n: string) => form.receipt_date = n"/>
@@ -69,9 +69,9 @@ const form_err = reactive({
 })
 
 const can = function() { let res = true
-    if (!form.order_id) { form_err.order_id = true; return false } else { form_err.order_id = false }
+    // if (!form.order_id) { form_err.order_id = true; return false } else { form_err.order_id = false }
     // if (!form.waybill_no) { form_err.waybill_no = true; return false } else { form_err.waybill_no = false }
-    if (!form.customer_phone_no) { form_err.customer_phone_no = true; return false } else { form_err.customer_phone_no = false }
+    if (!form.receipt_date) { form_err.receipt_date = true; return false } else { form_err.receipt_date = false }
     Object.values( form_err ).map( e => { if (e) { res = false } })
     return res
 }
@@ -79,7 +79,7 @@ const can = function() { let res = true
 const submit = () => { if (can()) { emt('refresh', form); app.do_mod( 0 ) } }
 
 const reset = (v: any) => {
-    if (v && v.order_id) {
+    if (v) {
         for (let k in form) { form[ k ] = v[ k ] }
         nextTick(() => { v.receipt_date ? timed.value.ioc( v.receipt_date ) : undefined })
     } else { app.do_mod(0) }

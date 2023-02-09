@@ -1,27 +1,28 @@
 <template>
-    <div class="fx-s pr_x1">
-        <h3>
-            訂單派送數量
+    <div class="fx-s fx-wp dash-center-right-top">
+        <h3 class="fx-1">
+            已完成輸入派送員
         </h3>
-        <div class="fx-r w-75">
-            <div class="pl_x2 pr_x">
-                <span class="px_s dcit-scope-item" v-for="(v, i) in form.scops" :key="i" 
+        <div class="fx-r">
+            <div class="pl_s">
+                <span class="pl dcit-scope-item" v-for="(v, i) in form.scops" :key="i" 
                     @click="form.scope = v.v"
                     :class="{ 
                         'pri': v.v === form.scope,
-                        'mx_s': v.v === form.scope
+                        'ml_s': v.v === form.scope
                     }">{{ v.txt }}</span>
             </div>
-            <select class="btn-pri-tin btn-dash">
-                <option>已有店鋪</option>
-                <option>未有店鋪</option>
-            </select>
         </div>
+    </div>
+    <div class="pt">
+        <fn-time-doubie-pure class="ip-dash"/>
     </div>
 </template>
     
 <script lang="ts" setup>
+// ip_time_r
 import { reactive } from 'vue'
+import FnTimeDoubiePure from '../../../../front/ui/FnTimeDoubiePure.vue';
 
 const form = reactive({
     scops: [
@@ -30,11 +31,6 @@ const form = reactive({
         { v: 'week', txt: '本周' },
         { v: 'day', txt: '本日' }
     ],
-    scope: 'week' 
+    scope: 'day' 
 })
 </script>
-
-<style lang="sass" scoped>
-.dcit-dp
-    min-width: calc( 15vw + 120px )
-</style>

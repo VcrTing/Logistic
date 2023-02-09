@@ -1,14 +1,21 @@
 <template>
-    <nav class="pan">
-        <eos-panner-dash>
-            <template v-slot:top>
-                <dash-center-ieft-top/>
-            </template>
-            <template v-slot:cont>
-                <dash-center-ieft-cont/>
-            </template>
-        </eos-panner-dash>
-    </nav>
+    <fn-same-h-pans :ieft="75" :is_div_r="true" class="fx-b">
+        <template v-slot:ieft>
+            <div class="pan">
+                <eos-panner-dash>
+                    <template v-slot:top>
+                        <dash-center-ieft-top/>
+                    </template>
+                    <template v-slot:cont>
+                        <dash-center-ieft-cont/>
+                    </template>
+                </eos-panner-dash>
+            </div>
+        </template>
+        <template v-slot:right>
+            <dash-center-right-cont/>
+        </template>
+    </fn-same-h-pans>
 </template>
     
 <script lang="ts" setup>

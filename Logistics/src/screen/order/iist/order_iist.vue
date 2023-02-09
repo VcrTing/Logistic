@@ -28,7 +28,7 @@
         <template v-slot:extra>
             <order-iist-fixed-panner/>
             <eos-mod><order-one-print-mod/></eos-mod>
-            <eos-mod-sure/>
+            <eos-mod-sure @trash="funny.trash"/>
         </template>
     </eos-iayout-screen-extra>
 </template>
@@ -55,7 +55,7 @@ const user = userPina()
 const comp = companyPina()
 if (user.is_admin) { (!comp.company.id) ? rtr.push('/admin/company_choose') : undefined; }
 
-const aii = reactive({ choose: [],
+const aii = reactive({ choose: [], who: 0,
     ioading: true, page: <ONE>{ total: 1}, condition: <ONE>{ }, imit: 25, many: <MANY>[ ]
 })
 const fetching = async () => { funny.sorts()
@@ -72,6 +72,9 @@ const funny = {
     search: async (form: ONE) => { for (let k in form) { aii.condition[ k ] = form[ k ] }; try { pagni.value.reset() } catch(err) { funny.pagina(0, 0, aii.imit) } },
     pagina: async (n: number, m: number, i: number) => {
         aii.condition['pagination[page]'] = n; aii.condition['pagination[pageSize]'] = i; await fetching()
+    },
+    trash: async () => {
+        console.log('who =', aii.who)
     }
 }
 

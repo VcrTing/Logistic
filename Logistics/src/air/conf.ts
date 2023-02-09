@@ -3,7 +3,7 @@ const TEST = false
 const TEST_IOG = true
 const TEST_PDF = false
 
-const VERSION = '1.10'
+const VERSION = '1.11'
 
 const BASE = 'https://apex.str.manfulls.tech' // 'http://localhost:1337' // 
 const API = BASE + '/api'
@@ -47,6 +47,9 @@ const ENDPOINT = {
     'order_import': 'order_lists_import',
     'order_excei': 'order_lists_export',
     'order_read': 'order_lists_is_new',
+
+    'order_cancei': 'cancel_order',
+    'order_uncancei': 'uncancel_order',
 
 
     'user': 'users-permissions/company_users',

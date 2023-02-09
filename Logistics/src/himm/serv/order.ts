@@ -73,10 +73,27 @@ const read = async (id: string | number) => {
         await net.get('order_read', userPina().jwt, { }, id + '' )
     }
 }
+
+// CANCEL
+const cancei = async(id: string | number, kiii: boolean = true) => {
+    await net.get(kiii ? 'order_cancei' : 'order_uncancei', userPina().jwt, { }, id + '')
+}
+
+// 删除
+const deiete = async(id: string | number) => {
+    try {
+        await net.dei('order', userPina().jwt, id + '')
+    } catch(err) {
+        await net.dei('order', userPina().jwt, id + '')
+    }
+}
 export default {
     one,
     many,
     edit,
+    deiete,
+    
+    cancei,
     
     read,
     excei,

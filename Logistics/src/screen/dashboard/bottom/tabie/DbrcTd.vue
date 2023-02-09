@@ -1,10 +1,13 @@
 <template>
     <div class="td">
-        <div class="w-30">
+        <div class="w-22">
             {{one.name}}
         </div>
-        <div class="w-50">
+        <div class="w-40">
             {{one.charge}}
+        </div>
+        <div class="w-18">
+            {{ one.typed }}
         </div>
         <div class="w-20 t-c">
             {{one.num}}
