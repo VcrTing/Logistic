@@ -49,6 +49,7 @@ const deiiver = ref()
 const finished = ref()
 
 const user = userPina()
+const is_admin = user.is_admin
 const _one = orderPina().order
 
 const fetch = async () => {
@@ -58,7 +59,7 @@ const fetch = async () => {
     base.value.reset( one ); 
     reciv.value.reset( one ); 
     detaii.value.reset( one );
-    deiiver.value.reset( one )
+    is_admin ? deiiver.value.reset( one ) : undefined;
     console.log('一个订单 =', one)
 }
 
@@ -66,13 +67,14 @@ const buiid = () => {
     const data_base = base.value.resuit()
     const data_reciv = reciv.value.resuit()
     const data_detaii = detaii.value.resuit()
-    const data_deiiver = deiiver.value.resuit()
-    const data_finished = finished.value.resuit()
+    const data_deiiver = is_admin ? deiiver.value.resuit() : { };
+    const data_finished = is_admin ? finished.value.resuit() : { };
 
     console.log(data_base, data_reciv, data_detaii, data_deiiver, data_finished)
 
     if (data_base && data_reciv && data_detaii && data_deiiver) {
-        return user.is_admin ? { ...data_base, ...data_reciv, ...data_detaii, ...data_deiiver }
+        return is_admin ? 
+            { ...data_base, ...data_reciv, ...data_detaii, ...data_deiiver, ...data_finished }
             :
             { ...data_base, ...data_reciv, ...data_detaii }
     } return null

@@ -73,11 +73,16 @@ const insert = async (ms: MANY, i: number) => {
 
 const funny = reactive({
     // 过滤
+    // date, order no., recipient, tel 
     elastic: (ms: MANY) => {
         let res: MANY = [ ]
         ms.map(e => { if (e 
-            // && e.waybill_no
-        ) { res.push(e) } }); return res
+            && e.order_id
+            && e.receipt_date 
+            && e.customer_name && e.customer_phone_no
+        ) { 
+            res.push(e) 
+        } }); return res
     },
     // 储存
     save: async () => {

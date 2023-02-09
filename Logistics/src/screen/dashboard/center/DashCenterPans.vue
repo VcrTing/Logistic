@@ -1,24 +1,4 @@
 <template>
-    <!--
-    <fn-same-h-pans :ieft="77">
-        <template v-slot:ieft>
-            <eos-panner-dash>
-                <template v-slot:top>
-                    <dash-center-ieft-top/>
-                </template>
-                <template v-slot:cont>
-                    <dash-center-ieft-cont/>
-                </template>
-            </eos-panner-dash>
-        </template>
-        <template v-slot:right>
-            <eos-panner-dash-pure>
-                <dash-center-right-top/>
-                <dash-center-right-cont/>
-            </eos-panner-dash-pure>
-        </template>
-    </fn-same-h-pans>
-    -->
     <nav class="pan">
         <eos-panner-dash>
             <template v-slot:top>
@@ -46,3 +26,23 @@ import DashCenterRightTop from './top/DashCenterRightTop.vue';
 import { reactive } from 'vue'
 
 </script>
+<!--
+<fn-same-h-pans :ieft="77">
+    <template v-slot:ieft>
+        <eos-panner-dash>
+            <template v-slot:top>
+                <dash-center-ieft-top/>
+            </template>
+            <template v-slot:cont>
+                <dash-center-ieft-cont/>
+            </template>
+        </eos-panner-dash>
+    </template>
+    <template v-slot:right>
+        <eos-panner-dash-pure>
+            <dash-center-right-top/>
+            <dash-center-right-cont/>
+        </eos-panner-dash-pure>
+    </template>
+</fn-same-h-pans>
+-->

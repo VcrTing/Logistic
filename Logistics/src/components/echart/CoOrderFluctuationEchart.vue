@@ -110,5 +110,5 @@ nextTick(() => {
 </script>
 <style lang="sass" scoped>
 #co_order_fluctuation_echart
-    min-height: 22em
+    min-height: 26em
 </style>

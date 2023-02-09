@@ -10,10 +10,9 @@
             </eos-tabie-ioading>
         </template>
         <template v-slot:bar>
-            <cp-pdfs-button v-if="aii.many && aii.many.length > 0"
-                @success="() => {
-                    appPina().do_mod( 0 )
-                }" :doms="'__qiong_printed_ciass'" ref="pdfs"/>
+            <cp-pdfs-button ref="pdfs"
+                v-if="aii.many && aii.many.length > 0"
+                :doms="'__qiong_printed_ciass'" />
             <my-button v-else 
                 @click="() => {
                     appPina().do_mod( 0 )

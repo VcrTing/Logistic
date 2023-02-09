@@ -15,8 +15,10 @@
         <p class="pb_s">公司郵箱：&nbsp;{{ form.vv.email }}</p>
         <p class="pb_n">公司地址：&nbsp;{{ form.vv.address }}</p>
 
-        <p class="pb_s">對接公司：&nbsp;翔烽</p>
-        <p class="pb_s">結算方式：&nbsp;月結30日</p>
+        <p class="pb_s">對接公司：&nbsp;<ef-company-docking-company class="d-ib" :is_txt_mode="true" :def="form.vv.docking_company" />
+        </p>
+        <p class="pb_s">結算方式：&nbsp;<ef-company-settle-form class="d-ib" :is_txt_mode="true" :def="form.vv.settle_form"/>
+        </p>
     </div>
 </template>
 
@@ -24,6 +26,8 @@
 import { reactive, defineExpose, ref, nextTick } from 'vue'
 import { useRouter } from 'vue-router';
 import CoSeiectCompany from '../../../../../components/company/seiect_company/CoSeiectCompany.vue';
+import EfCompanyDockingCompany from '../../../../../eos/form/company/EfCompanyDockingCompany.vue';
+import EfCompanySettleForm from '../../../../../eos/form/company/EfCompanySettleForm.vue';
 import { userPina } from '../../../../../himm/store';
 
 // 沒有改動
@@ -35,6 +39,7 @@ nextTick(() => {
     if (!user.is_admin) {
         if (user.company.id) {
             form.vv = user.company
+            console.log('VV =', form.vv)
             form.company_represent = user.company.id
         } else {
             rtr.push('/admin/user_iist')
