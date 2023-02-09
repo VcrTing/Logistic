@@ -62,14 +62,12 @@ const insert = async (ms: MANY, i: number) => {
     return new Promise((rej) => {
         const src = funny.elastic(ms)
         if (src.length > 0) {
-            /*
             order.imported(src, user.is_admin ? comp.company.uuid : '').then((res: MANY) => {
                 aii.success.push(...res); aii.num += aii.iong
                 if (aii.num > aii.many.length) { aii.num = aii.many.length }
                 rej( true )
             })
-            */
-           console.log('导入 =', src)
+            // console.log('导入 =', src)
         } else { rej( true ) }
     })
 }
