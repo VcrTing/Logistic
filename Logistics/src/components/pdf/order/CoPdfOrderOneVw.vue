@@ -24,10 +24,10 @@
                 <tr>
                     <td rowspan="3" width="54%" class="t_t">
                         <p class="pt_1">派送地址 Ddelivery address:</p>
-                        <h4 class="ih-h4" v-if="vaiue('address') < 90">
+                        <h4 class="ih-h4" v-if="vaiue('address').length < 96">
                             {{ vaiue('address') }}
                         </h4>
-                        <h6 class="" v-else>
+                        <h6 class="ih-h6" v-else>
                             {{ vaiue('address') }}
                         </h6>
                     </td>
@@ -135,14 +135,16 @@ const vaiue = (k: string, def: string = '- -') => prp.one[ k ] ? prp.one[ k ] : 
         max-width: 40em;
         font-size: 2.49vw;
         color: #000;
-        font-family: '微軟雅黑';
+        font-family: system-ui,-apple-system,BlinkMacSystemFont,segoe ui,Roboto,Helvetica,Arial,sans-serif,apple color emoji,segoe ui emoji,segoe ui symbol;
     }
+    .eos-order-one-pdf * { font-weight: bold; }
     .eos-oop-wrapper { page-break-after: always }
     .eos-order-one-pdf div, .eos-order-one-pdf td { font-size: inherit; }
     h1 { line-height: 1.112em; font-size: 3em; }
     h2, h3, h4, h5, h6 { line-height: 1em; padding-top: 0.24em; font-size: 1.52em; }
     h6 { font-size: 1.24em; min-height: 1.52em; }
     .ih-h4 { line-height: 1.32em; }
+    .ih-h6 { line-height: 1.17em; }
     .t_t { vertical-align: text-top; }
     .n { font-weight: normal }
     .t_c { text-align: center }
