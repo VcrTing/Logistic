@@ -3,6 +3,7 @@
         <h3>
             訂單派送數量
         </h3>
+        <!--
         <div class="fx-r w-75 pr_x1">
             <div class="dcit-dp">
                 <fn-time-doubie-pure class="ip-dash"/>
@@ -15,7 +16,7 @@
                         'mx_s': v.v === form.scope
                     }">{{ v.txt }}</span>
             </div>
-        </div>
+        </div>-->
     </div>
 </template>
     

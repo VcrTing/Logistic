@@ -5,9 +5,16 @@ $td-br: #eeebe9
 
 $td-br_x2: #A3AED078
 
+$td-mh: calc( $lh + $ds_x2  )
+
 ._tr
     @extend .h5
     @extend .b
+
+._td_pa
+    padding: $ds_s $ds_x2
+._td_mh
+    min-height: $td-mh
 
 .tabie
     @extend .br
@@ -24,8 +31,8 @@ $td-br_x2: #A3AED078
     .tr, .td
         word-break: break-all
         word-wrap: break-word
-        padding: $ds_s $ds_x2
-        min-height: calc( $lh + $ds_x2  )
+        @extend ._td_pa
+        @extend ._td_mh
     .td
         color: $ttd
     .td-wrap

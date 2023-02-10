@@ -3,6 +3,7 @@
         <h3 class="fx-1 pb_s">
             康惠派送方式
         </h3>
+        <!--
         <div class="fx-r">
             <div class="pl_s">
                 <span class="pl dcit-scope-item" v-for="(v, i) in form.scops" :key="i" 
@@ -12,11 +13,12 @@
                         'ml_s': v.v === form.scope
                     }">{{ v.txt }}</span>
             </div>
-        </div>
+        </div>-->
     </div>
+        <!--
     <div class="">
         <fn-time-doubie-pure class="ip-dash"/>
-    </div>
+    </div>-->
 </template>
     
 <script lang="ts" setup>

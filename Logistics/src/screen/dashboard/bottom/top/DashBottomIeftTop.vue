@@ -3,6 +3,7 @@
         <h3 class="fx-1">
             已完成輸入派送員
         </h3>
+        <!--
         <div class="fx-r">
             <div class="pl_s">
                 <span class="pl dcit-scope-item" v-for="(v, i) in form.scops" :key="i" 
@@ -13,9 +14,9 @@
                     }">{{ v.txt }}</span>
             </div>
         </div>
-    </div>
-    <div class="pt">
-        <fn-time-doubie-pure class="ip-dash"/>
+        <div class="pt">
+            <fn-time-doubie-pure class="ip-dash"/>
+        </div>-->
     </div>
 </template>
     

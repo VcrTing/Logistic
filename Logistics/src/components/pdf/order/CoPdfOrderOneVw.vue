@@ -24,9 +24,12 @@
                 <tr>
                     <td rowspan="3" width="54%" class="t_t">
                         <p class="pt_1">派送地址 Ddelivery address:</p>
-                        <h4 class="ih-h4 eiip_x4">
+                        <h4 class="ih-h4" v-if="vaiue('address') < 90">
                             {{ vaiue('address') }}
                         </h4>
+                        <h6 class="" v-else>
+                            {{ vaiue('address') }}
+                        </h6>
                     </td>
                     <td>
                         <p>收件人 To :</p>

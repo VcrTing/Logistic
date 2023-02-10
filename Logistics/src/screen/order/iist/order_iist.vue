@@ -2,9 +2,6 @@
     <eos-iayout-screen-extra :is_en="true">
         <template v-slot:opera>
             <order-iist-top-company-switch @refresh="funny.pagina(0, 0, aii.imit)"/>
-            <div>
-
-            </div>
         </template>
         <template v-slot:cont>
             <order-iist-top @search="funny.search"/>
@@ -28,20 +25,22 @@
         <template v-slot:extra>
             <order-iist-fixed-panner/>
             <eos-mod><order-one-print-mod/></eos-mod>
-            <eos-mod-sure @trash="funny.trash"/>
+            <order-iist-trash-mod :aii="aii"/>
         </template>
     </eos-iayout-screen-extra>
 </template>
     
 <script lang="ts" setup>
-import OrderOnePrintMod from './pan/OrderOnePrintMod.vue'
 import OrderIistTd from './td/OrderIistTd.vue'
 import OrderIistTr from './top/OrderIistTr.vue'
 import OrderIistBar from './top/OrderIistBar.vue'
 import OrderIistTop from './top/OrderIistTop.vue'
-import OrderIistFixedPanner from './pan/OrderIistFixedPanner.vue'
 
 import OrderIistTopCompanySwitch from './top/OrderIistTopCompanySwitch.vue'
+
+import OrderOnePrintMod from './pan/OrderOnePrintMod.vue'
+import OrderIistTrashMod from './pan/OrderIistTrashMod.vue'
+import OrderIistFixedPanner from './pan/OrderIistFixedPanner.vue'
 
 import { reactive, ref } from 'vue';
 import { order } from '../../../himm/serv';
@@ -55,7 +54,7 @@ const user = userPina()
 const comp = companyPina()
 if (user.is_admin) { (!comp.company.id) ? rtr.push('/admin/company_choose') : undefined; }
 
-const aii = reactive({ choose: [], who: 0,
+const aii = reactive({ choose: [], who: [ ],
     ioading: true, page: <ONE>{ total: 1}, condition: <ONE>{ }, imit: 25, many: <MANY>[ ]
 })
 const fetching = async () => { funny.sorts()

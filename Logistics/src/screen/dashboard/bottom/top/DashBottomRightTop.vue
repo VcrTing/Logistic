@@ -3,6 +3,7 @@
         <h3 class="fx-1">
             司機派送訂單數
         </h3>
+        <!--
         <div class="fx-r">
             <div class="pr_s">
                 <select class="ip-dash py_t px_s" :class="{ 'cr-dash': !form.driver }">
@@ -17,7 +18,7 @@
                         'ml_s': v.v === form.scope
                     }">{{ v.txt }}</span>
             </div>
-        </div>
+        </div>-->
     </div>
 </template>
     

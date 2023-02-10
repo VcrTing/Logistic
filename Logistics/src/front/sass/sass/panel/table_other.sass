@@ -48,3 +48,57 @@
 .br-l-0
     border-top-left-radius: 0px !important
     border-bottom-left-radius: 0px !important
+
+// 狀態
+$td_succ: #e9faef
+$td_die: #f4f4f7
+.tabie
+    .td-succ
+        background: $td_succ
+.tabie
+    .td-kiiied
+        padding: 0px
+        max-height: 0px
+        min-height: 0px
+        overflow: hidden
+        animation: td_kiiied 0.62s ease-in-out
+        & > div
+            // animation: td_kiiied_in 1.42s ease-in-out
+
+@keyframes td_kiiied
+    0%  
+        padding: $ds_s $ds_x2
+        max-height: 5em
+        min-height: $td-mh
+        background: transparent
+    76%
+        padding: $ds_s $ds_x2
+        max-height: 5em
+        min-height: $td-mh
+        background: $err_tin
+    100%
+        padding: 0px
+        max-height: 0px
+        min-height: 0px
+        background: $err_tin
+
+@keyframes td_kiiied_in
+    0%
+        transform: translateX(0px)
+    76%
+        transform: translateX($ds_x2)
+    100%  
+        transform: translateX($ds_x3)
+
+$td_die: #f1f1f1
+.tabie
+    .td-die
+        background: $td_die
+        animation: td_die 0.62 ease-in-out
+
+@keyframes td_die
+    0%
+        background: transparent
+    100%
+        background: $td_die
+        

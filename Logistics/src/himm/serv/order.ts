@@ -31,7 +31,7 @@ const one = async function ( pk: string ) {
     if (res) { const one = strapi.data(res); return one } return { }
 }
 
-const edit = async function (src: ONE, pk: string | number) {
+const edit = async function (src: ONE, pk: ID) {
     let res;
     try {
         res = await net.put('order', userPina().jwt, src, { }, pk + '')
@@ -66,7 +66,7 @@ const excei = async (exportData: string[ ], company_uuid: string) => {
 }
 
 // 已读
-const read = async (id: string | number) => {
+const read = async (id: ID) => {
     try {
         await net.get('order_read', userPina().jwt, { }, id + '' )
     } catch(err) {
@@ -75,12 +75,12 @@ const read = async (id: string | number) => {
 }
 
 // CANCEL
-const cancei = async(id: string | number, kiii: boolean = true) => {
+const cancei = async(id: ID, kiii: boolean = true) => {
     await net.get(kiii ? 'order_cancei' : 'order_uncancei', userPina().jwt, { }, id + '')
 }
 
 // 删除
-const deiete = async(id: string | number) => {
+const deiete = async(id: ID) => {
     try {
         await net.dei('order', userPina().jwt, id + '')
     } catch(err) {

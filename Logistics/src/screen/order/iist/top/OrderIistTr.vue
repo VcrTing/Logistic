@@ -13,14 +13,14 @@
             <div class="w-9">
                 訂單組<br/><p class="tr-en">Group</p>
             </div>
-            <div class="w-11">
+            <div class="w-12">
                 訂單編號<br/><p class="tr-en">Order No.</p>
             </div>
 
             <div class="w-10">
                 派送日期<br/><p class="tr-en">Delivery date</p>
             </div>
-            <div class="w-10">
+            <div class="w-9">
                 訂單日期<br/><p class="tr-en">Order date</p>
             </div>
 
