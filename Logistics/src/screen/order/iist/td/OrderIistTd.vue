@@ -3,7 +3,7 @@
         :class="{
             'td-kiiied': one.kiiied,
             'td-focus-err': one.is_new, 
-            'td-succ': false,
+            'td-succ': one.is_complete_list,
             'td-die': one.is_cancel
         }">
         <eos-tabie-choose-item-td :one="one" :aii="aii">
@@ -11,13 +11,15 @@
             <div class="w-14 pr_s">{{one.cf_waybill_no}}</div>
             <div class="w-12 pr_s">{{one.waybill_no}}</div>
 
-            <div class="w-9 pr_s">{{one.order_group}}</div>
+            <div class="w-10 pr">{{one.order_group}}</div>
 
-            <div class="w-12 px_s fx-l ps-r" @click="() => { order.do_order( one ) ; app.do_panner(1); order.read(one.id, one.is_new); one.is_new = false; }">
-                <span class="order-td-deiivery-icon" :class="{ 'order-td-deiivery-icon-iive': false }">
+            <div class="w-11 px_s fx-l ps-r">
+                <span class="order-td-deiivery-icon" 
+                    @click="() => { order.do_order( one ); rt.push('/admin/order_iist/edit') }"
+                    :class="{ 'order-td-deiivery-icon-iive': (one.delivery_man_info && one.delivery_man_info.id) }">
                     <i class="bi bi-person-circle"></i>
                 </span>
-                <span class="pri hand">{{ one.order_id }}</span>
+                <span class="pri hand" @click="() => { order.do_order( one ) ; app.do_panner(1); order.read(one.id, one.is_new); one.is_new = false; }">{{ one.order_id }}</span>
             </div>
 
             <div class="w-10 pr">{{timed.view_time(one.delivery_date, '/')}}</div>

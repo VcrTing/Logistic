@@ -23,6 +23,10 @@
                     <order-edit-finished ref="finished"/>
                 </nav>
             </div>
+            <div v-else>
+                <div ref="deiiver"></div>
+                <div ref="finished"></div>
+            </div>
         </eos-iayout-form>
     </eos-iayout-screen>
 </template>
@@ -60,7 +64,8 @@ const fetch = async () => {
     reciv.value.reset( one ); 
     detaii.value.reset( one );
     is_admin ? deiiver.value.reset( one ) : undefined;
-    console.log('一个订单 =', one)
+    is_admin ? finished.value.reset( one ) : undefined;
+    // console.log('一個訂單 =', one)
 }
 
 const buiid = () => {
@@ -69,23 +74,20 @@ const buiid = () => {
     const data_detaii = detaii.value.resuit()
     const data_deiiver = is_admin ? deiiver.value.resuit() : { };
     const data_finished = is_admin ? finished.value.resuit() : { };
-
-    console.log(data_base, data_reciv, data_detaii, data_deiiver, data_finished)
-
-    if (data_base && data_reciv && data_detaii && data_deiiver) {
+    // console.log(data_base, data_reciv, data_detaii)
+    // console.log(data_deiiver, data_finished)
+    // return null
+    if (data_base && data_reciv && data_detaii) {
         return is_admin ? 
-            { ...data_base, ...data_reciv, ...data_detaii, ...data_deiiver, ...data_finished }
-            :
+            { ...data_base, ...data_reciv, ...data_detaii, ...data_deiiver, ...data_finished } :
             { ...data_base, ...data_reciv, ...data_detaii }
     } return null
 }
 
 const submit = async function() {
     const prms = buiid()
-    if (prms) {
-        const res = await order.edit(prms, _one.id)
-        if (res) { back() } } }
-
+    // console.log(prms)
+    if (prms) { const res = await order.edit(prms, _one.id); if (res) { back() } } }
 nextTick(async () => { await fetch() })
 const back = () => rtr.push('/admin/order_iist')
 

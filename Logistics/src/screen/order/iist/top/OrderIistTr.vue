@@ -10,10 +10,10 @@
             <div class="w-12">
                 客戶運單編號<br/><p class="tr-en">Waybill number</p>
             </div>
-            <div class="w-9">
+            <div class="w-10">
                 訂單組<br/><p class="tr-en">Group</p>
             </div>
-            <div class="w-12">
+            <div class="w-11">
                 訂單編號<br/><p class="tr-en">Order No.</p>
             </div>
 

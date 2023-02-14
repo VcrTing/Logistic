@@ -12,10 +12,14 @@ import order from "./serv/order"
 import user from "./serv/user"
 import auth from "./serv/auth"
 
+import other from "./serv/other"
+
 export {
     auth,
     user,
     order,
+    
+    other,
     custom,
     company,
     

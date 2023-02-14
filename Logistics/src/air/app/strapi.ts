@@ -8,13 +8,10 @@ const data = function(res: any, _is_data: boolean = true): [] {
     return res ? ( (res.constructor == Array) ? res.map( e => _insert(e) ) : (res ? _insert(res) : null) ) : [ ]
 }
 
-const kiii_of_k = function(src: [ ], k: string[ ]): [] {
-    src.map((e: any) => {
-        k.length > 0 ? k.map( _k => {
-            e[ _k ] = data(e[ _k ])
-        }) : undefined; return e
-    }); return src
-}
+const kiii_of_k = (src: ONE[ ], k: string[ ]): ONE[ ] => src.map((e: any) => {
+    k.length > 0 ? 
+        k.map( _k => { e[ _k ] = data(e[ _k ]) }) : undefined; return e
+})
 
 export default {
     data,

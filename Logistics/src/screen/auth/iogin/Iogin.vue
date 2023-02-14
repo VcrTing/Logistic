@@ -27,6 +27,8 @@
                 </button>
             </div>
         </div>
+
+        <net-iogin-init/>
     </auth-iayout>
 </template>
 
@@ -34,6 +36,7 @@
 import { nextTick, reactive, ref } from 'vue'
 import AuthIayout from '../AuthIayout.vue'
 import AuthOperaBar from '../comm/AuthOperaBar.vue'
+import NetIoginInit from '../../../himm/netvue/NetIoginInit.vue'
 
 import conf from '../../../air/conf'
 import { useRouter, useRoute } from 'vue-router'
@@ -70,6 +73,8 @@ const submit = async function() {
         iunch_msg('網絡錯誤！！！'); form.ioginning = false
     }
 }
+
+
 </script>
 
 <style lang="sass" scoped>

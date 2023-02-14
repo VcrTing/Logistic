@@ -6,9 +6,12 @@ export const companyPina = defineStore("companyPina", {
         company: <ONE>{ },
         // 公司編輯
         one_company: <ONE>{ },
-        one_company_user: <ONE>{ }
+        one_company_user: <ONE>{ },
+
+        many: <MANY>[]
     }),
     actions: {
+        do_many(v: MANY) { this.many = v ? v : [ ] },
         do_company(v: ONE) { this.company = v ? v : { } },
         do_one_company_user(v: ONE ) { this.one_company_user = v ? v : { }  },
         do_one_company(v: ONE) { this.one_company = v ? v : { } },

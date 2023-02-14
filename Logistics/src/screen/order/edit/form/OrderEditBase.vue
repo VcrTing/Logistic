@@ -64,7 +64,7 @@ const form_err = reactive({
 })
 
 const can = function() { let res = true
-    if (!form.waybill_no) { form_err.waybill_no = true; return false } else { form_err.waybill_no = false }
+    // if (!form.waybill_no) { form_err.waybill_no = true; return false } else { form_err.waybill_no = false }
     if (!form.total_item_count) { form_err.total_item_count = true; return false } else { form_err.total_item_count = false }
     // if (!form.order_id) { form_err.order_id = true; return false } else { form_err.order_id = false }
     // if (!form.order_group) { form_err.order_group = true; return false } else { form_err.order_group = false }

@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="pt_x2">
         <div class="co-echart" id="co_send_way_echart" ref="co_send_way_echart"></div>
     </div>
 </template>
@@ -49,7 +49,7 @@ nextTick(() => {
         series: [
             { 
                 type: 'pie', 
-                radius: is_pad() ? '72%' : '80%',
+                radius: is_pad() ? '72%' : '100%',
                 label: {
                     formatter: '{c}',
                     position: 'inside', color: '#fff'

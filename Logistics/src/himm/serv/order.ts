@@ -14,7 +14,7 @@ const _mn = async function(params: ONE) {
     } catch(err) {
         dat = await net.get('order', userPina().jwt, ciear(params), is_admin ? comp_id : '');
     }
-    return dat ? strapi.ser_aii(dat, [ 'company' ]) : { } 
+    return dat ? strapi.ser_aii(dat, [ 'company', 'delivery_man_info' ]) : { } 
 }
 const many = async function ( params: ONE ) {
     const count = params['pagination[pageSize]'];
@@ -28,7 +28,15 @@ const one = async function ( pk: string ) {
     } catch(err) {
         res = await net.get('order_one', userPina().jwt, { }, pk); 
     }
-    if (res) { const one = strapi.data(res); return one } return { }
+    if (res) { 
+        // console.log('RES =', res)
+        let one: ONE = strapi.data(res); 
+        const _many = [ one ]
+        // console.log('ONE =', one)
+        // console.log('_many =', _many)
+        const my: MANY = strapi.kiii_of_k(_many, [ 'delivery_man_info' ]); 
+        if (my && my.length > 0) { return my[0] ? my[0] : { } }
+    } return { }
 }
 
 const edit = async function (src: ONE, pk: ID) {

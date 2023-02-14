@@ -3,7 +3,7 @@
         <eos-input class="w-50 w-50-p" :is_err="false" :header="'送貨日期 Delivery date'">
             <fn-time :timed="form.delivery_date" ref="dateRef" @resuit="(n: string) => form.delivery_date = n"/>
         </eos-input>
-        <eos-input v-if="userPina().is_admin" class="w-50 w-50-p" :is_err="false" :header="'送貨员 Delivery men'">
+        <eos-input v-if="false" class="w-50 w-50-p" :is_err="false" :header="'送貨员 Delivery men'">
             <input class="input" v-model="form.delivery_men" placeholder="請輸入 Please enter" />
         </eos-input>
     </div>
@@ -40,24 +40,18 @@ import { userPina } from '../../../../himm/store';
 // 沒有改動
 
 const form:ONE = reactive({
-    weight: '', total_item_count: '', car_park: '', tunnel_fee: '', misc_fee: '', 
-    floor_count: '',  collection_payment: '', 
-    
-    delivery_date: '', delivery_charge: '', delivery_men: ''
+    car_park: 0, tunnel_fee: 0, misc_fee: 0, 
+    floor_count: 0,  collection_payment: 0, 
+    delivery_date: '', delivery_charge: 0,
 })
 const form_err = reactive({
-    weight: false, total_item_count: false, car_park: false, tunnel_fee: false, misc_fee: false, 
+    car_park: false, tunnel_fee: false, misc_fee: false, 
     floor_count: false, collection_payment: false, delivery_charge: false
 })
 
 const can = function() { let res = true
-    if (!form.weight) { form_err.weight = true; return false } else { form_err.weight = false }
-    if (!form.total_item_count) { form_err.total_item_count = true; return false } else { form_err.total_item_count = false }
-    // if (!form.car_park) { form_err.car_park = true; return false } else { form_err.car_park = false }
-    // if (!form.tunnel_fee) { form_err.tunnel_fee = true; return false } else { form_err.tunnel_fee = false }
-    // if (!form.floor_count) { form_err.floor_count = true; return false } else { form_err.floor_count = false }
-    Object.values( form_err ).map( e => { if (e) { res = false } })
-    return res
+    // if (!form.weight) { form_err.weight = true; return false } else { form_err.weight = false }
+    Object.values( form_err ).map( e => { if (e) { res = false } }); return res
 }
 
 defineExpose({ 

@@ -1,46 +1,68 @@
 <template>
     <div class="py f-row">
         <eos-input class="w-50 w-50-p" :is_err="false" :header="'中文名 Chinese name'">
-            <input class="input" v-model="form.chinese" placeholder="請輸入 Please enter" />
+            <div class="ps-r">
+                <input class="input" v-model="form.chinese_name" @blur="funny.searchMan" placeholder="請輸入 Please enter" />
+                <span class="ip-vai-succ-icon" v-if="deiiv && deiiv.id">
+                    <i class="bi bi-check-lg"></i>
+                </span>
+            </div>
         </eos-input>
         <eos-input class="w-50 w-50-p" :is_err="false" :header="'英文名 English name'">
-            <input class="input" v-model="form.english" placeholder="請輸入 Please enter" />
+            <input class="input" v-model="form.english_name" @blur="funny.searchMan" placeholder="請輸入 Please enter" />
         </eos-input>
     </div>
     <div class="py f-row">
         <eos-input class="w-100" :is_err="false" :header="'電話號碼 Telephone number'">
-            <input class="input" v-model="form.phone_no" placeholder="請輸入 Please enter" />
+            <div class="ps-r">
+                <input class="input" v-model="form.phone_no" @blur="funny.searchMan" placeholder="請輸入 Please enter" />
+                <span class="ip-vai-succ-icon" v-if="deiiv && deiiv.id">
+                    <i class="bi bi-check-lg"></i>
+                </span>
+            </div>
         </eos-input>
     </div>
     <div class="py pl">
-        <p class="pb">送貨員類別 Type of deliveryman:&nbsp;&nbsp;貨車司機</p>
-        <p class="pb">判頭名稱 Company name:&nbsp;&nbsp;張三</p>
-        <p class="pb">車牌 Licence plate:&nbsp;&nbsp;Ak 67876</p>
-        <p class="">貨車類型 Truck type:&nbsp;&nbsp;貨VAN</p>
+        <p class="pb">送貨員類別 Type of deliveryman:&nbsp;&nbsp;<ef-deliver-typed class="d-ib" :def="deiiv.type" :is_txt_mode="true"/></p>
+        <p class="pb">判頭名稱 Company name:&nbsp;&nbsp;<span>{{ deiiv.contractor_name }}</span></p>
+        <p class="pb">車牌 Licence plate:&nbsp;&nbsp;<span>{{ deiiv.license_plate_no }}</span></p>
+        <p class="">貨車類型 Truck type:&nbsp;&nbsp;<ef-car-typed class="d-ib" :def="deiiv.truck_type" :is_txt_mode="true"/></p>
     </div>
 </template>
 
 <script setup lang="ts">
-import { reactive, defineExpose, ref } from 'vue'
+import { reactive, defineExpose, ref, watch } from 'vue'
+import { deliver_man } from '../../../../himm/serv';
 
 // 沒有改動
 const dateRef = ref()
+const deiiv = ref(<ONE>{ })
+const form: ONE = reactive({ phone_no: '', chinese_name: '', english_name: '' })
+const form_err = reactive({ phone_no: false, chinese_name: false, english_name: false })
 
-const form:ONE = reactive({
-    phone_no: '', chinese: '', english: ''
-})
-const form_err = reactive({
-    create_date: false, waybill_no: false, order_id: false,
-})
+watch(() => form.chinese_name, (n: string, o: string) => { if (o && !n) { funny.reset({ phone_no: '', chinese_name: '', english_name: '' }) }})
 
-const can = function() { let res = true
-    if (!form.waybill_no) { form_err.waybill_no = true; return false } else { form_err.waybill_no = false }
-    Object.values( form_err ).map( e => { if (e) { res = false } })
-    return res
+const funny = {
+    can: () => { let res = true
+        if (!form.phone_no) { form_err.phone_no = true; return false } else { form_err.phone_no = false }
+        if (!deiiv.value.id) { form_err.phone_no = true; form_err.chinese_name = true; form_err.english_name = true; return false } else { form_err.phone_no = false }
+        Object.values( form_err ).map( e => { if (e) { res = false } }); return res },
+    searchMan: async () => {
+        if (form.phone_no || form.chinese_name || form.english_name) {
+            const dv = await deliver_man.many_of_param(form)
+            deiiv.value = (dv && dv.length > 0) ? dv[0] : { }; funny.insert()
+        }
+    },
+    insert: () => { if (deiiv.value) { for (const k in form) { form[k] = deiiv.value[k] } } },
+    reset: (v: ONE) => { 
+        const man = v.delivery_man_info 
+        for (let k in form) { form[ k ] = man ? man[ k ] : '' } 
+        deiiv.value = man ? man : { }
+    } 
 }
 
 defineExpose({ 
-    resuit: () => (can() ? form : undefined), 
-    reset: (v: ONE) => { for (let k in form) { form[ k ] = v[ k ] } dateRef.value.ioc(v.receipt_date) } 
+    resuit: () => (funny.can() ? { delivery_man_info: deiiv.value.id } : undefined), 
+    reset: funny.reset
 })
 </script>

@@ -3,7 +3,7 @@ const TEST = false
 const TEST_IOG = true
 const TEST_PDF = false
 
-const VERSION = '1.13r'
+const VERSION = '1.14'
 
 const BASE = 'https://apex.str.manfulls.tech' // 'http://localhost:1337' // 
 const API = BASE + '/api'
@@ -58,7 +58,9 @@ const ENDPOINT = {
 
     // 运货单
     'deiivery_shop': 'normal-shop-delivery-lists',
-    'deiivery_iongiist': 'wellcome-longlists-shoplist'
+    'deiivery_iongiist': 'wellcome-longlists-shoplist',
+
+    'dash': 'dashboard'
 }
 
 export default {

@@ -1,7 +1,7 @@
 <template>
     <nav class="tr">
         <div class="w-22">
-            司機
+            送貨員
         </div>
         <div class="w-40">
             判頭名稱

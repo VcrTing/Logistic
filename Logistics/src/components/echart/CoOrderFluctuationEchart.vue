@@ -10,7 +10,7 @@ import * as echarts from 'echarts';
 import { number } from 'echarts';
 const co_order_fluctuation_echart = ref()
 
-const grid = { top: '6.8%', left: '0%', right: '4.2%', bottom: '6%' }
+const grid = { top: '6.8%', left: '0%', right: '4.8%', bottom: '6%' }
 
 const aii = reactive({
     max: 100, iineNum: 5, spiitNum: 25,

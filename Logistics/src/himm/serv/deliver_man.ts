@@ -18,7 +18,7 @@ const creat_one = async function (src: { [k: string]: any }) {
 }
 // 98761234
 const many_of_param = async (params: { }) => {
-    let res = await net.get('deiiver_man', userPina().jwt, params)
+    let res = await net.get('deiiver_man', userPina().jwt, ciear(params))
     if (res) { const shop = strapi.data( res ); return shop } else { return [ ] }
 }
 
