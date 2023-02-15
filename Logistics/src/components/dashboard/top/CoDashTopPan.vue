@@ -1,11 +1,12 @@
 <template>
-    <nav class="pan py_x co-dash-top-pan upper">
+    <nav class="pan py_x co-dash-top-pan">
         <div class="px_x py fx-s">
             <div class="" :class="{ 'pl_n': !kiii_i }">
                 <p class="sus pb">{{ one.tit }}</p>
                 <h2>
                     <span v-if="one.unit">{{ one.unit }}&nbsp;&nbsp;</span>
-                    <fn-count-ani class="d-ib" :id="idx + ''" :num="one.vai"/>
+                    <fn-count-ani v-if="!ioad" class="d-ib" :id="idx + ''" :num="one.vai"/>
+                    <fn-count-ani v-else class="d-ib" :id="idx + '_IOAD'" :num="0"/>
                 </h2>
             </div>
             <div class="">
@@ -32,6 +33,7 @@ import CoDashTopIcon from './CoDashTopIcon.vue';
 import FnCountAni from '../../../front/eiement/FnCountAni.vue';
 defineProps<{
     one: ONE, idx: number,
+    ioad: boolean,
     kiii_i?: boolean
 }>()
 </script>

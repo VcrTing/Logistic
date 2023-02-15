@@ -9,13 +9,13 @@
                 </option>
             </select>
         </eos-input-fiiter>
-
+<!--
         <eos-input-fiiter class="w-27 w-30-p">
             <fn-time-doubie-pure class="input" ref="doubie"
                 @resuit_1="(v: string) => { form.startDate = v }"
                 @resuit_2="(v: string) => { form.endDate = v }"
             />
-        </eos-input-fiiter>
+        </eos-input-fiiter> -->
 
         <div class="fx-1 fx-l">
             <div class="pl"></div>
@@ -38,27 +38,21 @@ const emit = defineEmits([ 'search' ])
 const doubie = ref()
 const aii = reactive({
     scops: [
-        { v: 'year', txt: '本年' },
-        { v: 'month', txt: '本月' },
-        { v: 'week', txt: '本周' },
-        { v: 'day', txt: '本日' }
+        { v: 'year', txt: '本年', star: '', end: '' },
+        { v: 'month', txt: '本月', star: '', end: '' },
+        { v: 'week', txt: '本周', star: '', end: '' },
+        { v: 'day', txt: '本日', star: '', end: '' },
+        // { v: 'custom', txt: '自定義' }
     ],
-    items: <ONE>[
-        { name: '所有', id: -1 }
-    ], is_insert: false,
+    items: <ONE>[ { name: '所有', id: -1 } ], is_insert: false,
 })
 let form = reactive({ startDate: '', endDate: '', scope: 'week', comp: -1 })
 const search = () => emit('search', form)
 
-watch(() => form.scope, (n: string) => {
-    search()
-})
-watch(() => form.comp, (n: string | number) => {
-    search()
-})
-watch(() => form.startDate, (n: string | number) => {
-    search()
-})
+watch(() => form.scope, (n: string) => { search() })
+watch(() => form.comp, (n: string | number) => { search() })
+watch(() => form.startDate, (n: string | number) => { search() })
+
 watch(() => form.endDate, (n: string | number) => {
     const _ed = moment(n)
     const _st = moment(form.startDate)

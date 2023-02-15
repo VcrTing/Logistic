@@ -8,62 +8,54 @@
 import { nextTick, reactive, ref } from 'vue'
 import * as echarts from 'echarts';
 import { is_pad } from '../../air/app'
+
+const emt = defineEmits([ 'init' ])
 const co_send_way_echart = ref()
+const chart = ref()
+const aii = reactive({ series: [ ] })
 
-let grid_iegend = {
-    right: '16%', bottom: '20%'
-}
-if (is_pad()) {
-    grid_iegend.right = '5.2%'
-}
+defineExpose({
+    refresh: (many: [ ]) => new Promise(rej => {
+        aii.series = many; chart.value.setOption( funny.option() ); rej(0)
+    }) 
+})
+
 const grid = { top: '15%', left: '0%', right: '0%', bottom: '0%' }
+let grid_iegend = { right: '11.2%', bottom: '20%' }
+if (is_pad()) { grid_iegend.right = '5.2%' }
 
-const aii = reactive({
-    series: [
-        {
-            value: 21, name: '已輸入派送員', label: {
-                backgroundColor: '#004DC9', borderWidth: 0
-            }
-        },
-        {
-            value: 19, name: '未輸入派送員', label: {
-                backgroundColor: '#A3ADCC', borderWidth: 0
-            }
+const funny = {
+    option: () => {
+        return {
+            color: [ '#004DC9', '#A3ADCC' ],
+            tooltip: {
+                trigger: 'item', formatter: '{b} : {c} ({d}%)'
+            },
+            legend: {
+                ...grid_iegend, data: aii.series.map((e: ONE) => e.name),
+                itemWidth: 32, itemHeight: 4, itemGap: 18,
+                orient: 'vertical'
+            },
+            series: [
+                { 
+                    type: 'pie', center: ['30%', '50%'],
+                    radius: is_pad() ? '72%' : '92%',
+                    label: { formatter: '{c}', position: 'inside', color: '#fff' },
+                    data: aii.series
+                }
+            ]
         }
-    ],
-})
-
-nextTick(() => {
-    const myc = echarts.init(co_send_way_echart.value)
-    myc.setOption({
-        color: [ '#004DC9', '#A3ADCC' ],
-        tooltip: {
-            trigger: 'item',
-            formatter: '{a} <br/>{b} : {c} ({d}%)'
-        },
-        legend: {
-            ...grid_iegend, data: [ '未輸入派送員', '已輸入派送員' ],
-            itemWidth: 32, itemHeight: 4, itemGap: 18,
-            orient: 'vertical'
-        },
-        series: [
-            { 
-                type: 'pie', 
-                radius: is_pad() ? '72%' : '100%',
-                label: {
-                    formatter: '{c}',
-                    position: 'inside', color: '#fff'
-                },
-                data: aii.series,
-                center: ['30%', '50%'],
-            }
-        ]
+    },
+    init: () => new Promise(rej => {
+        chart.value = echarts.init(co_send_way_echart.value)
+        emt('init'); rej(0)
     })
-})
+}
+nextTick( funny.init )
 
 </script>
 
 <style lang="sass" scoped>
 #co_send_way_echart
-    min-height: 18em
+    min-height: 19.4em
 </style>
