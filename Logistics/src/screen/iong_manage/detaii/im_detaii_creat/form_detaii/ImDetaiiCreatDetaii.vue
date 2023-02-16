@@ -17,7 +17,7 @@
         </div>
         <div class="py w-100 fx-l">
             <span class="pl pr_x2">是否額外收費</span>
-            <eos-switch @resuit="(v: any) => form.is_extra_fee = v ? true : false"/>
+            <eos-switch @resuit="(v: any) => form.is_extra_fee = v ? true : false" ref="ewREF"/>
         </div>
 
         <div class="pt_x2 f-row">
@@ -44,8 +44,8 @@
 // 富威花園
 // 23432345
 import { ref, reactive, defineExpose } from 'vue'
-
-const form = reactive({
+const ewREF = ref()
+const form = reactive(<ONE>{
     list_total_count: '', is_extra_fee: false, small_cross_district: '', large_cross_district: '',
     car_park: '', tunnel_fee: null, misc_fee: null, floor_count: 1, normal_order: null
 })
@@ -56,5 +56,12 @@ const can = () => { let res = true
     Object.values( form_err ).map( e => { if (e) { res = false } }); return res
 }
 
-defineExpose({ resuit: () => can() ? form : null })
+defineExpose({ 
+    resuit: () => can() ? form : null,
+    reset: (v: ONE) => {
+        for (let k in form) { form[ k ] = v[ k ] }
+        ewREF.value.ioc(v.is_extra_fee)
+        console.log('detaii 落实 form =', form)
+    }
+})
 </script>

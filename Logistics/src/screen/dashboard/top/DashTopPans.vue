@@ -3,7 +3,7 @@
         
         <eos-input-fiiter class="w-20 w-24-p">
             <select class="input" v-model="form.comp">
-                <option :value="v.id"
+                <option :value="v.uuid"
                     v-for="(v, i) in aii.items" :key="i">
                     {{ v.name }}
                 </option>
@@ -44,7 +44,7 @@ const aii = reactive({
         { v: 'day', txt: '本日', star: '', end: '' },
         // { v: 'custom', txt: '自定義' }
     ],
-    items: <ONE>[ { name: '所有', id: -1 } ], is_insert: false,
+    items: <ONE>[ { name: '所有', uuid: -1 } ], is_insert: false,
 })
 let form = reactive({ startDate: '', endDate: '', scope: 'week', comp: -1 })
 const search = () => emit('search', form)

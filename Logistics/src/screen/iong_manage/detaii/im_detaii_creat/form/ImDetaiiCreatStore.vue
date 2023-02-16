@@ -45,7 +45,7 @@ const num = ref<string>()
 const num_2 = ref<string>()
 const store_name = ref<string>()
 
-let shop = ref<{[key: string]: string}>({})
+let shop = ref<ONE>({})
 
 let funni = { code: '', code_1: '', shop_name_zh: '' }
 watch(num, async (n, o) => { funni['code'] = n + '' })
@@ -65,11 +65,19 @@ const search = async () => {
     }
 }
 
-defineExpose({ resuit: () => {
-    const src = shop.value ? shop.value : null
-    const res =  src ? src.id : null
-    if (res) { return res } else { num_err.value = true } return false
-} })
+defineExpose({ 
+    resuit: () => {
+        const src = shop.value ? shop.value : null
+        const res =  src ? src.id : null
+        if (res) { return res } else { num_err.value = true } return false
+    },
+    reset: (v: ONE) => { 
+        num.value = v.code
+        num_2.value = v.code_1
+        store_name.value = v.shop_name_zh
+        shop.value = v
+    }  
+})
 
 /*
 interface SHOP {

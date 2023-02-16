@@ -43,10 +43,8 @@ const aii = reactive({
         frm ? rtr.push(frm) : rtr.back()
     }
 })
-console.log('source =', source)
 if (source && (String(source) === '2')) {
     aii.many = orderPina().orders_print_2
-    console.log('aii.many =', aii.many)
 } else {
     aii.many = orderPina().orders_print
 }

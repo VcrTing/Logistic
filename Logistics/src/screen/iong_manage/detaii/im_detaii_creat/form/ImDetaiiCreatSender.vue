@@ -69,7 +69,7 @@ const phone_no = ref<string>()
 
 const name_err = ref<boolean>()
 
-let sender = ref<{[key: string]: string}>({})
+let sender = ref<ONE>({})
 
 let funni = { chinese_name: '', english_name: '', phone_no: '' }
 watch(name, async (n, o) => { funni['chinese_name'] = n + '' })
@@ -88,8 +88,15 @@ const search = async () => {
     }
 }
 defineExpose({ resuit: () => {
-    const src = sender.value ? sender.value : null
-    const res = src ? src.id : null
-    if (res) { return res } else { name_err.value = true } return false
-} })
+        const src = sender.value ? sender.value : null
+        const res = src ? src.id : null
+        if (res) { return res } else { name_err.value = true } return false
+    },
+    reset: (v: ONE) => { 
+        name.value = v.chinese_name
+        name_en.value = ''
+        phone_no.value = v.phone_no
+        sender.value = v
+    }     
+})
 </script>

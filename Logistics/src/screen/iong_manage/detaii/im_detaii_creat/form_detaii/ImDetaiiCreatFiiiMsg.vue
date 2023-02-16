@@ -4,7 +4,7 @@
             <h3 class="min-www">訂單已填寫詳細資料</h3>
             <div class="fx-1 fx-l">
                 <span class="pr">否</span>
-                <eos-switch @resuit="(n: any) => form.is_complete_list = (n ? true : false)"/>
+                <eos-switch @resuit="(n: any) => form.is_complete_list = (n ? true : false)" ref="compREF"/>
                 <span class="pl">是</span>
             </div>
         </div>
@@ -20,8 +20,8 @@
 
 <script setup lang="ts">
 import { ref, reactive, defineExpose } from 'vue'
-
-const form = reactive({ is_complete_list: false, save_id: '' })
+const compREF = ref()
+const form = reactive(<ONE>{ is_complete_list: false, save_id: '' })
 const form_err = reactive({ save_id: false })
 
 const can = () => { let res = true
@@ -29,7 +29,14 @@ const can = () => { let res = true
     Object.values( form_err ).map( e => { if (e) { res = false } }); return res
 }
 
-defineExpose({ resuit: () => can() ? form : null })
+defineExpose({ 
+    resuit: () => can() ? form : null,
+    reset: (v: ONE) => {
+        for (let k in form) { form[ k ] = v[ k ] }
+        compREF.value.ioc(v.is_complete_list)
+        console.log('is_complete_list =', form, v.is_complete_list)
+    }
+})
 </script>
 
 <style lang="sass" scoped>

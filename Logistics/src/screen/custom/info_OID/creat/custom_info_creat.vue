@@ -1,8 +1,8 @@
 <template>
-    <eos-iayout-screen :is_en="true">
-        <eos-iayout-form :is_en="true" 
-            @submit="submit" 
+    <eos-iayout-screen :is_en="true"
             @back="rt.push('/admin/custom_iist')">
+        <eos-iayout-form :is_en="true" 
+            @submit="submit" >
             <eos-form-paner :tit="'用户资料 Basic Infomation'">
                 <custom-info-creat-base ref="base"/>
             </eos-form-paner>

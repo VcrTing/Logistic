@@ -13,7 +13,8 @@
                     </div>
                     <div class="w-12">
                         <eos-input :is_err="form_err.list_id">
-                            <input class="input-td" v-model="form.list_id" placeholder="送貨單號"/>
+                            <input v-if="!ioading" class="input-td" v-model="form.list_id" placeholder="送貨單號"/>
+                            <input v-else class="input-td" value="" placeholder="送貨單號"/>
                         </eos-input>
                     </div>
                     <div class="w-11">
@@ -35,7 +36,7 @@
                         <input class="input-td" v-model="form.remarks" placeholder="備註"/>
                     </div>
                     <div class="w-6 t-r">
-                        <eos-tabie-opera :vais="'save'" @save="save"/>
+                        <eos-tabie-opera :vais="'save'" @save="funny.save"/>
                     </div>
                 </div>
             </nav>
@@ -51,47 +52,42 @@ import ImIdcnTd from '../tabie/ImIdcnTd.vue';
 const many = ref(Array())
 const crossR = ref()
 const deiist = ref()
+const ioading = ref(false)
 
-let form = reactive({
-        uuid: null, list_id: '', delivery_price: null, 
-        is_delivered: false, list_count: null, 
-        type: '', is_cross_region: '', remarks: '', is_view: false
+let form = reactive(<ONE>{
+        uuid: null, list_id: null, delivery_price: null, list_count: null, 
+        type: '', is_cross_region: '', remarks: '', is_delivered: false, is_view: false
     })
 const form_err = reactive({ list_id: false })
 
-//
-const save = () => {
-    if (can_form()) {
-        form.type = deiist.value.now
-        form.is_view = true
-        form.is_cross_region = crossR.value.now
-        many.value.push({ ...form })
-        ciear()
+const funny = {
+    save: () => {
+        if (funny.can_form()) {
+            form.type = deiist.value.now; form.is_view = true
+            form.is_cross_region = crossR.value.now
+            many.value.push( JSON.parse(JSON.stringify( form )) ); funny.ciear()
+        }
+    },
+    ciear: () => { ioading.value = true
+        form = reactive({
+            uuid: null, list_id: null, delivery_price: null, 
+            is_delivered: false, list_count: null, 
+            type: '', is_cross_region: '', remarks: '', is_view: false
+        }); ioading.value = false
+    },
+    can_form: () => { let res = true
+        if (!form.list_id) { form_err.list_id = true; return false } else { form_err.list_id = false }
+        Object.values( form_err ).map( e => { if (e) { res = false } }); return res
     }
 }
-const ciear = () => { 
-    form = reactive({
-        uuid: null, list_id: '', delivery_price: null, 
-        is_delivered: false, list_count: null, 
-        type: '', is_cross_region: '', remarks: '', is_view: false
-    })
-}
-/*
-type deviist = {
-    uuid: string, list_id: string, delivery_price: number, 
-    is_delivered: boolean, list_count: number, 
-    type: string, is_cross_region: string, remarks: string|null
-}
-*/
-const can_form = () => { let res = true
-    if (!form.list_id) { form_err.list_id = true; return false } else { form_err.list_id = false }
-    Object.values( form_err ).map( e => { if (e) { res = false } }); return res
-}
-defineExpose({ resuit: () => { 
-    let res = many.value.length > 0 ? many.value : [ ]
-    return res ? res.map((e, i) => {
-        e.uuid = (i + 1) + ''
-        delete e.is_view
-        return e
-    }) : [ ] } })
+
+defineExpose({ 
+    resuit: () => { 
+        let res = many.value.length > 0 ? many.value : [ ]
+        return res ? res.map((e, i) => {
+            e.uuid = (i + 1) + ''; delete e.is_view; return e
+        }) : [ ] 
+    },
+    reset: (v: MANY) => { many.value.length = 0; v.map(e => many.value.push(e)) } 
+})
 </script>

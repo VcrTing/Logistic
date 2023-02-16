@@ -1,6 +1,6 @@
 <template>
-    <eos-iayout-screen>
-        <eos-iayout-form @submit="submit" @back="rt.push('/admin/deliver_iist')">
+    <eos-iayout-screen @back="back">
+        <eos-iayout-form @submit="submit">
             <eos-form-paner :tit="'送貨員信息'">
                 <deliver-creat-base ref="base">
                     <ef-deliver-typed ref="typed" @change="changeType"/>
@@ -39,10 +39,8 @@ const submit = async function() {
     if (data_base) {
         data_base.type = typed.value.now; 
         const res = await deliver_man.creat_one({ ...data_base, ...data_car })
-        if (res) { rt.push('/admin/deliver_iist') }
+        if (res) { back() }
     }
 }
-
+const back = () => rt.push('/admin/deliver_iist')
 </script>
-
-<style lang="sass" scoped></style>

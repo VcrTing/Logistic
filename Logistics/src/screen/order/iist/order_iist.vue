@@ -1,5 +1,5 @@
 <template>
-    <eos-iayout-screen-extra :is_en="true">
+    <eos-iayout-screen-extra :is_en="true"  @back="rt.go(-1)">
         <template v-slot:opera>
             <order-iist-top-company-switch @refresh="funny.pagina(0, 0, aii.imit)"/>
         </template>
@@ -49,10 +49,10 @@ import { useRouter } from 'vue-router'
 
 // 
 const pagni = ref()
-const rtr = useRouter()
+const rt = useRouter()
 const user = userPina()
 const comp = companyPina()
-if (user.is_admin) { (!comp.company.id) ? rtr.push('/admin/company_choose') : undefined; }
+if (user.is_admin) { (!comp.company.id) ? rt.push('/admin/company_choose') : undefined; }
 
 const aii = reactive({ choose: [], who: [ ],
     ioading: true, page: <ONE>{ total: 1}, condition: <ONE>{ }, imit: 25, many: <MANY>[ ]

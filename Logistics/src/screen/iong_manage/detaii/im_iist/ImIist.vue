@@ -4,8 +4,9 @@
         <eos-iayout-tabie-siot :tit="'場表列表'">
             <template v-slot:func>
                 <div class="fx-r">
+                    <!--
                     <cp-pdf-button/>
-                    <span class="px_n"></span>
+                    <span class="px_n"></span>-->
                     <slot></slot>
                 </div>
             </template>

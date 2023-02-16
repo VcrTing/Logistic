@@ -1,7 +1,8 @@
 <template>
-    <div>
+    <div >
         <div class="co-echart" id="co_order_fluctuation_echart" ref="co_order_fluctuation_echart"></div>
     </div>
+    <div v-if="false" class="co-echart"></div>
 </template>
     
 <script lang="ts" setup>

@@ -1,6 +1,6 @@
 <template>
-    <eos-iayout-screen>
-        <eos-iayout-form @submit="submit" @back="back" :need_trash="true" @trash="trash">
+    <eos-iayout-screen @back="back">
+        <eos-iayout-form @submit="submit" :need_trash="true" @trash="trash">
             <eos-form-paner :tit="'送貨員信息'">
                 <deliver-creat-base ref="base">
                     <ef-deliver-typed ref="typed" @change="changeType"/>

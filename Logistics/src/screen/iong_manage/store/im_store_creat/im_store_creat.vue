@@ -1,6 +1,6 @@
 <template>
-    <eos-iayout-screen>
-        <eos-iayout-form @submit="submit" @back="rt.push('/admin/iong_manage/im_store_iist')">
+    <eos-iayout-screen @back="back()">
+        <eos-iayout-form @submit="submit" @back="back()">
             <eos-form-paner :tit="'基本信息'">
                 <im-store-creat-base ref="base"/>
             </eos-form-paner>
@@ -27,7 +27,6 @@ const submit = async function() {
     const data_addr = addr.value.resuit()
     if (data_base && data_addr) {
         const res = await im_manage_store.creat_one({ ...data_base, ...data_addr })
-        if (res) {
-            rt.push('/admin/iong_manage/im_store_iist')
-        } } }
+        if (res) { back() } } }
+const back = () => rt.push('/admin/iong_manage/im_store_iist')
 </script>

@@ -37,7 +37,8 @@
             </div>
 
             <div class="w-5 fx-r">
-                <eos-tabie-opera :vais="'edit'"/>
+                <!--
+                <eos-tabie-opera :vais="'edit'"/>-->
             </div>
         </eos-tabie-choose-item-td>
     </div>

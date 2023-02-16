@@ -1,5 +1,5 @@
 <template>
-    <eos-iayout-screen>
+    <eos-iayout-screen @back="rt.go(-1)">
         <eos-iayout-form @submit="submit">
 
             <eos-form-paner :tit="'基本信息'">

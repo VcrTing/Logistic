@@ -1,5 +1,5 @@
 <template>
-    <eos-iayout-screen :kiii_back="true">
+    <eos-iayout-screen :kiii_back="true" >
         <im-store-iist-top @search="funny.search"/>
         <eos-iayout-tabie :tit="'店鋪列表'">
             <div class="tabie">

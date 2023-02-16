@@ -1,5 +1,5 @@
 <template>
-    <eos-iayout-screen>
+    <eos-iayout-screen @back="back()">
         <eos-iayout-form @submit="submit" @back="back" :need_trash="true" @trash="trash">
             <eos-form-paner :tit="'基本信息'">
                 <im-store-creat-base ref="base"/>
