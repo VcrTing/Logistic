@@ -43,6 +43,7 @@ const funny = {
                 aii.condition[ 'company' ] = comp
             }
         }
+        console.log('condition =', aii.condition)
         return aii.condition
     },
     sorts: () => { aii.condition['sort[0]'] = 'createdAt:desc' },
