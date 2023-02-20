@@ -31,7 +31,7 @@
                 <span class="px_s" :class="{ 'err_son': !one.is_cancel, 'sus_son': one.is_cancel }" 
                     v-if="!is_admin"
                     @click="trash(one)">
-                    <i class="bi bi-trash"></i>
+                    <i class="bi bi-x-circle"></i>
                 </span>
                 <eos-tabie-opera 
                     :is_icon="true" 

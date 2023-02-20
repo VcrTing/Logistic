@@ -13,6 +13,10 @@
             批量上傳訂單 Upload orders in bulk
         </my-button>
 
+        <div>
+            <span class="px_s"></span>
+            <my-button v-if="!user.is_admin" :typed="'pri'" :icon="'bi-file-earmark-excel'" @click="$emit('excei')">導出 Excel Export Excel</my-button>
+        </div>
         <my-button v-if="user.is_admin" :typed="'pri-out'" :icon="'bi-file-earmark-excel'" @click="$emit('excei')">導出 Excel Export Excel</my-button>
     </div>
 </template>
