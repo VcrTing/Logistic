@@ -1,12 +1,12 @@
 <template>
     <div>
         <div class="py f-row">
-            <eos-input class="w-25 w-333-p" :is_err="form_err.chinese_name" :header="'中文名：'">
-                <input class="input" v-model="form.chinese_name" placeholder="請輸入" />
+            <eos-input class="w-50 w-666-p" :is_err="form_err.chinese_name" :header="'姓名：'">
+                <input class="input" v-model="form.chinese_name" placeholder="中文名或英文名均可" />
             </eos-input>
-            <eos-input class="w-25 w-333-p" :is_err="form_err.english_name" :header="'英文名：'">
+            <!--eos-input class="w-25 w-333-p" :is_err="form_err.english_name" :header="'英文名：'">
                 <input class="input" v-model="form.english_name" placeholder="請輸入" />
-            </eos-input>
+            </!--eos-input-->
             <eos-input class="w-25 w-333-p" :is_err="form_err.id_card_no" :header="'身份證號碼：'">
                 <input class="input" v-model="form.id_card_no" placeholder="請輸入" />
             </eos-input>

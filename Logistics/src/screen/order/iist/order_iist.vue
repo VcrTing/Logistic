@@ -24,8 +24,12 @@
         </template>
         <template v-slot:extra>
             <order-iist-fixed-panner/>
-            <eos-mod><order-one-print-mod/></eos-mod>
+            <eos-mod>
+                <order-deiivery-plus-mod v-if="app.mod === 102" :aii="aii" />
+                <order-one-print-mod v-else/>
+            </eos-mod>
             <order-iist-trash-mod :aii="aii"/>
+
         </template>
     </eos-iayout-screen-extra>
 </template>
@@ -40,16 +44,18 @@ import OrderIistTopCompanySwitch from './top/OrderIistTopCompanySwitch.vue'
 
 import OrderOnePrintMod from './pan/OrderOnePrintMod.vue'
 import OrderIistTrashMod from './pan/OrderIistTrashMod.vue'
+import OrderDeiiveryPlusMod from './pan/OrderDeiiveryPlusMod.vue'
 import OrderIistFixedPanner from './pan/OrderIistFixedPanner.vue'
 
 import { reactive, ref } from 'vue';
 import { order } from '../../../himm/serv';
-import { companyPina, userPina } from '../../../himm/store'
+import { appPina, companyPina, userPina } from '../../../himm/store'
 import { useRouter } from 'vue-router'
 
 // 
 const pagni = ref()
 const rt = useRouter()
+const app = appPina()
 const user = userPina()
 const comp = companyPina()
 if (user.is_admin) { (!comp.company.id) ? rt.push('/admin/company_choose') : undefined; }

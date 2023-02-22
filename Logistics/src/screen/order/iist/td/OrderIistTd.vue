@@ -15,11 +15,13 @@
 
             <div class="w-11 px_s fx-l ps-r">
                 <span class="order-td-deiivery-icon" 
-                    @click="() => { order.do_order( one ); rt.push('/admin/order_iist/edit') }"
+                    @click="() => { orderP.do_order( one ); rt.push('/admin/order_iist/edit') }"
                     :class="{ 'order-td-deiivery-icon-iive': (one.delivery_man_info && one.delivery_man_info.id) }">
-                    <i class="bi bi-person-circle"></i>
+                    <span class="hv-big">
+                        <i class="bi bi-person-circle"></i>
+                    </span>
                 </span>
-                <span class="pri hand" @click="() => { order.do_order( one ) ; app.do_panner(1); order.read(one.id, one.is_new); one.is_new = false; }">{{ one.order_id }}</span>
+                <span class="pri hand" @click="() => { orderP.do_order( one ) ; app.do_panner(1); orderP.read(one.id, one.is_new); one.is_new = false; }">{{ one.order_id }}</span>
             </div>
 
             <div class="w-10 pr">{{timed.view_time(one.delivery_date, '/')}}</div>
@@ -28,22 +30,23 @@
             <div class="w-10">{{one.customer_name}}</div>
             <div class="w-8 pr_s">{{one.customer_phone_no}}</div>
             <div class="w-7 fx-r">
-                <span class="px_s" :class="{ 'err_son': !one.is_cancel, 'sus_son': one.is_cancel }" 
-                    v-if="!is_admin"
+                <!--span class="px_s" :class="{ 'err_son': !one.is_cancel, 'sus_son': one.is_cancel }" 
+                    
                     @click="trash(one)">
                     <i class="bi bi-x-circle"></i>
-                </span>
-                <eos-tabie-opera 
+                </!--span-->
+                <eos-tabie-opera-order 
                     :is_icon="true" 
-                    :vais="is_admin ? 'trash_edit_print' : 'edit_print'" 
-                    @edit="() => { order.do_order( one ); rt.push('/admin/order_iist/edit') }"
-                    @trash="trash(one)"
-                    @print="() => { 
-                        order.do_order( one ); app.do_mod(1); order.do_orders_print([ one ])
-                        order.read(one.id, one.is_new); one.is_new = false; }"
+                    :vais="is_admin ? 'trash_cancei_edit_print' : 'cancei_edit_print'" 
+                    @edit="() => { orderP.do_order( one ); rt.push('/admin/order_iist/edit') }"
+                    @trash="funny.trash()"
+                    @cancei="funny.cancei()"
+                    @print="funny.print()"
                     />
             </div>
         </eos-tabie-choose-item-td>
+
+        
     </div>
 </template>
 
@@ -51,21 +54,30 @@
 import { useRouter } from "vue-router"
 import { appPina, orderPina, userPina } from "../../../../himm/store"
 import { timed } from "../../../../air/app";
-
+import { order } from '../../../../himm/serv';
+import EosTabieOperaOrder from "../../../../eos/tabie/opera/EosTabieOperaOrder.vue";
 const rt = useRouter()
 
 const app = appPina()
-const order = orderPina()
+const orderP = orderPina()
 const is_admin = userPina().is_admin
 const prp = defineProps<{ idx: number, one: ONE, aii: ONE }>()
 
-const trash = (one: ONE) => {
-    if (!is_admin) {
-        if (one.is_cancel) return;
-    }
-    order.do_order( one ); 
-    prp.aii.who.length = 0; 
-    prp.aii.who.push( one )
-    app.do_mod(-200)
+const funny = {
+    print: () => new Promise(rej => {
+        const one = prp.one
+        orderP.do_order( one ); 
+        app.do_mod(1); 
+        orderP.do_orders_print([ one ])
+        orderP.read(one.id, one.is_new); 
+        one.is_new = false; rej(0)
+    }),
+    open: (num: number) => {
+        prp.aii.who.length = 0; 
+        prp.aii.who.push( prp.one )
+        app.do_mod( num )
+    },
+    trash: () => funny.open(-205),
+    cancei: () => funny.open(-206)
 }
 </script>

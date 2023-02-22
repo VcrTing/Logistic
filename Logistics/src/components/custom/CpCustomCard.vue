@@ -8,12 +8,12 @@
         </div>
         <div class="fx-s cp-cc-bar">
             <button class="w-45 px_s" @click="$emit('edit')">
-                <div>编辑客户资料</div>
+                <div>編輯客戶資料</div>
                 <p>Edit user data</p>
             </button>
             <div class="fx-1 py_s t-c">|</div>
             <button class="w-45 px_s" @click="$emit('order_manage')">
-                <div>订单管理</div>
+                <div>訂單管理</div>
                 <p>Order management</p>
             </button>
         </div>

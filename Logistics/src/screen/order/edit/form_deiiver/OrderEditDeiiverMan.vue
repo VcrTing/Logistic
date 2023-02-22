@@ -1,21 +1,18 @@
 <template>
     <div class="py f-row">
-        <eos-input class="w-50 w-50-p" :is_err="false" :header="'中文名 Chinese name'">
+        <eos-input class="w-100" :is_err="false" :header="'姓名(中文名或英文名均可) Name (You can enter Chinese or English)'">
             <div class="ps-r">
-                <input class="input" v-model="form.chinese_name" @blur="funny.searchMan" placeholder="請輸入 Please enter" />
+                <input class="input" v-model="form.chinese_name" @blur="funny.searchMan" @keydown.enter="funny.searchMan" placeholder="輸入姓名進行搜索 Please enter the name of deliveryman" />
                 <span class="ip-vai-succ-icon" v-if="deiiv && deiiv.id">
                     <i class="bi bi-check-lg"></i>
                 </span>
             </div>
         </eos-input>
-        <eos-input class="w-50 w-50-p" :is_err="false" :header="'英文名 English name'">
-            <input class="input" v-model="form.english_name" @blur="funny.searchMan" placeholder="請輸入 Please enter" />
-        </eos-input>
     </div>
     <div class="py f-row">
-        <eos-input class="w-100" :is_err="false" :header="'電話號碼 Telephone number'">
+        <eos-input class="w-50" :is_err="false" :header="'電話號碼 Telephone number'">
             <div class="ps-r">
-                <input class="input" v-model="form.phone_no" @blur="funny.searchMan" placeholder="請輸入 Please enter" />
+                <input class="input" v-model="form.phone_no" @blur="funny.searchMan" @keydown.enter="funny.searchMan" placeholder="請輸入 Please enter" />
                 <span class="ip-vai-succ-icon" v-if="deiiv && deiiv.id">
                     <i class="bi bi-check-lg"></i>
                 </span>

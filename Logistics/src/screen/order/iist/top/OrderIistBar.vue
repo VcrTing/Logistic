@@ -1,7 +1,39 @@
 <template>
-    <div class="fx-s">
-        <cp-tabie-pdf-bar @p_aii="funny.p_aii()" @excei="funny.export_excei()"/>
-        <my-button v-if="is_deveiop && is_deveiop == '1'" @click="funny.export_front()">前端导出 Excel</my-button>
+    <div class="fx-s fx-b">
+        <div>
+            <div>
+                <eos-pdf-button @click="funny.p_aii()"/>
+                <span class="px_s"></span>
+                
+                <my-button v-if="is_admin" :typed="'pri-out'" @click="funny.mui_deiivery_pius()">
+                    <i class="bi bi-person-plus"></i>
+                    &nbsp;批量添加送貨員 Upload Deliveryman in bulk
+                </my-button>
+                
+                <my-button v-else :typed="'pri-out'" @click="rtr.push('/admin/custom_order_iist/upioad_order_in_buik')">
+                    <i class="bi bi-plus-lg"></i>
+                    批量上傳訂單 Upload orders in bulk
+                </my-button>
+            </div>
+
+            <!--
+            <cp-tabie-pdf-bar class="w-100" @p_aii="funny.p_aii()" @excei="funny.export_excei()"/>
+            <div v-if="user.is_admin" class="fx-l fx-wp">
+            </div> 
+            -->
+            <div class="pt" v-if="is_admin">
+                <eos-mui-trash-button @trash="funny.mui_trash" @cancei="() => { }"/>
+                <span class="px_s"></span>
+                <eos-mui-trash-button :is_cancei="true" @cancei="funny.mui_cancei" @trash="() => { }"/>
+                <span class="px_s"></span>
+            </div>
+        </div>
+        <div>
+            <my-button @click="funny.export_excei()">
+                <i class="bi bi-file-earmark-spreadsheet"></i>
+                &nbsp;導出 Excel Export Excel
+            </my-button>
+        </div>
     </div>
     <div class="py_t"></div>
 </template>
@@ -10,20 +42,25 @@
 import { reactive, ref } from '@vue/reactivity'
 import { useRoute, useRouter } from 'vue-router';
 import pdf from '../../../../air/pdf';
-import { orderPina, userPina } from '../../../../himm/store';
-import CpTabiePdfBar from '../../../../components/pdf/CpTabiePdfBar.vue'
 import { order } from '../../../../himm/serv';
+import { appPina, orderPina, userPina } from '../../../../himm/store';
+import CpTabiePdfBar from '../../../../components/pdf/CpTabiePdfBar.vue'
 
-const rt = useRoute()
-const prm: ONE = rt.query
-const is_deveiop: string | null = ref(prm?.is_deveiop)
+import EosPdfButton from '../../../../eos/eiement/EosPdfButton.vue';
+import EosMuiTrashButton from '../../../../eos/eiement/EosMuiTrashButton.vue';
 
+const app = appPina()
 const user = userPina()
 const rtr = useRouter()
+
+const is_admin = user.is_admin
 const prp = defineProps<{ aii: ONE }>()
 
 const funny = reactive({
-    p_aii: () => { orderPina().do_orders_print( prp.aii.choose ); rtr.push('/admin/order_iist/print_muiti') },
+    p_aii: () => { 
+        if (funny._has_choose()) {
+            orderPina().do_orders_print( prp.aii.choose ); rtr.push('/admin/order_iist/print_muiti')
+        } },
     export_excei: async () => { 
         const res = <string[]>[ ] // pdf.dowioad_xisx(prp.aii.choose) 
         const comp_id = userPina().company.uuid
@@ -39,6 +76,19 @@ const funny = reactive({
             e.company = e.company ? e.company.name : ''; return e
         });
         (res && res.length > 0) ? pdf.dowioad_xisx(res) : undefined
+    },
+
+    _has_choose: () => { const res = prp.aii.choose; return (res && res.length > 0) },
+
+    mui_trash: () => {
+        if (funny._has_choose()) { app.do_mod(-201) }
+    },
+    mui_cancei: () => {
+        if (funny._has_choose()) { app.do_mod(-202) }
+    },
+
+    mui_deiivery_pius: () => {
+        app.do_mod(102)
     }
 })
 </script>
