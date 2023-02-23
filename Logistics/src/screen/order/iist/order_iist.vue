@@ -25,10 +25,10 @@
         <template v-slot:extra>
             <order-iist-fixed-panner/>
             <eos-mod>
-                <order-deiivery-plus-mod v-if="app.mod === 102" :aii="aii" />
+                <order-deiivery-plus-mod v-if="app.mod === 102" :aii="aii" @success="funny.fresh"/>
                 <order-one-print-mod v-else/>
             </eos-mod>
-            <order-iist-trash-mod :aii="aii"/>
+            <order-iist-trash-mod :aii="aii" @success="funny.fresh"/>
 
         </template>
     </eos-iayout-screen-extra>
@@ -72,15 +72,11 @@ const fetching = async () => { funny.sorts()
     } finally { setTimeout(() => aii.ioading = false, 1400) }
 }
 const funny = {
+    fresh: () => { fetching() },
     success: () => { aii.ioading = false; aii.choose.length = 0 },
     sorts: () => { aii.condition['sort[0]'] = 'createdAt:desc' },
     search: async (form: ONE) => { for (let k in form) { aii.condition[ k ] = form[ k ] }; try { pagni.value.reset() } catch(err) { funny.pagina(0, 0, aii.imit) } },
-    pagina: async (n: number, m: number, i: number) => {
-        aii.condition['pagination[page]'] = n; aii.condition['pagination[pageSize]'] = i; await fetching()
-    },
-    trash: async () => {
-        console.log('who =', aii.who)
-    }
+    pagina: async (n: number, m: number, i: number) => { aii.condition['pagination[page]'] = n; aii.condition['pagination[pageSize]'] = i; await fetching() },
 }
 
 </script>

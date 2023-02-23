@@ -22,6 +22,7 @@ export const userPina = defineStore("userPina", {
         jwt: '',
         roie: <ONE>{ },
         user: DEF_USER,
+        // 普通用戶的 所屬公司
         company: <ONE>{ },
 
         one_user: { },

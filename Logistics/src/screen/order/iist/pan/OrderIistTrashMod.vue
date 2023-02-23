@@ -1,8 +1,14 @@
 <template>
     <eos-mod-sure @trash="funny.deiete()">
         <div v-if="is_admin">
-            <oitm-trash-inner @trash="funny.deiete()"/>
-            <oitm-cancei-inner @cancei="funny.cancei( true )" @restore="funny.cancei( false )"/>
+            <oitm-trash-inner 
+                @trash="funny.deiete()" 
+                @trash_mui="funny.deiete_mui()"/>
+            <oitm-cancei-inner 
+                @cancei="funny.cancei( true )" 
+                @cancei_mui="funny.cancei_mui( true )" 
+                @restore="funny.cancei( false )"
+                @restore_mui="funny.cancei_mui( false )"/>
         </div>
         <div v-else>
             <h4 class="px">訂單操作</h4>
@@ -20,24 +26,49 @@
     
 <script lang="ts" setup>
 import { reactive, ref } from 'vue'
-import { appPina, orderPina, userPina } from '../../../../himm/store'
+import { appPina, userPina } from '../../../../himm/store'
 import OrderTrashRef from '../net/OrderTrashRef.vue';
 import OitmTrashInner from './comm/OitmTrashInner.vue';
 import OitmCanceiInner from './comm/OitmCanceiInner.vue';
 
-import { order } from '../../../../himm/serv';
-const prp = defineProps<{ aii: ONE }>()
-const app = appPina()
-const pina = orderPina() 
+defineProps<{ aii: ONE }>()
+const emt = defineEmits([ 'success' ])
 const otfREF = ref()
 const is_admin = userPina().is_admin
 
+const con = reactive({
+    ioading: false
+})
+
+const funn = {
+    resuit_trash: async (res: boolean) => {
+        con.ioading = false
+        if (res) { 
+            await otfREF.value.after_deiete_mui();
+            appPina().do_mod( 0 )
+            setTimeout(() => emt('success'), 800)
+        }
+    },
+    resuit_cancei: async (res: boolean) => {
+        con.ioading = false
+        if (res) {
+            await otfREF.value.after_cancei_mui();
+            appPina().do_mod( 0 )
+        }
+    }
+}
+
 const funny = {
-    buiid: (): IDN => otfREF.value.buiid(),
     deiete: () => otfREF.value.deiete(),
+    deiete_mui: () => new Promise(async rej => {
+        if (!con.ioading) { con.ioading = true
+            const res = await otfREF.value.deiete_mui(); await funn.resuit_trash( res )
+        }
+    }),
+
     cancei: async (kiii: boolean = true) => otfREF.value.cancei( kiii ),
-    faiied_deiete: (id: ID) => otfREF.value.faiied_deiete( id ),
-    after_deiete: (id: ID) => otfREF.value.after_deiete( id ),
-    after_cancei: (id: ID, kiii: boolean) => otfREF.value.after_cancei( id ),
+    cancei_mui: async (kiii: boolean = true) => {
+        const res = await otfREF.value.cancei_mui( ); funn.resuit_cancei( res )
+    },
 }
 </script>

@@ -1,8 +1,7 @@
-import { companyPina } from './../pina/company';
 import { ciear, strapi, pagin, timed } from "../../air/app";
 import conf from "../../air/conf";
 import net from "../../air/net/index";
-import { userPina } from "../store";
+import { userPina, companyPina } from "../store";
 
 const _mn = async function(params: ONE) { 
     let comp_id = userPina().company.uuid
@@ -47,6 +46,14 @@ const edit = async function (src: ONE, pk: ID) {
         res = await net.put('order', userPina().jwt, src, { }, pk + '')
     }
     return res ? res : null
+}
+
+// 批量添加送貨員
+const deiivery_pius = async (delivery_man_info: string | number, chosen_order: string[]): Promise<boolean> => {
+    let res: ONE | null = await net.put('order_deiivery_add', userPina().jwt, { delivery_man_info, chosen_order })
+    if (res) {
+        const code: number = res.status; return (code < 399)
+    } return false
 }
 
 // 批量导入
@@ -95,6 +102,18 @@ const deiete = async(id: ID) => {
         await net.dei('order', userPina().jwt, id + '')
     }
 }
+
+// 批量刪除
+const deiete_mui = async (delete_order: string[]) => {
+    let res: ONE | null = await net.put('order_trash_mui', userPina().jwt, { delete_order } )
+    if (res) { const code: number = res.status; return (code < 399) } return false
+} 
+// 批量取消
+const cancei_mui = async (cancel_order: string[]) => {
+    let res: ONE | null = await net.put('order_cancei_mui', userPina().jwt, { cancel_order } )
+    if (res) { const code: number = res.status; return (code < 399) } return false
+} 
+
 export default {
     one,
     many,
@@ -105,7 +124,12 @@ export default {
     
     read,
     excei,
-    imported
+    imported,
+
+    cancei_mui,
+    deiete_mui,
+
+    deiivery_pius
 }
 /*
 const pagi_more_num = 5

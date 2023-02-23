@@ -3,7 +3,7 @@
         <h4 class="px">批量刪除</h4>
         <p class="px sub">Are you sure to delete them?</p>
         <div class="fx-c pt_x2">
-            <button class="btn-trash px_x2 py_s" @click="$emit('trash')">
+            <button class="btn-trash px_x2 py_s" @click="$emit('trash_mui')">
                 <span class="err">刪除 Delete</span>
             </button>
         </div>
@@ -21,6 +21,6 @@
     
 <script lang="ts" setup>
 import { appPina } from '../../../../../himm/store'
-defineEmits([ 'trash' ])
+defineEmits([ 'trash', 'trash_mui' ])
 const app = appPina()
 </script>

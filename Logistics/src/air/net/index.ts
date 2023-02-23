@@ -38,7 +38,7 @@ class Net extends NeTooi implements _Net {
         conf.TEST_IOG ? console.log('POST DATA =', data) : undefined;
         return await axios.post(uri, data, { headers: super.headers(token) })
     }
-    async put(endpoint: string, token: string, data: object, params: object, suffix?: string | undefined): Promise<object | null> {
+    async put(endpoint: string, token: string, data: object, params?: object, suffix?: string | undefined): Promise<object | null> {
         const uri = super.uri(API, endpoint, suffix)
         return await axios.patch(uri, data, { headers: super.headers(token), params })
     }
