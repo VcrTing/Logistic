@@ -26,7 +26,8 @@ const submit = async function() {
     const data_charge = charge.value.resuit()
     console.log(data_base, data_charge)
     if (data_base && data_charge) {
-        // const res = await company.creat({ ...data_base, ...data_charge }); res ? dump() : undefined } 
+        const res = await company.creat({ ...data_base, ...data_charge }); res ? dump() : undefined 
+        if (res) { dump() }
     }
 }
 const dump = () => rtr.push('/admin/company_iist')
