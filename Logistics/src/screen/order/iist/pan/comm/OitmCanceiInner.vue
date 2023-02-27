@@ -4,7 +4,7 @@
         <p class="px sub">Are you sure to cancel them?</p>
         <div class="fx-c pt_x2">
             <button class="btn-pri-tin px_x2 py_s" @click="$emit('cancei_mui')">
-                <span class="">取消 Cancel</span>
+                <span class="">確認 Yes</span>
             </button>
             <!--
             <span class="px_s"></span>

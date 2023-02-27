@@ -4,7 +4,7 @@
         <p class="px sub">Are you sure to delete them?</p>
         <div class="fx-c pt_x2">
             <button class="btn-trash px_x2 py_s" @click="$emit('trash_mui')">
-                <span class="err">刪除 Delete</span>
+                <span class="err">確認 Yes</span>
             </button>
         </div>
     </div>
@@ -13,7 +13,7 @@
         <p class="px sub">Are you sure to delete it?</p>
         <div class="fx-c pt_x2">
             <button class="btn-trash px_x2 py_s" @click="$emit('trash')">
-                <span class="err">刪除 Delete</span>
+                <span class="err">確認 Yes</span>
             </button>
         </div>
     </div>
