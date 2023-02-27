@@ -14,7 +14,7 @@
                         <input class="input" placeholder="請輸入"/>-->
                         <ef-deliver-typed-select class="input" ref="dtp" @change="(v: string) => form.type = v"/>
                     </eos-input-fiiter>
-                    <eos-input-fiiter class="w-25 w-333-p" :header="'判头名称:'">
+                    <eos-input-fiiter class="w-25 w-333-p" :header="'判頭名稱:'">
                         <input class="input" v-model="form.contractor_name" placeholder="請輸入"/>
                     </eos-input-fiiter>
                 </div>
