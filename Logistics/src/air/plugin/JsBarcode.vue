@@ -13,9 +13,10 @@
 import jsbarcode from 'jsbarcode'
 import { nextTick, ref } from '@vue/runtime-core'
 const prp = defineProps<{
-    code: string, idx: number, w?: number
+    code: string, idx: number, w?: number, scaie?: number
 }>()
-const w = prp.w ? prp.w : window.innerWidth
+
+const w = (prp.w ? prp.w : window.innerWidth) * (prp.scaie ? prp.scaie : 1.4)
 
 const funny = {
     option() {
@@ -23,7 +24,7 @@ const funny = {
     },
     code128() {
         return { 
-            fontSize: this.tofix(12 + (0.017304 * w)), 
+            fontSize: this.tofix(18 + (0.017304 * w)), 
             textMargin: this.tofix(1 + (0.00176 * w)), 
             width: this.tofix(0.0052 * w) // 0.0051905
         }

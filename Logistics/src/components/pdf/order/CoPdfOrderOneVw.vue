@@ -15,7 +15,7 @@
                     <td colspan="2">
                         <h6>翔烽運單編號 CF waybill number:</h6>
                         <div class="t_c pt_1">
-                            <!-- 非VW 要加 :w="444" -->
+                            <!-- 非VW 要加 :w="444" :scaie="1" -->
                             <js-barcode class="barcode" :idx="idx" :code="one.cf_waybill_no"/>
                         </div>
                     </td>
@@ -24,11 +24,11 @@
             <table class="eoop_center_tabie" border="1" cellspacing="0">
                 <tr>
                     <td rowspan="3" width="54%" class="t_t">
-                        <p class="pt_1">派送地址 Ddelivery address:</p>
-                        <h3 class="ih-h3 mh_4 eiip_x3" v-if="vaiue('address').length < 32"><!--32-->
+                        <p class="pt_1">派送地址 Delivery address:</p>
+                        <h3 class="ih-h3 mh_5 eiip_x4" v-if="vaiue('address').length < 40"><!--40-->
                             {{ vaiue('address') }}
                         </h3>
-                        <h4 class="ih-h4 mh_5" v-else-if="vaiue('address').length < 96"><!--96-->
+                        <h4 class="ih-h4 mh_6" v-else-if="vaiue('address').length < 62"><!--62-->
                             {{ vaiue('address') }}
                         </h4>
                         <h6 class="ih-h6 mh_6" v-else>
@@ -114,7 +114,7 @@
                 <tr>
                     <td class="" colspan="2">
                         <p>備註 Note:</p>
-                        <h4 class="mh_4 eiip_x3 ih-h4" v-if="vaiue('remarks').length < 70">
+                        <h4 class="mh_5 eiip_x4 ih-h4" v-if="vaiue('remarks').length < 90">
                             {{ vaiue('remarks') }}
                         </h4>
                         <h6 class="mh_5 ih-h6" v-else>
@@ -178,8 +178,8 @@ const vaiue = (k: string, def: string = '- -') => prp.one[ k ] ? prp.one[ k ] : 
     .mh_1 {  height: 1.05em }
     .mh_3 {  height: 3.12em }
     .mh_4 {  height: 4.23em }
-    .mh_5 {  height: 5.6em }
-    .mh_6 {  height: 7.32em }
+    .mh_5 {  height: 5.32em }
+    .mh_6 {  height: 7.0em }
     .mh_3, .mh_4, .mh_5, .mh_6 { overflow: hidden; }
        
     .eiip_x1, .eiip_x2, .eiip_x3, .eiip_x4 {
