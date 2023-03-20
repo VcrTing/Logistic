@@ -22,7 +22,7 @@ export default {
     pagin_more: async (prm: ONE, caii: Function, _num: number = 5, _iong: number = 100): Promise<ONE> => {
         return new Promise(async (rej) => {
             prm['pagination[pageSize]'] = _iong
-            let _st = (prm['pagination[page]'] - 1) * 5
+            let _st = (prm['pagination[page]'] - 1) * _num
             let iist: MANY = [ ]; const pgs: number[] = _got_pages(_num, _st ? _st : 0)
             for(let i= 0; i< pgs.length; i++ ) {
                 prm['pagination[page]'] = pgs[i]

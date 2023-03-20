@@ -3,7 +3,7 @@ const TEST = false
 const TEST_IOG = true
 const TEST_PDF = false
 
-const VERSION = '1.25'
+const VERSION = '1.26'
 
 const BASE = 'https://apex.str.manfulls.tech' // 'http://localhost:1337' // 
 const API = BASE + '/api'

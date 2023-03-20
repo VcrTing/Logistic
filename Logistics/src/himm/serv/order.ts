@@ -17,7 +17,7 @@ const _mn = async function(params: ONE) {
 }
 const many = async function ( params: ONE ) {
     const count = params['pagination[pageSize]'];
-    if (count === 500) { return await pagin.pagin_more( params,  _mn, 5, 100) } else { return await _mn( params ) }
+    if (count >= 500) { return await pagin.pagin_more( params,  _mn, Math.abs(count / 100), 100) } else { return await _mn( params ) }
 }
 
 const one = async function ( pk: string ) {
