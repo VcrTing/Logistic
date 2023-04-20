@@ -9,13 +9,6 @@
                 </option>
             </select>
         </eos-input-fiiter>
-<!--
-        <eos-input-fiiter class="w-27 w-30-p">
-            <fn-time-doubie-pure class="input" ref="doubie"
-                @resuit_1="(v: string) => { form.startDate = v }"
-                @resuit_2="(v: string) => { form.endDate = v }"
-            />
-        </eos-input-fiiter> -->
 
         <div class="fx-1 fx-l">
             <div class="pl"></div>
@@ -32,7 +25,6 @@
 <script setup lang="ts">
 import moment from 'moment';
 import { ref, reactive, watch } from 'vue'
-import FnTimeDoubiePure from '../../../front/ui/FnTimeDoubiePure.vue';
 const prp = defineProps<{ many: MANY }>()
 const emit = defineEmits([ 'search' ])
 const doubie = ref()

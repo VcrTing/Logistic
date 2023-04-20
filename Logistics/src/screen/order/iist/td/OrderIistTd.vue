@@ -30,14 +30,9 @@
             <div class="w-10">{{one.customer_name}}</div>
             <div class="w-8 pr_s">{{one.customer_phone_no}}</div>
             <div class="w-7 fx-r">
-                <!--span class="px_s" :class="{ 'err_son': !one.is_cancel, 'sus_son': one.is_cancel }" 
-                    
-                    @click="trash(one)">
-                    <i class="bi bi-x-circle"></i>
-                </!--span-->
                 <eos-tabie-opera-order 
                     :is_icon="true" 
-                    :vais="is_admin ? 'trash_cancei_edit_print' : 'cancei_edit_print'" 
+                    :vais="vais" 
                     @edit="() => { orderP.do_order( one ); rt.push('/admin/order_iist/edit') }"
                     @trash="funny.trash()"
                     @cancei="funny.cancei()"
@@ -45,8 +40,6 @@
                     />
             </div>
         </eos-tabie-choose-item-td>
-
-        
     </div>
 </template>
 
@@ -54,30 +47,45 @@
 import { useRouter } from "vue-router"
 import { appPina, orderPina, userPina } from "../../../../himm/store"
 import { timed } from "../../../../air/app";
-import { order } from '../../../../himm/serv';
 import EosTabieOperaOrder from "../../../../eos/tabie/opera/EosTabieOperaOrder.vue";
+import { ref } from "vue";
 const rt = useRouter()
 
 const app = appPina()
 const orderP = orderPina()
-const is_admin = userPina().is_admin
 const prp = defineProps<{ idx: number, one: ONE, aii: ONE }>()
 
+const vais = ref('print')
+
 const funny = {
+    init: () => new Promise(rej => {
+        vais.value = 
+            userPina().is_admin ? 
+            (userPina().is_manager ? 'cancei_edit_print' : 'trash_cancei_edit_print') : 
+            'cancei_edit_print';
+
+        rej(0)
+    }),
     print: () => new Promise(rej => {
         const one = prp.one
         orderP.do_order( one ); 
         app.do_mod(1); 
         orderP.do_orders_print([ one ])
         orderP.read(one.id, one.is_new); 
-        one.is_new = false; rej(0)
+        one.is_new = false; 
+        
+        rej(0)
     }),
-    open: (num: number) => {
+    open: (num: number) => new Promise(rej => {
         prp.aii.who.length = 0; 
         prp.aii.who.push( prp.one )
-        app.do_mod( num )
-    },
+        app.do_mod( num ); 
+        
+        rej(0)
+    }),
     trash: () => funny.open(-205),
     cancei: () => funny.open(-206)
 }
+
+funny.init()
 </script>

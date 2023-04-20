@@ -60,12 +60,14 @@ const fetch = async () => {
     if (!_one.id) { back() }
     const one: ONE = await order.one(_one.id)
     one.receipt_date = one.receipt_date ? one.receipt_date : timed.now()
-    base.value.reset( one ); 
-    reciv.value.reset( one ); 
-    detaii.value.reset( one );
-    is_admin ? deiiver.value.reset( one ) : undefined;
-    is_admin ? finished.value.reset( one ) : undefined;
-    // console.log('一個訂單 =', one)
+    // console.log('聯網下載的一個訂單 =', one)
+    setTimeout(() => {
+        base.value.reset( one ); 
+        reciv.value.reset( one ); 
+        detaii.value.reset( one );
+        is_admin ? deiiver.value.reset( one ) : undefined;
+        is_admin ? finished.value.reset( one ) : undefined;
+    }, 2)
 }
 
 const buiid = () => {

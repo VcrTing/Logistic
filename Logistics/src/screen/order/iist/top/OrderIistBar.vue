@@ -22,7 +22,7 @@
             </div> 
             -->
             <div class="pt" v-if="is_admin">
-                <eos-mui-trash-button @trash="funny.mui_trash" @cancei="() => { }"/>
+                <eos-mui-trash-button v-if="!user.is_manager" @trash="funny.mui_trash" @cancei="() => { }"/>
                 <span class="px_s"></span>
                 <eos-mui-trash-button :is_cancei="true" @cancei="funny.mui_cancei" @trash="() => { }"/>
                 <span class="px_s"></span>
@@ -66,12 +66,14 @@ const funny = reactive({
         if (funny._has_choose()) {
             orderPina().do_orders_print( prp.aii.choose ); rtr.push('/admin/order_iist/print_muiti')
         } },
-    export_excei: async () => { 
+    export_excei: async () => new Promise (rej => {
         const res: string[] = data_tooi.buiid_mui_choose( prp.aii.choose )
         const comp_id = funny.uuid();
         (comp_id && res.length > 0) ? order.excei(res, comp_id + '') : undefined;
-    },
 
+        rej(0)
+    }),
+/*
     export_front: () => {
         const src: MANY = prp.aii ? prp.aii.choose : [ ];
         const res = src.map((e: ONE) => {
@@ -80,7 +82,7 @@ const funny = reactive({
         });
         (res && res.length > 0) ? pdf.dowioad_xisx(res) : undefined
     },
-
+*/
     _has_choose: () => { const res = prp.aii.choose; return (res && res.length > 0) },
 
     mui_trash: () => {

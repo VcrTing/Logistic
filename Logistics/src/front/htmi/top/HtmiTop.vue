@@ -9,7 +9,7 @@
             <div class="fx-r" @click="auth">
                 <div class="user-name pr ttd hand">
                     {{ user.named }}
-                    <span v-if="user.is_admin">&nbsp;(超級管理員)</span>
+                    <span v-if="user.identity">&nbsp;({{user.identity}})</span>
                 </div>
                 <img class="user-face hand" :src="iogo()">
             </div>

@@ -58,7 +58,6 @@ const rt = useRouter()
 const app = appPina()
 const user = userPina()
 const comp = companyPina()
-if (user.is_admin) { (!comp.company.id) ? rt.push('/admin/company_choose') : undefined; }
 
 const aii = reactive({ choose: [], who: [ ],
     ioading: true, page: <ONE>{ total: 1}, condition: <ONE>{ }, imit: 25, many: <MANY>[ ]
@@ -75,8 +74,16 @@ const funny = {
     fresh: () => { fetching() },
     success: () => { aii.ioading = false; aii.choose.length = 0 },
     sorts: () => { aii.condition['sort[0]'] = 'createdAt:desc' },
-    search: async (form: ONE) => { for (let k in form) { aii.condition[ k ] = form[ k ] }; try { pagni.value.reset() } catch(err) { funny.pagina(0, 0, aii.imit) } },
+    search: async (form: ONE) => new Promise(async rej => {
+        for (let k in form) { aii.condition[ k ] = form[ k ] }; try { pagni.value.reset() } catch(err) { funny.pagina(0, 0, aii.imit) }
+        rej(0)
+    }),
     pagina: async (n: number, m: number, i: number) => { aii.condition['pagination[page]'] = n; aii.condition['pagination[pageSize]'] = i; await fetching() },
-}
 
+    init: () => new Promise(rej => {
+        if (user.is_admin) { (!comp.company.id) ? rt.push('/admin/company_choose') : undefined; }
+        rej(0)
+    })
+}
+funny.init()
 </script>

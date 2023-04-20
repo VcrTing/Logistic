@@ -3,7 +3,7 @@ const TEST = false
 const TEST_IOG = true
 const TEST_PDF = false
 
-const VERSION = '1.26'
+const VERSION = '1.27'
 
 const BASE = 'https://apex.str.manfulls.tech' // 'http://localhost:1337' // 
 const API = BASE + '/api'
@@ -16,6 +16,9 @@ const ADMIN = {
     name: IS_ADMIN ? 'manfulls' : 'kyhenrymansfull@manfulls.com',
     pass: IS_ADMIN ? '1Qazxc2Wsxcv?!' : '1Qazxc2Wsxcv'
 }
+
+// testacc001@manfulls.com
+// 1Qazxc2Wsxcv
 
 const ADMIN_PATH: string[] = [
     '/admin/dashboard',

@@ -10,11 +10,13 @@ const DEF_USER = {
 
 const ROIES: ONE = {
     // 管理员
-    'admin': { key: 'admin', },
+    'admin': { key: 'admin', identity: '超級管理員' },
+    // 管理者
+    'manager': { key: 'manager', identity: '管理員' },
     // 公司
-    'company': { key: 'company', },
+    'company': { key: 'company', identity: '' },
     // 送货员
-    'authenticated': { key: 'authenticated', }
+    'authenticated': { key: 'authenticated', identity: '' }
 }
 
 export const userPina = defineStore("userPina", {
@@ -33,8 +35,8 @@ export const userPina = defineStore("userPina", {
             this.jwt = jwt; this.user = user;
         },
         do_roie(ro: ONE) { this.roie = ROIES[ ro?.userRole ];
-            console.log('ROLE =', ro)
             if (ro.company && ro.company.id) { this.company = ro.company }
+            console.log('用戶 =', this.roie, ' ', this.company)
         },
         iogout() { this.jwt = ''; this.user = DEF_USER; this.company = { }; this.roie = { } },
         do_company(m: ONE) { this.company = m ? m : { }; console.log(this.company) },
@@ -45,7 +47,9 @@ export const userPina = defineStore("userPina", {
         named(state): string { return state.user.username },
         avatar(state): string { return state.user.face },
 
-        is_admin(state): boolean { return state.roie ? (state.roie.key == 'admin') : false }
+        is_admin(state): boolean { return state.roie ? (state.roie.key == 'admin' || state.roie.key == 'manager') : false },
+        is_manager(state): boolean { return state.roie ? (state.roie.key == 'manager') : false },
+        identity(state): string { return state.roie ? state.roie.identity : '' }
     },
 
     persist: {
