@@ -27,11 +27,11 @@
             <div class="w-9">
                 收件人<br/><p class="tr-en">Recipient</p>
             </div>
-            <div class="w-7">
+            <div class="w-7 w-8-p">
                 收件電話<br/><p class="tr-en">Phone</p>
             </div>
 
-            <div class="w-3 w-4-p"></div>
+            <div class="w-3"></div>
             <!--
             <div class="w-16 ">
                 地址<br/><p class="tr-en">Address</p>

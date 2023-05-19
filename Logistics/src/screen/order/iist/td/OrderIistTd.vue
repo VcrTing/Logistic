@@ -28,9 +28,9 @@
             <div class="w-8 pr_s">{{timed.view_time(one.receipt_date, '/')}}</div>
 
             <div class="w-9">{{one.customer_name}}</div>
-            <div class="w-7 pr_s">{{one.customer_phone_no}}</div>
+            <div class="w-7 w-8-p pr_s">{{one.customer_phone_no}}</div>
 
-            <div class="w-4-p w-3 fx-c">
+            <div class="w-3 fx-c">
                 <i class="bi bi-lightbulb-fill buib" v-if="one.is_complete_list"></i>
                 <i class="bi bi-lightbulb" v-else></i>
             </div>
