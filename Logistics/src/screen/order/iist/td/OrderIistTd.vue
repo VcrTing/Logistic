@@ -9,11 +9,11 @@
         <eos-tabie-choose-item-td :one="one" :aii="aii">
             <div class="w-9">{{timed.view_time(one.create_date, '/')}}</div>
             <div class="w-13 pr_s">{{one.cf_waybill_no}}</div>
-            <div class="w-11 pr_s">{{one.waybill_no}}</div>
+            <div class="w-13 pr_s">{{one.waybill_no}}</div>
 
             <div class="w-10 pr">{{one.order_group}}</div>
 
-            <div class="w-11 w-10-p px_s fx-l ps-r">
+            <div class="w-12 w-11-p px_s fx-l ps-r">
                 <span class="order-td-deiivery-icon" 
                     @click="() => { orderP.do_order( one ); rt.push('/admin/order_iist/edit') }"
                     :class="{ 'order-td-deiivery-icon-iive': (one.delivery_man_info && one.delivery_man_info.id) }">
@@ -24,11 +24,11 @@
                 <span class="pri hand" @click="() => { orderP.do_order( one ) ; app.do_panner(1); orderP.read(one.id, one.is_new); one.is_new = false; }">{{ one.order_id }}</span>
             </div>
 
-            <div class="w-10 pr">{{timed.view_time(one.delivery_date, '/')}}</div>
-            <div class="w-9 pr_s">{{timed.view_time(one.receipt_date, '/')}}</div>
+            <div class="w-9 pr">{{timed.view_time(one.delivery_date, '/')}}</div>
+            <div class="w-8 pr_s">{{timed.view_time(one.receipt_date, '/')}}</div>
 
             <div class="w-9">{{one.customer_name}}</div>
-            <div class="w-8 pr_s">{{one.customer_phone_no}}</div>
+            <div class="w-7 pr_s">{{one.customer_phone_no}}</div>
 
             <div class="w-4-p w-3 fx-c">
                 <i class="bi bi-lightbulb-fill buib" v-if="one.is_complete_list"></i>
