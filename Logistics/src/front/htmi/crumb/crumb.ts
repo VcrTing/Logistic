@@ -35,6 +35,8 @@ const CRUMB_HK = <ONE> {
     'upioad_order_in_buik': '批量上傳訂單',
 
     'print_muiti': '多項印列',
+
+    'search_order_in_buik': '批量訂單搜索'
 }
 const CRUMB_EN = <ONE> {
     'edit': 'Edit',

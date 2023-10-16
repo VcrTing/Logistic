@@ -40,6 +40,8 @@ class Net extends NeTooi implements _Net {
     }
     async put(endpoint: string, token: string, data: object, params?: object, suffix?: string | undefined): Promise<object | null> {
         const uri = super.uri(API, endpoint, suffix)
+        conf.TEST_IOG ? console.log('PUT uri =', uri) : undefined;
+        conf.TEST_IOG ? console.log('PUT DATA =', data) : undefined;
         return await axios.patch(uri, data, { headers: super.headers(token), params })
     }
 

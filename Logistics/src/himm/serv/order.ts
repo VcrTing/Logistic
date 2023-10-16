@@ -114,6 +114,14 @@ const cancei_mui = async (cancel_order: string[]) => {
     if (res) { const code: number = res.status; return (code < 399) } return false
 } 
 
+// 批量修改 訂單狀態
+
+const status_mui = async (chosen_order: string[], change_to: boolean, change_status: string) => {
+    let res: ONE | null = await net.put('order_status_mui', userPina().jwt, { chosen_order, change_to, change_status } )
+    conf.TEST ? console.log("批量訂單修改狀態 =", res) : undefined;
+    if (res) { const code: number = res.status; return (code < 399) } return false
+}
+
 export default {
     one,
     many,
@@ -125,6 +133,8 @@ export default {
     read,
     excei,
     imported,
+
+    status_mui,
 
     cancei_mui,
     deiete_mui,

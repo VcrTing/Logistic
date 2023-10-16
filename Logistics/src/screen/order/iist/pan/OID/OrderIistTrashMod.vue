@@ -33,10 +33,10 @@
 </template>
     
 <script lang="ts" setup>
-import { reactive, ref } from 'vue'
+import { ref } from 'vue'
 import { appPina, orderPina, userPina } from '../../../../../himm/store'
 import OrderTrashRef from '../net/OrderTrashRef.vue';
-import { order } from '../../../../../himm/serv';
+// import { order } from '../../../../../himm/serv';
 const prp = defineProps<{ aii: ONE }>()
 const pina = orderPina() 
 const otfREF = ref()

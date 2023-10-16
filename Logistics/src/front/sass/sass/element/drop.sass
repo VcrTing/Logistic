@@ -6,19 +6,19 @@ $drop_bxs: rgba(11, 20, 26, .26)
 ._drop_inner
     position: absolute
     overflow: hidden
-    z-index: 500
+    z-index: 301
     width: 100%
     @extend .br
     padding: 0
 
 .dropdown
     position: relative
-
     .drop-inner
         box-shadow: 0.8px 1.5px 8px -0.5px rgba(0, 0, 0, 0.18)
         @extend ._drop_inner
         background: #FFF
         max-height: 0em
+        overflow-y: scroll !important
         .drop-inner-item
             padding: $ds_n $ds_x2
             cursor: pointer
@@ -42,7 +42,7 @@ $drop_bxs: rgba(11, 20, 26, .26)
         max-height: 0em
     100%
         padding: $ds 0
-        max-height: 20em
+        max-height: 40em
         
 ///import css-variables from 
 

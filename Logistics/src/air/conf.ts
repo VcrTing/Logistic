@@ -3,7 +3,7 @@ const TEST = false
 const TEST_IOG = true
 const TEST_PDF = false
 
-const VERSION = '1.28'
+const VERSION = '1.30'
 
 const BASE = 'https://apex.str.manfulls.tech' // 'http://localhost:1337' // 
 const API = BASE + '/api'
@@ -16,6 +16,7 @@ const ADMIN = {
     name: IS_ADMIN ? 'manfulls' : 'kyhenrymansfull@manfulls.com',
     pass: IS_ADMIN ? '1Qazxc2Wsxcv?!' : '1Qazxc2Wsxcv'
 }
+// support@manfulls.com
 
 // testacc001@manfulls.com
 // 1Qazxc2Wsxcv
@@ -67,7 +68,9 @@ const ENDPOINT = {
     'deiivery_shop': 'normal-shop-delivery-lists',
     'deiivery_iongiist': 'wellcome-longlists-shoplist',
 
-    'dash': 'dashboard'
+    'dash': 'dashboard',
+
+    'order_status_mui': 'order_lists_multiple_status'
 }
 
 export default {
@@ -102,3 +105,6 @@ declare interface Company {
     address: string,
     phone_no: string,
 }
+
+
+declare interface ORDER_ITEM { __idx: number, __code: string, __msg: string, __data: null|ONE, __show: boolean, __ioad: boolean, __using: boolean }

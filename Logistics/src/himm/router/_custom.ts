@@ -12,7 +12,8 @@ const custom_iist_in = (pfx: string) => __(pfx, () => import('../../screen/custo
 */
 // order
 const custom_order_in = (pfx: string) => __(pfx, () => import('../../screen/custom/custom.vue'), [
-    __(pfx + '/upioad_order_in_buik', () => import('../../screen/custom/upioad/order_in_buik/CuOrderInBuik.vue'))
+    __(pfx + '/upioad_order_in_buik', () => import('../../screen/custom/upioad/order_in_buik/CuOrderInBuik.vue')),
+    __(pfx + '/search_order_in_buik', () => import('../../screen/order/search/order_iist_search.vue'))
 ])
 
 // Custom User

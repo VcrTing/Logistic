@@ -26,9 +26,7 @@ import { useRouter } from 'vue-router';
 defineProps<{ items: MANY }>()
 const router = useRouter()
 
-const dump = (rt: string|null) => {
-    if (rt) { router.push(rt) }
-}
+const dump = (rt: string|null) => { if (rt) { router.push(rt) } }
 
 const is_many = (v: ONE) => { const _c: MANY = v.children; return _c && _c.length > 0 }
 </script>

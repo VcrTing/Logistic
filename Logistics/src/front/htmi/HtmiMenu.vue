@@ -17,14 +17,13 @@
 <script setup lang="ts">
 import conf from '../../air/conf'
 import { anime } from '../../air/app'
-import { appPina, userPina } from '../../himm/store'
+import { userPina } from '../../himm/store'
 import Iogo from '../static/Iogo.vue'
 import HtmiMenuInner from './menu/HtmiMenuInner.vue'
-import IOGO from '../../assets/LOGO.png'
 
 import { menu_admin } from './htmi_admin' 
 import { menu_user } from './htmi_user'
-import { reactive, ref } from '@vue/reactivity'
+import { reactive } from '@vue/reactivity'
 const user = userPina()
 const aii = reactive({ menus: <MANY>[ ] })
 

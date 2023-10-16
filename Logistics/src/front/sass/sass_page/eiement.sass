@@ -1,5 +1,20 @@
 
-    
+._dropdown_btn
+    width: 100%
+    color: $tit
+    text-align: left
+    padding: $ds_n 0 !important
+    padding-left: $ds_x2 !important
+    &:hover
+        color: $pri
+    &:active,
+    &:focus-visible
+        border-color: $pri
+        background: $pri_tin
+    &:focus
+        color: $pri
+        background: $pri_tin
+
 .eos-print-drop, 
 .eos-company-switch-drop
     .dropdown
@@ -19,25 +34,23 @@
     ////R
     .drop-inner
         button
-            width: 100%
-            color: $tit
-            text-align: left
-            padding: $ds_n 0 !important
-            padding-left: $ds_x2 !important
-            &:hover
-                color: $pri
-            &:active,
-            &:focus-visible
-                border-color: $pri
-                background: $pri_tin
-            &:focus
-                color: $pri
-                background: $pri_tin
+            @extend ._dropdown_btn
                 
     .eos-print-drop-trig
         padding: $ds_n $ds_x2
         overflow: hidden
         @extend .br
+
+//    
+.eos-order-status-switch-drop
+    .drop-inner
+        button
+            @extend ._dropdown_btn
+    .dropdown
+        &:hover
+            .drop-inner
+                max-height: 20em
+                transition: all .362s ease-in-out
 
 //   
 .eos-upioad-button
@@ -69,6 +82,45 @@
         transform: translate(3.8em, 0px) scale(1.03)
 .bi-truck
     transform: scale(1.5) !important
+
+// 加載
+
+.ani-o-ioad-cir
+    animation: ani_o_ioad_cir 2s ease-in-out infinite
+
+@keyframes ani_o_ioad_cir
+    0%
+        transform: rotate(0deg)
+    100%
+        transform: rotate(360deg)
+
+._o-ioad-cir-bd
+    border: 2px solid transparent
+    border-left-color: transparent !important
+    border-right-color: transparent !important
+
+.o-ioad-cir
+    position: relative
+    width: 1em
+    height: 1em
+    @extend .ani-o-ioad-cir
+    & > div
+        transition: all .242s ease-in-out
+        @extend .abs-c
+        width: 1.2em
+        height: 1.2em
+        background: none
+        border-radius: 100%
+
+.o-ioad-cir-def > div,
+.o-ioad-cir-pri > div,
+.o-ioad-cir-wht > div
+        @extend ._o-ioad-cir-bd
+
+.o-ioad-cir-pri > div
+    border-color: $pri
+    &:hover
+        border-color: $pri-hv
 
 // same
 .fn-same-h-pans

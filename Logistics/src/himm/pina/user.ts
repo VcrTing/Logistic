@@ -43,11 +43,12 @@ export const userPina = defineStore("userPina", {
         do_one_user(m: ONE) { this.one_user = m ? m : { } },
     },
     getters: {
+        is_admin(state): boolean { return state.roie ? (state.roie.key == 'admin' || state.roie.key == 'manager') : false },
+        
         is_iogin(state) { return state.jwt },
         named(state): string { return state.user.username },
         avatar(state): string { return state.user.face },
 
-        is_admin(state): boolean { return state.roie ? (state.roie.key == 'admin' || state.roie.key == 'manager') : false },
         is_manager(state): boolean { return state.roie ? (state.roie.key == 'manager') : false },
         identity(state): string { return state.roie ? state.roie.identity : '' }
     },

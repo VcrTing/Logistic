@@ -1,5 +1,5 @@
 <template>
-    <eos-iayout-screen :is_en="true" @back="back">
+    <eos-iayout-screen :is_en="true" @back="rtr.back()">
         <eos-iayout-form :is_en="true" @submit="submit" @back="back">
             <eos-form-paner :tit="'基本信息 Basic information'">
                 <order-edit-base ref="base"/>
@@ -19,9 +19,8 @@
                     <order-edit-deiiver-man ref="deiiver"/>
                 </eos-form-paner>
                 <div class="py_row"></div>
-                <nav class="panner">
-                    <order-edit-finished ref="finished"/>
-                </nav>
+                
+                <order-edit-finished ref="finished"/>
             </div>
             <div v-else>
                 <div ref="deiiver"></div>
@@ -60,13 +59,15 @@ const fetch = async () => {
     if (!_one.id) { back() }
     const one: ONE = await order.one(_one.id)
     one.receipt_date = one.receipt_date ? one.receipt_date : timed.now()
-    // console.log('聯網下載的一個訂單 =', one)
+    console.log('聯網下載的一個訂單 =', one)
     setTimeout(() => {
-        base.value.reset( one ); 
-        reciv.value.reset( one ); 
-        detaii.value.reset( one );
-        is_admin ? deiiver.value.reset( one ) : undefined;
-        is_admin ? finished.value.reset( one ) : undefined;
+        try {
+            base.value.reset( one ); 
+            reciv.value.reset( one ); 
+            detaii.value.reset( one );
+            is_admin ? deiiver.value.reset( one ) : undefined;
+            is_admin ? finished.value.reset( one ) : undefined;
+        } catch(_) { }
     }, 2)
 }
 
@@ -88,8 +89,9 @@ const buiid = () => {
 
 const submit = async function() {
     const prms = buiid()
-    // console.log(prms)
-    if (prms) { const res = await order.edit(prms, _one.id); if (res) { back() } } }
+    console.log(prms)
+    if (prms) { const res = await order.edit(prms, _one.id); if (res) { back() } } 
+}
 nextTick(async () => { await fetch() })
 const back = () => rtr.push('/admin/order_iist')
 

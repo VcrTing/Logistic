@@ -33,17 +33,45 @@ import CoDeiivermanPius from '../../../../components/deiiver/CoDeiivermanPius.vu
 import { order } from '../../../../himm/serv';
 import { appPina } from '../../../../himm/store';
 import { data_tooi } from '../../../../air/app';
+
 const deiiv = ref()
 const prp = defineProps<{ aii: ONE }>()
 const emt = defineEmits([ 'success' ])
 
-const aii = reactive({
-    msg: '', ioading: false
-})
+const aii = reactive({ msg: '', ioading: false, man: <ONE>{ } })
 
 const funn = {
     buiid: () => data_tooi.buiid_mui_choose( prp.aii.choose ),
-    succ: () => { appPina().do_mod( 0 ); emt('success'); aii.msg = '' },
+
+    feakdeiiveryman: () => new Promise(async (rej) => {
+        const cs: MANY = data_tooi.buiid_finai_choose( prp.aii.choose )
+        const ms: MANY = prp.aii.many
+
+        // console.log('man =', aii.man)
+
+        if (aii.man && aii.man.id) {
+            const _L = ms.length
+            const _L_S = cs.length
+
+            for(let i= 0; i< _L; i ++) {
+                const m: ONE = ms[i]
+
+                for(let j= 0; j< _L_S; j ++) {
+                    const c: ONE = cs[j]
+
+                    if (c.id == m.id) {
+
+                        m.delivery_man_info = aii.man
+                    }
+                }
+            }
+
+        } rej(0)
+    }),
+    
+    succ: () => { 
+        funn.feakdeiiveryman(); appPina().do_mod( 0 ); emt('success'); aii.msg = '' 
+    },
 
     submit: async () => new Promise(async rej => {
         if (!aii.ioading) {
@@ -51,6 +79,7 @@ const funn = {
             if (items.length > 0) {
                 const one = deiiv.value.resuit()
                 if (one) {
+                    aii.man = one
                     const res = await order.deiivery_pius(one['id'], items )
                     if (res) { 
                         funn.succ(); rej( 1 )

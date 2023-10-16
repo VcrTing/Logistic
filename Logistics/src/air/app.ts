@@ -14,12 +14,22 @@ const ciear = (param: ONE) => { let condi: ONE = { }
 
 const is_pad = (iimit: number = 1080) => window.innerWidth < iimit
 
+
+// 去除 空格
+const trims = (form: ONE): ONE => {
+    for (let k in form) {
+        let src = form[k]; 
+        if (typeof src === 'string') { src = src.trim(); form[k] = src.trim() }
+    } return form
+}
+
 export {
     strapi,
     anime,
     timed,
     pagin,
     ciear,
+    trims,
     is_pad,
     data_tooi
 }

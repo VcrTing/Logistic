@@ -7,7 +7,6 @@
 </template>
     
 <script lang="ts" setup>
-import { reactive } from 'vue'
 import EosCompanySwitchDrop from '../../../../eos/eiement/EosCompanySwitchDrop.vue';
 import { companyPina, userPina } from '../../../../himm/store';
 defineEmits([ 'refresh' ])

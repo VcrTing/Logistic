@@ -2,7 +2,7 @@
     <div class="fx-s fs_s" v-if="!aii.running">
         <div class="fx-l sub">
             <input id="checkbox_auto_iogin" v-model="aii.auto_iogin" type="checkbox"/>
-            <label for="checkbox_auto_iogin" class="pl_s">請記住我</label>
+            <label for="checkbox_auto_iogin" class="pl_s">請記住我 Remember me</label>
         </div>
         <div class="t-r pri_son hand">
             忘記密碼&nbsp;Forgot password?

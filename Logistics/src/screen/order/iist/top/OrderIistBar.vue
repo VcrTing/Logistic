@@ -1,10 +1,11 @@
 <template>
     <div class="fx-s fx-b">
-        <div>
+        <div class="fx-1">
             <div>
                 <eos-pdf-button @click="funny.p_aii()"/>
                 <span class="px_s"></span>
                 
+                <!-- 功能區 1 -->
                 <my-button v-if="is_admin" :typed="'pri-out'" @click="funny.mui_deiivery_pius()">
                     <i class="bi bi-person-plus"></i>
                     &nbsp;批量添加送貨員 Upload Deliveryman in bulk
@@ -14,6 +15,15 @@
                     <i class="bi bi-plus-lg"></i>
                     批量上傳訂單 Upload orders in bulk
                 </my-button>
+
+                <!-- 功能區 2 -->
+                <!--
+                <my-button>
+                    <i class="bi bi-stack"></i> 批量修改狀態 Batch change status
+                </my-button>
+                -->
+                <span class="px_s"></span>
+                <eos-order-status-switch-drop @resuit="funny.mui_order_status"/>
             </div>
 
             <!--
@@ -21,6 +31,7 @@
             <div v-if="user.is_admin" class="fx-l fx-wp">
             </div> 
             -->
+
             <div class="pt" v-if="is_admin">
                 <eos-mui-trash-button v-if="!user.is_manager" @trash="funny.mui_trash" @cancei="() => { }"/>
                 <span class="px_s"></span>
@@ -39,16 +50,18 @@
 </template>
     
 <script lang="ts" setup>
-import { reactive, ref } from '@vue/reactivity'
-import { useRoute, useRouter } from 'vue-router';
-import pdf from '../../../../air/pdf';
+import { reactive } from '@vue/reactivity'
+import { useRouter } from 'vue-router';
+// import pdf from '../../../../air/pdf';
 import { order } from '../../../../himm/serv';
 import { appPina, companyPina, orderPina, userPina } from '../../../../himm/store';
-import CpTabiePdfBar from '../../../../components/pdf/CpTabiePdfBar.vue'
+// import CpTabiePdfBar from '../../../../components/pdf/CpTabiePdfBar.vue'
+import EosOrderStatusSwitchDrop from '../../../../eos/eiement/EosOrderStatusSwitchDrop.vue';
 
 import EosPdfButton from '../../../../eos/eiement/EosPdfButton.vue';
 import EosMuiTrashButton from '../../../../eos/eiement/EosMuiTrashButton.vue';
 import { data_tooi } from '../../../../air/app';
+import conf from '../../../../air/conf';
 
 const app = appPina()
 const user = userPina()
@@ -57,6 +70,8 @@ const rtr = useRouter()
 const is_admin = user.is_admin
 const prp = defineProps<{ aii: ONE }>()
 
+const emt = defineEmits([ 'refresh' ])
+
 const funny = reactive({
     uuid: () => {
         const company = is_admin ? companyPina().company : userPina().company
@@ -64,7 +79,7 @@ const funny = reactive({
     },
     p_aii: () => { 
         if (funny._has_choose()) {
-            orderPina().do_orders_print( prp.aii.choose ); rtr.push('/admin/order_iist/print_muiti')
+            orderPina().do_orders_print( data_tooi.buiid_finai_choose(prp.aii.choose) ); rtr.push('/admin/order_iist/print_muiti')
         } },
     export_excei: async () => new Promise (rej => {
         const res: string[] = data_tooi.buiid_mui_choose( prp.aii.choose )
@@ -73,17 +88,8 @@ const funny = reactive({
 
         rej(0)
     }),
-/*
-    export_front: () => {
-        const src: MANY = prp.aii ? prp.aii.choose : [ ];
-        const res = src.map((e: ONE) => {
-            for (let k in e) { e[k] = e[k] ? e[k] : '' }
-            e.company = e.company ? e.company.name : ''; return e
-        });
-        (res && res.length > 0) ? pdf.dowioad_xisx(res) : undefined
-    },
-*/
-    _has_choose: () => { const res = prp.aii.choose; return (res && res.length > 0) },
+
+    _has_choose: () => { const res = data_tooi.buiid_finai_choose(prp.aii.choose); return (res && res.length > 0) },
 
     mui_trash: () => {
         if (funny._has_choose()) { app.do_mod(-201) }
@@ -94,6 +100,48 @@ const funny = reactive({
 
     mui_deiivery_pius: () => {
         if (funny._has_choose()) { app.do_mod(102) }
+    },
+
+    mui_order_status: (name: string, change_to: boolean) => new Promise(async (rej) => {
+        const res: string[] = data_tooi.buiid_mui_choose( prp.aii.choose )
+        conf.TEST ? console.log(res, change_to, name) : undefined;
+        if (res.length > 0) {
+            const web: boolean = await order.status_mui(res, change_to, name)
+            appPina().do_mod(0)
+            emt('refresh'); funny.feakchangestatus(name, change_to)
+        }
+        rej(0)
+    }),
+    feakchangestatus: (name: string, change_to: boolean) => {
+        const src: MANY = data_tooi.buiid_finai_choose(prp.aii.choose)
+        const _L_S: number = src.length
+
+        const m: MANY = prp.aii.many
+        const _L: number = m.length
+
+        for(let i= 0; i< _L; i ++ ) {
+            const o: ONE = m[i]
+
+            for(let j= 0; j< _L_S; j ++ ) {
+                const x: ONE = src[j]
+
+                if (o['cf_waybill_no'] == x['cf_waybill_no']) {
+
+                    o[name] = change_to
+                }
+            }
+        }
     }
 })
+
+/*
+    export_front: () => {
+        const src: MANY = prp.aii ? prp.aii.choose : [ ];
+        const res = src.map((e: ONE) => {
+            for (let k in e) { e[k] = e[k] ? e[k] : '' }
+            e.company = e.company ? e.company.name : ''; return e
+        });
+        (res && res.length > 0) ? pdf.dowioad_xisx(res) : undefined
+    },
+*/
 </script>

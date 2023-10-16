@@ -7,10 +7,9 @@
 </template>
     
 <script lang="ts" setup>
-import { nextTick, reactive } from 'vue'
+import { reactive } from 'vue'
 import EosWidgetIayout from '../../eos/widget/EosWidgetIayout.vue';
 import CoPdfOrderOneVw from '../../components/pdf/order/CoPdfOrderOneVw.vue'
-import conf from '../../air/conf';
 const aii = reactive({ many: <MANY>[ ] })
 
 const funny = {

@@ -69,7 +69,7 @@ const funny = {
             userPina().is_admin ? 
             (userPina().is_manager ? 'cancei_edit_print' : 'trash_cancei_edit_print') : 
             'cancei_edit_print';
-        console.log('ONE =', prp.one)
+        // console.log('ONE =', prp.one)
         rej(0)
     }),
     print: () => new Promise(rej => {

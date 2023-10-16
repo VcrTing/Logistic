@@ -40,7 +40,10 @@
         <div class="pb_x2">
             <h5>地址</h5>
             <div class="pt_x" v-if="userPina().is_admin">
-                送貨員 Delivery men:&nbsp;&nbsp;{{ vaiue('delivery_man_info.chinese_name') }}
+                送貨員 Delivery men:&nbsp;&nbsp;
+                <div class="d-ib" v-if="one.delivery_man_info">
+                    {{ one.delivery_man_info.chinese_name }}
+                </div>
             </div>
             <div class="f-row fx-l pt pb_x">
                 <ui-vaiue class="w-45" :header="'地域 District:'" :is_txt_mode="true">
@@ -83,6 +86,7 @@ const prp = defineProps<{
 }>()
 
 const vaiue = (k: string, def: string = '') => {
+    // console.log('ONE =', prp.one)
     return prp.one[k] ? prp.one[k] : def
 }
 </script>

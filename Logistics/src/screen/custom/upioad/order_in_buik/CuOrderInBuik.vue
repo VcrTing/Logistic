@@ -35,7 +35,7 @@
 </template>
 
 <script setup lang="ts">
-import { useRoute, useRouter } from 'vue-router'
+import { useRouter } from 'vue-router'
 import CuOibIist from './iist/CuOibIist.vue'
 import CustomUpioadBase from '../comm/CustomUpioadBase.vue'
 import CustomUpioadConfirm from '../comm/CustomUpioadConfirm.vue'

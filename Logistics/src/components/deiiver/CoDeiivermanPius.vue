@@ -115,7 +115,7 @@ const funny_eie = {
 }
 
 defineExpose({ 
-    resuit: () => (funny_eie.can() ? { delivery_man_info: aii.deiiv.id, id: aii.deiiv.id } : undefined), 
+    resuit: () => (funny_eie.can() ? { delivery_man_info: aii.deiiv.id, id: aii.deiiv.id, chinese_name: aii.deiiv.chinese_name } : undefined), 
     reset: funny_eie.reset
 })
 </script>
