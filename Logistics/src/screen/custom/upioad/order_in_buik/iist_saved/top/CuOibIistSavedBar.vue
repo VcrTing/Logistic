@@ -15,13 +15,14 @@ const rtr = useRouter()
 const prp = defineProps<{ aii: ONE }>()
 
 const funny = reactive({
-    p_aii: () => {
+    p_aii: () => new Promise((rej) => {
         const cos: MANY = prp.aii.choose ? prp.aii.choose : [ ]
         if (cos && cos.length > 0) {
             orderPina().do_orders_print_2(cos)
             const rts = rtr.resolve({ path: '/admin/order_iist/print_muiti', }); 
-            setTimeout(() => window.open(rts.href + '?from=' + rt.path + '&source=2', '_blank'), 200)
+            setTimeout(() => window.open(rts.href + '?from=' + rt.path + '&source=2', '_blank'), 400)
         }
-    }
+        rej(0)
+    })
 })
 </script>

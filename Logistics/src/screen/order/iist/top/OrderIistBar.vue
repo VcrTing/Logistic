@@ -77,10 +77,13 @@ const funny = reactive({
         const company = is_admin ? companyPina().company : userPina().company
         return company ? company.uuid : null
     },
-    p_aii: () => { 
+    p_aii: () => new Promise((rej) => { 
         if (funny._has_choose()) {
-            orderPina().do_orders_print( data_tooi.buiid_finai_choose(prp.aii.choose) ); rtr.push('/admin/order_iist/print_muiti')
-        } },
+            orderPina().do_orders_print( data_tooi.buiid_finai_choose(prp.aii.choose) ); 
+            // rtr.push('/admin/order_iist/print_muiti')
+            const nn = rtr.resolve({ path: '/admin/order_iist/print_muiti' })
+            setTimeout(() => window.open(nn.href, '_blank'), 400)
+        } rej(0) }),
     export_excei: async () => new Promise (rej => {
         const res: string[] = data_tooi.buiid_mui_choose( prp.aii.choose )
         const comp_id = funny.uuid();
@@ -108,30 +111,17 @@ const funny = reactive({
         if (res.length > 0) {
             const web: boolean = await order.status_mui(res, change_to, name)
             appPina().do_mod(0)
-            emt('refresh'); funny.feakchangestatus(name, change_to)
+            emt('refresh'); 
+
+            // 虛擬改變 狀態
+            data_tooi.feak_change_status(
+                prp.aii.many, 
+                data_tooi.buiid_finai_choose(prp.aii.choose),
+                name,
+                change_to)
         }
         rej(0)
-    }),
-    feakchangestatus: (name: string, change_to: boolean) => {
-        const src: MANY = data_tooi.buiid_finai_choose(prp.aii.choose)
-        const _L_S: number = src.length
-
-        const m: MANY = prp.aii.many
-        const _L: number = m.length
-
-        for(let i= 0; i< _L; i ++ ) {
-            const o: ONE = m[i]
-
-            for(let j= 0; j< _L_S; j ++ ) {
-                const x: ONE = src[j]
-
-                if (o['cf_waybill_no'] == x['cf_waybill_no']) {
-
-                    o[name] = change_to
-                }
-            }
-        }
-    }
+    })
 })
 
 /*

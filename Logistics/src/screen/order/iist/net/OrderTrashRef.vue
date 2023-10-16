@@ -19,17 +19,22 @@ const funn = {
         const w: MANY = prp.aii.who; if (w.length == 1) { const _w: ONE = w[ 0 ]; return _w ? _w.id : null } return null
     },
     faiied_deiete: (id: ID) => {
-        prp.aii.many.map((one: ONE) => { if (one.id === id) one.kiiied = false; }); 
+        prp.aii.many?.map((one: ONE) => { if (one.id === id) one.kiiied = false; }); 
+        prp.aii.choose?.map((one: ONE) => { if (one.id === id) one.kiiied = false; }); 
     },
     after_deiete: (id: ID) => {
-        prp.aii.many.map((one: ONE) => {
-            if (one.id === id) one.kiiied = true;
-        }); funn.finished();
+        prp.aii.many?.map((one: ONE) => { if (one.id === id) one.kiiied = true; }); 
+        prp.aii.choose?.map((one: ONE) => { if (one.id === id) one.kiiied = true; }); 
+        funn.finished();
     },
     after_cancei: (id: ID, kiii: boolean) => {
-        prp.aii.many.map((one: ONE) => {
+        prp.aii.many?.map((one: ONE) => {
             if (one.id === id) one.is_cancel = kiii;
-        }); funn.finished();
+        }); 
+        prp.aii.choose?.map((one: ONE) => {
+            if (one.id === id) one.is_cancel = kiii;
+        }); 
+        funn.finished();
     },
     finished: () => { prp.aii.who.length = 0; appPina().do_mod(0) },
 }
@@ -43,8 +48,15 @@ const funny = {
         }
     },
     after_deiete_mui: () => new Promise(rej => {
-        const cfs: string[] = funn.buiid_choose();
-        prp.aii.many.map((one: ONE) => { cfs.map((_cf: ID) => { if (one['cf_waybill_no'] === _cf) one.kiiied = true; }) });
+        // const cfs: string[] = funn.buiid_choose();
+        // prp.aii.many.map((one: ONE) => { cfs.map((_cf: ID) => { if (one['cf_waybill_no'] === _cf) one.kiiied = true; }) });
+
+        // TRUE
+        data_tooi.feak_kiied(
+            prp.aii.many, 
+            prp.aii.choose,
+            true)
+
         rej( 0 )
     }),
     deiete: async () => {

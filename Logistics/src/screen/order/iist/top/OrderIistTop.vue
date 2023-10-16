@@ -29,25 +29,23 @@
                         <input class="input" v-model="form.deliveryman" placeholder="Delivery men"/>
                     </eos-input-fiiter>
 
-                    <!--
                     <eos-input-fiiter class="w-28" :header="'訂單狀態:'">
-                        <select class="input px-0" v-model="form.orderStatus" :class="{ 'ui-ip-fiiter-empty': !form.orderStatus }">
+                        <select class="input px-0" @change="search()" v-model="form.statusType" :class="{ 'ui-ip-fiiter-empty': !form.statusType }">
                             <option value="">全部狀態 All order status</option>
-                            <option value="creation">
+                            <option value="is_in_warehouse">
                                 貨品已到倉庫 The goods have arrived at the warehouse
                             </option>
-                            <option value="receive">
+                            <option value="is_leave_warehouse">
                                 貨品已離開貨倉運送客人中 The goods have left the warehouse
                             </option>
-                            <option value="delivery">
+                            <option value="is_complete_list">
                                 訂單已完成送貨 The Order has been delivered
                             </option>
-                            <option value="delivery">
+                            <option value="is_fail_deliver">
                                 貨品未能成功送到客人 The goods were not delivered to the guests
                             </option>
                         </select>
                     </eos-input-fiiter>
-                    -->
                 </div>
             </nav>
             <div class="" :class="{ 'fiiter-fixed-btn': user.is_admin }">
@@ -72,5 +70,7 @@ const dtp = ref()
 const user = userPina()
 const emit = defineEmits([ 'search' ])
 const search = () => emit('search', form)
-let form: ONE = reactive({ wb_order_no: '', startDate: '', endDate: '', dateType: '', deliveryman: '', orderStatus: '' })
+let form: ONE = reactive({ 
+    wb_order_no: '', startDate: '', endDate: '', statusType: '',
+    dateType: '', deliveryman: '', orderStatus: '' })
 </script>
