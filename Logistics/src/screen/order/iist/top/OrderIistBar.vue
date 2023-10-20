@@ -105,11 +105,13 @@ const funny = reactive({
         if (funny._has_choose()) { app.do_mod(102) }
     },
 
-    mui_order_status: (name: string, change_to: boolean) => new Promise(async (rej) => {
+    mui_order_status: (name: string, change_to: boolean, change_date: string) => new Promise(async (rej) => {
+
         const res: string[] = data_tooi.buiid_mui_choose( prp.aii.choose )
-        conf.TEST ? console.log(res, change_to, name) : undefined;
+        conf.TEST ? console.log(res, change_to, name + '_date = ' + change_date, ) : undefined;
+
         if (res.length > 0) {
-            const web: boolean = await order.status_mui(res, change_to, name)
+            const web: boolean = await order.status_mui(res, change_to, name, change_date)
             appPina().do_mod(0)
             emt('refresh'); 
 

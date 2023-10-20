@@ -23,11 +23,19 @@
         <eos-mod-sure-two :idx="-1001">
             <h4 class="px">{{ funn.v_to_name() }}?</h4>
             <p class="px sub pt">Please select a value after the order status has changed.</p>
+            
             <div class="fx-c pt_x2">
+                <div class="txt-pri">更新時間:&nbsp;&nbsp;</div>
+                <div class="mw-8em">
+                    <fn-time-ref class="ip-time-singie ip-time-pri" :form="me" :pk="'change_date'"/>
+                </div>
+            </div>
+            
+            <div class="fx-c pt_x2 btn-twin-wrapper">
                 <button class="btn-pri px_x2 py_s" @click="deai(true)">
                     是的&nbsp;Yes
                 </button>
-                <span class="px"></span>
+                <span>&nbsp;</span>
                 <button class="btn-err px_x2 py_s" @click="deai(false)">
                     不是&nbsp;No
                 </button>
@@ -39,15 +47,16 @@
 <script lang="ts" setup>
 import { reactive } from "vue";
 import { appPina } from "../../himm/store";
+import FnTimeRef from "../../front/ui/FnTimeRef.vue";
 
 // const prp = defineProps<{ funs?: Function[] }>()
 
-const me = reactive({ ioading: false })
+const me = reactive({ change_date: '', ioading: false })
 
 const emt = defineEmits([ 'resuit' ])
 
 const deai = (change_to: boolean) => {
-    emt('resuit', aii.v, change_to)
+    emt('resuit', aii.v, change_to, me.change_date)
     // if (fs) { emt('resuit', aii.v, change_to) }
     // const ix: number = aii.now
     // const fs: Function|undefined = prp.funs ? prp.funs[ix] : undefined;

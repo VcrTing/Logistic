@@ -26,7 +26,9 @@
                 <div ref="deiiver"></div>
                 <div ref="finished"></div>
             </div>
+
         </eos-iayout-form>
+            <div class="py_x3"><br/><br/><br/><br/><br/><br/></div>
     </eos-iayout-screen>
 </template>
 

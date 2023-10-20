@@ -116,8 +116,8 @@ const cancei_mui = async (cancel_order: string[]) => {
 
 // 批量修改 訂單狀態
 
-const status_mui = async (chosen_order: string[], change_to: boolean, change_status: string) => {
-    let res: ONE | null = await net.put('order_status_mui', userPina().jwt, { chosen_order, change_to, change_status } )
+const status_mui = async (chosen_order: string[], change_to: boolean, change_status: string, change_date: string) => {
+    let res: ONE | null = await net.put('order_status_mui', userPina().jwt, { chosen_order, change_to, change_status, change_date } )
     conf.TEST ? console.log("批量訂單修改狀態 =", res) : undefined;
     if (res) { const code: number = res.status; return (code < 399) } return false
 }

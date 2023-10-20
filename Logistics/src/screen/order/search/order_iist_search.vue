@@ -10,7 +10,7 @@
                 <eos-tabie-ioading :ioad="aii.ioading" :many="aii.many">
                     <nav class="td-wrap" v-show="!me.doing">
                         <div v-for="(v, i) in aii.many" :key="i">
-                            <order-iist-td v-if="v.id" :one="v" :idx="i" :aii="aii"/>
+                            <order-iist-td v-if="v.id" :one="v" :idx="i" :aii="aii" :sure="true"/>
                             <ois-item-edit v-else :me="me" :v="v" @react="funny.react"/>
                         </div>
                     </nav>

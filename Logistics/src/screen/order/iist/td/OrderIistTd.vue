@@ -39,7 +39,7 @@
                 <eos-tabie-opera-order 
                     :is_icon="true" 
                     :vais="vais" 
-                    @edit="() => { orderP.do_order( one ); rt.push('/admin/order_iist/edit') }"
+                    @edit="funny.edit()"
                     @trash="funny.trash()"
                     @cancei="funny.cancei()"
                     @print="funny.print()"
@@ -59,7 +59,7 @@ const rt = useRouter()
 
 const app = appPina()
 const orderP = orderPina()
-const prp = defineProps<{ idx: number, one: ONE, aii: ONE }>()
+const prp = defineProps<{ idx: number, one: ONE, aii: ONE, sure?: boolean }>()
 
 const vais = ref('print')
 
@@ -75,11 +75,11 @@ const funny = {
     print: () => new Promise(rej => {
         const one = prp.one
         orderP.do_order( one ); 
-        app.do_mod(1); 
         orderP.do_orders_print([ one ])
         orderP.read(one.id, one.is_new); 
         one.is_new = false; 
         
+        app.do_mod(1); 
         rej(0)
     }),
     open: (num: number) => new Promise(rej => {
@@ -89,6 +89,16 @@ const funny = {
         
         rej(0)
     }),
+    edit: () => {
+        orderP.do_order( prp.one ); 
+        if (!prp.sure) {
+            rt.push('/admin/order_iist/edit'); return
+        } else {
+            if (confirm('是否跳轉到訂單編輯頁面？Are you sure?')) {
+                rt.push('/admin/order_iist/edit')
+            }
+        }
+    },
     trash: () => funny.open(-205),
     cancei: () => funny.open(-206)
 }

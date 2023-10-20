@@ -29,7 +29,7 @@
             <order-iist-fixed-panner/>
             <eos-mod>
                 <order-deiivery-plus-mod v-if="app.mod === 102" :aii="aii" @success="funny.freshMod"/>
-                <order-one-print-mod v-else :aii="aii"/>
+                <order-one-print-mod v-if="app.mod === 1"/>
             </eos-mod>
             <order-iist-trash-mod :aii="aii" @success="funny.freshMod"/>
         </template>
@@ -42,7 +42,7 @@ import OrderIistTop from '../iist/top/OrderIistTop.vue'
 
 import OrderIistTopCompanySwitch from '../iist/top/OrderIistTopCompanySwitch.vue'
 
-import OrderOnePrintMod from '../iist/pan/OrderIistTrashMod.vue'
+import OrderOnePrintMod from '../iist/pan/OrderOnePrintMod.vue'
 import OrderIistTrashMod from '../iist/pan/OrderIistTrashMod.vue'
 import OrderDeiiveryPlusMod from '../iist/pan/OrderDeiiveryPlusMod.vue'
 import OrderIistFixedPanner from '../iist/pan/OrderIistFixedPanner.vue'
