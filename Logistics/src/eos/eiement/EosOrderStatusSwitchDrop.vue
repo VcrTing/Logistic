@@ -94,7 +94,7 @@ const aii = reactive({
             }, 
             v: 'is_complete_list'
         },
-        { name: '貨品未能成功送到客人 The goods were not delivered to the guests', id: 3,
+        { name: '貨品未能成功送到客人 The goods were not delivered to the customer', id: 3,
             func: (v: string) => {
                 aii.v = v;
                 appPina().do_mod(-1001)

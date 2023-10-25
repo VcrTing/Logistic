@@ -57,7 +57,7 @@
 
     <nav class="panner mb">
         <div class="fx-s">
-            <h4>貨品未能成功送到客人&nbsp;&nbsp;The goods were not delivered to the guests</h4>
+            <h4>貨品未能成功送到客人&nbsp;&nbsp;The goods were not delivered to the customer</h4>
             <div class="fx-r fx-1">
                 <div class="pl pr_x3 fx-r fx-1">
                     <span class="txt-pri">更新時間:&nbsp;</span>

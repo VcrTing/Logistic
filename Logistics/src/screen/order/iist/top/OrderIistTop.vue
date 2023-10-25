@@ -15,6 +15,8 @@
                             <option value="creation">創建日期 Create date</option>
                             <option value="receive">訂單日期 Order date</option>
                             <option value="delivery">派送日期 Delivery date</option>
+                            <option value="warehouse">貨品已到貨倉 Arrived in the warehouse</option>
+                            <option value="complete">訂單已完成送貨 The order has been delivered</option>
                         </select>
                     </eos-input-fiiter>
 
@@ -42,7 +44,7 @@
                                 訂單已完成送貨 The Order has been delivered
                             </option>
                             <option value="is_fail_deliver">
-                                貨品未能成功送到客人 The goods were not delivered to the guests
+                                貨品未能成功送到客人 The goods were not delivered to the customer
                             </option>
                         </select>
                     </eos-input-fiiter>
