@@ -1,6 +1,6 @@
 <template>
     <div class="py f-row">
-        <eos-input class="w-50 w-50-p" :is_err="form_err.customer_name" :header="'收件人名称 Recipient name'">
+        <eos-input class="w-50 w-50-p" :is_err="form_err.customer_name" :header="'收件人名稱 Recipient name'">
             <input class="input" v-model="form.customer_name" placeholder="請輸入 Please enter" />
         </eos-input>
         <eos-input class="w-50 w-50-p" :is_err="form_err.customer_phone_no" :header="'收件人電話號碼 Tel.'">
@@ -21,7 +21,7 @@
         </eos-input>
     </div>
     <div class="py f-row">
-        <eos-input class="w-50 w-50-p" :is_err="form_err.route" :header="'路线 Route'">
+        <eos-input class="w-50 w-50-p" :is_err="form_err.route" :header="'路線 Route'">
             <input class="input" v-model="form.route" placeholder="請輸入 Please enter" />
         </eos-input>
     </div>

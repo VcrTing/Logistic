@@ -1,7 +1,10 @@
 <template>
     <div class="py f-row">
         <eos-input class="w-50 w-50-p" :is_err="false" :header="'送貨日期 Delivery date'">
+            <!--
             <fn-time :timed="form.delivery_date" ref="dateRef" @resuit="(n: string) => form.delivery_date = n"/>
+            -->
+            <fn-time-nuii :pchd="'請選擇送貨日期'" :form="form" :pk="'delivery_date'"/>
         </eos-input>
         <eos-input v-if="false" class="w-50 w-50-p" :is_err="false" :header="'送貨员 Delivery men'">
             <input class="input" v-model="form.delivery_men" placeholder="請輸入 Please enter" />
@@ -27,7 +30,7 @@
         <eos-input class="w-50 w-50-p" :is_err="form_err.delivery_charge" :header="'運費 Delivery charges'">
             <input class="input" type="number" v-model="form.delivery_charge" placeholder="請輸入 Please enter" />
         </eos-input>
-        <eos-input class="w-50 w-50-p" :is_err="form_err.collection_payment" :header="'代收货款 Collection Payment'">
+        <eos-input class="w-50 w-50-p" :is_err="form_err.collection_payment" :header="'代收貨款 Collection Payment'">
             <input class="input" type="number" v-model="form.collection_payment" placeholder="請輸入 Please enter" />
         </eos-input>
     </div>
@@ -35,8 +38,8 @@
 
 <script setup lang="ts">
 import { reactive, defineExpose } from 'vue'
-import { userPina } from '../../../../himm/store';
-
+// import { userPina } from '../../../../himm/store';
+import FnTimeNuii from '../../../../front/ui/FnTimeNuii.vue'
 // 沒有改動
 
 const form:ONE = reactive({
