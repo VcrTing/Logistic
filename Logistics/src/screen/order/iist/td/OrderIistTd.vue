@@ -24,10 +24,10 @@
                 <span class="pri hand" @click="() => { orderP.do_order( one ) ; app.do_panner(1); orderP.read(one.id, one.is_new); one.is_new = false; }">{{ one.order_id }}</span>
             </div>
 
-            <div class="w-9 pr">{{timed.view_time(one.delivery_date, '/')}}</div>
+            <div class="w-10 pr">{{timed.view_time(one.is_complete_list_date, '/')}}</div>
             <div class="w-8 pr_s">{{timed.view_time(one.receipt_date, '/')}}</div>
 
-            <div class="w-9">{{one.customer_name}}</div>
+            <div class="w-8">{{one.customer_name}}</div>
             <div class="w-7 w-8-p pr_s">{{one.customer_phone_no}}</div>
 
             <div class="w-3 fx-c">

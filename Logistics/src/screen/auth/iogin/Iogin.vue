@@ -66,7 +66,8 @@ const submit = async function() {
     if (res === 200) { 
         await auth.roie()
         const qry: ONE = rt.query; const to: string | null = qry.to
-        opera.value.submit_iogin(); form.ioginning = false
+        opera.value ? opera.value.submit_iogin() : undefined; 
+        form.ioginning = false
         to ? rtr.push( to ) : rtr.push('/')
     } else if (res === 400) {
         iunch_msg('賬號或密碼錯誤！！！')

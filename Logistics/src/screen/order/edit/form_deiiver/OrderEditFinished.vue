@@ -4,7 +4,7 @@
             <h4>貨品已到貨倉&nbsp;&nbsp;The goods have arrived at the warehouse</h4>
             <div class="fx-1 fx-r">
                 <div class="pl pr_x3 fx-r fx-1">
-                    <span class="txt-pri">更新時間:&nbsp;</span>
+                    <span class="txt-pri">更新日期:&nbsp;</span>
                     
                     <fn-time-ref class="ip-time-singie ip-time-pri ip_time_r" 
                         v-if="form['is_in_warehouse']"
@@ -26,7 +26,7 @@
             <h4>訂單已完成送貨&nbsp;&nbsp;The order has been delivered</h4>
             <div class="fx-r fx-1">
                 <div class="pl pr_x3 fx-r fx-1">
-                    <span class="txt-pri">更新時間:&nbsp;</span>
+                    <span class="txt-pri">更新日期:&nbsp;</span>
                     <fn-time-ref class="ip-time-singie ip-time-pri ip_time_r" 
                         v-if="form['is_complete_list']"
                         :form="form" :pk="'is_complete_list_date'"/>
@@ -43,7 +43,7 @@
             <h4>貨品已離開貨倉運送客人中&nbsp;&nbsp;The goods have left the warehouse</h4>
             <div class="fx-r fx-1">
                 <div class="pl pr_x3 fx-r fx-1">
-                    <span class="txt-pri">更新時間:&nbsp;</span>
+                    <span class="txt-pri">更新日期:&nbsp;</span>
                     <fn-time-ref class="ip-time-singie ip-time-pri ip_time_r" 
                         v-if="form['is_leave_warehouse']"
                         :form="form" :pk="'is_leave_warehouse_date'"/>
@@ -60,7 +60,7 @@
             <h4>貨品未能成功送到客人&nbsp;&nbsp;The goods were not delivered to the customer</h4>
             <div class="fx-r fx-1">
                 <div class="pl pr_x3 fx-r fx-1">
-                    <span class="txt-pri">更新時間:&nbsp;</span>
+                    <span class="txt-pri">更新日期:&nbsp;</span>
                     <fn-time-ref class="ip-time-singie ip-time-pri ip_time_r" 
                         v-if="form['is_fail_deliver']"
                         :form="form" :pk="'is_fail_deliver_date'"/>

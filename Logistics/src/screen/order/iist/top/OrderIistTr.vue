@@ -17,14 +17,14 @@
                 訂單編號<br/><p class="tr-en">Order No.</p>
             </div>
 
-            <div class="w-9">
-                派送日期<br/><p class="tr-en">Delivery date</p>
+            <div class="w-10">
+                訂單完成日期<br/><p class="tr-en">Complete date</p>
             </div>
             <div class="w-8">
                 訂單日期<br/><p class="tr-en">Order date</p>
             </div>
 
-            <div class="w-9">
+            <div class="w-8">
                 收件人<br/><p class="tr-en">Recipient</p>
             </div>
             <div class="w-7 w-8-p">
