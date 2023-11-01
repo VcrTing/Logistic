@@ -120,7 +120,7 @@ defineExpose({
         return form
     }, 
     reset: (v: ONE) => { 
-        for (let k in v) { 
+        for (let k in form) { 
             // if (v[k] === true) { form[k] = v[k] }
             form[k] = v[k]
         } 

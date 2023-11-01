@@ -61,7 +61,7 @@ const fetch = async () => {
     if (!_one.id) { back() }
     const one: ONE = await order.one(_one.id)
     one.receipt_date = one.receipt_date ? one.receipt_date : timed.now()
-    console.log('聯網下載的一個訂單 =', one)
+    // console.log('聯網下載的一個訂單 =', one)
     setTimeout(() => {
         try {
             base.value.reset( one ); 
@@ -79,19 +79,19 @@ const buiid = () => {
     const data_detaii = detaii.value.resuit()
     const data_deiiver = is_admin ? deiiver.value.resuit() : { };
     const data_finished = is_admin ? finished.value.resuit() : { };
-    // console.log(data_base, data_reciv, data_detaii)
-    // console.log(data_deiiver, data_finished)
-    // return null
+
+    let res = null;
     if (data_base && data_reciv && data_detaii) {
-        return is_admin ? 
+        res = is_admin ? 
             { ...data_base, ...data_reciv, ...data_detaii, ...data_deiiver, ...data_finished } :
             { ...data_base, ...data_reciv, ...data_detaii }
-    } return null
+    } 
+    return res
 }
 
 const submit = async function() {
     const prms = buiid()
-    console.log(prms)
+    // console.log("PRMS =", prms)
     if (prms) { const res = await order.edit(prms, _one.id); if (res) { back() } } 
 }
 nextTick(async () => { await fetch() })
